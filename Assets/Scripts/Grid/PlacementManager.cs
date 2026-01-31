@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class PlacementManager : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private LayerMask groundMask;
+
     public static PlacementManager Instance { get; private set; }
 
     private void Awake()
@@ -24,7 +26,7 @@ public class PlacementManager : MonoBehaviour
     {
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit, 1000f, groundMask))
         {
             Vector3 worldPos = hit.point;
             Vector2Int gridPos = GridManager.Instance.WorldToGrid(worldPos);
