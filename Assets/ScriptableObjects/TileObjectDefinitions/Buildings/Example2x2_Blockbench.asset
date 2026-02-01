@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
-  m_Name: Example2x1
+  m_Name: Example2x2_Blockbench
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
-  Id: example2x1
-  Prefab: {fileID: 1291103459586168383, guid: fb436526b30d57541bc950f82a57353c, type: 3}
-  Size: {x: 2, y: 1}
+  Id: example2x2
+  Prefab: {fileID: 7252100256164086407, guid: 06189062085a1694a8d6b99bb038008e, type: 3}
+  Size: {x: 2, y: 2}

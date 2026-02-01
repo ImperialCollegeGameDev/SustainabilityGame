@@ -11,7 +11,6 @@ public class TileObject : MonoBehaviour
         Origin = origin;
 
         Vector3 worldPos = GridManager.Instance.GridToWorld(origin);
-        worldPos.x += 0.5f;
         transform.position = worldPos;
         // Occupancy status of tiles is also stored in GridManager
     }

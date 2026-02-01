@@ -48,9 +48,9 @@ public class GridManager : MonoBehaviour
     public Vector3 GridToWorld(Vector2Int gridPos)
     {
         return new Vector3(
-            (gridPos.x + 0.5f) * tileSize,
-            0.5f,
-            (gridPos.y + 0.5f) * tileSize
+            (gridPos.x) * tileSize,
+            0f,
+            (gridPos.y) * tileSize
         );
     }
 
@@ -97,7 +97,7 @@ public class GridManager : MonoBehaviour
         foreach (var tile in tiles.Values)
         {
             Vector3 worldPos = GridToWorld(tile.GridPosition);
-            Gizmos.DrawWireCube(worldPos, Vector3.one * tileSize);
+            Gizmos.DrawWireCube(worldPos + new Vector3(0.5f, 0.0f, 0.5f), new Vector3(tileSize, 0.1f, tileSize));
         }
     }
 

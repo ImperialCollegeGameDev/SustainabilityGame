@@ -7,6 +7,7 @@ public class PlacementManager : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
 
     public static PlacementManager Instance { get; private set; }
+    public TileObjectDefinition building;
 
     private void Awake()
     {
@@ -31,24 +32,20 @@ public class PlacementManager : MonoBehaviour
             Vector3 worldPos = hit.point;
             Vector2Int gridPos = GridManager.Instance.WorldToGrid(worldPos);
 
-            TryPlace("example2", gridPos);
+            TryPlace(building, gridPos);
         }
     }
 
-    public bool TryPlace(string tileObjectId, Vector2Int gridPos)
+    public bool TryPlace(TileObjectDefinition tileObjectDef, Vector2Int gridPos)
     {
-        var def = TileObjectCatalog.Instance.Get(tileObjectId);
-        if (def == null)
+        if (!GridManager.Instance.CanPlace(tileObjectDef.Size, gridPos))
             return false;
 
-        if (!GridManager.Instance.CanPlace(def.Size, gridPos))
-            return false;
-
-        GameObject obj = Instantiate(def.Prefab);
+        GameObject obj = Instantiate(tileObjectDef.Prefab);
         TileObject tileObj = obj.GetComponent<TileObject>();
         tileObj.Place(gridPos);
 
-        GridManager.Instance.Occupy(tileObj, gridPos, def.Size);
+        GridManager.Instance.Occupy(tileObj, gridPos, tileObjectDef.Size);
         return true;
     }
 }
