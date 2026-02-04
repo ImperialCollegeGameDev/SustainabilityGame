@@ -5,7 +5,6 @@ public class PlacementManager : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
     public static PlacementManager Instance { get; private set; }
-    public float cameraMoveSpeed = 10.0f;
 
     private void Awake()
     {
@@ -19,14 +18,6 @@ public class PlacementManager : MonoBehaviour
         {
             TryPlaceFromMouse();
         }
-        HandleCameraMovement();
-    }
-
-    void HandleCameraMovement()
-    {
-        Vector2 cameraMoveAction = InputSystem.actions.FindAction("Move").ReadValue<Vector2>();
-        Vector3 cameraDelta = new Vector3(cameraMoveAction.x,0.0f,cameraMoveAction.y);
-        mainCamera.transform.position += cameraDelta * cameraMoveSpeed * Time.deltaTime;
     }
 
     void TryPlaceFromMouse()
