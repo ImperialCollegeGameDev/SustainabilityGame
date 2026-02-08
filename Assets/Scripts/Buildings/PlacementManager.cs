@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlacementManager : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private LayerMask groundMask;
     public static PlacementManager Instance { get; private set; }
 
     private void Awake()
@@ -24,29 +25,18 @@ public class PlacementManager : MonoBehaviour
     {
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit, 1000f, groundMask))
         {
             Vector3 worldPos = hit.point;
             Vector2Int gridPos = GridManager.Instance.WorldToGrid(worldPos);
 
-            TryPlace("example2", gridPos);
+            // Ask the GameState to place (it will handle cost, game-model creation and occupancy)
+            bool placed = GameState.Instance.TryPlaceSelected(gridPos);
+
+            if (!placed) // placement failed (invalid location or insufficient funds)
+            {
+                // feedback can be added here (sound, UI message)
+            }
         }
-    }
-
-    public bool TryPlace(string tileObjectId, Vector2Int gridPos)
-    {
-        var def = TileObjectCatalog.Instance.Get(tileObjectId);
-        if (def == null)
-            return false;
-
-        if (!GridManager.Instance.CanPlace(def.Size, gridPos))
-            return false;
-
-        GameObject obj = Instantiate(def.Prefab);
-        TileObject tileObj = obj.GetComponent<TileObject>();
-        tileObj.Place(gridPos);
-
-        GridManager.Instance.Occupy(tileObj, gridPos, def.Size);
-        return true;
     }
 }

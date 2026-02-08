@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 1220879491}
   - component: {fileID: 1220879490}
   - component: {fileID: 1220879489}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1126,6 +1126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlacementManager
   mainCamera: {fileID: 471363797}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!4 &1337989816
 Transform:
   m_ObjectHideFlags: 0

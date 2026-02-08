@@ -45,7 +45,7 @@ public class GridManager : MonoBehaviour
         return tile;
     }
 
-    public Vector3 GridToWorld(Vector2Int gridPos)
+    public Vector3 GridToWorld(Vector2Int gridPos) // Returns the center of the tile
     {
         return new Vector3(
             (gridPos.x + 0.5f) * tileSize,

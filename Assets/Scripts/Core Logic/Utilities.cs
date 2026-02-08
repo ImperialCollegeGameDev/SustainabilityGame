@@ -4,7 +4,7 @@ using System.Collections.Generic;
 /// Pure game-logic registry + factory for Utility instances.
 /// </summary>
 
-public class Utilities
+/*public class Utilities
 {
     private readonly Dictionary<int, Utility> All_Utilities = new Dictionary<int, Utility>
     {
@@ -39,5 +39,5 @@ public class Utilities
         foreach (var kvp in All_Utilities)
             UnityEngine.Debug.Log($"Key={kvp.Key} -> {kvp.Value}");
     }
-}
+}*/
 
