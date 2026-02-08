@@ -20,7 +20,7 @@ public class CameraMovement : MonoBehaviour
         // We don't want to move the camera up and down, so remove the Y component.
         cameraDelta.y = 0.0f;
         // Now that we've removed the Y component, the vector's magnitude is less, so normalize it to make it go forward more.
-        Debug.Log(cameraDelta);
+        //Debug.Log(cameraDelta);
         cameraDelta.Normalize();
         // Move it relative to time and speed.
         transform.position += cameraDelta * cameraMoveSpeed * Time.deltaTime;
