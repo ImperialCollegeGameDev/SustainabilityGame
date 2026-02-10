@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
-  m_Name: SolarPark
+  m_Name: business-1
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: SolarPark
-  Prefab: {fileID: 6108967645603627881, guid: 711bf84c0a4ec9b4e9cb2048a4dbe0b5, type: 3}
-  Size: {x: 1, y: 1}
-  Category: 0
-  Cost: 20
+  Prefab: {fileID: 6108967645603627881, guid: 496e0bee7e6d6b24e90e220679d508a5, type: 3}
+  Size: {x: 1, y: 3}
+  Category: 2
+  Cost: 50
   Utility:
     type: 1
     Output: 20
@@ -24,4 +24,4 @@ MonoBehaviour:
   Residential:
     MaxOccupancy: 0
   Infrastructure:
-    ResourceProduction: 0
+    ResourceProduction: 100
