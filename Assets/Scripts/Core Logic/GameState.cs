@@ -12,6 +12,8 @@ public class GameState : MonoBehaviour
     // Singleton
     public static GameState Instance { get; private set; }
 
+    [SerializeField] private Transform platform;
+
     private void Awake()
     {
         if (Instance != null)
@@ -123,6 +125,8 @@ public class GameState : MonoBehaviour
 
         // Instantiate visual prefab and place it on grid
         GameObject obj = Instantiate(def.Prefab);
+        obj.transform.SetParent(platform, false);
+
         TileObject tileObj = obj.GetComponent<TileObject>();
         if (tileObj == null)
         {

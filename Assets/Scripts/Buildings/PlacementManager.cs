@@ -32,7 +32,6 @@ public class PlacementManager : MonoBehaviour
 
             // Ask the GameState to place (it will handle cost, game-model creation and occupancy)
             bool placed = GameState.Instance.TryPlaceSelected(gridPos);
-
             if (!placed) // placement failed (invalid location or insufficient funds)
             {
                 // feedback can be added here (sound, UI message)
