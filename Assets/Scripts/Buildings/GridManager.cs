@@ -100,5 +100,4 @@ public class GridManager : MonoBehaviour
             Gizmos.DrawWireCube(worldPos, Vector3.one * tileSize);
         }
     }
-
 }

@@ -7,6 +7,12 @@ public class CameraMovement : MonoBehaviour
     Vector3 currentVelocity;
     [SerializeField] public Transform tiltTarget;       // whatever you want to rotate - i.e. ground (and its children as buildings)
 
+    [Header("Movement Bounds")]
+    public float minX = -30f;
+    public float maxX = -10f;
+    public float minZ = -30f;
+    public float maxZ = -10f;
+
     void Start()
     {
         
@@ -16,22 +22,13 @@ public class CameraMovement : MonoBehaviour
     {
         HandleCameraMovement();
         HandleTilt();
+        HandleZoom();
     }
 
     void HandleCameraMovement()
     {
         // 'Move' is a project-wide input action mapped to WASD and controller left stick. Get the Vector2.
         Vector2 cameraMoveAction = InputSystem.actions.FindAction("Move").ReadValue<Vector2>();
-
-        // This is the input vector transformed to the relative view of the camera.
-        //Vector3 cameraDelta = transform.TransformDirection(cameraMoveAction.x, 0.0f, cameraMoveAction.y);
-        // We don't want to move the camera up and down, so remove the Y component.
-        //cameraDelta.y = 0.0f;
-        // Now that we've removed the Y component, the vector's magnitude is less, so normalize it to make it go forward more.
-        //Debug.Log(cameraDelta);
-        //cameraDelta.Normalize();
-        // Move it relative to time and speed.
-        //transform.position += cameraDelta * cameraMoveSpeed * Time.deltaTime;
 
         // smooth movement
         Vector3 targetDir = transform.TransformDirection(cameraMoveAction.x, 0f, cameraMoveAction.y);
@@ -43,6 +40,13 @@ public class CameraMovement : MonoBehaviour
             Time.deltaTime * 8f);
 
         transform.position += currentVelocity * Time.deltaTime;
+
+        Vector3 pos = transform.position;
+
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
+
+        transform.position = pos;
     }
 
     void HandleTilt()
@@ -62,5 +66,13 @@ public class CameraMovement : MonoBehaviour
 
         tiltTarget.localRotation =
             Quaternion.Slerp(tiltTarget.localRotation, target, Time.deltaTime * smooth);
+    }
+
+    void HandleZoom()
+    {
+        float scroll = Mouse.current.scroll.ReadValue().y;
+
+        GetComponent<Camera>().orthographicSize -= scroll * 40f * Time.deltaTime;
+        GetComponent<Camera>().orthographicSize = Mathf.Clamp(GetComponent<Camera>().orthographicSize, 1f, 20f);
     }
 }

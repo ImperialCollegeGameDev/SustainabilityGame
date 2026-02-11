@@ -46,55 +46,11 @@ public class GameState : MonoBehaviour
         PrintState();
     }
 
-    /*public void SetCurrentType(int typeIndex)
-    {
-        currentType = (PowerType)typeIndex;
-        Debug.Log($"Current power type set to {currentType}");
-        BuildUtility(currentType);
-    }*/
-
     public void SetSelectedTile(TileObjectDefinition tile) // Called by UI building selector buttons
     {
         Debug.Log($"Selected building set to {tile.Id}");
         selectedTile = tile;
     }
-
-    // UI calls this (legacy / direct utility construction)
-    /*public void BuildUtility(PowerType powerType)
-    {
-        Utility u = utilities.Create(powerType);
-
-        if (money - u.Cost < 0)
-        {
-            Debug.Log("Youre broke af :<");
-            return;
-        }
-
-        money -= u.Cost;
-
-        OwnedUtilities.Add(u);
-
-        RecomputeTotals();
-        PublishUI();
-
-        Debug.Log($"Built {u.name} (cost {u.Cost})");
-        PrintState();
-    }*/
-
-    // UI calls this (index in the OwnedUtilities list)
-    /*public void SellUtility(int index)
-    {
-        Utility u = OwnedUtilities[index];
-        OwnedUtilities.RemoveAt(index);
-
-        money += u.Cost / 2; // simple 50% refund
-
-        RecomputeTotals();
-        PublishUI();
-
-        Debug.Log($"Sold {u.name} (+{u.Cost / 2})");
-        PrintState();
-    }*/
 
     // New: central placement + purchase method
     // Returns true if placement succeeded
@@ -165,8 +121,9 @@ public class GameState : MonoBehaviour
 
     public void TryRemoveSelected(Vector2Int gridPos)
     {
-        //def = GridManager.Instance.GetObject();
-
+        Tile obj_tile = GridManager.Instance.GetTile(gridPos);
+        TileObject obj = obj_tile.Occupant;
+        
         // Deduct money
         //money += def.Cost / 2;    // simple 50% refund
         //OnMoneyChanged?.Invoke(money);
