@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: SolarPark
   Prefab: {fileID: 6108967645603627881, guid: 496e0bee7e6d6b24e90e220679d508a5, type: 3}
-  Size: {x: 1, y: 3}
+  Size: {x: 1, y: 1}
   Category: 2
   Cost: 50
   Utility:

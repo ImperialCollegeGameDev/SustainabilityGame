@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// this is where all UI commands call functions to influence the game logic
-/// + where all the game logic callback functions all are
-/// Also now owns placement/purchase rules for tile objects.
+/// Handles UI commands and delegates game logic to GameLogic
 /// </summary>
-public class GameState : MonoBehaviour
+public class GameState : MonoBehaviour, IGameState
 {
     // Singleton
     public static GameState Instance { get; private set; }
 
-    [SerializeField] private Transform platform;
+    [SerializeField] public Transform platform;
+
+    private GameLogic gameLogic;
+
+    public int Money
+    {
+        get => money;
+        set => money = value;
+    }
 
     private void Awake()
     {
@@ -22,13 +28,14 @@ public class GameState : MonoBehaviour
             return;
         }
         Instance = this;
+        gameLogic = new GameLogic(this);
     }
 
     // UI callbacks (UI scripts can subscribe to these)
-    public Action<int> OnMoneyChanged;
-    public Action<int> OnEnergyChanged;
-    public Action<int> OnEmissionsChanged;
-    public Action<List<Utility>> OnUtilitiesChanged;
+    public Action<int> OnMoneyChangedEvent;
+    public Action<int> OnEnergyChangedEvent;
+    public Action<int> OnEmissionsChangedEvent;
+    public Action<List<Utility>> OnUtilitiesChangedEvent;
 
     public int money = 200;
 
@@ -52,86 +59,47 @@ public class GameState : MonoBehaviour
         selectedTile = tile;
     }
 
-    // New: central placement + purchase method
-    // Returns true if placement succeeded
-    public bool TryPlaceSelected(Vector2Int gridPos)
-    {
-        var def = selectedTile;
-        if (def == null)
-        {
-            Debug.LogWarning($"Selected TileObjectDefinition not found");
-            return false;
-        }
+    // Central placement + purchase method
+    //public bool TryPlaceSelected(Vector2Int gridPos)
+    //{
+    //    return gameLogic.BuyBuilding(selectedTile, gridPos);
+    //}
 
-        if (!GridManager.Instance.CanPlace(def.Size, gridPos))
-        {
-            Debug.Log("Cannot place there (out of bounds or occupied).");
-            return false;
-        }
-
-        if (money - def.Cost < 0)
-        {
-            Debug.Log("Not enough money to place that building.");
-            return false;
-        }
-
-        // Deduct money
-        money -= def.Cost;
-        OnMoneyChanged?.Invoke(money);
-
-        // Instantiate visual prefab and place it on grid
-        GameObject obj = Instantiate(def.Prefab);
-        obj.transform.SetParent(platform, false);
-
-        TileObject tileObj = obj.GetComponent<TileObject>();
-        if (tileObj == null)
-        {
-            Debug.LogWarning("Prefab missing TileObject component.");
-            Destroy(obj);
-            return false;
-        }
-
-        tileObj.DefinitionId = def.Id;
-        tileObj.Size = def.Size;
-        tileObj.Place(gridPos);
-
-        GridManager.Instance.Occupy(tileObj, gridPos, def.Size);
-
-        // If it's a utility, register it
-        if (def.Category == BuildingCategory.Utility)
-        {
-            // All buildings have an optional Utility field
-            OwnedUtilities.Add(def.Utility);
-            tileObj.BindLogic(def.Utility);
-            RecomputeTotals();
-            PublishUI();
-            Debug.Log($"Placed utility {def.name} at {gridPos} (cost {def.Cost})");
-        }
-        else
-        {
-            // For non-utility buildings we may later create other game-models
-            RecomputeTotals();
-            PublishUI();
-            Debug.Log($"Placed building '{def.Id}' at {gridPos} (cost {def.Cost})");
-        }
-
-        PrintState();
-        return true;
-    }
+    //public bool TryUpgradeSelected(Vector2Int gridPos, TileObjectDefinition upgradeDef)
+    //{
+    //    Tile obj_tile = GridManager.Instance.GetTile(gridPos);
+    //    TileObject obj = obj_tile.Occupant;
+    //    return gameLogic.UpgradeBuilding(obj, upgradeDef);
+    //}
 
     public void TryRemoveSelected(Vector2Int gridPos)
     {
         Tile obj_tile = GridManager.Instance.GetTile(gridPos);
         TileObject obj = obj_tile.Occupant;
-        
-        // Deduct money
-        //money += def.Cost / 2;    // simple 50% refund
-        //OnMoneyChanged?.Invoke(money);
-
-        // recompute totals
+        // Removal logic can be added to GameLogic if needed
     }
 
-    void RecomputeTotals()
+    public void OnMoneyChanged(int money)
+    {
+        OnMoneyChangedEvent?.Invoke(money);
+    }
+
+    public void OnEnergyChanged(int energy)
+    {
+        OnEnergyChangedEvent?.Invoke(energy);
+    }
+
+    public void OnEmissionsChanged(int emissions)
+    {
+        OnEmissionsChangedEvent?.Invoke(emissions);
+    }
+
+    public void OnUtilitiesChanged(List<Utility> utilities)
+    {
+        OnUtilitiesChangedEvent?.Invoke(utilities);
+    }
+
+    public void RecomputeTotals()
     {
         TotalEnergy = 0;
         TotalEmissions = 0;
@@ -143,12 +111,12 @@ public class GameState : MonoBehaviour
         }
     }
 
-    void PublishUI()
+    public void PublishUI()
     {
-        OnMoneyChanged?.Invoke(money);
-        OnEnergyChanged?.Invoke(TotalEnergy);
-        OnEmissionsChanged?.Invoke(TotalEmissions);
-        OnUtilitiesChanged?.Invoke(new List<Utility>(OwnedUtilities));
+        OnMoneyChangedEvent?.Invoke(money);
+        OnEnergyChangedEvent?.Invoke(TotalEnergy);
+        OnEmissionsChangedEvent?.Invoke(TotalEmissions);
+        OnUtilitiesChangedEvent?.Invoke(new List<Utility>(OwnedUtilities));
     }
 
     [ContextMenu("DEBUG/Print State")]
@@ -156,13 +124,4 @@ public class GameState : MonoBehaviour
     {
         Debug.Log($"Money: {money}      Energy: {TotalEnergy}       Emissions: {TotalEmissions}");
     }
-
-    /*[ContextMenu("DEBUG/Test Build One of Each")]
-    public void DebugBuildOneOfEach()
-    {
-        BuildUtility(PowerType.Solar);
-        BuildUtility(PowerType.Wind);
-        BuildUtility(PowerType.Conventional);
-        BuildUtility(PowerType.Nuclear);
-    }*/
 }

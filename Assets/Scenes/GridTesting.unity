@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 471363795}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -2, y: 6.04, z: -2}
+  m_LocalPosition: {x: -23.06, y: 23.23, z: -23.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -271,6 +271,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraMovement
   cameraMoveSpeed: 10
   tiltTarget: {fileID: 1220879492}
+  minX: -30
+  maxX: -10
+  minZ: -30
+  maxZ: -10
 --- !u!4 &1220879492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2629403910656809122, guid: ef2be1d08d8ca9843961784bdfa78309, type: 3}
@@ -451,10 +455,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7531150679203539150, guid: ef2be1d08d8ca9843961784bdfa78309, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531150679203539150, guid: ef2be1d08d8ca9843961784bdfa78309, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1737385
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531150679203539150, guid: ef2be1d08d8ca9843961784bdfa78309, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531150679203539150, guid: ef2be1d08d8ca9843961784bdfa78309, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531150679203539150, guid: ef2be1d08d8ca9843961784bdfa78309, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531150679203539150, guid: ef2be1d08d8ca9843961784bdfa78309, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531150679203539150, guid: ef2be1d08d8ca9843961784bdfa78309, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7541637017507529560, guid: ef2be1d08d8ca9843961784bdfa78309, type: 3}
       propertyPath: m_Name
       value: Terrain
       objectReference: {fileID: 0}
+    - target: {fileID: 8705222203253298081, guid: ef2be1d08d8ca9843961784bdfa78309, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: d799f637c7af5f14e9287cb850d3c0ba, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
