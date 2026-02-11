@@ -8,7 +8,7 @@ public class BuildingSelector : MonoBehaviour
 
     void Awake()
     {
-        if (tile == null)
+        if (tile != null)
         {
             button = GetComponent<Button>();
             button.onClick.AddListener(OnClick);
