@@ -163,6 +163,17 @@ public class GameState : MonoBehaviour
         return true;
     }
 
+    public void TryRemoveSelected(Vector2Int gridPos)
+    {
+        //def = GridManager.Instance.GetObject();
+
+        // Deduct money
+        //money += def.Cost / 2;    // simple 50% refund
+        //OnMoneyChanged?.Invoke(money);
+
+        // recompute totals
+    }
+
     void RecomputeTotals()
     {
         TotalEnergy = 0;
