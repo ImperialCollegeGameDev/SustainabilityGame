@@ -60,10 +60,23 @@ public class GameState : MonoBehaviour, IGameState
     }
 
     // Central placement + purchase method
-    //public bool TryPlaceSelected(Vector2Int gridPos)
-    //{
-    //    return gameLogic.BuyBuilding(selectedTile, gridPos);
-    //}
+    public bool TryPlaceSelected(Vector2Int gridPos)
+    {
+        // Example: Only allow placement if a tile is selected and enough money
+        if (selectedTile == null) return false;
+        if (money < selectedTile.Cost) return false;
+        // Place logic here (call GameLogic, update money, etc.)
+        money -= selectedTile.Cost;
+        OnMoneyChangedEvent?.Invoke(money);
+        // Add to utilities if it's a utility
+        if (selectedTile.Category == BuildingCategory.Utility && selectedTile.Utility != null)
+        {
+            OwnedUtilities.Add(selectedTile.Utility);
+            PublishUI();
+        }
+        // Placement logic (instantiate prefab, occupy grid, etc.) should be here in a real game
+        return true;
+    }
 
     //public bool TryUpgradeSelected(Vector2Int gridPos, TileObjectDefinition upgradeDef)
     //{

@@ -43,27 +43,28 @@ public class DisplayStat : MonoBehaviour
         // Subscribe to the selected stat's event and initialize the text with current value
         switch (stat)
         {
+
             case StatType.Money:
                 intSubscription = UpdateFromInt;
-                GameState.Instance.OnMoneyChanged += intSubscription;
+                GameState.Instance.OnMoneyChangedEvent += intSubscription;
                 UpdateFromInt(GameState.Instance.money);
                 break;
 
             case StatType.Energy:
                 intSubscription = UpdateFromInt;
-                GameState.Instance.OnEnergyChanged += intSubscription;
+                GameState.Instance.OnEnergyChangedEvent += intSubscription;
                 UpdateFromInt(GameState.Instance.TotalEnergy);
                 break;
 
             case StatType.Emissions:
                 intSubscription = UpdateFromInt;
-                GameState.Instance.OnEmissionsChanged += intSubscription;
+                GameState.Instance.OnEmissionsChangedEvent += intSubscription;
                 UpdateFromInt(GameState.Instance.TotalEmissions);
                 break;
 
             case StatType.UtilitiesCount:
                 utilitiesSubscription = UpdateFromUtilities;
-                GameState.Instance.OnUtilitiesChanged += utilitiesSubscription;
+                GameState.Instance.OnUtilitiesChangedEvent += utilitiesSubscription;
                 UpdateFromUtilities(new List<Utility>(GameState.Instance.OwnedUtilities));
                 break;
 
@@ -92,15 +93,15 @@ public class DisplayStat : MonoBehaviour
         if (intSubscription != null)
         {
             // Try unsubscribing from all int events (safe even if not subscribed)
-            GameState.Instance.OnMoneyChanged -= intSubscription;
-            GameState.Instance.OnEnergyChanged -= intSubscription;
-            GameState.Instance.OnEmissionsChanged -= intSubscription;
+            GameState.Instance.OnMoneyChangedEvent -= intSubscription;
+            GameState.Instance.OnEnergyChangedEvent -= intSubscription;
+            GameState.Instance.OnEmissionsChangedEvent -= intSubscription;
             intSubscription = null;
         }
 
         if (utilitiesSubscription != null)
         {
-            GameState.Instance.OnUtilitiesChanged -= utilitiesSubscription;
+            GameState.Instance.OnUtilitiesChangedEvent -= utilitiesSubscription;
             utilitiesSubscription = null;
         }
     }
