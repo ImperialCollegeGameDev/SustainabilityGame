@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CoalPowerPlant
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: CoalPowerPlant
-  Prefab: {fileID: 2757525673256139109, guid: 83fb995905b5c2843a5267bcdb69f1a6, type: 3}
+  Prefab: {fileID: 1501230553749349402, guid: 83fb995905b5c2843a5267bcdb69f1a6, type: 3}
   Size: {x: 1, y: 2}
   Category: 0
   Cost: 15

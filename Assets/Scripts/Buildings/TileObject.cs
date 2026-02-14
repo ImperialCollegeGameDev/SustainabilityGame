@@ -15,9 +15,9 @@ public class TileObject : MonoBehaviour
 
         Vector3 worldPos = GridManager.Instance.GridToWorld(origin);
         transform.position = new Vector3(
-                worldPos.x + (GetDefinition().Size.x - 1) * 0.5f,
+                worldPos.x + (GetDefinition().Size.x - 1) * 0.5f * GridManager.Instance.tileSize,
                 worldPos.y,
-                worldPos.z + (GetDefinition().Size.y - 1) * 0.5f
+                worldPos.z + (GetDefinition().Size.y - 1) * 0.5f * GridManager.Instance.tileSize
             );
         // Occupancy status of tiles is also stored in GridManager
     }
