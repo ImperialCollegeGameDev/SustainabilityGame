@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SelectionManager : MonoBehaviour
+public class SelectionManager : MonoBehaviour // Singleton manager for handling logic when a building is selected
 {
     public static SelectionManager Instance { get; private set; }
 

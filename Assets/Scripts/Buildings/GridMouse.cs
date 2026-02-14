@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class GridMouse : MonoBehaviour
@@ -42,16 +43,11 @@ public class GridMouse : MonoBehaviour
 
     }
 
-    void TryInteract()
+    void TryInteract() // Decides what to do based on the current mode (select / place / delete)
     {
         if (GameState.Instance.CurrentMode == GameState.InteractionMode.None) return;
 
-        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (!Physics.Raycast(ray, out RaycastHit hit, 1000f, groundMask))
-            return;
-
-        Vector3 worldPos = hit.point;
-        Vector2Int gridPos = GridManager.Instance.WorldToGrid(worldPos);
+        if (!TryGetMouseGridPosition(out Vector2Int gridPos)) return;
 
         if (GameState.Instance.CurrentMode == GameState.InteractionMode.Place) TryPlace(gridPos);
 
@@ -71,7 +67,7 @@ public class GridMouse : MonoBehaviour
         }
     }
 
-    void TryPlace(Vector2Int gridPos)
+    void TryPlace(Vector2Int gridPos) // Attempts to place the current chosen building at the given position
     {
         bool placed = GameState.Instance.TryPlaceSelected(gridPos);
         if (!placed) // placement failed (invalid location or insufficient funds)
@@ -80,13 +76,36 @@ public class GridMouse : MonoBehaviour
         }
     }
 
-    void UpdatePlacementHighlight()
+    void UpdatePlacementHighlight() // The highlight square during placement
     {
-        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (!Physics.Raycast(ray, out RaycastHit hit, 200f, groundMask))
+        if(!TryGetMouseGridPosition(out Vector2Int gridPos))
+        {
+            placementHighlight.SetActive(false);
             return;
+        }
 
         placementHighlight.SetActive(true);
-        placementHighlight.transform.position = GridManager.Instance.SnapToGrid(hit.point) + new Vector3(0, 0.1f, 0);
+        placementHighlight.transform.position = GridManager.Instance.GridToWorld(gridPos) + new Vector3(0, 0.01f, 0);
     }
+    public bool TryGetMouseGridPosition(out Vector2Int gridPosition)
+    {
+        gridPosition = default;
+
+        // Fail if pointer is over UI
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            return false;
+
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        // Raycast ONLY against ground layer (ignores buildings automatically)
+        if (!Physics.Raycast(ray, out RaycastHit hit, 200f, groundMask))
+            return false;
+
+        // Convert to grid position
+        Vector3 worldPos = hit.point;
+        gridPosition = GridManager.Instance.WorldToGrid(worldPos);
+
+        return true;
+    }
+
 }
