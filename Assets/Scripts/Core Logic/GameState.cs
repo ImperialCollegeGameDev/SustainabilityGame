@@ -80,7 +80,7 @@ public class GameState : MonoBehaviour
         GameObject obj = Instantiate(def.Prefab);
         Debug.Log($"Instantiated prefab for '{def.Id}' at {gridPos}");
 
-        TileObject tileObj = obj.GetComponent<TileObject>();
+        TileObject tileObj = obj.GetComponent<TileObject>(); // TileObject is attached to the model
         if (tileObj == null)
         {
             Debug.LogWarning("Prefab missing TileObject component.");
@@ -88,10 +88,10 @@ public class GameState : MonoBehaviour
             return false;
         }
 
-        tileObj.DefinitionId = def.Id;
+        tileObj.DefinitionId = def.Id; // So TileObject can reference back to its definition data if needed
         tileObj.Place(gridPos); // Handles location of the physical model
 
-        GridManager.Instance.Occupy(tileObj, gridPos, def.Size); // Handles grid logic of marking tiles as occupied
+        GridManager.Instance.Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
 
         // If it's a utility, register it
         if (def.Category == BuildingCategory.Utility)
