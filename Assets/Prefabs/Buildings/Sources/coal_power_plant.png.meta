@@ -1,0 +1,1755 @@
+fileFormatVersion: 2
+guid: cdecf967ff548b44bb2a38d7d8fa0e70
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5326847066945962969
+    second: coal_power_plant_0
+  - first:
+      213: 3577934892421628723
+    second: coal_power_plant_1
+  - first:
+      213: -4493832259144664903
+    second: coal_power_plant_2
+  - first:
+      213: 352080009714764518
+    second: coal_power_plant_3
+  - first:
+      213: -3344147361784930553
+    second: coal_power_plant_4
+  - first:
+      213: 4468976350048627519
+    second: coal_power_plant_5
+  - first:
+      213: -620086815410477359
+    second: coal_power_plant_6
+  - first:
+      213: -7406759980239576912
+    second: coal_power_plant_7
+  - first:
+      213: 8701393272980072664
+    second: coal_power_plant_8
+  - first:
+      213: 8031190662190108538
+    second: coal_power_plant_9
+  - first:
+      213: 3843295312339211356
+    second: coal_power_plant_10
+  - first:
+      213: 2968220452982139735
+    second: coal_power_plant_11
+  - first:
+      213: 3692410687507523736
+    second: coal_power_plant_12
+  - first:
+      213: -488499891541201952
+    second: coal_power_plant_13
+  - first:
+      213: -6818559023539055761
+    second: coal_power_plant_14
+  - first:
+      213: -1160224634484812967
+    second: coal_power_plant_15
+  - first:
+      213: 8919911365016505285
+    second: coal_power_plant_16
+  - first:
+      213: -753334376247013627
+    second: coal_power_plant_17
+  - first:
+      213: 3982926310589332313
+    second: coal_power_plant_18
+  - first:
+      213: 3170650820681077094
+    second: coal_power_plant_19
+  - first:
+      213: -2909126302135037279
+    second: coal_power_plant_20
+  - first:
+      213: 1507699528881043890
+    second: coal_power_plant_21
+  - first:
+      213: 6170848438677208309
+    second: coal_power_plant_22
+  - first:
+      213: -6542024517071291428
+    second: coal_power_plant_23
+  - first:
+      213: -3223928587357028801
+    second: coal_power_plant_24
+  - first:
+      213: 473367746745373684
+    second: coal_power_plant_25
+  - first:
+      213: 4940266794724299914
+    second: coal_power_plant_26
+  - first:
+      213: 4417867194217008611
+    second: coal_power_plant_27
+  - first:
+      213: -3582514115376468254
+    second: coal_power_plant_28
+  - first:
+      213: 7417758974435545722
+    second: coal_power_plant_29
+  - first:
+      213: -303138709543561818
+    second: coal_power_plant_30
+  - first:
+      213: 3888187425748407876
+    second: coal_power_plant_31
+  - first:
+      213: 5644546240782431052
+    second: coal_power_plant_32
+  - first:
+      213: -1329061745783395565
+    second: coal_power_plant_33
+  - first:
+      213: 1391639971831795311
+    second: coal_power_plant_34
+  - first:
+      213: -4016601600045200717
+    second: coal_power_plant_35
+  - first:
+      213: 6011303987080926846
+    second: coal_power_plant_36
+  - first:
+      213: 1198297290511352543
+    second: coal_power_plant_37
+  - first:
+      213: -3117200391167474868
+    second: coal_power_plant_38
+  - first:
+      213: -8049401001468160551
+    second: coal_power_plant_39
+  - first:
+      213: -4507228522817732429
+    second: coal_power_plant_40
+  - first:
+      213: -7749839461697166971
+    second: coal_power_plant_41
+  - first:
+      213: 1783802525448304098
+    second: coal_power_plant_42
+  - first:
+      213: 8456755498262494212
+    second: coal_power_plant_43
+  - first:
+      213: 7240641961462856691
+    second: coal_power_plant_44
+  - first:
+      213: 4697177395015535357
+    second: coal_power_plant_45
+  - first:
+      213: 4649899073840393144
+    second: coal_power_plant_46
+  - first:
+      213: -2212987735591589244
+    second: coal_power_plant_47
+  - first:
+      213: -1424311026844445640
+    second: coal_power_plant_48
+  - first:
+      213: -5684561982470008745
+    second: coal_power_plant_49
+  - first:
+      213: -7187865813028418789
+    second: coal_power_plant_50
+  - first:
+      213: 3686221155338029697
+    second: coal_power_plant_51
+  - first:
+      213: 3473823258596856923
+    second: coal_power_plant_52
+  - first:
+      213: 6788581485514193303
+    second: coal_power_plant_53
+  - first:
+      213: 118054050686474299
+    second: coal_power_plant_54
+  - first:
+      213: -6590157531788083605
+    second: coal_power_plant_55
+  - first:
+      213: 8638496942928864068
+    second: coal_power_plant_56
+  - first:
+      213: 7478800106744048186
+    second: coal_power_plant_57
+  - first:
+      213: -2030996427235740355
+    second: coal_power_plant_58
+  - first:
+      213: -7648393258364216073
+    second: coal_power_plant_59
+  - first:
+      213: 1886881348733460693
+    second: coal_power_plant_60
+  - first:
+      213: 8235749540019379451
+    second: coal_power_plant_61
+  - first:
+      213: 7851529099412428247
+    second: coal_power_plant_62
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: coal_power_plant_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 237
+        width: 49
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d3452e3f23cce940800000000000000
+      internalID: 5326847066945962969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 239
+        width: 34
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3334444f3d067a130800000000000000
+      internalID: 3577934892421628723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_2
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 249
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b8bd71ae53b2a1c0800000000000000
+      internalID: -4493832259144664903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_3
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 245
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ea809747e6d2e400800000000000000
+      internalID: 352080009714764518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_4
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 241
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70fdf3841b33791d0800000000000000
+      internalID: -3344147361784930553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_5
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 249
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3b254e005ef40e30800000000000000
+      internalID: 4468976350048627519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_6
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 251
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d62e85a3520567f0800000000000000
+      internalID: -620086815410477359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_7
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 245
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b0ad396a07e53990800000000000000
+      internalID: -7406759980239576912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_8
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 217
+        width: 96
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d863fe641f81c870800000000000000
+      internalID: 8701393272980072664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_9
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 241
+        width: 30
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7f864f2b55847f60800000000000000
+      internalID: 8031190662190108538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 217
+        width: 49
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5417e259b0265530800000000000000
+      internalID: 3843295312339211356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 199
+        width: 41
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75bac0396cc313920800000000000000
+      internalID: 2968220452982139735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_12
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 199
+        width: 104
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 898edb105f31e3330800000000000000
+      internalID: 3692410687507523736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_13
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 201
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ebaed3dfef7839f0800000000000000
+      internalID: -488499891541201952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_14
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 193
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f639be1c1bc9f51a0800000000000000
+      internalID: -6818559023539055761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_15
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 201
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95310e197dd06efe0800000000000000
+      internalID: -1160224634484812967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_16
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 195
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cb47c37024e9cb70800000000000000
+      internalID: 8919911365016505285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_17
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 199
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50fc4ba406e9b85f0800000000000000
+      internalID: -753334376247013627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 133
+        width: 33
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95bfb358062364730800000000000000
+      internalID: 3982926310589332313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_19
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 175
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6611f716f1a600c20800000000000000
+      internalID: 3170650820681077094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_20
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 175
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2de7a9a05b0a7d0800000000000000
+      internalID: -2909126302135037279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_21
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 157
+        width: 60
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b97afebbbc6ce410800000000000000
+      internalID: 1507699528881043890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_22
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 175
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fcf02ed5f143a550800000000000000
+      internalID: 6170848438677208309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_23
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 177
+        width: 42
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdbb114ec5f0635a0800000000000000
+      internalID: -6542024517071291428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_24
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 151
+        width: 12
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3e7b59e70e4243d0800000000000000
+      internalID: -3223928587357028801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_25
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 167
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f392e8257db19600800000000000000
+      internalID: 473367746745373684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_26
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 151
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a841333a97a5f8440800000000000000
+      internalID: 4940266794724299914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_27
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 151
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed08286eca6f4d30800000000000000
+      internalID: 4417867194217008611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_28
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 151
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eea92e946a584ec0800000000000000
+      internalID: -3582514115376468254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_29
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 153
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7252bc7c7c21f660800000000000000
+      internalID: 7417758974435545722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_30
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 153
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a55cf323f80bcbf0800000000000000
+      internalID: -303138709543561818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_31
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 162
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 446dfdbfcdd95f530800000000000000
+      internalID: 3888187425748407876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_32
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 145
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c437a1066e4755e40800000000000000
+      internalID: 5644546240782431052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_33
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 123
+        width: 14
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31b250642693e8de0800000000000000
+      internalID: -1329061745783395565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_34
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 151
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ec4406e29105310800000000000000
+      internalID: 1391639971831795311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_35
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 151
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba4a09202a2248c0800000000000000
+      internalID: -4016601600045200717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_36
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 151
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7619d280217c6350800000000000000
+      internalID: 6011303987080926846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_37
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 153
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd20e30790531a010800000000000000
+      internalID: 1198297290511352543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_38
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 145
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4301c682ca7db4d0800000000000000
+      internalID: -3117200391167474868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_39
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 135
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d511dccf68ca4090800000000000000
+      internalID: -8049401001468160551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_40
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 135
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b0c0ffe98b1371c0800000000000000
+      internalID: -4507228522817732429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_41
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 135
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5816c3be11a037490800000000000000
+      internalID: -7749839461697166971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_42
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 135
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e57ac622f651c810800000000000000
+      internalID: 1783802525448304098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_43
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 123
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c7442e15e6c5570800000000000000
+      internalID: 8456755498262494212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_44
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 133
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fbf7ca508deb7460800000000000000
+      internalID: 7240641961462856691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_45
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 133
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfa45ec34f9bf2140800000000000000
+      internalID: 4697177395015535357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_46
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 123
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bbaca94292c78040800000000000000
+      internalID: 4649899073840393144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_47
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 145
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48a64cf1163e941e0800000000000000
+      internalID: -2212987735591589244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_48
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 133
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 834d34bdaa4db3ce0800000000000000
+      internalID: -1424311026844445640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_49
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 137
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7505f2bbef06c11b0800000000000000
+      internalID: -5684561982470008745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_50
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 133
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1b444140229f3c90800000000000000
+      internalID: -7187865813028418789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 127
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a047f3c96182330800000000000000
+      internalID: 3686221155338029697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_52
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 127
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54d72d39df753030800000000000000
+      internalID: 3473823258596856923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_53
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 127
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 799fdd4c4e2e53e50800000000000000
+      internalID: 6788581485514193303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_54
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 127
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b38967b988963a100800000000000000
+      internalID: 118054050686474299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_55
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 125
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ef7e714ae0b84a0800000000000000
+      internalID: -6590157531788083605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_56
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 128
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 443a29c633b12e770800000000000000
+      internalID: 8638496942928864068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_57
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 128
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3ae1ac92190ac760800000000000000
+      internalID: 7478800106744048186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_58
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 128
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35b686928370d3e0800000000000000
+      internalID: -2030996427235740355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_59
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 128
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fc55bcbad27bd590800000000000000
+      internalID: -7648393258364216073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_60
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 130
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d0619ce69c8f2a10800000000000000
+      internalID: 1886881348733460693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_61
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 127
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfc11ff52924b4270800000000000000
+      internalID: 8235749540019379451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coal_power_plant_62
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 127
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d5de12ed1c36fc60800000000000000
+      internalID: 7851529099412428247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      coal_power_plant_0: 5326847066945962969
+      coal_power_plant_1: 3577934892421628723
+      coal_power_plant_10: 3843295312339211356
+      coal_power_plant_11: 2968220452982139735
+      coal_power_plant_12: 3692410687507523736
+      coal_power_plant_13: -488499891541201952
+      coal_power_plant_14: -6818559023539055761
+      coal_power_plant_15: -1160224634484812967
+      coal_power_plant_16: 8919911365016505285
+      coal_power_plant_17: -753334376247013627
+      coal_power_plant_18: 3982926310589332313
+      coal_power_plant_19: 3170650820681077094
+      coal_power_plant_2: -4493832259144664903
+      coal_power_plant_20: -2909126302135037279
+      coal_power_plant_21: 1507699528881043890
+      coal_power_plant_22: 6170848438677208309
+      coal_power_plant_23: -6542024517071291428
+      coal_power_plant_24: -3223928587357028801
+      coal_power_plant_25: 473367746745373684
+      coal_power_plant_26: 4940266794724299914
+      coal_power_plant_27: 4417867194217008611
+      coal_power_plant_28: -3582514115376468254
+      coal_power_plant_29: 7417758974435545722
+      coal_power_plant_3: 352080009714764518
+      coal_power_plant_30: -303138709543561818
+      coal_power_plant_31: 3888187425748407876
+      coal_power_plant_32: 5644546240782431052
+      coal_power_plant_33: -1329061745783395565
+      coal_power_plant_34: 1391639971831795311
+      coal_power_plant_35: -4016601600045200717
+      coal_power_plant_36: 6011303987080926846
+      coal_power_plant_37: 1198297290511352543
+      coal_power_plant_38: -3117200391167474868
+      coal_power_plant_39: -8049401001468160551
+      coal_power_plant_4: -3344147361784930553
+      coal_power_plant_40: -4507228522817732429
+      coal_power_plant_41: -7749839461697166971
+      coal_power_plant_42: 1783802525448304098
+      coal_power_plant_43: 8456755498262494212
+      coal_power_plant_44: 7240641961462856691
+      coal_power_plant_45: 4697177395015535357
+      coal_power_plant_46: 4649899073840393144
+      coal_power_plant_47: -2212987735591589244
+      coal_power_plant_48: -1424311026844445640
+      coal_power_plant_49: -5684561982470008745
+      coal_power_plant_5: 4468976350048627519
+      coal_power_plant_50: -7187865813028418789
+      coal_power_plant_51: 3686221155338029697
+      coal_power_plant_52: 3473823258596856923
+      coal_power_plant_53: 6788581485514193303
+      coal_power_plant_54: 118054050686474299
+      coal_power_plant_55: -6590157531788083605
+      coal_power_plant_56: 8638496942928864068
+      coal_power_plant_57: 7478800106744048186
+      coal_power_plant_58: -2030996427235740355
+      coal_power_plant_59: -7648393258364216073
+      coal_power_plant_6: -620086815410477359
+      coal_power_plant_60: 1886881348733460693
+      coal_power_plant_61: 8235749540019379451
+      coal_power_plant_62: 7851529099412428247
+      coal_power_plant_7: -7406759980239576912
+      coal_power_plant_8: 8701393272980072664
+      coal_power_plant_9: 8031190662190108538
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

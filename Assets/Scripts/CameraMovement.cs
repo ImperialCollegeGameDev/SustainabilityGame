@@ -11,11 +11,13 @@ public class CameraMovement : MonoBehaviour
     Vector3 currentVelocity;
     Camera camera;
     [SerializeField] public Transform tiltTarget;       // whatever you want to rotate - i.e. ground (and its children as buildings)
+    public float distance = 40f;
 
     void Start()
     {
         pivotTransform = transform.parent;
         camera = transform.GetComponent<Camera>();
+        transform.localPosition = -transform.forward * cameraZoom * distance;
     }
 
     void Update()
@@ -28,9 +30,9 @@ public class CameraMovement : MonoBehaviour
     void HandleCameraZoom()
     {
         float zoomAction = InputSystem.actions.FindAction("Zoom").ReadValue<float>();
-        cameraZoom = Mathf.Clamp(cameraZoom + cameraZoom * zoomAction * 0.1f, cameraZoomMin, cameraZoomMax);
-        //transform.localPosition = -transform.forward * cameraZoom * 2.0f;
-        transform.localPosition = -transform.forward * 20.0f;
+        cameraZoom = Mathf.Clamp(cameraZoom + cameraZoom * zoomAction * -0.1f, cameraZoomMin, cameraZoomMax);
+        
+        //transform.localPosition = -transform.forward * distance;
         camera.orthographicSize = cameraZoom;
     }
 

@@ -127,3 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileObject
   Size: {x: 1, y: 1}
   DefinitionId: 
+  Logic:
+    type: 0
+    Output: 0
+    Emission: 0

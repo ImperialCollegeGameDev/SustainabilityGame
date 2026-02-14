@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
+  m_Name: CoalPowerPlant
+  m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
+  Id: CoalPowerPlant
+  Prefab: {fileID: 2757525673256139109, guid: 83fb995905b5c2843a5267bcdb69f1a6, type: 3}
+  Size: {x: 1, y: 2}
+  Category: 0
+  Cost: 15
+  Utility:
+    type: 0
+    Output: 4
+    Emission: 14
+  Residential:
+    MaxOccupancy: 0
+  Infrastructure:
+    ResourceProduction: 0
