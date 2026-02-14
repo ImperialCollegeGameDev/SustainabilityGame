@@ -12,8 +12,6 @@ public class GameState : MonoBehaviour
     // Singleton
     public static GameState Instance { get; private set; }
 
-    [SerializeField] private Transform platform;
-
     private void Awake()
     {
         if (Instance != null)
@@ -37,70 +35,25 @@ public class GameState : MonoBehaviour
     public int TotalEnergy;
     public int TotalEmissions;
 
-    private TileObjectDefinition selectedTile;
+    private TileObjectDefinition buildingToBePlaced;
+    public InteractionMode CurrentMode { get; private set; } = InteractionMode.None;
 
     void Start()
     {
         RecomputeTotals();
-        PublishUI();
-        PrintState();
     }
-
-    /*public void SetCurrentType(int typeIndex)
-    {
-        currentType = (PowerType)typeIndex;
-        Debug.Log($"Current power type set to {currentType}");
-        BuildUtility(currentType);
-    }*/
 
     public void SetSelectedTile(TileObjectDefinition tile) // Called by UI building selector buttons
     {
         Debug.Log($"Selected building set to {tile.Id}");
-        selectedTile = tile;
+        buildingToBePlaced = tile;
     }
-
-    // UI calls this (legacy / direct utility construction)
-    /*public void BuildUtility(PowerType powerType)
-    {
-        Utility u = utilities.Create(powerType);
-
-        if (money - u.Cost < 0)
-        {
-            Debug.Log("Youre broke af :<");
-            return;
-        }
-
-        money -= u.Cost;
-
-        OwnedUtilities.Add(u);
-
-        RecomputeTotals();
-        PublishUI();
-
-        Debug.Log($"Built {u.name} (cost {u.Cost})");
-        PrintState();
-    }*/
-
-    // UI calls this (index in the OwnedUtilities list)
-    /*public void SellUtility(int index)
-    {
-        Utility u = OwnedUtilities[index];
-        OwnedUtilities.RemoveAt(index);
-
-        money += u.Cost / 2; // simple 50% refund
-
-        RecomputeTotals();
-        PublishUI();
-
-        Debug.Log($"Sold {u.name} (+{u.Cost / 2})");
-        PrintState();
-    }*/
 
     // New: central placement + purchase method
     // Returns true if placement succeeded
     public bool TryPlaceSelected(Vector2Int gridPos)
     {
-        var def = selectedTile;
+        var def = buildingToBePlaced;
         if (def == null)
         {
             Debug.LogWarning($"Selected TileObjectDefinition not found");
@@ -125,7 +78,7 @@ public class GameState : MonoBehaviour
 
         // Instantiate visual prefab and place it on grid
         GameObject obj = Instantiate(def.Prefab);
-        obj.transform.SetParent(platform, false);
+        Debug.Log($"Instantiated prefab for '{def.Id}' at {gridPos}");
 
         TileObject tileObj = obj.GetComponent<TileObject>();
         if (tileObj == null)
@@ -136,42 +89,49 @@ public class GameState : MonoBehaviour
         }
 
         tileObj.DefinitionId = def.Id;
-        tileObj.Size = def.Size;
-        tileObj.Place(gridPos);
+        tileObj.Place(gridPos); // Handles location of the physical model
 
-        GridManager.Instance.Occupy(tileObj, gridPos, def.Size);
+        GridManager.Instance.Occupy(tileObj, gridPos, def.Size); // Handles grid logic of marking tiles as occupied
 
         // If it's a utility, register it
         if (def.Category == BuildingCategory.Utility)
         {
             // All buildings have an optional Utility field
             OwnedUtilities.Add(def.Utility);
-            tileObj.BindLogic(def.Utility);
             RecomputeTotals();
-            PublishUI();
             Debug.Log($"Placed utility {def.name} at {gridPos} (cost {def.Cost})");
         }
         else
         {
             // For non-utility buildings we may later create other game-models
-            RecomputeTotals();
-            PublishUI();
             Debug.Log($"Placed building '{def.Id}' at {gridPos} (cost {def.Cost})");
         }
 
-        PrintState();
         return true;
     }
 
-    public void TryRemoveSelected(Vector2Int gridPos)
+    public void Delete(TileObject obj)
     {
-        //def = GridManager.Instance.GetObject();
+        obj.Remove(); // Handles visual/model removal
 
-        // Deduct money
-        //money += def.Cost / 2;    // simple 50% refund
-        //OnMoneyChanged?.Invoke(money);
+        TileObjectDefinition def = obj.GetDefinition();
+        money += def.Cost / 2; // simple 50% refund
 
-        // recompute totals
+        GridManager.Instance.Clear(obj.Origin, def.Size); // Handles grid logic of marking tiles as unoccupied
+
+        // If it's a utility, unregister it
+        if (def.Category == BuildingCategory.Utility)
+        {
+            // All buildings have an optional Utility field
+            OwnedUtilities.Remove(def.Utility);
+            RecomputeTotals();
+            Debug.Log($"Deleted utility {def.name}.");
+        }
+        else
+        {
+            // For non-utility buildings
+            Debug.Log($"Deleted building {def.name}.");
+        }
     }
 
     void RecomputeTotals()
@@ -184,6 +144,8 @@ public class GameState : MonoBehaviour
             TotalEnergy += OwnedUtilities[i].Output;
             TotalEmissions += OwnedUtilities[i].Emission;
         }
+
+        PublishUI();
     }
 
     void PublishUI()
@@ -194,18 +156,53 @@ public class GameState : MonoBehaviour
         OnUtilitiesChanged?.Invoke(new List<Utility>(OwnedUtilities));
     }
 
-    [ContextMenu("DEBUG/Print State")]
-    public void PrintState()
+    public enum InteractionMode
     {
-        Debug.Log($"Money: {money}      Energy: {TotalEnergy}       Emissions: {TotalEmissions}");
+        None,
+        Select,
+        Place,
+        Delete
     }
 
-    /*[ContextMenu("DEBUG/Test Build One of Each")]
-    public void DebugBuildOneOfEach()
+    public void SetModeNone()
     {
-        BuildUtility(PowerType.Solar);
-        BuildUtility(PowerType.Wind);
-        BuildUtility(PowerType.Conventional);
-        BuildUtility(PowerType.Nuclear);
-    }*/
+        SelectionManager.Instance.Deselect();
+        CurrentMode = InteractionMode.None;
+        Debug.Log("Interaction mode set to None");
+    }
+
+    public void SetModeSelect(bool toggleMode = false)
+    {
+        if (toggleMode && CurrentMode == InteractionMode.Select)
+        {
+            SetModeNone();
+            return;
+        }
+        CurrentMode = InteractionMode.Select;
+        Debug.Log("Interaction mode set to Select");
+    }
+
+    public void SetModePlace(bool toggleMode = false)
+    {
+        SelectionManager.Instance.Deselect();
+        if (toggleMode && CurrentMode == InteractionMode.Place)
+        {
+            SetModeNone();
+            return;
+        }
+        CurrentMode = InteractionMode.Place;
+        Debug.Log("Interaction mode set to Place");
+    }
+
+    public void SetModeDelete(bool toggleMode = false)
+    {
+        SelectionManager.Instance.Deselect();
+        if (toggleMode && CurrentMode == InteractionMode.Delete)
+        {
+            SetModeNone();
+            return;
+        }
+        CurrentMode = InteractionMode.Delete;
+        Debug.Log("Interaction mode set to Delete");
+    }
 }

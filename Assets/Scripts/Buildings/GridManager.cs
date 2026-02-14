@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteAlways]
 public class GridManager : MonoBehaviour
 {
     public static GridManager Instance { get; private set; }
@@ -11,7 +12,7 @@ public class GridManager : MonoBehaviour
     public int height = 10;
     public float tileSize = 1f;
 
-    private Dictionary<Vector2Int, Tile> tiles;
+    private Dictionary<Vector2Int, Tile> tiles = new();
 
     private void Awake()
     {
@@ -39,10 +40,9 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public Tile GetTile(Vector2Int pos)
+    public bool TryGetTile(Vector2Int pos, out Tile tile)
     {
-        tiles.TryGetValue(pos, out Tile tile);
-        return tile;
+        return tiles.TryGetValue(pos, out tile);
     }
 
     public Vector3 GridToWorld(Vector2Int gridPos) // Returns the center of the tile
@@ -60,6 +60,12 @@ public class GridManager : MonoBehaviour
             Mathf.FloorToInt(worldPos.x / tileSize),
             Mathf.FloorToInt(worldPos.z / tileSize)
         );
+    }
+
+    public Vector3 SnapToGrid(Vector3 worldPos)
+    {
+        Vector2Int gridPos = WorldToGrid(worldPos);
+        return GridToWorld(gridPos);
     }
 
     public Boolean CanPlace(Vector2Int size, Vector2Int origin)
@@ -88,6 +94,18 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    public void Clear(Vector2Int origin, Vector2Int size)
+    {
+        for (int x = 0; x < size.x; x++)
+        {
+            for (int y = 0; y < size.y; y++)
+            {
+                Vector2Int pos = new Vector2Int(origin.x + x, origin.y + y);
+                tiles[pos] = new Tile(pos);
+            }
+        }
+    }
+
     private void OnDrawGizmos()
     {
         if (tiles == null) return;
@@ -101,4 +119,8 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    private void OnValidate()
+    {
+        GenerateGrid();
+    }
 }
