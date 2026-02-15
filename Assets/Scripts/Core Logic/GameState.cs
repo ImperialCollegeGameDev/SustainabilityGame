@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.XR;
 
 /// <summary>
 /// this is where all UI commands call functions to influence the game logic
@@ -45,7 +47,7 @@ public class GameState : MonoBehaviour
 
     public void SetSelectedTile(TileObjectDefinition tile) // Called by UI building selector buttons
     {
-        Debug.Log($"Selected building set to {tile.Id}");
+        PostNotification($"Selected building set to {tile.Id}");
         buildingToBePlaced = tile;
     }
 
@@ -62,13 +64,13 @@ public class GameState : MonoBehaviour
 
         if (!GridManager.Instance.CanPlace(def.Size, gridPos))
         {
-            Debug.Log("Cannot place there (out of bounds or occupied).");
+            PostNotification("Cannot place there (out of bounds or occupied).");
             return false;
         }
 
         if (money - def.Cost < 0)
         {
-            Debug.Log("Not enough money to place that building.");
+            PostNotification("Not enough money to place that building.");
             return false;
         }
 
@@ -99,12 +101,12 @@ public class GameState : MonoBehaviour
             // All buildings have an optional Utility field
             OwnedUtilities.Add(def.Utility);
             RecomputeTotals();
-            Debug.Log($"Placed utility {def.name} at {gridPos} (cost {def.Cost})");
+            PostNotification($"Placed utility {def.name} at {gridPos} (cost {def.Cost})");
         }
         else
         {
             // For non-utility buildings we may later create other game-models
-            Debug.Log($"Placed building '{def.Id}' at {gridPos} (cost {def.Cost})");
+            PostNotification($"Placed building '{def.Id}' at {gridPos} (cost {def.Cost})");
         }
 
         return true;
@@ -125,12 +127,12 @@ public class GameState : MonoBehaviour
             // All buildings have an optional Utility field
             OwnedUtilities.Remove(def.Utility);
             RecomputeTotals();
-            Debug.Log($"Deleted utility {def.name}.");
+            PostNotification($"Deleted utility {def.name}.");
         }
         else
         {
             // For non-utility buildings
-            Debug.Log($"Deleted building {def.name}.");
+            PostNotification($"Deleted building {def.name}.");
         }
     }
 
@@ -168,7 +170,7 @@ public class GameState : MonoBehaviour
     {
         SelectionManager.Instance.Deselect();
         CurrentMode = InteractionMode.None;
-        Debug.Log("Interaction mode set to None");
+        PostNotification("Interaction mode set to None");
     }
 
     public void SetModeSelect(bool toggleMode = false)
@@ -179,7 +181,7 @@ public class GameState : MonoBehaviour
             return;
         }
         CurrentMode = InteractionMode.Select;
-        Debug.Log("Interaction mode set to Select");
+        PostNotification("Interaction mode set to Select");
     }
 
     public void SetModePlace(bool toggleMode = false)
@@ -191,7 +193,7 @@ public class GameState : MonoBehaviour
             return;
         }
         CurrentMode = InteractionMode.Place;
-        Debug.Log("Interaction mode set to Place");
+        PostNotification("Interaction mode set to Place");
     }
 
     public void SetModeDelete(bool toggleMode = false)
@@ -203,6 +205,18 @@ public class GameState : MonoBehaviour
             return;
         }
         CurrentMode = InteractionMode.Delete;
-        Debug.Log("Interaction mode set to Delete");
+        PostNotification("Interaction mode set to Delete");
+    }
+
+    // Feel free to move this somewhere else.
+    public GameObject notificationsTray;
+    public GameObject notificationPrefab; // Assign in inspector also if you move.
+    public int notificationLifetime = 2;
+    public void PostNotification(string message)
+    {
+        Debug.Log($"Notification: {message}");
+        GameObject notification = Instantiate(notificationPrefab, notificationsTray.transform);
+        notification.GetComponent<TextMeshProUGUI>().SetText(message);
+        Destroy(notification, notificationLifetime);
     }
 }
