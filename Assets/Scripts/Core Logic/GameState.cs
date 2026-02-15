@@ -22,27 +22,89 @@ public class GameState : MonoBehaviour
             return;
         }
         Instance = this;
+
+        if (Settings == null)
+        {
+            Debug.LogWarning("GameSettings not assigned in GameState. Using default settings.");
+            Settings = new GameSettings();
+        }
     }
+
+    public GameSettings Settings;
+
+    private const float TickInterval = 1f;
+    private const float FastTickInterval = 0.2f;
+    private float Timescale = 1f;
+    private bool isTicking = true;
+    private float _timer = 0f;
+    private float _fastTimer = 0f;
 
     // UI callbacks (UI scripts can subscribe to these)
     public Action<int> OnMoneyChanged;
     public Action<int> OnEnergyChanged;
     public Action<int> OnEmissionsChanged;
+    public Action<int> OnPopulationChanged;
+    public Action<int> OnHappinessChanged;
     public Action<List<Utility>> OnUtilitiesChanged;
 
-    public int money = 200;
+    public int money { get; private set; }
+    public int population = 0;
+    public int dissatisfiedPopulation { get; private set; } = 0;
+    private int projectedHappiness = 100;
+    public float happiness { get; private set; } = 100;
 
     public List<Utility> OwnedUtilities = new List<Utility>();
 
     public int TotalEnergy;
     public int TotalEmissions;
 
-    private TileObjectDefinition buildingToBePlaced;
+    public TileObjectDefinition buildingToBePlaced;
     public InteractionMode CurrentMode { get; private set; } = InteractionMode.None;
 
     void Start()
     {
+        money = Settings.StartingMoney;
         RecomputeTotals();
+    }
+
+    private void Update()
+    {
+        _timer += Time.deltaTime;
+        if (_timer >= TickInterval)
+        {
+            Tick(TickInterval * Timescale);
+            _timer -= TickInterval;
+        }
+
+        _fastTimer += Time.deltaTime;
+        if (_fastTimer >= FastTickInterval)
+        {
+            FastTick(FastTickInterval * Timescale);
+            _fastTimer -= FastTickInterval;
+        }
+    }
+
+    public void Tick(float delta) // Delta is the time in seconds since last tick
+    {
+        if (!isTicking) return;
+
+        List<TileObject> tileObjects = GridManager.Instance.GetTileObjects();
+        foreach (TileObject tileObj in tileObjects)
+        {
+            tileObj.Tick(delta);
+        }
+
+        TaxThePoor(delta);
+        RecomputeTotals();
+    }
+
+    public void FastTick(float delta) // For things that are very inexpensive to compute and we want fast feedback on
+    {
+        happiness += (projectedHappiness - happiness) * Settings.HappinessVolatility;
+        if (Math.Abs(happiness - projectedHappiness) < 0.1f)
+            happiness = projectedHappiness;
+
+        OnHappinessChanged?.Invoke(Mathf.RoundToInt(happiness));
     }
 
     public void SetSelectedTile(TileObjectDefinition tile) // Called by UI building selector buttons
@@ -51,92 +113,7 @@ public class GameState : MonoBehaviour
         buildingToBePlaced = tile;
     }
 
-    // New: central placement + purchase method
-    // Returns true if placement succeeded
-    public bool TryPlaceSelected(Vector2Int gridPos)
-    {
-        var def = buildingToBePlaced;
-        if (def == null)
-        {
-            Debug.LogWarning($"Selected TileObjectDefinition not found");
-            return false;
-        }
-
-        if (!GridManager.Instance.CanPlace(def.Size, gridPos))
-        {
-            PostNotification("Cannot place there (out of bounds or occupied).");
-            return false;
-        }
-
-        if (money - def.Cost < 0)
-        {
-            PostNotification("Not enough money to place that building.");
-            return false;
-        }
-
-        // Deduct money
-        money -= def.Cost;
-        OnMoneyChanged?.Invoke(money);
-
-        // Instantiate visual prefab and place it on grid
-        GameObject obj = Instantiate(def.Prefab);
-        Debug.Log($"Instantiated prefab for '{def.Id}' at {gridPos}");
-
-        TileObject tileObj = obj.GetComponent<TileObject>(); // TileObject is attached to the model
-        if (tileObj == null)
-        {
-            Debug.LogWarning("Prefab missing TileObject component.");
-            Destroy(obj);
-            return false;
-        }
-
-        tileObj.DefinitionId = def.Id; // So TileObject can reference back to its definition data if needed
-        tileObj.Place(gridPos); // Handles location of the physical model
-
-        GridManager.Instance.Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
-
-        // If it's a utility, register it
-        if (def.Category == BuildingCategory.Utility)
-        {
-            // All buildings have an optional Utility field
-            OwnedUtilities.Add(def.Utility);
-            RecomputeTotals();
-            PostNotification($"Placed utility {def.name} at {gridPos} (cost {def.Cost})");
-        }
-        else
-        {
-            // For non-utility buildings we may later create other game-models
-            PostNotification($"Placed building '{def.Id}' at {gridPos} (cost {def.Cost})");
-        }
-
-        return true;
-    }
-
-    public void Delete(TileObject obj)
-    {
-        obj.Remove(); // Handles visual/model removal
-
-        TileObjectDefinition def = obj.GetDefinition();
-        money += def.Cost / 2; // simple 50% refund
-
-        GridManager.Instance.Clear(obj.Origin, def.Size); // Handles grid logic of marking tiles as unoccupied
-
-        // If it's a utility, unregister it
-        if (def.Category == BuildingCategory.Utility)
-        {
-            // All buildings have an optional Utility field
-            OwnedUtilities.Remove(def.Utility);
-            RecomputeTotals();
-            PostNotification($"Deleted utility {def.name}.");
-        }
-        else
-        {
-            // For non-utility buildings
-            PostNotification($"Deleted building {def.name}.");
-        }
-    }
-
-    void RecomputeTotals()
+    public void RecomputeTotals()
     {
         TotalEnergy = 0;
         TotalEmissions = 0;
@@ -147,15 +124,36 @@ public class GameState : MonoBehaviour
             TotalEmissions += OwnedUtilities[i].Emission;
         }
 
-        PublishUI();
+        dissatisfiedPopulation = population - TotalEnergy / Settings.EnergyReqPerPerson;
+        dissatisfiedPopulation = Math.Max(dissatisfiedPopulation, 0);
+
+        projectedHappiness = Mathf.RoundToInt(100f * (1f - TotalEmissions / (float) Settings.MaxEmission));
+        projectedHappiness = Math.Max(projectedHappiness, 0);
+
+        if (population > 0)
+            projectedHappiness = Mathf.FloorToInt(projectedHappiness * (1 - Settings.DissatisfactionDanger * dissatisfiedPopulation / (float) population));
+
+        StatChangeUpdate();
     }
 
-    void PublishUI()
+    void TaxThePoor(float delta)
+    {
+        money += Mathf.CeilToInt(population * Settings.TaxRate * delta);
+    }
+
+    private void StatChangeUpdate()
     {
         OnMoneyChanged?.Invoke(money);
         OnEnergyChanged?.Invoke(TotalEnergy);
         OnEmissionsChanged?.Invoke(TotalEmissions);
         OnUtilitiesChanged?.Invoke(new List<Utility>(OwnedUtilities));
+        OnPopulationChanged?.Invoke(population);
+    }
+
+    public void ChangeMoney(int amount)
+    {
+        money += amount;
+        OnMoneyChanged?.Invoke(money);
     }
 
     public enum InteractionMode
@@ -218,5 +216,20 @@ public class GameState : MonoBehaviour
         GameObject notification = Instantiate(notificationPrefab, notificationsTray.transform);
         notification.GetComponent<TextMeshProUGUI>().SetText(message);
         Destroy(notification, notificationLifetime);
+    }
+
+    public void SetTicking(bool value)
+    {
+        isTicking = value;
+    }
+
+    public void ToggleTicking()
+    {
+        isTicking = !isTicking;
+    }
+
+    public void SetTimescale(float value = 1)
+    {
+        Timescale = value;
     }
 }

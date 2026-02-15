@@ -16,10 +16,10 @@ MonoBehaviour:
   Prefab: {fileID: 1501230553749349402, guid: 83fb995905b5c2843a5267bcdb69f1a6, type: 3}
   Size: {x: 1, y: 2}
   Category: 0
-  Cost: 15
+  Cost: 50000
   Utility:
     type: 0
-    Output: 4
+    Output: 500000
     Emission: 14
   Residential:
     MaxOccupancy: 0

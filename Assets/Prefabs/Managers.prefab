@@ -44,10 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4475ffd2bb4bdbf44b4e05a8c7ed2d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameState
+  Settings: {fileID: 0}
   money: 200
+  population: 0
+  dissatisfiedPopulation: 0
+  happiness: 100
   OwnedUtilities: []
   TotalEnergy: 0
   TotalEmissions: 0
+  buildingToBePlaced: {fileID: 0}
 --- !u!1 &824005248748328134
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,12 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectCatalog
   definitions:
-  - {fileID: 11400000, guid: b4ee9ef1c2b1a4e4fb9132c5f549e5df, type: 2}
-  - {fileID: 11400000, guid: cdf7116f5670b9e4b9a9d41675becdf5, type: 2}
-  - {fileID: 11400000, guid: 359b7714172790b4182b23348dfbb1f7, type: 2}
-  - {fileID: 11400000, guid: 87e18778cccd346479aec5e7c4e24c5a, type: 2}
   - {fileID: 11400000, guid: 4c9f043608d811c48aafcc2315388083, type: 2}
-  - {fileID: 11400000, guid: 9af9b7d0a021d534c9b6951ef6b3ca40, type: 2}
+  - {fileID: 11400000, guid: 6738b1dd84a225a4890535f0091bae57, type: 2}
 --- !u!1 &1583670345920240495
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +148,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  placementHighlight: {fileID: 0}
 --- !u!1 &3311243098388726111
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +255,7 @@ Transform:
   m_GameObject: {fileID: 5024371826338757435}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.99834, y: 0.19, z: -5.95191}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -273,4 +275,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   width: 10
   height: 10
-  tileSize: 10
+  tileSize: 5

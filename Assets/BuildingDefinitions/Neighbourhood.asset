@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
-  m_Name: house-1
+  m_Name: Neighbourhood
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
-  Id: House
+  Id: Neighbourhood
   Prefab: {fileID: 6108967645603627881, guid: 8fee77168298e864db6bf6ddd763808b, type: 3}
   Size: {x: 1, y: 1}
   Category: 1
-  Cost: 10
+  Cost: 10000
   Utility:
     type: 1
     Output: 20
     Emission: 5
   Residential:
-    MaxOccupancy: 20
+    MaxOccupancy: 200
   Infrastructure:
     ResourceProduction: 0

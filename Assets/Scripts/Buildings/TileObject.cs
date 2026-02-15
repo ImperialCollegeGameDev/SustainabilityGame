@@ -6,8 +6,19 @@ public class TileObject : MonoBehaviour
 {
     public Vector2Int Origin { get; private set; }
 
-    // runtime info set at placement
-    public string DefinitionId;
+    public TileObjectDefinition Definition { get; private set; } // Important details about this particular building like its power output, max occupancy etc.
+
+    private MeshRenderer[] renderers; // All renderers in this object and its children, for selection highlighting
+
+    protected virtual void Awake()
+    {
+        renderers = GetComponentsInChildren<MeshRenderer>(true);
+    }
+
+    public void Init(TileObjectDefinition def)
+    {
+        Definition = def;
+    }
 
     public void Place(Vector2Int origin)
     {
@@ -15,14 +26,14 @@ public class TileObject : MonoBehaviour
 
         Vector3 worldPos = GridManager.Instance.GridToWorld(origin);
         transform.position = new Vector3(
-                worldPos.x + (GetDefinition().Size.x - 1) * 0.5f * GridManager.Instance.tileSize,
+                worldPos.x + (Definition.Size.x - 1) * 0.5f * GridManager.Instance.tileSize,
                 worldPos.y,
-                worldPos.z + (GetDefinition().Size.y - 1) * 0.5f * GridManager.Instance.tileSize
+                worldPos.z + (Definition.Size.y - 1) * 0.5f * GridManager.Instance.tileSize
             );
         // Occupancy status of tiles is also stored in GridManager
     }
 
-    public void Remove()
+    public virtual void Remove()
     {
         Destroy(gameObject);
         // Occupancy is handled by GridManager
@@ -31,36 +42,23 @@ public class TileObject : MonoBehaviour
     public List<Vector2Int> OccupiedTiles()
     {
         List<Vector2Int> positions = new List<Vector2Int>();
-        for (int x = 0; x < GetDefinition().Size.x; x++)
-            for (int y = 0; y < GetDefinition().Size.y; y++)
+        for (int x = 0; x < Definition.Size.x; x++)
+            for (int y = 0; y < Definition.Size.y; y++)
                 positions.Add(Origin + new Vector2Int(x, y));
         return positions;
     }
 
-    public TileObjectDefinition GetDefinition()
-    {
-        return TileObjectCatalog.Instance.Get(DefinitionId);
-    }
-
     public void Select()
     {
-        MeshRenderer mr = GetComponent<MeshRenderer>();
-        if (mr == null)
-        {
-            Debug.LogWarning("No MeshRenderer found on " + name);
-            return;
-        }
-        mr.renderingLayerMask = 2u; // Selected object layer (Project Settings -> Tags and Layers -> Rendering Layers)
+        foreach (MeshRenderer mr in renderers)
+            mr.renderingLayerMask = 2u; // Selected object layer (Project Settings -> Tags and Layers -> Rendering Layers)
     }
 
     public void Deselect()
     {
-        MeshRenderer mr = GetComponent<MeshRenderer>();
-        if (mr == null)
-        {
-            Debug.LogWarning("No MeshRenderer found on " + name);
-            return;
-        }
-        mr.renderingLayerMask = 1u;
+        foreach (MeshRenderer mr in renderers)
+            mr.renderingLayerMask = 1u;
     }
+
+    public virtual void Tick(float delta) { }
 }

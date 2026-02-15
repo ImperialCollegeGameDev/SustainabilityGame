@@ -8,7 +8,9 @@ public enum StatType
     Money,
     Energy,
     Emissions,
-    UtilitiesCount
+    UtilitiesCount,
+    Population,
+    Happiness
 }
 
 /// <summary>
@@ -67,6 +69,18 @@ public class DisplayStat : MonoBehaviour
                 UpdateFromUtilities(new List<Utility>(GameState.Instance.OwnedUtilities));
                 break;
 
+            case StatType.Population:
+                intSubscription = UpdateFromInt;
+                GameState.Instance.OnPopulationChanged += intSubscription;
+                UpdateFromInt(GameState.Instance.population);
+                break;
+
+            case StatType.Happiness:
+                intSubscription = UpdateFromInt;
+                GameState.Instance.OnHappinessChanged += intSubscription;
+                UpdateFromInt(Mathf.RoundToInt(GameState.Instance.happiness));
+                break;
+
             default:
                 Debug.LogWarning($"DisplayStat: Unsupported stat {stat}");
                 break;
@@ -76,13 +90,43 @@ public class DisplayStat : MonoBehaviour
     void UpdateFromInt(int value)
     {
         if (text == null) return;
-        text.text = $"{prefix}{value}{suffix}";
+        text.text = $"{prefix}{FormatNumber(value)}{suffix}";
     }
 
     void UpdateFromUtilities(List<Utility> utilities)
     {
         if (text == null) return;
-        text.text = $"{prefix}{utilities?.Count ?? 0}{suffix}";
+        text.text = $"{prefix}{FormatNumber(utilities?.Count ?? 0)}{suffix}";
+    }
+
+    /// <summary>
+    /// Formats integer values:
+    /// - less than 1000: as-is ("999")
+    /// - 1,000 to 999,999: one decimal 'k' ("3356" -> "3.3k")
+    /// - 1,000,000 and above: one decimal 'm' ("3356750" -> "3.3m")
+    /// Keeps sign for negative numbers and trims trailing ".0" (e.g. "1.0k" -> "1k").
+    /// </summary>
+    private string FormatNumber(int value)
+    {
+        int absValue = Math.Abs(value);
+        string sign = value < 0 ? "-" : "";
+
+        if (absValue < 1000)
+        {
+            return sign + absValue.ToString() + " ";
+        }
+
+        if (absValue < 1_000_000)
+        {
+            float v = absValue / 1000f;
+            // "0.#" yields one decimal if needed, no decimal if .0
+            string s = v.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+            return sign + s + " K";
+        }
+
+        float mv = absValue / 1_000_000f;
+        string sm = mv.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
+        return sign + sm + " M";
     }
 
     void OnDestroy()
@@ -95,6 +139,8 @@ public class DisplayStat : MonoBehaviour
             GameState.Instance.OnMoneyChanged -= intSubscription;
             GameState.Instance.OnEnergyChanged -= intSubscription;
             GameState.Instance.OnEmissionsChanged -= intSubscription;
+            GameState.Instance.OnPopulationChanged -= intSubscription;
+            GameState.Instance.OnHappinessChanged -= intSubscription;
             intSubscription = null;
         }
 
@@ -104,4 +150,4 @@ public class DisplayStat : MonoBehaviour
             utilitiesSubscription = null;
         }
     }
-}       
+}

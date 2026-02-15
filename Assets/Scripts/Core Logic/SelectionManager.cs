@@ -25,6 +25,7 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
             Deselect();
             return;
         }
+        if (Selected != null) Selected.Deselect();
         Selected = obj;
         obj.Select();
         Debug.Log("Selected: " + obj.name);
