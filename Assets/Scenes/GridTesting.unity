@@ -795,7 +795,7 @@ Transform:
   m_GameObject: {fileID: 1855197465}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: 0.03, z: 50}
+  m_LocalPosition: {x: 24.2, y: 0.03, z: 26.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -906,7 +906,7 @@ PrefabInstance:
     - target: {fileID: 8863085007665213145, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: 'definitions.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 359b7714172790b4182b23348dfbb1f7, type: 2}
+      objectReference: {fileID: 11400000, guid: 4c9f043608d811c48aafcc2315388083, type: 2}
     - target: {fileID: 8863085007665213145, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: 'definitions.Array.data[1]'
       value: 
@@ -1063,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 165029863616483642, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00089536596
+      value: 0.00005841893
       objectReference: {fileID: 0}
     - target: {fileID: 201119187096519801, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
