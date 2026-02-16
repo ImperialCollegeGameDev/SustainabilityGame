@@ -10,14 +10,20 @@ public class CameraMovement : MonoBehaviour
     Transform pivotTransform;
     Vector3 currentVelocity;
     Camera camera;
-    [SerializeField] public Transform tiltTarget;       // whatever you want to rotate - i.e. ground (and its children as buildings)
+    [SerializeField] public Transform tiltTarget;       // kept for compatibility but NOT used by HandleTilt anymore
     public float distance = 40f;
+
+    // base rotation the camera should return to; tilt will be applied as a small offset on top of this
+    private Quaternion baseLocalRotation;
 
     void Start()
     {
         pivotTransform = transform.parent;
         camera = transform.GetComponent<Camera>();
         transform.localPosition = -transform.forward * cameraZoom * distance;
+
+        // capture the camera's stable isometric rotation so tilt becomes a small additive offset
+        baseLocalRotation = transform.localRotation;
     }
 
     void Update()
@@ -32,7 +38,7 @@ public class CameraMovement : MonoBehaviour
         float zoomAction = InputSystem.actions.FindAction("Zoom").ReadValue<float>();
         cameraZoom = Mathf.Clamp(cameraZoom + cameraZoom * zoomAction * -0.1f, cameraZoomMin, cameraZoomMax);
         
-        //transform.localPosition = -transform.forward * distance;
+        // keep current behavior (orthographic zoom). Position logic left unchanged.
         camera.orthographicSize = cameraZoom;
     }
 
@@ -55,20 +61,20 @@ public class CameraMovement : MonoBehaviour
 
     void HandleTilt()
     {
-        float maxAngle = 5f;     // degrees
-        float smooth = 5f;
+        float maxAngle = 2f;     // degrees
+        float smooth = 7f;
 
-        if (Mouse.current == null || tiltTarget == null) return;
+        if (Mouse.current == null) return;
 
         Vector2 mouse = Mouse.current.position.ReadValue();
 
         float mx = (mouse.x / Screen.width - 0.5f) * 2f;
         float my = (mouse.y / Screen.height - 0.5f) * 2f;
 
-        Quaternion target =
-            Quaternion.Euler(my * maxAngle, mx * maxAngle, 0f);
+        // small rotation offset based on mouse; apply on top of the base isometric rotation
+        Quaternion offset = Quaternion.Euler(my * maxAngle, mx * maxAngle, 0f);
+        Quaternion targetRot = baseLocalRotation * offset;
 
-        tiltTarget.localRotation =
-            Quaternion.Slerp(tiltTarget.localRotation, target, Time.deltaTime * smooth);
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRot, Time.deltaTime * smooth);
     }
 }

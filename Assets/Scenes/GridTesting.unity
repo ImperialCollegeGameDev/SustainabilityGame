@@ -392,6 +392,10 @@ PrefabInstance:
       value: 0.20000002
       objectReference: {fileID: 0}
     - target: {fileID: 8316670570233836654, guid: 22743072f714f3a46a9b38a88874a029, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316670570233836654, guid: 22743072f714f3a46a9b38a88874a029, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -622,7 +626,7 @@ MonoBehaviour:
   cameraZoomMin: 10
   cameraZoomMax: 40
   tiltTarget: {fileID: 1652249899}
-  distance: 100
+  distance: 40
 --- !u!1 &1443114432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 165029863616483642, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000030517578
+      value: 0.00089536596
       objectReference: {fileID: 0}
     - target: {fileID: 201119187096519801, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

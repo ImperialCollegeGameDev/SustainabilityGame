@@ -7,6 +7,7 @@ public class GridMouse : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private GameObject placementHighlight;
+    [SerializeField] private Transform groundTransform; // assign the same tiltTarget used by CameraMovement
     public static GridMouse Instance { get; private set; }
 
     private void Awake()
@@ -19,16 +20,18 @@ public class GridMouse : MonoBehaviour
         Instance = this;
     }
 
-    private void Update()
+    private void Update()   
     {
         if (Mouse.current == null) return;
 
         if (GameState.Instance.CurrentMode == GameState.InteractionMode.Place)
         {
             UpdatePlacementHighlight();
-        } else
+        }
+        else
         {
-            placementHighlight.SetActive(false);
+            if (placementHighlight != null)
+                placementHighlight.SetActive(false);
         }
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -40,7 +43,6 @@ public class GridMouse : MonoBehaviour
         {
             TryInteract();
         }
-
     }
 
     void TryInteract() // Decides what to do based on the current mode (select / place / delete)
@@ -78,15 +80,29 @@ public class GridMouse : MonoBehaviour
 
     void UpdatePlacementHighlight() // The highlight square during placement
     {
-        if(!TryGetMouseGridPosition(out Vector2Int gridPos))
+        if (placementHighlight == null) return;
+
+        if (!TryGetMouseGridPosition(out Vector2Int gridPos))
         {
             placementHighlight.SetActive(false);
             return;
         }
 
         placementHighlight.SetActive(true);
-        placementHighlight.transform.position = GridManager.Instance.GridToWorld(gridPos) + new Vector3(0, 0.01f, 0);
+
+        // GridManager.GridToWorld returns a position in the grid's local (un-tilted) coordinate space.
+        Vector3 gridLocalWorldPos = GridManager.Instance.GridToWorld(gridPos);
+
+        // If groundTransform (the tilt target) is set, convert that local position into actual world space
+        // so the highlight follows the tilted ground precisely.
+        Vector3 finalWorldPos = (groundTransform != null)
+            ? groundTransform.TransformPoint(gridLocalWorldPos)
+            : gridLocalWorldPos;
+
+        // slightly raise the highlight so it doesn't z-fight with ground
+        placementHighlight.transform.position = finalWorldPos + new Vector3(0f, 0.01f, 0f);
     }
+
     public bool TryGetMouseGridPosition(out Vector2Int gridPosition)
     {
         gridPosition = default;
@@ -101,11 +117,13 @@ public class GridMouse : MonoBehaviour
         if (!Physics.Raycast(ray, out RaycastHit hit, 200f, groundMask))
             return false;
 
-        // Convert to grid position
-        Vector3 worldPos = hit.point;
-        gridPosition = GridManager.Instance.WorldToGrid(worldPos);
+        // Convert to the grid's local coordinate space (take tilt/parent into account).
+        // If groundTransform is the tilted parent of the grid, get the local point in that transform.
+        Vector3 samplePos = (groundTransform != null) ? groundTransform.InverseTransformPoint(hit.point) : hit.point;
+
+        // Convert to grid position using the grid-local coordinates.
+        gridPosition = GridManager.Instance.WorldToGrid(samplePos);
 
         return true;
     }
-
 }
