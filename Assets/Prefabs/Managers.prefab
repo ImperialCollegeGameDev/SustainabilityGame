@@ -45,10 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameState
   Settings: {fileID: 0}
-  money: 200
   population: 0
-  dissatisfiedPopulation: 0
-  happiness: 100
   OwnedUtilities: []
   TotalEnergy: 0
   TotalEmissions: 0
@@ -276,3 +273,4 @@ MonoBehaviour:
   width: 10
   height: 10
   tileSize: 5
+  terrain: {fileID: 0}
