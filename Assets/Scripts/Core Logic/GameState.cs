@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.XR;
 
 /// <summary>
 /// this is where all UI commands call functions to influence the game logic
@@ -82,6 +80,8 @@ public class GameState : MonoBehaviour
             FastTick(FastTickInterval * Timescale);
             _fastTimer -= FastTickInterval;
         }
+
+        //print(buildingToBePlaced);
     }
 
     public void Tick(float delta) // Delta is the time in seconds since last tick
@@ -109,8 +109,8 @@ public class GameState : MonoBehaviour
 
     public void SetSelectedTile(TileObjectDefinition tile) // Called by UI building selector buttons
     {
-        PostNotification($"Selected building set to {tile.Id}");
         buildingToBePlaced = tile;
+        Notifications.Instance.PostNotification($"Selected building set to {tile.Id}");       // if do "PostNotification" first, next following lines arr never executed!!!
     }
 
     public void RecomputeTotals()
@@ -168,7 +168,7 @@ public class GameState : MonoBehaviour
     {
         SelectionManager.Instance.Deselect();
         CurrentMode = InteractionMode.None;
-        PostNotification("Interaction mode set to None");
+        Notifications.Instance.PostNotification("Interaction mode set to None");
     }
 
     public void SetModeSelect(bool toggleMode = false)
@@ -179,7 +179,7 @@ public class GameState : MonoBehaviour
             return;
         }
         CurrentMode = InteractionMode.Select;
-        PostNotification("Interaction mode set to Select");
+        Notifications.Instance.PostNotification("Interaction mode set to Select");
     }
 
     public void SetModePlace(bool toggleMode = false)
@@ -191,7 +191,7 @@ public class GameState : MonoBehaviour
             return;
         }
         CurrentMode = InteractionMode.Place;
-        PostNotification("Interaction mode set to Place");
+        Notifications.Instance.PostNotification("Interaction mode set to Place");
     }
 
     public void SetModeDelete(bool toggleMode = false)
@@ -203,19 +203,7 @@ public class GameState : MonoBehaviour
             return;
         }
         CurrentMode = InteractionMode.Delete;
-        PostNotification("Interaction mode set to Delete");
-    }
-
-    // Feel free to move this somewhere else.
-    public GameObject notificationsTray;
-    public GameObject notificationPrefab; // Assign in inspector also if you move.
-    public int notificationLifetime = 2;
-    public void PostNotification(string message)
-    {
-        Debug.Log($"Notification: {message}");
-        GameObject notification = Instantiate(notificationPrefab, notificationsTray.transform);
-        notification.GetComponent<TextMeshProUGUI>().SetText(message);
-        Destroy(notification, notificationLifetime);
+        Notifications.Instance.PostNotification("Interaction mode set to Delete");
     }
 
     public void SetTicking(bool value)

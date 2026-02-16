@@ -13,6 +13,8 @@ public class GridManager : MonoBehaviour
     public int height = 10;
     public float tileSize = 1f;
 
+    public Transform terrain;
+
     private Dictionary<Vector2Int, Tile> tiles = new();
 
     private void Awake()
@@ -80,13 +82,15 @@ public class GridManager : MonoBehaviour
 
         if (!GridManager.Instance.CanPlace(def.Size, gridPos))
         {
-            Debug.Log("Cannot place there (out of bounds or occupied).");
+            //Debug.Log("Cannot place there (out of bounds or occupied).");
+            Notifications.Instance.PostNotification($"Cannot place there (out of bounds or occupied).");
             return false;
         }
 
         if (GameState.Instance.money - def.Cost < 0)
         {
-            Debug.Log("Not enough money to place that building.");
+            //Debug.Log("Not enough money to place that building.");
+            Notifications.Instance.PostNotification($"Not enough money to place that building.");
             return false;
         }
 
@@ -107,8 +111,10 @@ public class GridManager : MonoBehaviour
         tileObj.Init(def); // So TileObject can reference back to its definition data if needed
         tileObj.Place(gridPos); // Handles location of the physical model
 
+        tileObj.transform.SetParent(terrain);
+
         GridManager.Instance.Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
-        GameState.Instance.PostNotification($"Created building {def.name}.");
+        Notifications.Instance.PostNotification($"Created building {def.name}.");
 
         // If it's a utility, register it
         if (def.Category == BuildingCategory.Utility)
@@ -134,7 +140,7 @@ public class GridManager : MonoBehaviour
 
         GridManager.Instance.Clear(obj.Origin, def.Size); // Handles grid logic of marking tiles as unoccupied
 
-        GameState.Instance.PostNotification($"Deleted building {def.name}.");
+        Notifications.Instance.PostNotification($"Deleted building {def.name}.");
         // If it's a utility, unregister it
         if (def.Category == BuildingCategory.Utility)
         {
@@ -146,7 +152,8 @@ public class GridManager : MonoBehaviour
         else
         {
             // For non-utility buildings
-            Debug.Log($"Deleted building {def.name}.");
+            //Debug.Log($"Deleted building {def.name}.");
+            Notifications.Instance.PostNotification($"Deleted building {def.name}.");
         }
     }
 
