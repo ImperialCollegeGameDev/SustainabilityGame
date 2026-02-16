@@ -76,7 +76,8 @@ public class GridManager : MonoBehaviour
         var def = GameState.Instance.buildingToBePlaced;
         if (def == null)
         {
-            Debug.LogWarning($"Selected TileObjectDefinition not found");
+            //Debug.LogWarning($"Selected TileObjectDefinition not found");
+            Notifications.Instance.PostNotification($"Select a building first.");
             return false;
         }
 
