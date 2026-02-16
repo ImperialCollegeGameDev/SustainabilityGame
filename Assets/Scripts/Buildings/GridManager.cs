@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -68,6 +69,87 @@ public class GridManager : MonoBehaviour
         return GridToWorld(gridPos);
     }
 
+    public bool TryPlaceSelected(Vector2Int gridPos)
+    {
+        var def = GameState.Instance.buildingToBePlaced;
+        if (def == null)
+        {
+            Debug.LogWarning($"Selected TileObjectDefinition not found");
+            return false;
+        }
+
+        if (!GridManager.Instance.CanPlace(def.Size, gridPos))
+        {
+            Debug.Log("Cannot place there (out of bounds or occupied).");
+            return false;
+        }
+
+        if (GameState.Instance.money - def.Cost < 0)
+        {
+            Debug.Log("Not enough money to place that building.");
+            return false;
+        }
+
+        // Deduct money
+        GameState.Instance.ChangeMoney(-def.Cost);
+
+        // Instantiate visual prefab and place it on grid
+        GameObject obj = Instantiate(def.Prefab);
+
+        TileObject tileObj = obj.GetComponent<TileObject>(); // TileObject is attached to the model
+        if (tileObj == null)
+        {
+            Debug.LogWarning("Prefab missing TileObject component.");
+            Destroy(obj);
+            return false;
+        }
+
+        tileObj.Init(def); // So TileObject can reference back to its definition data if needed
+        tileObj.Place(gridPos); // Handles location of the physical model
+
+        GridManager.Instance.Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
+        GameState.Instance.PostNotification($"Created building {def.name}.");
+
+        // If it's a utility, register it
+        if (def.Category == BuildingCategory.Utility)
+        {
+            // All buildings have an optional Utility field
+            GameState.Instance.OwnedUtilities.Add(def.Utility);
+            GameState.Instance.RecomputeTotals();
+        }
+        else
+        {
+            // For non-utility buildings we may later create other game-models
+        }
+
+        return true;
+    }
+
+    public void Delete(TileObject obj)
+    {
+        obj.Remove(); // Handles visual/model removal
+
+        TileObjectDefinition def = obj.Definition;
+        GameState.Instance.ChangeMoney(def.Cost / 2); // simple 50% refund
+
+        GridManager.Instance.Clear(obj.Origin, def.Size); // Handles grid logic of marking tiles as unoccupied
+
+        GameState.Instance.PostNotification($"Deleted building {def.name}.");
+        // If it's a utility, unregister it
+        if (def.Category == BuildingCategory.Utility)
+        {
+            // All buildings have an optional Utility field
+            GameState.Instance.OwnedUtilities.Remove(def.Utility);
+            GameState.Instance.RecomputeTotals();
+            Debug.Log($"Deleted utility {def.name}.");
+        }
+        else
+        {
+            // For non-utility buildings
+            Debug.Log($"Deleted building {def.name}.");
+        }
+    }
+
     public Boolean CanPlace(Vector2Int size, Vector2Int origin)
     {
         for (int x = 0; x < size.x; x++)
@@ -104,6 +186,11 @@ public class GridManager : MonoBehaviour
                 tiles[pos] = new Tile(pos);
             }
         }
+    }
+
+    public List<TileObject> GetTileObjects()
+    {
+        return tiles.Values.Select(t => t.Occupant).Where(o => o != null).Distinct().ToList();
     }
 
     private void OnDrawGizmos()

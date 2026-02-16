@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c42374c2aa8f08e42aa2c5750d728329, type: 3}
+  m_Name: Standard
+  m_EditorClassIdentifier: Assembly-CSharp::GameSettings
+  EnergyReqPerPerson: 500
+  MaxEmission: 123
+  StartingMoney: 60000
+  TaxRate: 0.5
+  DissatisfactionDanger: 2

@@ -62,14 +62,14 @@ public class GridMouse : MonoBehaviour
                 break;
             case GameState.InteractionMode.Delete:
                 if (obj != null)
-                    GameState.Instance.Delete(obj);
+                    GridManager.Instance.Delete(obj);
                 break;
         }
     }
 
     void TryPlace(Vector2Int gridPos) // Attempts to place the current chosen building at the given position
     {
-        bool placed = GameState.Instance.TryPlaceSelected(gridPos);
+        bool placed = GridManager.Instance.TryPlaceSelected(gridPos);
         if (!placed) // placement failed (invalid location or insufficient funds)
         {
             // feedback can be added here (sound, UI message)
