@@ -100,7 +100,7 @@ public class GameState : MonoBehaviour
 
     public void FastTick(float delta) // For things that are very inexpensive to compute and we want fast feedback on
     {
-        happiness += (projectedHappiness - happiness) * Settings.HappinessVolatility;
+        happiness += (projectedHappiness - happiness) * Math.Min(1, Settings.HappinessVolatility * delta * Timescale);
         if (Math.Abs(happiness - projectedHappiness) < 0.1f)
             happiness = projectedHappiness;
 

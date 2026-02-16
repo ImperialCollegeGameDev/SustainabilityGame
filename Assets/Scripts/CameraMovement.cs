@@ -10,8 +10,7 @@ public class CameraMovement : MonoBehaviour
     Transform pivotTransform;
     Vector3 currentVelocity;
     Camera camera;
-    [SerializeField] public Transform tiltTarget;       // kept for compatibility but NOT used by HandleTilt anymore
-    public float distance = 40f;
+    private float distance = 120f;
 
     // base rotation the camera should return to; tilt will be applied as a small offset on top of this
     private Quaternion baseLocalRotation;
@@ -21,6 +20,7 @@ public class CameraMovement : MonoBehaviour
         pivotTransform = transform.parent;
         camera = transform.GetComponent<Camera>();
         transform.localPosition = -transform.forward * cameraZoom * distance;
+        //transform.TransformDirection();
 
         // capture the camera's stable isometric rotation so tilt becomes a small additive offset
         baseLocalRotation = transform.localRotation;
@@ -61,7 +61,7 @@ public class CameraMovement : MonoBehaviour
 
     void HandleTilt()
     {
-        float maxAngle = 2f;     // degrees
+        float maxAngle = 5f;     // degrees
         float smooth = 7f;
 
         if (Mouse.current == null) return;
@@ -71,8 +71,8 @@ public class CameraMovement : MonoBehaviour
         float mx = (mouse.x / Screen.width - 0.5f) * 2f;
         float my = (mouse.y / Screen.height - 0.5f) * 2f;
 
-        // small rotation offset based on mouse; apply on top of the base isometric rotation
-        Quaternion offset = Quaternion.Euler(my * maxAngle, mx * maxAngle, 0f);
+        // Invert horizontal tilt only: keep vertical (pitch) as before, negate horizontal (yaw)
+        Quaternion offset = Quaternion.Euler(-my * maxAngle, mx * maxAngle, 0f);
         Quaternion targetRot = baseLocalRotation * offset;
 
         transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRot, Time.deltaTime * smooth);
