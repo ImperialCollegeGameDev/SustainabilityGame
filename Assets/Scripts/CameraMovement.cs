@@ -9,7 +9,7 @@ public class CameraMovement : MonoBehaviour
     public float cameraZoomMax;
     Transform pivotTransform;
     Vector3 currentVelocity;
-    Camera camera;
+    Camera cam;
     private float distance = 120f;
 
     // base rotation the camera should return to; tilt will be applied as a small offset on top of this
@@ -18,7 +18,7 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         pivotTransform = transform.parent;
-        camera = transform.GetComponent<Camera>();
+        cam = transform.GetComponent<Camera>();
         transform.localPosition = -transform.forward * cameraZoom * distance;
         //transform.TransformDirection();
 
@@ -39,7 +39,7 @@ public class CameraMovement : MonoBehaviour
         cameraZoom = Mathf.Clamp(cameraZoom + cameraZoom * zoomAction * -0.1f, cameraZoomMin, cameraZoomMax);
         
         // keep current behavior (orthographic zoom). Position logic left unchanged.
-        camera.orthographicSize = cameraZoom;
+        cam.orthographicSize = cameraZoom;
     }
 
     void HandleCameraMovement()
@@ -61,7 +61,7 @@ public class CameraMovement : MonoBehaviour
 
     void HandleTilt()
     {
-        float maxAngle = 5f;     // degrees
+        float maxAngle = 3.5f;     // degrees
         float smooth = 7f;
 
         if (Mouse.current == null) return;

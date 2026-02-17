@@ -24,7 +24,7 @@ public class GameState : MonoBehaviour
         if (Settings == null)
         {
             Debug.LogWarning("GameSettings not assigned in GameState. Using default settings.");
-            Settings = new GameSettings();
+            Settings = ScriptableObject.CreateInstance<GameSettings>();
         }
     }
 
@@ -55,6 +55,8 @@ public class GameState : MonoBehaviour
 
     public int TotalEnergy;
     public int TotalEmissions;
+
+    public int requiredEnergy { get; private set; } = 0;
 
     public TileObjectDefinition buildingToBePlaced;
     public InteractionMode CurrentMode { get; private set; } = InteractionMode.None;
@@ -123,6 +125,8 @@ public class GameState : MonoBehaviour
             TotalEnergy += OwnedUtilities[i].Output;
             TotalEmissions += OwnedUtilities[i].Emission;
         }
+
+        requiredEnergy = population * Settings.EnergyReqPerPerson;
 
         dissatisfiedPopulation = population - TotalEnergy / Settings.EnergyReqPerPerson;
         dissatisfiedPopulation = Math.Max(dissatisfiedPopulation, 0);
