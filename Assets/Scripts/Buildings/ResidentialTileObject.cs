@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 public class ResidentialTileObject : TileObject
 {
-    private float occupancy = 0; // The occupancy at this current moment for this particular TileObject, definition has the max occupancy
+    public float occupancy { get; private set; } = 0; // The occupancy at this current moment for this particular TileObject, definition has the max occupancy
 
     private void OnDestroy()
     {
@@ -18,11 +18,14 @@ public class ResidentialTileObject : TileObject
 
     public override void Tick(float delta)
     {
-        if (Mathf.FloorToInt(occupancy) >= Definition.Residential.MaxOccupancy) return;
-
-        int before = Mathf.FloorToInt(occupancy);
+        if (Mathf.FloorToInt(occupancy) > Definition.Residential.MaxOccupancy) occupancy = Definition.Residential.MaxOccupancy;
 
         float occupancyDelta = (Definition.Residential.MaxOccupancy - occupancy) * 0.05f * delta;
+        float sadPeopleLeavingLmao = (1 - (GameState.Instance.happiness / 100)) * 5 * delta;
+        occupancyDelta -= sadPeopleLeavingLmao;
+
+        if (occupancy + occupancyDelta < 0) occupancyDelta = -occupancy;
+
         occupancy += occupancyDelta;
         occupancy = Mathf.Min(occupancy, Definition.Residential.MaxOccupancy);
 
@@ -30,10 +33,5 @@ public class ResidentialTileObject : TileObject
         {
             occupancy = Definition.Residential.MaxOccupancy;
         }
-
-        int after = Mathf.FloorToInt(occupancy);
-        int deltaInt = after - before;
-
-        if (deltaInt > 0) GameState.Instance.population += deltaInt;
     }
 }
