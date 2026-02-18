@@ -15,7 +15,7 @@ public class SkillTreeUI : MonoBehaviour
 
     void Awake()
     {
-        cg = panelRoot.GetComponent<CanvasGroup>();
+        cg = panelRoot.transform.GetChild(0).GetComponent<CanvasGroup>();
 
         CollectNodes();
         for (int i = 0; i < nodes.Count; i++)
@@ -73,19 +73,19 @@ public class SkillTreeUI : MonoBehaviour
     {
         if (!CanUnlock(node))
         {
-            Debug.Log($"Cannot unlock {node.skillId} yet.");
+            Notifications.Instance.PostNotification($"Cannot unlock {node.skillId} yet.");
             return;
         }
 
         if (GameState.Instance.money - node.cost < 0)
         {
-            Debug.Log($"Not enough money to buy that skill.");
+            Notifications.Instance.PostNotification($"Not enough money to buy that skill.");
             return;
         }
 
         unlocked.Add(node.skillId);
         GameState.Instance.ChangeMoney(-node.cost);
-        Debug.Log($"Unlocked {node.skillId}");
+        Notifications.Instance.PostNotification($"Unlocked {node.skillId}");
         RefreshAll();
     }
 
@@ -116,7 +116,7 @@ public class SkillTreeUI : MonoBehaviour
             nodes.Add(found[i]);
         }
 
-        Debug.Log($"Collected {nodes.Count} skill nodes.");
+        //Debug.Log($"Collected {nodes.Count} skill nodes.");
     }
 
 }

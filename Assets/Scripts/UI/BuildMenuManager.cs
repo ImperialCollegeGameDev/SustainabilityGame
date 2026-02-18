@@ -60,6 +60,7 @@ public class BuildMenuManager : MonoBehaviour
         if (isAnimating) return;
         CloseAll();
         isOpen = false;
+        GameState.Instance.SetModePlace(true);
     }
 
     // ---------- Helpers ----------
@@ -85,6 +86,7 @@ public class BuildMenuManager : MonoBehaviour
     void Close(Transform t)
     {
         StartCoroutine(Scale(t, t.localScale, Vector3.zero, false));
+        GameState.Instance.SetModeNone();
     }
 
     void CloseInstant(Transform t)

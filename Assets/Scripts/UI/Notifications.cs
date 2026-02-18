@@ -22,7 +22,7 @@ public class Notifications : MonoBehaviour
 
     public void PostNotification(string message)
     {
-        Debug.Log($"Notification: {message}");
+        //Debug.Log($"Notification: {message}");
         GameObject notification = Instantiate(notificationPrefab, transform);
         notification.GetComponent<TextMeshProUGUI>().SetText(message);
         Destroy(notification, notificationLifetime);
