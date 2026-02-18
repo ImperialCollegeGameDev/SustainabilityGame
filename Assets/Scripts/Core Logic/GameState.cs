@@ -53,8 +53,9 @@ public class GameState : MonoBehaviour
 
     public List<Utility> OwnedUtilities = new List<Utility>();
 
-    public int TotalEnergy;
-    public int TotalEmissions;
+    public int TotalEnergy = 0;
+    public int TotalEmissions = 0;
+    private int EmissionRate;
 
     public int requiredEnergy { get; private set; } = 0;
 
@@ -110,6 +111,8 @@ public class GameState : MonoBehaviour
 
         TaxThePoor(delta);
         RecomputeTotals();
+        TotalEmissions += Mathf.FloorToInt(EmissionRate * delta);
+        TotalEmissions = Math.Max(TotalEmissions, 0);
     }
 
     public void FastTick(float delta) // For things that are very inexpensive to compute and we want fast feedback on
@@ -131,12 +134,12 @@ public class GameState : MonoBehaviour
     public void RecomputeTotals()
     {
         TotalEnergy = 0;
-        TotalEmissions = 0;
+        EmissionRate = 0;
 
         for (int i = 0; i < OwnedUtilities.Count; i++)
         {
             TotalEnergy += OwnedUtilities[i].Output;
-            TotalEmissions += OwnedUtilities[i].Emission;
+            EmissionRate += OwnedUtilities[i].Emission;
         }
 
         requiredEnergy = population * Settings.EnergyReqPerPerson;

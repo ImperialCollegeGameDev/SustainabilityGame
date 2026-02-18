@@ -20,7 +20,7 @@ MonoBehaviour:
   Utility:
     type: 0
     Output: 500000
-    Emission: 14
+    Emission: 40
   Residential:
     MaxOccupancy: 0
   Infrastructure:

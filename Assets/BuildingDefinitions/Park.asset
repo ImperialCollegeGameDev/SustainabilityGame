@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
   m_Name: Park
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
-  Id: SolarPark
+  Id: Park
   Prefab: {fileID: 4751149540787121050, guid: a89f6d5308d212c4bad86bde5b24c054, type: 3}
   Size: {x: 1, y: 1}
-  Category: 1
+  Category: 0
   Cost: 1000
   Utility:
     type: 0

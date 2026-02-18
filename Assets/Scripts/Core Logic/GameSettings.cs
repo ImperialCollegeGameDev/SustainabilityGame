@@ -4,9 +4,9 @@ using UnityEngine;
 public class GameSettings : ScriptableObject
 {
     public int EnergyReqPerPerson = 500;
-    public int MaxEmission = 123;
+    public int MaxEmission = 10000;
     public int StartingMoney = 77500;
-    public float TaxRate = 0.5f;
-    public float DissatisfactionDanger = 2.0f;
-    public float HappinessVolatility = 0.005f;
+    public float TaxRate = 1f;
+    public float DissatisfactionDanger = 3.0f;
+    public float HappinessVolatility = 0.007f;
 }
