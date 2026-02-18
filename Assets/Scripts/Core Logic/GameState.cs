@@ -61,6 +61,12 @@ public class GameState : MonoBehaviour
     public TileObjectDefinition buildingToBePlaced;
     public InteractionMode CurrentMode { get; private set; } = InteractionMode.None;
 
+    // keeps track of unlocked skills and corresponding buildings
+    HashSet<string> unlockedBuildings = new HashSet<string>();
+    public bool IsBuildingUnlocked(string id) => unlockedBuildings.Contains(id);
+    public event System.Action OnBuildingUnlocksChanged;
+
+
     void Start()
     {
         money = Settings.StartingMoney;
@@ -175,25 +181,25 @@ public class GameState : MonoBehaviour
         Notifications.Instance.PostNotification("Interaction mode set to None");
     }
 
-    public void SetModeSelect(bool toggleMode = false)
+    public void SetModeSelect() //bool toggleMode = false)
     {
-        if (toggleMode && CurrentMode == InteractionMode.Select)
-        {
-            SetModeNone();
-            return;
-        }
+        //if (toggleMode && CurrentMode == InteractionMode.Select)
+        //{
+        //    SetModeNone();
+        //    return;
+        //}
         CurrentMode = InteractionMode.Select;
         Notifications.Instance.PostNotification("Interaction mode set to Select");
     }
 
-    public void SetModePlace(bool toggleMode = false)
+    public void SetModePlace() //bool toggleMode = false)
     {
         SelectionManager.Instance.Deselect();
-        if (toggleMode && CurrentMode == InteractionMode.Place)
-        {
-            SetModeNone();
-            return;
-        }
+        //if (toggleMode && CurrentMode == InteractionMode.Place)
+        //{
+        //    SetModeNone();
+        //    return;
+        //}
         CurrentMode = InteractionMode.Place;
         Notifications.Instance.PostNotification("Interaction mode set to Place");
     }
@@ -208,6 +214,12 @@ public class GameState : MonoBehaviour
         }
         CurrentMode = InteractionMode.Delete;
         Notifications.Instance.PostNotification("Interaction mode set to Delete");
+    }
+
+    public void UnlockBuilding(string id)
+    {
+        if (unlockedBuildings.Add(id))
+            OnBuildingUnlocksChanged?.Invoke();
     }
 
     public void SetTicking(bool value)

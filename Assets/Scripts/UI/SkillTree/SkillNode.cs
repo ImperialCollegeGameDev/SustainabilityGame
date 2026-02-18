@@ -15,6 +15,9 @@ public class SkillNode : MonoBehaviour
     private Button btn;
     private Image img;
 
+    // which skills will this building unlock
+    public List<string> unlockBuildingIds = new List<string>();
+
     private void Awake()
     {
         skillId = gameObject.name;

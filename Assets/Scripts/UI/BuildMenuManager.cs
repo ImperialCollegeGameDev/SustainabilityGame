@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuildMenuManager : MonoBehaviour
 {
@@ -15,6 +16,13 @@ public class BuildMenuManager : MonoBehaviour
     bool isOpen = false;
     bool isAnimating = false;
 
+
+    public List<GameObject> buildingButtons;
+    public float lockedAlpha = 0.2f;
+    public float unlockedAlpha = 1f;
+
+
+
     void Start()
     {
         categoriesRoot.localScale = Vector3.zero;
@@ -27,17 +35,30 @@ public class BuildMenuManager : MonoBehaviour
         }
     }
 
+
+
+    // ---------- Open/Close ----------
+
+
+
     // Main "Build" button
     public void ToggleMainMenu()
     {
         if (isAnimating) return;
 
         if (isOpen)
-            CloseAll();     // closes categories + all submenus
+        {
+            if (isAnimating) return;
+            CloseAll();         // closes categories + all submenus
+            isOpen = false;
+            GameState.Instance.SetModeSelect();
+        }
         else
+        {
             OpenCategories();
-
-        isOpen = !isOpen;
+            isOpen = true;
+            RefreshBuildingButtons();
+        }
     }
 
     // Category button -> open its submenu, close others
@@ -57,13 +78,60 @@ public class BuildMenuManager : MonoBehaviour
     // Any building button in any submenu should call this
     public void OnBuildingSelected()
     {
-        if (isAnimating) return;
-        CloseAll();
-        isOpen = false;
-        GameState.Instance.SetModePlace(true);
+        GameState.Instance.SetModePlace();
     }
 
+
+
+    // ---------- Enable/Disable Buttons ----------
+
+
+
+    public void RefreshBuildingButtons()
+    {
+        if (GameState.Instance == null) return;
+
+        for (int i = 0; i < buildingButtons.Count; i++)
+        {
+            GameObject go = buildingButtons[i];
+            if (go == null) continue;
+
+            string buildingId = go.name;
+
+            bool unlocked = GameState.Instance.IsBuildingUnlocked(buildingId);
+
+            Button btn = go.GetComponent<Button>();
+            Image img = go.GetComponent<Image>();
+
+            if (btn != null)
+                btn.interactable = unlocked;
+
+            if (img != null)
+            {
+                Color c = img.color;
+                c.a = unlocked ? unlockedAlpha : lockedAlpha;
+                img.color = c;
+            }
+        }
+    }
+
+
+    //void OnEnable()
+    //{
+    //    GameState.Instance.OnBuildingUnlocksChanged += RefreshBuildingButtons;
+    //}
+
+    //void OnDisable()
+    //{
+    //    GameState.Instance.OnBuildingUnlocksChanged -= RefreshBuildingButtons;
+    //}
+
+
+
+
     // ---------- Helpers ----------
+
+
 
     void OpenCategories()
     {
@@ -76,6 +144,7 @@ public class BuildMenuManager : MonoBehaviour
             Close(subMenus[i]);
 
         Close(categoriesRoot);
+        isOpen = false;
     }
 
     void Open(Transform t)
@@ -86,7 +155,6 @@ public class BuildMenuManager : MonoBehaviour
     void Close(Transform t)
     {
         StartCoroutine(Scale(t, t.localScale, Vector3.zero, false));
-        GameState.Instance.SetModeNone();
     }
 
     void CloseInstant(Transform t)

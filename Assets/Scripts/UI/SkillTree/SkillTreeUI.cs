@@ -15,7 +15,7 @@ public class SkillTreeUI : MonoBehaviour
 
     void Awake()
     {
-        cg = panelRoot.transform.GetChild(0).GetComponent<CanvasGroup>();
+        cg = panelRoot.transform.GetComponent<CanvasGroup>();
 
         CollectNodes();
         for (int i = 0; i < nodes.Count; i++)
@@ -87,6 +87,10 @@ public class SkillTreeUI : MonoBehaviour
         GameState.Instance.ChangeMoney(-node.cost);
         Notifications.Instance.PostNotification($"Unlocked {node.skillId}");
         RefreshAll();
+
+        for (int i = 0; i < node.unlockBuildingIds.Count; i++)
+            GameState.Instance.UnlockBuilding(node.unlockBuildingIds[i]);
+
     }
 
 
