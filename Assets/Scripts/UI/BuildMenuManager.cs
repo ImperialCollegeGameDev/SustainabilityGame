@@ -75,12 +75,6 @@ public class BuildMenuManager : MonoBehaviour
         Open(submenu);
     }
 
-    // Any building button in any submenu should call this
-    public void OnBuildingSelected()
-    {
-        GameState.Instance.SetModePlace();
-    }
-
 
 
     // ---------- Enable/Disable Buttons ----------
