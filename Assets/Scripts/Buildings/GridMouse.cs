@@ -98,6 +98,7 @@ public class GridMouse : MonoBehaviour
 
         placementHighlight.gameObject.SetActive(true);
         placementHighlight.Place(gridPos);
+        placementHighlight.UpdatePreview();
     }
 
     public bool TryGetMouseGridPosition(out Vector2Int gridPosition)

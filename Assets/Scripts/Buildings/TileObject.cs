@@ -9,6 +9,7 @@ public class TileObject : MonoBehaviour
     public TileObjectDefinition Definition { get; private set; } // Important details about this particular building like its power output, max occupancy etc.
 
     private MeshRenderer[] renderers; // All renderers in this object and its children, for selection highlighting
+    [SerializeField] private MaterialPropertyBlock previewMPB; // For the placement preview material, to set the color based on whether placement is valid
 
     protected virtual void Awake()
     {
@@ -70,8 +71,22 @@ public class TileObject : MonoBehaviour
 
     public void MakePreview()
     {
+        previewMPB = new MaterialPropertyBlock();
+        previewMPB.SetColor("_BaseColor", new UnityEngine.Color(0f, 0.8f, 0.8f, 0.5f));
+
+        foreach (MeshRenderer mr in renderers) {
+            mr.material = GridMouse.Instance.PreviewMaterial;
+            mr.SetPropertyBlock(previewMPB);
+        }
+    }
+
+    public void UpdatePreview()
+    {
+        if (previewMPB == null) return;
+        bool valid = GridManager.Instance.CanPlace(Definition.Size, Origin);
+        previewMPB.SetColor("_BaseColor", valid ? new UnityEngine.Color(0f, 0.8f, 0.8f, 0.5f) : new UnityEngine.Color(0.8f, 0f, 0f, 0.5f));
         foreach (MeshRenderer mr in renderers)
-            mr.SetMaterials(new List<Material> { GridMouse.Instance.PreviewMaterial });
+            mr.SetPropertyBlock(previewMPB);
     }
 
     public virtual void Tick(float delta) { }

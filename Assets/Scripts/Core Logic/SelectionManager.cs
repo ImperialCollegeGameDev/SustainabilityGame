@@ -28,7 +28,6 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
         if (Selected != null) Selected.Deselect();
         Selected = obj;
         obj.Select();
-        Debug.Log("Selected: " + obj.name);
     }
 
     public void Deselect()
@@ -36,7 +35,6 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
         if (Selected != null)
         {
             Selected.Deselect();
-            Debug.Log("Deselected.");
             Selected = null;
         }
     }
