@@ -96,10 +96,16 @@ public class GameState : MonoBehaviour
     {
         if (!isTicking) return;
 
+        population = 0;
+
         List<TileObject> tileObjects = GridManager.Instance.GetTileObjects();
         foreach (TileObject tileObj in tileObjects)
         {
             tileObj.Tick(delta);
+            if (tileObj is ResidentialTileObject res)
+            {
+                population += Mathf.FloorToInt(res.occupancy);
+            }
         }
 
         TaxThePoor(delta);
@@ -111,6 +117,7 @@ public class GameState : MonoBehaviour
         happiness += (projectedHappiness - happiness) * Math.Min(1, Settings.HappinessVolatility * delta * Timescale);
         if (Math.Abs(happiness - projectedHappiness) < 0.1f)
             happiness = projectedHappiness;
+        happiness = Mathf.Max(happiness, 0);
 
         OnHappinessChanged?.Invoke(Mathf.RoundToInt(happiness));
     }
