@@ -176,6 +176,7 @@ public class GameState : MonoBehaviour
 
     public void SetModeNone()
     {
+        GridMouse.Instance.ClearPlacementHighlight();
         SelectionManager.Instance.Deselect();
         CurrentMode = InteractionMode.None;
         Notifications.Instance.PostNotification("Interaction mode set to None");
@@ -189,6 +190,7 @@ public class GameState : MonoBehaviour
         //    return;
         //}
         CurrentMode = InteractionMode.Select;
+        GridMouse.Instance.ClearPlacementHighlight();
         Notifications.Instance.PostNotification("Interaction mode set to Select");
     }
 
@@ -202,6 +204,23 @@ public class GameState : MonoBehaviour
         //}
         CurrentMode = InteractionMode.Place;
         Notifications.Instance.PostNotification("Interaction mode set to Place");
+        if (buildingToBePlaced == null)
+        {
+            Debug.Log("No building selected to preview.");
+            return;
+        } else if (buildingToBePlaced.Prefab == null)
+        {
+            Debug.LogError($"Selected building '{buildingToBePlaced.Id}' does not have a prefab assigned.");
+            return;
+        } else if (buildingToBePlaced.Prefab.GetComponent<TileObject>() == null)
+        {
+            Debug.LogError($"Prefab for building '{buildingToBePlaced.Id}' does not have a TileObject component.");
+            return;
+        }
+        GameObject obj = Instantiate(buildingToBePlaced.Prefab);
+        TileObject tileObj = obj.GetComponent<TileObject>();
+        GridMouse.Instance.SetPreview(tileObj);
+        tileObj.Init(buildingToBePlaced);
     }
 
     public void SetModeDelete(bool toggleMode = false)
@@ -213,6 +232,7 @@ public class GameState : MonoBehaviour
             return;
         }
         CurrentMode = InteractionMode.Delete;
+        GridMouse.Instance.ClearPlacementHighlight();
         Notifications.Instance.PostNotification("Interaction mode set to Delete");
     }
 

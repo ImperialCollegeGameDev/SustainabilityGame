@@ -23,8 +23,16 @@ public class TileObject : MonoBehaviour
     public void Place(Vector2Int origin)
     {
         Origin = origin;
+        if (Definition == null)
+        {
+            Debug.Log("TileObject missing definition data.");
+            return;
+        } else if (Definition.Size == null)
+        {
+            Debug.Log("TileObject defintion missing size data.");
+        }
 
-        Vector3 worldPos = GridManager.Instance.GridToWorld(origin);
+            Vector3 worldPos = GridManager.Instance.GridToWorld(origin);
         transform.position = new Vector3(
                 worldPos.x + (Definition.Size.x - 1) * 0.5f * GridManager.Instance.tileSize,
                 worldPos.y,
@@ -58,6 +66,12 @@ public class TileObject : MonoBehaviour
     {
         foreach (MeshRenderer mr in renderers)
             mr.renderingLayerMask = 1u;
+    }
+
+    public void MakePreview()
+    {
+        foreach (MeshRenderer mr in renderers)
+            mr.SetMaterials(new List<Material> { GridMouse.Instance.PreviewMaterial });
     }
 
     public virtual void Tick(float delta) { }

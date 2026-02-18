@@ -18,5 +18,6 @@ public class BuildingSelector : MonoBehaviour
     void OnClick()
     {
         GameState.Instance.SetSelectedTile(tile);
+        GameState.Instance.SetModePlace();
     }
 }
