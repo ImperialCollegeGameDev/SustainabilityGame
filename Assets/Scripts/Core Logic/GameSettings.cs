@@ -9,4 +9,5 @@ public class GameSettings : ScriptableObject
     public float TaxRate = 1f;
     public float DissatisfactionDanger = 3.0f;
     public float HappinessVolatility = 0.007f;
+    public float SellRatio = 0.5f;
 }

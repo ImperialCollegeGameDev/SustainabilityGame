@@ -137,7 +137,7 @@ public class GridManager : MonoBehaviour
         obj.Remove(); // Handles visual/model removal
 
         TileObjectDefinition def = obj.Definition;
-        GameState.Instance.ChangeMoney(def.Cost / 2); // simple 50% refund
+        GameState.Instance.ChangeMoney(Mathf.FloorToInt(def.Cost * GameState.Instance.Settings.SellRatio)); // simple 50% refund
 
         GridManager.Instance.Clear(obj.Origin, def.Size); // Handles grid logic of marking tiles as unoccupied
 

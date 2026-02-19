@@ -4,6 +4,10 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
 {
     public static SelectionManager Instance { get; private set; }
 
+    public GameObject SelectedTileInfoCanvas;
+    public GameObject SelectedTileInfoPanelPrefab;
+    private GameObject SelectedTileInfoPanel;
+
     public TileObject Selected { get; private set; }
 
     private void Awake()
@@ -15,6 +19,11 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
         else
         {
             Instance = this;
+        }
+
+        if (SelectedTileInfoPanelPrefab == null)
+        {
+            Debug.LogWarning("SelectedTileInfoPanel is not assigned in the inspector.");
         }
     }
 
@@ -28,6 +37,17 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
         if (Selected != null) Selected.Deselect();
         Selected = obj;
         obj.Select();
+        if (SelectedTileInfoPanel != null) Destroy(SelectedTileInfoPanel);
+        SelectedTileInfoPanel = Instantiate(SelectedTileInfoPanelPrefab, SelectedTileInfoCanvas.transform);
+        SelectedTileInfoPanel.TryGetComponent(out TileInfoPanel panel);
+        if (panel != null)
+        {
+            panel.SetTile(obj.Definition);
+        }
+        else
+        {
+            Debug.LogError("SelectedTileInfoPanelPrefab does not have a TileInfoPanel component.");
+        }
     }
 
     public void Deselect()
@@ -36,6 +56,7 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
         {
             Selected.Deselect();
             Selected = null;
+            if (SelectedTileInfoPanel != null) Destroy(SelectedTileInfoPanel);
         }
     }
 }
