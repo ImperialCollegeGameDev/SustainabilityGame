@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Neighbourhood
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: Neighbourhood
+  DisplayName: Neighbourhood
   Prefab: {fileID: 4689204956282939486, guid: 8fee77168298e864db6bf6ddd763808b, type: 3}
   Size: {x: 1, y: 1}
   Category: 1
