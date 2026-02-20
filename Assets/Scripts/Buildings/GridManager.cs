@@ -35,7 +35,7 @@ public class GridManager : MonoBehaviour
         GenerateGrid();
     }
 
-    void GenerateGrid()
+    public void GenerateGrid()
     {
         tiles = new Dictionary<Vector2Int, Tile>();
 
@@ -51,6 +51,14 @@ public class GridManager : MonoBehaviour
         foreach (var tri in hardcodedTriangles)
         {
             SetTileTypeTriangle(tri.Type, tri.A, tri.B, tri.C);
+        }
+    }
+
+    public void DeleteAll()
+    {
+        foreach (TileObject tileObj in GetTileObjects())
+        {
+            Delete(tileObj);
         }
     }
 
@@ -168,9 +176,8 @@ public class GridManager : MonoBehaviour
         return GridToWorld(gridPos);
     }
 
-    public bool TryPlaceSelected(Vector2Int gridPos)
+    public bool TryPlace(TileObjectDefinition def, Vector2Int gridPos)
     {
-        var def = GameState.Instance.buildingToBePlaced;
         if (def == null)
         {
             //Debug.LogWarning($"Selected TileObjectDefinition not found");
@@ -214,16 +221,65 @@ public class GridManager : MonoBehaviour
         GridManager.Instance.Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
         Notifications.Instance.PostNotification($"Created building {def.name}.");
 
-        // If it's a utility, register it
-        if (def.Category == BuildingCategory.Utility)
+        switch(def.Category)
         {
-            // All buildings have an optional Utility field
-            GameState.Instance.OwnedUtilities.Add(def.Utility);
-            GameState.Instance.RecomputeTotals();
+            case BuildingCategory.Utility:
+                GameState.Instance.OwnedUtilities.Add(def.Utility);
+                GameState.Instance.RecomputeTotals();
+                break;
+
         }
-        else
+
+        return true;
+    }
+
+    public bool TryForcePlace(TileObjectDefinition def, Vector2Int gridPos, float occupancy = 0f)
+    {
+        if (def == null)
         {
-            // For non-utility buildings we may later create other game-models
+            //Debug.LogWarning($"Selected TileObjectDefinition not found");
+            Notifications.Instance.PostNotification($"Select a building first.");
+            return false;
+        }
+
+        if (!GridManager.Instance.CanPlace(def.Size, gridPos, def.TileType))
+        {
+            //Debug.Log("Cannot place there (out of bounds or occupied).");
+            Notifications.Instance.PostNotification($"Cannot be constructed at this location.");
+            return false;
+        }
+
+        // Instantiate visual prefab and place it on grid
+        GameObject obj = Instantiate(def.Prefab);
+
+        TileObject tileObj = obj.GetComponent<TileObject>(); // TileObject is attached to the model
+        if (tileObj == null)
+        {
+            Debug.LogWarning("Prefab missing TileObject component.");
+            Destroy(obj);
+            return false;
+        }
+
+        tileObj.Init(def); // So TileObject can reference back to its definition data if needed
+        tileObj.Place(gridPos); // Handles location of the physical model
+
+        tileObj.transform.SetParent(terrain);
+
+        GridManager.Instance.Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
+        Notifications.Instance.PostNotification($"Created building {def.name}.");
+
+        switch (def.Category)
+        {
+            case BuildingCategory.Utility:
+                GameState.Instance.OwnedUtilities.Add(def.Utility);
+                GameState.Instance.RecomputeTotals();
+                break;
+            case BuildingCategory.Residential:
+                if (tileObj is ResidentialTileObject res)
+                {
+                    res.occupancy = occupancy;
+                }
+                break;
         }
 
         return true;

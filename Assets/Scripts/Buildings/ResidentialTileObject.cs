@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 public class ResidentialTileObject : TileObject
 {
-    public float occupancy { get; private set; } = 0; // The occupancy at this current moment for this particular TileObject, definition has the max occupancy
+    public float occupancy = 0; // The occupancy at this current moment for this particular TileObject, definition has the max occupancy
 
     private void OnDestroy()
     {

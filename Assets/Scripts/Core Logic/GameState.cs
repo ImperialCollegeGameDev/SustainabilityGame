@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Overlays;
 using UnityEngine;
 
 /// <summary>
@@ -265,5 +266,28 @@ public class GameState : MonoBehaviour
     public void SetTimescale(float value = 1)
     {
         Timescale = value;
+    }
+
+    public void LoadGame()
+    {
+        SaveState data = SaveManager.Load();
+        if (data == null) return;
+
+        money = data.money;
+        happiness = data.happiness;
+        TotalEmissions = data.emissions;
+
+        GridManager.Instance.DeleteAll();
+        GridManager.Instance.GenerateGrid();
+
+        foreach (TileSaveData tileSave in data.tiles)
+        {
+            GridManager.Instance.TryForcePlace(tileSave.def, tileSave.gridPosition, tileSave.occupancy);
+        }
+    }
+
+    public void SaveGame()
+    {
+        SaveManager.Save();
     }
 }
