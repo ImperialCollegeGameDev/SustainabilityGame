@@ -69,7 +69,7 @@ public class GridMouse : MonoBehaviour
 
     void TryPlace(Vector2Int gridPos) // Attempts to place the current chosen building at the given position
     {
-        bool placed = GridManager.Instance.TryPlaceSelected(gridPos);
+        bool placed = GridManager.Instance.TryPlace(GameState.Instance.buildingToBePlaced, gridPos);
         if (!placed) // placement failed (invalid location or insufficient funds)
         {
             // feedback can be added here (sound, UI message)
