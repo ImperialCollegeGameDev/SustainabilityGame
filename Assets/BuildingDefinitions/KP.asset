@@ -16,8 +16,9 @@ MonoBehaviour:
   DisplayName: KP
   Prefab: {fileID: 5940491066109206705, guid: 82ae42f77c2c92a42940f2a20cdb5b94, type: 3}
   Size: {x: 1, y: 1}
+  TileType: 1
   Category: 1
-  Cost: 40000
+  Cost: 100000
   Utility:
     type: 1
     Output: 40

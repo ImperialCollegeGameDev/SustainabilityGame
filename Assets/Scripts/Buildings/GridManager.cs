@@ -82,8 +82,6 @@ public class GridManager : MonoBehaviour
             new Vector2Int(0, 35)),
     };
 
-    private int lastHardcodedHash = 0;
-
     private void SetTileTypeRectangle(TileType type, int x1, int y1, int x2, int y2)
     {
         for (int x = x1; x <= x2; x++)
