@@ -8,6 +8,7 @@ public class TileInfoPanel : MonoBehaviour
     private TileStatDisplay StatDisplay;
 
     public TextMeshProUGUI TileNameText;
+    public UpgradesButton UpgradesButton;
     public VerticalLayoutGroup TileStatList;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,8 +28,13 @@ public class TileInfoPanel : MonoBehaviour
         }
     }
 
-    public void SetTile(TileObjectDefinition def)
+    public void SetTile(TileObject tileObj)
     {
+        if (tileObj == null) {
+            Debug.LogError("TileObject passed to SetTile is null.");
+            return;
+        }
+        TileObjectDefinition def = tileObj.Definition;
         // Clear previous stats
         foreach (Transform child in TileStatList.transform)
         {
@@ -41,6 +47,16 @@ public class TileInfoPanel : MonoBehaviour
         {
             if (stat.Name == "Cost") continue;
             CreateStatDisplay(stat.Name, stat.Value.ToString(), stat.Color);
+        }
+
+        if (tileObj.Definition.UpgradeTree != null)
+        {
+            UpgradesButton.gameObject.SetActive(true);
+            UpgradesButton.tileObject = tileObj;
+        }
+        else
+        {
+            UpgradesButton.gameObject.SetActive(false);
         }
     }
 

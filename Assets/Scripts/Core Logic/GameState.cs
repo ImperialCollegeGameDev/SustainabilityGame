@@ -44,7 +44,6 @@ public class GameState : MonoBehaviour
     public Action<int> OnEmissionsChanged;
     public Action<int> OnPopulationChanged;
     public Action<int> OnHappinessChanged;
-    public Action<List<Utility>> OnUtilitiesChanged;
 
     public int money { get; private set; }
     public int population = 0;
@@ -52,11 +51,8 @@ public class GameState : MonoBehaviour
     private int projectedHappiness = 100;
     public float happiness { get; private set; } = 100;
 
-    public List<Utility> OwnedUtilities = new List<Utility>();
-
-    public int TotalEnergy = 0;
+    public int Power = 0;
     public int TotalEmissions = 0;
-    private int EmissionRate;
 
     public int requiredEnergy { get; private set; } = 0;
 
@@ -72,7 +68,7 @@ public class GameState : MonoBehaviour
     void Start()
     {
         money = Settings.StartingMoney;
-        RecomputeTotals();
+        UpdateHappinessAndDisplay();
     }
 
     private void Update()
@@ -99,6 +95,7 @@ public class GameState : MonoBehaviour
         if (!isTicking) return;
 
         population = 0;
+        Power = 0;
 
         List<TileObject> tileObjects = GridManager.Instance.GetTileObjects();
         foreach (TileObject tileObj in tileObjects)
@@ -110,10 +107,10 @@ public class GameState : MonoBehaviour
             }
         }
 
-        TaxThePoor(delta);
-        RecomputeTotals();
-        TotalEmissions += Mathf.FloorToInt(EmissionRate * delta);
         TotalEmissions = Math.Max(TotalEmissions, 0);
+
+        TaxThePoor(delta);
+        UpdateHappinessAndDisplay();
     }
 
     public void FastTick(float delta) // For things that are very inexpensive to compute and we want fast feedback on
@@ -132,20 +129,11 @@ public class GameState : MonoBehaviour
         Notifications.Instance.PostNotification($"Selected building set to {tile.Id}");       // if do "PostNotification" first, next following lines arr never executed!!!
     }
 
-    public void RecomputeTotals()
+    public void UpdateHappinessAndDisplay()
     {
-        TotalEnergy = 0;
-        EmissionRate = 0;
-
-        for (int i = 0; i < OwnedUtilities.Count; i++)
-        {
-            TotalEnergy += OwnedUtilities[i].Output;
-            EmissionRate += OwnedUtilities[i].Emission;
-        }
-
         requiredEnergy = population * Settings.EnergyReqPerPerson;
 
-        dissatisfiedPopulation = population - TotalEnergy / Settings.EnergyReqPerPerson;
+        dissatisfiedPopulation = population - Power / Settings.EnergyReqPerPerson;
         dissatisfiedPopulation = Math.Max(dissatisfiedPopulation, 0);
 
         projectedHappiness = Mathf.RoundToInt(100f * (1f - TotalEmissions / (float) Settings.MaxEmission));
@@ -165,9 +153,8 @@ public class GameState : MonoBehaviour
     private void StatChangeUpdate()
     {
         OnMoneyChanged?.Invoke(money);
-        OnEnergyChanged?.Invoke(TotalEnergy);
+        OnEnergyChanged?.Invoke(Power);
         OnEmissionsChanged?.Invoke(TotalEmissions);
-        OnUtilitiesChanged?.Invoke(new List<Utility>(OwnedUtilities));
         OnPopulationChanged?.Invoke(population);
     }
 

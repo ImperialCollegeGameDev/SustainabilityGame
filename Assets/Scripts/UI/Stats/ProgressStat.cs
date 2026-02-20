@@ -44,7 +44,7 @@ public class ProgressStat : MonoBehaviour
                 break;
             case StatType.Energy:
                 if (GameState.Instance.requiredEnergy < 1) final = 1;
-                else final = GameState.Instance.TotalEnergy / (float) GameState.Instance.requiredEnergy;
+                else final = GameState.Instance.Power / (float) GameState.Instance.requiredEnergy;
                 break;
             default:
                 Debug.LogWarning($"ProgressStat: Unsupported stat type {stat}. Defaulting to 0.");

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3091782548715473482}
   - component: {fileID: 6743259495767469617}
   - component: {fileID: 5927397029343574633}
-  - component: {fileID: 8296570768753111323}
+  - component: {fileID: 3388300896784556896}
   m_Layer: 0
   m_Name: SolarPark
   m_TagString: Untagged
@@ -91,7 +91,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8296570768753111323
+--- !u!114 &3388300896784556896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

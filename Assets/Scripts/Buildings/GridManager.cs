@@ -221,14 +221,7 @@ public class GridManager : MonoBehaviour
         GridManager.Instance.Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
         Notifications.Instance.PostNotification($"Created building {def.name}.");
 
-        switch(def.Category)
-        {
-            case BuildingCategory.Utility:
-                GameState.Instance.OwnedUtilities.Add(def.Utility);
-                GameState.Instance.RecomputeTotals();
-                break;
-
-        }
+        GameState.Instance.Tick(0.0001f);
 
         return true;
     }
@@ -270,10 +263,6 @@ public class GridManager : MonoBehaviour
 
         switch (def.Category)
         {
-            case BuildingCategory.Utility:
-                GameState.Instance.OwnedUtilities.Add(def.Utility);
-                GameState.Instance.RecomputeTotals();
-                break;
             case BuildingCategory.Residential:
                 if (tileObj is ResidentialTileObject res)
                 {
@@ -295,20 +284,6 @@ public class GridManager : MonoBehaviour
         GridManager.Instance.Clear(obj.Origin, def.Size); // Handles grid logic of marking tiles as unoccupied
 
         Notifications.Instance.PostNotification($"Deleted building {def.name}.");
-        // If it's a utility, unregister it
-        if (def.Category == BuildingCategory.Utility)
-        {
-            // All buildings have an optional Utility field
-            GameState.Instance.OwnedUtilities.Remove(def.Utility);
-            GameState.Instance.RecomputeTotals();
-            Debug.Log($"Deleted utility {def.name}.");
-        }
-        else
-        {
-            // For non-utility buildings
-            //Debug.Log($"Deleted building {def.name}.");
-            Notifications.Instance.PostNotification($"Deleted building {def.name}.");
-        }
     }
 
     public Boolean CanPlace(Vector2Int size, Vector2Int origin, TileType tileType)

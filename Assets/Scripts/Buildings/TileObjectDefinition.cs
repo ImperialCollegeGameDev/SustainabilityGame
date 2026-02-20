@@ -18,6 +18,8 @@ public class TileObjectDefinition : ScriptableObject
     public GameObject Prefab;
     public Vector2Int Size = Vector2Int.one;
     public TileType TileType = TileType.Normal;
+    public TickBehaviour TickLogic;
+    public UpgradeTree UpgradeTree;
 
     [Header("Gameplay")]
     public BuildingCategory Category = BuildingCategory.Utility;
@@ -73,4 +75,9 @@ public class StatRow
         Value = value;
         Color = color;
     }
+}
+
+public abstract class TickBehaviour : ScriptableObject
+{
+    public abstract void Tick(TileObject instance, float delta);
 }

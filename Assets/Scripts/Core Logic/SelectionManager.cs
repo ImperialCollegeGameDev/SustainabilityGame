@@ -4,7 +4,6 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
 {
     public static SelectionManager Instance { get; private set; }
 
-    public GameObject SelectedTileInfoCanvas;
     public GameObject SelectedTileInfoPanelPrefab;
     private GameObject SelectedTileInfoPanel;
 
@@ -38,11 +37,11 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
         Selected = obj;
         obj.Select();
         if (SelectedTileInfoPanel != null) Destroy(SelectedTileInfoPanel);
-        SelectedTileInfoPanel = Instantiate(SelectedTileInfoPanelPrefab, SelectedTileInfoCanvas.transform);
+        SelectedTileInfoPanel = Instantiate(SelectedTileInfoPanelPrefab, SelectedTileInfo.Instance.transform);
         SelectedTileInfoPanel.TryGetComponent(out TileInfoPanel panel);
         if (panel != null)
         {
-            panel.SetTile(obj.Definition);
+            panel.SetTile(obj);
         }
         else
         {

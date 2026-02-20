@@ -26,7 +26,7 @@ public class DisplayStat : MonoBehaviour
 
     // keep references so we can unsubscribe cleanly
     private Action<int> intSubscription;
-    private Action<List<Utility>> utilitiesSubscription;
+    private Action<List<UtilityDefault>> utilitiesSubscription;
 
     void Start()
     {
@@ -54,19 +54,13 @@ public class DisplayStat : MonoBehaviour
             case StatType.Energy:
                 intSubscription = UpdateFromInt;
                 GameState.Instance.OnEnergyChanged += intSubscription;
-                UpdateFromInt(GameState.Instance.TotalEnergy);
+                UpdateFromInt(GameState.Instance.Power);
                 break;
 
             case StatType.Emissions:
                 intSubscription = UpdateFromInt;
                 GameState.Instance.OnEmissionsChanged += intSubscription;
                 UpdateFromInt(GameState.Instance.TotalEmissions);
-                break;
-
-            case StatType.UtilitiesCount:
-                utilitiesSubscription = UpdateFromUtilities;
-                GameState.Instance.OnUtilitiesChanged += utilitiesSubscription;
-                UpdateFromUtilities(new List<Utility>(GameState.Instance.OwnedUtilities));
                 break;
 
             case StatType.Population:
@@ -93,7 +87,7 @@ public class DisplayStat : MonoBehaviour
         text.text = $"{prefix}{FormatNumber(value)}{suffix}";
     }
 
-    void UpdateFromUtilities(List<Utility> utilities)
+    void UpdateFromUtilities(List<UtilityDefault> utilities)
     {
         if (text == null) return;
         text.text = $"{prefix}{FormatNumber(utilities?.Count ?? 0)}{suffix}";
@@ -142,12 +136,6 @@ public class DisplayStat : MonoBehaviour
             GameState.Instance.OnPopulationChanged -= intSubscription;
             GameState.Instance.OnHappinessChanged -= intSubscription;
             intSubscription = null;
-        }
-
-        if (utilitiesSubscription != null)
-        {
-            GameState.Instance.OnUtilitiesChanged -= utilitiesSubscription;
-            utilitiesSubscription = null;
         }
     }
 }
