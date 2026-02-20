@@ -40,16 +40,12 @@ public class TileInfoPanel : MonoBehaviour
         foreach (StatRow stat in def.GetStats())
         {
             if (stat.Name == "Cost") continue;
-            Debug.Log("Stat name: " + stat.Name);
-            Debug.Log("Stat value: " + stat.Value.ToString());
-            Debug.Log("Stat color: " + stat.Color);
             CreateStatDisplay(stat.Name, stat.Value.ToString(), stat.Color);
         }
     }
 
     private void CreateStatDisplay(string name, string value, Color color)
     {
-        Debug.Log("Creating stat display");
         GameObject obj = Instantiate(_StatDisplayPrefab, TileStatList.transform, false);
 
         if (!obj.TryGetComponent(out TileStatDisplay statDisplay))
