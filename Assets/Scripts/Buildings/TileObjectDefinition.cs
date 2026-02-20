@@ -17,6 +17,7 @@ public class TileObjectDefinition : ScriptableObject
     public string DisplayName;
     public GameObject Prefab;
     public Vector2Int Size = Vector2Int.one;
+    public TileType TileType = TileType.Normal;
 
     [Header("Gameplay")]
     public BuildingCategory Category = BuildingCategory.Utility;

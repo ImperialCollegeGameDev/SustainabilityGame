@@ -83,7 +83,7 @@ public class TileObject : MonoBehaviour
     public void UpdatePreview()
     {
         if (previewMPB == null) return;
-        bool valid = GridManager.Instance.CanPlace(Definition.Size, Origin);
+        bool valid = GridManager.Instance.CanPlace(Definition.Size, Origin, Definition.TileType);
         previewMPB.SetColor("_BaseColor", valid ? new UnityEngine.Color(0f, 0.8f, 0.8f, 0.5f) : new UnityEngine.Color(0.8f, 0f, 0f, 0.5f));
         foreach (MeshRenderer mr in renderers)
             mr.SetPropertyBlock(previewMPB);
