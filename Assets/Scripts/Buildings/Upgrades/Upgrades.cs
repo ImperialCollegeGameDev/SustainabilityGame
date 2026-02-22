@@ -5,6 +5,21 @@ using UnityEngine;
 public class UpgradeTree : ScriptableObject
 {
     public UpgradePath[] Paths;
+
+    public bool Contains(Upgrade upgrade)
+    {
+        foreach (UpgradePath path in Paths)
+        {
+            foreach (Upgrade up in path.Upgrades)
+            {
+                if (up.Id == upgrade.Id)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
 
 [System.Serializable]

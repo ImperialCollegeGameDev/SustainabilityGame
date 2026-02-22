@@ -9,7 +9,7 @@ public class ProgressStat : MonoBehaviour
     [SerializeField] private Image img;
     [SerializeField] private StatType stat = StatType.Emissions;
 
-    private const float speed = 0.7f;
+    public float speed = 0.7f;
 
     void Start()
     {

@@ -7,7 +7,7 @@ public class Notifications : MonoBehaviour
 
     //public GameObject notificationsTray;
     public GameObject notificationPrefab; // Assign in inspector also if you move.
-    public int notificationLifetime = 2;
+    public int notificationLifetime = 4;
 
     private void Awake()
     {

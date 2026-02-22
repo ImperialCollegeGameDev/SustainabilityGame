@@ -1,9 +1,13 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class UpgradeScreen : MonoBehaviour
 {
     public static UpgradeScreen Instance { get; private set; }
+
+    private List<UpgradePathUI> upgradePaths;
 
     void Awake()
     {
@@ -19,15 +23,13 @@ public class UpgradeScreen : MonoBehaviour
     public GameObject PathContainer;
     public UpgradePathUI UpgradePathPrefab;
     public TextMeshProUGUI NameText;
+    public TextMeshProUGUI PointsText;
 
-    public void Open(TileObject tileObject)
+    private TileTypeState currentTile;
+
+    public void Open(TileObjectDefinition def)
     {
-        Debug.Log("Open called!");
-        if (tileObject == null)
-        {
-            Debug.LogError("UpgradeScreen.Open called with null tileObject.");
-            return;
-        }
+        upgradePaths = new List<UpgradePathUI>();
         GetComponent<Canvas>().enabled = true;
         // Clear existing paths
         foreach (Transform child in PathContainer.transform)
@@ -35,16 +37,28 @@ public class UpgradeScreen : MonoBehaviour
             Destroy(child.gameObject);
         }
         // Add new paths
-        foreach (UpgradePath path in tileObject.Definition.UpgradeTree.Paths)
+        foreach (UpgradePath path in def.UpgradeTree.Paths)
         {
             UpgradePathUI upgradePath = Instantiate(UpgradePathPrefab, PathContainer.transform, false);
-            upgradePath.Init(path);
+            upgradePaths.Add(upgradePath);
+            upgradePath.Init(path, def);
         }
-        NameText.text = tileObject.Definition.DisplayName;
+        NameText.text = def.DisplayName;
+        currentTile = TileStateCatalog.Instance.Get(def.Id);
+        UpdateInfo();
     }
 
     public void Close()
     {
         GetComponent<Canvas>().enabled = false;
+    }
+
+    public void UpdateInfo()
+    {
+        PointsText.text = $"{currentTile.policyPoints}";
+        foreach (var path in upgradePaths)
+        {
+            path.UpdateInfo();
+        }
     }
 }

@@ -24,6 +24,6 @@ public class UpgradesButton : MonoBehaviour
             Debug.LogError("UpgradeScreen instance is not set.");
             return;
         }
-        UpgradeScreen.Instance.Open(tileObject);
+        UpgradeScreen.Instance.Open(tileObject.Definition);
     }
 }
