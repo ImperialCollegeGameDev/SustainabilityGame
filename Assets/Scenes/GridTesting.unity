@@ -4084,7 +4084,7 @@ Transform:
   m_GameObject: {fileID: 1443114432}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 8.75, y: 6.07, z: -3.59}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5438,6 +5438,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7284759676113616405, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
+      propertyPath: startHour
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
+      propertyPath: nightDarkBlue.b
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
+      propertyPath: nightDarkBlue.g
+      value: 0.7134136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
+      propertyPath: nightDarkBlue.r
+      value: 0.6517889
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
+      propertyPath: animateIntensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
+      propertyPath: directionalLight
+      value: 
+      objectReference: {fileID: 1443114434}
+    - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
+      propertyPath: manualDayLengthSeconds
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8863085007665213145, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}

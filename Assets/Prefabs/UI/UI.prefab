@@ -421,7 +421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 240, y: 0}
+  m_AnchoredPosition: {x: 184, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8633826748329178020
@@ -850,6 +850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSelector
   tile: {fileID: 11400000, guid: 4c9f043608d811c48aafcc2315388083, type: 2}
+  tooltip: {fileID: 0}
 --- !u!1 &720617804034266221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,6 +1564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProgressStat
   img: {fileID: 2961395682093121785}
   stat: 5
+  speed: 0.7
 --- !u!1 &2194873417513412416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,6 +2311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSelector
   tile: {fileID: 11400000, guid: 6738b1dd84a225a4890535f0091bae57, type: 2}
+  tooltip: {fileID: 0}
 --- !u!1 &4355671121796977664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,6 +2593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSelector
   tile: {fileID: 11400000, guid: 2747d53983fd07344bc0614663e3b235, type: 2}
+  tooltip: {fileID: 0}
 --- !u!1 &4816358874377763212
 GameObject:
   m_ObjectHideFlags: 0
@@ -2724,6 +2728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSelector
   tile: {fileID: 11400000, guid: b7172f92d761cb84dac429dc48d55709, type: 2}
+  tooltip: {fileID: 0}
 --- !u!1 &4960595731921180646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3784,6 +3789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuildingSelector
   tile: {fileID: 11400000, guid: 359b7714172790b4182b23348dfbb1f7, type: 2}
+  tooltip: {fileID: 0}
 --- !u!1 &6009519628108650235
 GameObject:
   m_ObjectHideFlags: 0
@@ -4590,6 +4596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProgressStat
   img: {fileID: 5896063256346896047}
   stat: 2
+  speed: 0.7
 --- !u!1 &7487402907944542739
 GameObject:
   m_ObjectHideFlags: 0
@@ -4834,6 +4841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProgressStat
   img: {fileID: 6296895114270473132}
   stat: 1
+  speed: 0.7
 --- !u!1 &7632144620424243506
 GameObject:
   m_ObjectHideFlags: 0
@@ -5001,7 +5009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37, y: 0}
+  m_AnchoredPosition: {x: -93, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7382173108074483046
