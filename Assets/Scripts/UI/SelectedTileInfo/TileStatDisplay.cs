@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TileStatDisplay : MonoBehaviour
@@ -24,5 +25,10 @@ public class TileStatDisplay : MonoBehaviour
         this.statValueText.text = statValue;
         this.statNameText.color = statColor;
         this.statValueText.color = statColor;
+
+        if (statName == "Power")
+        {
+            statValueText.text = NumberFormatter.FormatPower(double.Parse(statValue));
+        }
     }
 }

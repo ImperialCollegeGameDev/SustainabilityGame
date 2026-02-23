@@ -35,5 +35,6 @@ public class Upgrade
     public string Id;
     public string DisplayName;
     public string Description;
-    public int Cost;
+    public int PointsCost;
+    public long MoneyCost;
 }

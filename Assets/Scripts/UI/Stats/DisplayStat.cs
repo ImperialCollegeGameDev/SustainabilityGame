@@ -20,13 +20,13 @@ public enum StatType
 public class DisplayStat : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
-    [SerializeField] private StatType stat = StatType.Money;
+    public StatType stat = StatType.Money;
     [SerializeField] private string prefix = "";
     [SerializeField] private string suffix = "";
 
     // keep references so we can unsubscribe cleanly
     private Action<int> intSubscription;
-    private Action<List<UtilityDefault>> utilitiesSubscription;
+    private Action<long> longSubscription;
 
     void Start()
     {
@@ -46,9 +46,9 @@ public class DisplayStat : MonoBehaviour
         switch (stat)
         {
             case StatType.Money:
-                intSubscription = UpdateFromInt;
-                GameState.Instance.OnMoneyChanged += intSubscription;
-                UpdateFromInt(GameState.Instance.money);
+                longSubscription = UpdateFromLong;
+                GameState.Instance.OnMoneyChanged += longSubscription;
+                UpdateFromLong(GameState.Instance.money);
                 break;
 
             case StatType.Energy:
@@ -81,46 +81,24 @@ public class DisplayStat : MonoBehaviour
         }
     }
 
-    void UpdateFromInt(int value)
+    void UpdateFromInt(int _value)
     {
+        long value = _value;
         if (text == null) return;
-        text.text = $"{prefix}{FormatNumber(value)}{suffix}";
+        if (stat == StatType.Energy) value *= 1000;
+        String formattedValue = NumberFormatter.Format(value, true);
+        text.text = $"{prefix}{formattedValue}{suffix}".Trim();
     }
 
-    void UpdateFromUtilities(List<UtilityDefault> utilities)
+    void UpdateFromLong(long value)
     {
         if (text == null) return;
-        text.text = $"{prefix}{FormatNumber(utilities?.Count ?? 0)}{suffix}";
-    }
-
-    /// <summary>
-    /// Formats integer values:
-    /// - less than 1000: as-is ("999")
-    /// - 1,000 to 999,999: one decimal 'k' ("3356" -> "3.3k")
-    /// - 1,000,000 and above: one decimal 'm' ("3356750" -> "3.3m")
-    /// Keeps sign for negative numbers and trims trailing ".0" (e.g. "1.0k" -> "1k").
-    /// </summary>
-    private string FormatNumber(int value)
-    {
-        int absValue = Math.Abs(value);
-        string sign = value < 0 ? "-" : "";
-
-        if (absValue < 1000)
+        if (stat == StatType.Money)
         {
-            return sign + absValue.ToString() + " ";
+            text.text = NumberFormatter.FormatMoney(value, false);
+            return;
         }
-
-        if (absValue < 1_000_000)
-        {
-            float v = absValue / 1000f;
-            // "0.#" yields one decimal if needed, no decimal if .0
-            string s = v.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
-            return sign + s + " K";
-        }
-
-        float mv = absValue / 1_000_000f;
-        string sm = mv.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture);
-        return sign + sm + " M";
+        text.text = $"{prefix}{NumberFormatter.Format(value, true)}{suffix}".Trim();
     }
 
     void OnDestroy()
@@ -130,7 +108,7 @@ public class DisplayStat : MonoBehaviour
         if (intSubscription != null)
         {
             // Try unsubscribing from all int events (safe even if not subscribed)
-            GameState.Instance.OnMoneyChanged -= intSubscription;
+            GameState.Instance.OnMoneyChanged -= longSubscription;
             GameState.Instance.OnEnergyChanged -= intSubscription;
             GameState.Instance.OnEmissionsChanged -= intSubscription;
             GameState.Instance.OnPopulationChanged -= intSubscription;

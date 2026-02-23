@@ -37,7 +37,7 @@ public class ProgressStat : MonoBehaviour
         switch (stat)
         {
             case StatType.Emissions:
-                final = GameState.Instance.TotalEmissions / (float) GameState.Instance.Settings.MaxEmission;
+                final = GameState.Instance.EmissionsPercentage;
                 break;
             case StatType.Happiness:
                 final = GameState.Instance.happiness / 100;

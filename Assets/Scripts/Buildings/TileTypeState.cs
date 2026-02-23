@@ -8,6 +8,9 @@ public class TileTypeState // Can store runtime info about a specific type of bu
     public TileObjectDefinition Definition;
     private HashSet<Upgrade> unlockedUpgrades = new HashSet<Upgrade>();
     public int policyPoints = 0; // Points that can be spent on upgrades for this building
+    public float timeSpent = 0; // Multiple copies of the building can stack this up to unlock upgrades
+    private List<int> rewardThresholds = new List<int>() { 30, 60, 120, 180, 360 };
+    private int currentPointReward = 1; // The number of policy points awarded for the next threshold, increases by 1 each time
 
     public void UnlockUpgrade(Upgrade upgrade)
     {
@@ -77,5 +80,17 @@ public class TileTypeState // Can store runtime info about a specific type of bu
                     return upgrade;
         }
         return null;
+    }
+
+    public void AddTime(float delta)
+    {
+        timeSpent += delta;
+        if (rewardThresholds.Count > 0 && timeSpent >= rewardThresholds[0])
+        {
+            policyPoints += currentPointReward;
+            Notifications.Instance.PostNotification($"Gained {currentPointReward} policy points for {Definition.DisplayName}! Total: {policyPoints}");
+            currentPointReward++;
+            rewardThresholds.RemoveAt(0);
+        }
     }
 }

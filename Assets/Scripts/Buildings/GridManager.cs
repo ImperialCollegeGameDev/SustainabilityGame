@@ -39,7 +39,7 @@ public class GridManager : MonoBehaviour
     {
         tiles = new Dictionary<Vector2Int, Tile>();
 
-        for (int x = 0; x < width; x++) // Don't show this to Nic. Wu
+        for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
@@ -281,7 +281,7 @@ public class GridManager : MonoBehaviour
         TileObjectDefinition def = obj.Definition;
         GameState.Instance.ChangeMoney(Mathf.FloorToInt(def.Cost * GameState.Instance.Settings.SellRatio)); // simple 50% refund
 
-        GridManager.Instance.Clear(obj.Origin, def.Size); // Handles grid logic of marking tiles as unoccupied
+        Clear(obj.Origin, def.Size); // Handles grid logic of marking tiles as unoccupied
 
         Notifications.Instance.PostNotification($"Deleted building {def.name}.");
     }
@@ -313,6 +313,47 @@ public class GridManager : MonoBehaviour
         }
     }
 
+# nullable enable
+    public HashSet<TileObject> GetWithinRadius(Vector2Int origin, Vector2Int buildingSize, int squareRadius, Func<TileObject, bool>? predicate = null)
+    {
+        // Ensure building size is at least 1x1
+        Vector2Int size = new Vector2Int(Math.Max(1, buildingSize.x), Math.Max(1, buildingSize.y));
+
+        // Use a set to avoid duplicates when multiple tiles of the same building are in range
+        HashSet<TileObject> resultSet = new HashSet<TileObject>();
+
+        // compute expanded bounding box that includes the building plus the outer squareRadius
+        int startX = origin.x - squareRadius;
+        int endX = origin.x + size.x - 1 + squareRadius;
+        int startY = origin.y - squareRadius;
+        int endY = origin.y + size.y - 1 + squareRadius;
+
+        for (int x = startX; x <= endX; x++)
+        {
+            for (int y = startY; y <= endY; y++)
+            {
+                // skip tiles that are inside the building footprint itself
+                if (x >= origin.x && x <= origin.x + size.x - 1 &&
+                    y >= origin.y && y <= origin.y + size.y - 1)
+                {
+                    continue;
+                }
+
+                if (!TryGetTile(new Vector2Int(x, y), out Tile tile)) continue;
+
+                TileObject occupant = tile.Occupant;
+                if (occupant != null)
+                {
+                    if (predicate == null || predicate(occupant))
+                        resultSet.Add(occupant);
+                }
+            }
+        }
+
+        return resultSet;
+    }
+# nullable disable
+
     public void Clear(Vector2Int origin, Vector2Int size)
     {
         for (int x = 0; x < size.x; x++)
@@ -320,7 +361,7 @@ public class GridManager : MonoBehaviour
             for (int y = 0; y < size.y; y++)
             {
                 Vector2Int pos = new Vector2Int(origin.x + x, origin.y + y);
-                tiles[pos] = new Tile(pos);
+                tiles[pos].Occupant = null;
             }
         }
     }

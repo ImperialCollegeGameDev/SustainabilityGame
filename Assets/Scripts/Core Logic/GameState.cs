@@ -39,20 +39,25 @@ public class GameState : MonoBehaviour
     private float _fastTimer = 0f;
 
     // UI callbacks (UI scripts can subscribe to these)
-    public Action<int> OnMoneyChanged;
+    public Action<long> OnMoneyChanged;
     public Action<int> OnEnergyChanged;
     public Action<int> OnEmissionsChanged;
     public Action<int> OnPopulationChanged;
     public Action<int> OnHappinessChanged;
 
-    public int money { get; private set; }
+    public long money { get; private set; }
     public int population = 0;
     public int dissatisfiedPopulation { get; private set; } = 0;
     private int projectedHappiness = 100;
     public float happiness { get; private set; } = 100;
 
     public int Power = 0;
-    public int TotalEmissions = 0;
+    public int TotalEmissions { get; private set; } = 0;
+    public int EmissionsDelta = 0;
+    public int PreviousEmissionsDelta { get; private set; } = 0;
+    public int EmissionsReductionDelta = 0;
+    public float EmissionsLogarithmicScale => Mathf.Log(TotalEmissions + 1 + Mathf.Pow(Settings.EmissionLogBase, 4)) / Mathf.Log(Settings.EmissionLogBase) - 4;
+    public float EmissionsPercentage => EmissionsLogarithmicScale / Settings.MaxEmissionLogarithmic;
 
     public int requiredEnergy { get; private set; } = 0;
 
@@ -97,6 +102,9 @@ public class GameState : MonoBehaviour
         population = 0;
         Power = 0;
 
+        EmissionsDelta = 0;
+        EmissionsReductionDelta = 0;
+
         List<TileObject> tileObjects = GridManager.Instance.GetTileObjects();
         foreach (TileObject tileObj in tileObjects)
         {
@@ -107,7 +115,12 @@ public class GameState : MonoBehaviour
             }
         }
 
+        TotalEmissions += EmissionsDelta + EmissionsReductionDelta;
+        // Debug.Log($"+ {EmissionsDelta} - {EmissionsReductionDelta}");
+        TotalEmissions -= Mathf.RoundToInt(Settings.AtmosphericDissipation * TotalEmissions * delta);
         TotalEmissions = Math.Max(TotalEmissions, 0);
+
+        PreviousEmissionsDelta = EmissionsDelta;
 
         TaxThePoor(delta);
         UpdateHappinessAndDisplay();
@@ -136,7 +149,7 @@ public class GameState : MonoBehaviour
         dissatisfiedPopulation = population - Power / Settings.EnergyReqPerPerson;
         dissatisfiedPopulation = Math.Max(dissatisfiedPopulation, 0);
 
-        projectedHappiness = Mathf.RoundToInt(100f * (1f - TotalEmissions / (float) Settings.MaxEmission));
+        projectedHappiness = Mathf.RoundToInt(100f * (1 - 1.5f * EmissionsPercentage));
         projectedHappiness = Math.Max(projectedHappiness, 0);
 
         if (population > 0)
@@ -158,7 +171,7 @@ public class GameState : MonoBehaviour
         OnPopulationChanged?.Invoke(population);
     }
 
-    public void ChangeMoney(int amount)
+    public void ChangeMoney(long amount)
     {
         money += amount;
         OnMoneyChanged?.Invoke(money);

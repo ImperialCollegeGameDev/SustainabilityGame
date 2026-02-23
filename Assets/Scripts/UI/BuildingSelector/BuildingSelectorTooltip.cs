@@ -25,7 +25,7 @@ public class BuildingSelectorTooltip : MonoBehaviour
             StopCoroutine(hideRoutine);
 
         nameText.text = buildingName;
-        priceText.text = $"{price}";
+        priceText.text = NumberFormatter.FormatMoney(price);
         gameObject.SetActive(true);
     }
 

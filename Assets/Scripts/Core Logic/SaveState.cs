@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class SaveState
 {
-    public int money;
+    public long money;
     public float happiness;
     public int emissions;
 

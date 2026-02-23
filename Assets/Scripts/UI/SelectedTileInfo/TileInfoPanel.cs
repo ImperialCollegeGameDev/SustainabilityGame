@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class TileInfoPanel : MonoBehaviour
 {
     public GameObject _StatDisplayPrefab;
-    private TileStatDisplay StatDisplay;
+    public UtilityBlock UtilityBlock;
 
     public TextMeshProUGUI TileNameText;
     public UpgradesButton UpgradesButton;
     public VerticalLayoutGroup TileStatList;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         if (TileNameText == null)
@@ -57,6 +57,15 @@ public class TileInfoPanel : MonoBehaviour
         else
         {
             UpgradesButton.gameObject.SetActive(false);
+        }
+
+        if (tileObj is UtilityTileObject util)
+        {
+            UtilityBlock.gameObject.SetActive(true);
+            UtilityBlock.Init(util);
+        } else
+        {
+            UtilityBlock.gameObject.SetActive(false);
         }
     }
 

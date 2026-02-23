@@ -18,12 +18,14 @@ MonoBehaviour:
   Size: {x: 1, y: 1}
   TileType: 1
   TickLogic: {fileID: 11400000, guid: 1356596fe4c3f484490dda0f26a998ce, type: 2}
+  UpgradeTree: {fileID: 0}
   Category: 0
-  Cost: 8000
+  Cost: 80
   Utility:
     type: 1
-    Output: 50000
+    Output: 25000
     Emission: 2
+    DegradeTime: 300
   Residential:
     MaxOccupancy: 0
   Infrastructure:

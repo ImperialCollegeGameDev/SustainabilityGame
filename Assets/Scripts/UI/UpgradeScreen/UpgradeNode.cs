@@ -33,7 +33,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (hideRoutine != null)
             StopCoroutine(hideRoutine);
 
-        UpgradeTooltip.Instance.Show(upgrade.DisplayName, upgrade.Cost, upgrade.Description, this);
+        UpgradeTooltip.Instance.Show(upgrade.DisplayName, upgrade.PointsCost, upgrade.MoneyCost, upgrade.Description, this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -50,12 +50,18 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private void OnClick()
     {
         TileTypeState tile = TileStateCatalog.Instance.Get(def.Id);
-        if (tile.policyPoints < upgrade.Cost)
+        if (tile.policyPoints < upgrade.PointsCost)
         {
             Notifications.Instance.PostNotification("Not enough policy points!");
             return;
         }
-        tile.policyPoints -= upgrade.Cost;
+        if (GameState.Instance.money < upgrade.MoneyCost)
+        {
+            Notifications.Instance.PostNotification("Not enough money!");
+            return;
+        }
+        tile.policyPoints -= upgrade.PointsCost;
+        GameState.Instance.ChangeMoney(upgrade.MoneyCost);
         tile.UnlockUpgrade(upgrade);
         UpgradeScreen.Instance.UpdateInfo();
     }

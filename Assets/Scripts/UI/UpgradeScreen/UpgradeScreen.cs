@@ -46,11 +46,13 @@ public class UpgradeScreen : MonoBehaviour
         NameText.text = def.DisplayName;
         currentTile = TileStateCatalog.Instance.Get(def.Id);
         UpdateInfo();
+        GameState.Instance.SetTicking(false);
     }
 
     public void Close()
     {
         GetComponent<Canvas>().enabled = false;
+        GameState.Instance.SetTicking(true);
     }
 
     public void UpdateInfo()

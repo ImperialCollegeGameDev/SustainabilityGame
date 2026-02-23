@@ -7,6 +7,7 @@ using static Unity.VisualScripting.Member;
 public class UpgradeTooltip : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI pointsText;
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private TextMeshProUGUI descriptionText;
 
@@ -32,14 +33,15 @@ public class UpgradeTooltip : MonoBehaviour
             transform.position = Mouse.current.position.ReadValue() + new Vector2(1.0f, 1.0f);
     }
 
-    public void Show(string name, int price, string description, object source)
+    public void Show(string name, int points, long price, string description, object source)
     {
         currentSource = source;
         if (hideRoutine != null)
             StopCoroutine(hideRoutine);
 
         nameText.text = name;
-        priceText.text = $"{price}";
+        pointsText.text = $"{points}";
+        priceText.text = NumberFormatter.FormatMoney(price);
         descriptionText.text = description;
         gameObject.SetActive(true);
     }
