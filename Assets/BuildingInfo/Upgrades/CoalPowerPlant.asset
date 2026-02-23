@@ -37,3 +37,15 @@ MonoBehaviour:
       Description: -25% Emission
       PointsCost: 4
       MoneyCost: 750
+  - PathName: Clean
+    Upgrades:
+    - Id: OverfireAir
+      DisplayName: Overfire Air
+      Description: -15% Emission
+      PointsCost: 1
+      MoneyCost: 5
+    - Id: SulfurScrubbers
+      DisplayName: Sulfur Scrubbers
+      Description: -25% Emission
+      PointsCost: 4
+      MoneyCost: 750

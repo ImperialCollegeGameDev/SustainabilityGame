@@ -1525,7 +1525,7 @@ PrefabInstance:
     - target: {fileID: 5163755111867101034, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_TargetGraphic
       value: 
-      objectReference: {fileID: 459707900}
+      objectReference: {fileID: 0}
     - target: {fileID: 5163755111867101034, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
@@ -1887,7 +1887,8 @@ PrefabInstance:
       value: '%'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4355671121796977664, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1508075112530909771, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       insertIndex: 0
@@ -1903,17 +1904,6 @@ PrefabInstance:
       addedObject: {fileID: 1011368373}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
---- !u!114 &459707900 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1844683190806632906, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
-  m_PrefabInstance: {fileID: 459707899}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!4 &459707901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1508075112530909771, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}

@@ -9,6 +9,7 @@ public class TileInfoPanel : MonoBehaviour
 
     public TextMeshProUGUI TileNameText;
     public UpgradesButton UpgradesButton;
+    public DeleteButton DeleteButton;
     public VerticalLayoutGroup TileStatList;
 
 
@@ -67,6 +68,7 @@ public class TileInfoPanel : MonoBehaviour
         {
             UtilityBlock.gameObject.SetActive(false);
         }
+        DeleteButton.Init(tileObj);
     }
 
     private void CreateStatDisplay(string name, string value, Color color)
