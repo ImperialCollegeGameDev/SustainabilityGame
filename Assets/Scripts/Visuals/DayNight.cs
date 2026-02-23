@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -70,6 +71,9 @@ public class DayNight : MonoBehaviour
     [Header("Debug")]
     public bool logOnStart = false;
 
+    [SerializeField] private float NightStart = 18f;
+    [SerializeField] private float DayStart = 6f;
+
     private Gradient _colourGradient;
 
     /// <summary>0..1 fraction through the loop (music position / loop length).</summary>
@@ -80,6 +84,9 @@ public class DayNight : MonoBehaviour
 
     /// <summary>Current time of day in minutes [0..1440).</summary>
     public float TimeOfDayMinutes => TimeOfDayHours * 60f;
+
+    public static event Action OnNightStarted;
+    public static event Action OnDayStarted;
 
     /// <summary>Convenience: is it daytime? (customisable threshold).</summary>
     public bool IsDaytime
@@ -132,7 +139,14 @@ public class DayNight : MonoBehaviour
         DayFraction01 = Mathf.Repeat(t / dayLength, 1f);
 
         // Convert to time-of-day (0..24)
+        float previousTime = TimeOfDayHours;
         TimeOfDayHours = Mathf.Repeat(startHour + DayFraction01 * hoursPerLoop, 24f);
+
+        if (CrossedThreshold(previousTime, TimeOfDayHours, NightStart))
+            OnNightStarted?.Invoke();
+
+        if (CrossedThreshold(previousTime, TimeOfDayHours, DayStart))
+            OnDayStarted?.Invoke();
 
         // Apply light rotation and colour
         ApplyLightRotation(DayFraction01);
@@ -272,5 +286,18 @@ public class DayNight : MonoBehaviour
         };
 
         _colourGradient.SetKeys(colorKeys, alphaKeys);
+    }
+
+    bool CrossedThreshold(float previous, float current, float threshold)
+    {
+        if (previous <= current)
+        {
+            return previous < threshold && current >= threshold;
+        }
+        else
+        {
+            // Wrapped past midnight
+            return previous < threshold || current >= threshold;
+        }
     }
 }
