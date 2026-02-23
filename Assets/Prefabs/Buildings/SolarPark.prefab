@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3091782548715473482}
   - component: {fileID: 6743259495767469617}
   - component: {fileID: 5927397029343574633}
-  - component: {fileID: 8296570768753111323}
+  - component: {fileID: -5678152265982121403}
   m_Layer: 0
   m_Name: SolarPark
   m_TagString: Untagged
@@ -91,7 +91,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8296570768753111323
+--- !u!114 &-5678152265982121403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,6 +100,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2487303043195653247}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7de68c209f7dda747a54e1d2f74c4e0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fb68cdb9a8fb6e4995e17fb9ee3576b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TileObject
+  m_EditorClassIdentifier: Assembly-CSharp::UtilityTileObject

@@ -5,12 +5,13 @@ using UnityEngine.UI;
 public class TileInfoPanel : MonoBehaviour
 {
     public GameObject _StatDisplayPrefab;
-    private TileStatDisplay StatDisplay;
+    public UtilityBlock UtilityBlock;
 
     public TextMeshProUGUI TileNameText;
+    public UpgradesButton UpgradesButton;
     public VerticalLayoutGroup TileStatList;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         if (TileNameText == null)
@@ -27,8 +28,13 @@ public class TileInfoPanel : MonoBehaviour
         }
     }
 
-    public void SetTile(TileObjectDefinition def)
+    public void SetTile(TileObject tileObj)
     {
+        if (tileObj == null) {
+            Debug.LogError("TileObject passed to SetTile is null.");
+            return;
+        }
+        TileObjectDefinition def = tileObj.Definition;
         // Clear previous stats
         foreach (Transform child in TileStatList.transform)
         {
@@ -41,6 +47,25 @@ public class TileInfoPanel : MonoBehaviour
         {
             if (stat.Name == "Cost") continue;
             CreateStatDisplay(stat.Name, stat.Value.ToString(), stat.Color);
+        }
+
+        if (tileObj.Definition.UpgradeTree != null)
+        {
+            UpgradesButton.gameObject.SetActive(true);
+            UpgradesButton.tileObject = tileObj;
+        }
+        else
+        {
+            UpgradesButton.gameObject.SetActive(false);
+        }
+
+        if (tileObj is UtilityTileObject util)
+        {
+            UtilityBlock.gameObject.SetActive(true);
+            UtilityBlock.Init(util);
+        } else
+        {
+            UtilityBlock.gameObject.SetActive(false);
         }
     }
 

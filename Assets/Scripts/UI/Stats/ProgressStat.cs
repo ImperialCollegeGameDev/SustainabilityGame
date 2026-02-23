@@ -9,7 +9,7 @@ public class ProgressStat : MonoBehaviour
     [SerializeField] private Image img;
     [SerializeField] private StatType stat = StatType.Emissions;
 
-    private const float speed = 0.7f;
+    public float speed = 0.7f;
 
     void Start()
     {
@@ -37,14 +37,14 @@ public class ProgressStat : MonoBehaviour
         switch (stat)
         {
             case StatType.Emissions:
-                final = GameState.Instance.TotalEmissions / (float) GameState.Instance.Settings.MaxEmission;
+                final = GameState.Instance.EmissionsPercentage;
                 break;
             case StatType.Happiness:
                 final = GameState.Instance.happiness / 100;
                 break;
             case StatType.Energy:
                 if (GameState.Instance.requiredEnergy < 1) final = 1;
-                else final = GameState.Instance.TotalEnergy / (float) GameState.Instance.requiredEnergy;
+                else final = GameState.Instance.Power / (float) GameState.Instance.requiredEnergy;
                 break;
             default:
                 Debug.LogWarning($"ProgressStat: Unsupported stat type {stat}. Defaulting to 0.");

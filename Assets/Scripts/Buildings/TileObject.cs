@@ -89,6 +89,7 @@ public class TileObject : MonoBehaviour
             mr.SetPropertyBlock(previewMPB);
     }
 
-    public virtual void Tick(float delta) { 
+    public void Tick(float delta) {
+        Definition.TickLogic.Tick(this, delta);
     }
 }
