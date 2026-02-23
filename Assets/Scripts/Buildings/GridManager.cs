@@ -276,6 +276,11 @@ public class GridManager : MonoBehaviour
 
     public void Delete(TileObject obj)
     {
+        if (obj == SelectionManager.Instance.Selected)
+        {
+            SelectionManager.Instance.Deselect();
+        }
+
         obj.Remove(); // Handles visual/model removal
 
         TileObjectDefinition def = obj.Definition;
