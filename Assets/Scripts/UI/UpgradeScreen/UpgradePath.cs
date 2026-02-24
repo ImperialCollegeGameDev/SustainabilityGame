@@ -9,14 +9,14 @@ public class UpgradePathUI : MonoBehaviour
 
     private List<UpgradeNode> upgrades;
 
-    public void Init(UpgradePath upgradePath, TileObjectDefinition def)
+    public void Init(UpgradePath upgradePath, TileObject tileObj)
     {
         upgrades = new List<UpgradeNode>();
         foreach (Upgrade upgrade in upgradePath.Upgrades)
         {
             UpgradeNode upgradeUI = Instantiate(UpgradeNodePrefab, transform, false);
             upgrades.Add(upgradeUI);
-            upgradeUI.Init(upgrade, def);
+            upgradeUI.Init(upgrade, tileObj);
         }
     }
 

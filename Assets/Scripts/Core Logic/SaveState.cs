@@ -6,7 +6,7 @@ public class SaveState
 {
     public long money;
     public float happiness;
-    public int emissions;
+    public float emissions;
 
     public List<TileSaveData> tiles;
 }

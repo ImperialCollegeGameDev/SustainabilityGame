@@ -30,7 +30,7 @@ public class GameState : MonoBehaviour
 
     public GameSettings Settings;
 
-    private const float TickInterval = 1f;
+    private const float TickInterval = 0.3f;
     private const float FastTickInterval = 0.2f;
     private float Timescale = 1f;
     private bool isTicking = true;
@@ -51,10 +51,10 @@ public class GameState : MonoBehaviour
     public float happiness { get; private set; } = 100;
 
     public int Power = 0;
-    public int TotalEmissions { get; private set; } = 0;
-    public int EmissionsDelta = 0;
-    public int PreviousEmissionsDelta { get; private set; } = 0;
-    public int EmissionsReductionDelta = 0;
+    public float TotalEmissions { get; private set; } = 0;
+    public float EmissionsDelta = 0;
+    public float PreviousEmissionsDelta { get; private set; } = 0;
+    public float EmissionsReductionDelta = 0;
     public float EmissionsLogarithmicScale => Mathf.Log(TotalEmissions + 1 + Mathf.Pow(Settings.EmissionLogBase, 4)) / Mathf.Log(Settings.EmissionLogBase) - 4;
     public float EmissionsPercentage => EmissionsLogarithmicScale / Settings.MaxEmissionLogarithmic;
 
@@ -166,7 +166,7 @@ public class GameState : MonoBehaviour
     {
         OnMoneyChanged?.Invoke(money);
         OnEnergyChanged?.Invoke(Power);
-        OnEmissionsChanged?.Invoke(TotalEmissions);
+        OnEmissionsChanged?.Invoke(Mathf.FloorToInt(TotalEmissions));
         OnPopulationChanged?.Invoke(population);
     }
 

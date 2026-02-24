@@ -4,6 +4,8 @@ using UnityEngine;
 public class UtilityTileObject : TileObject
 {
     [NonSerialized] public float efficiency = 1f;
+    [NonSerialized] public float repairCostMult = 1f;
+
     public int CurrentRepairCost()
     {
         float damagePercent = 1f - efficiency;

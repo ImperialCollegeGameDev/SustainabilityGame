@@ -20,6 +20,6 @@ class Park : TickBehaviour
 
         GameState.Instance.EmissionsReductionDelta += Mathf.FloorToInt(emission);
 
-        state.AddTime(delta);
+        tileObject.AddTime(delta);
     }
 }

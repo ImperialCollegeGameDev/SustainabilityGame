@@ -6,7 +6,7 @@ public class GameSettings : ScriptableObject
     public int EnergyReqPerPerson = 5;
     public float MaxEmissionLogarithmic = 6;
     public int EmissionLogBase = 7; // Lower is more punishing
-    public int StartingMoney = 77500;
+    public int StartingMoney = 775;
     public float TaxRate = 0.0003f;
     public float DissatisfactionDanger = 3.0f;
     public float HappinessVolatility = 0.02f;
