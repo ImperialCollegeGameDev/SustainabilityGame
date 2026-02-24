@@ -357,6 +357,38 @@ public class GridManager : MonoBehaviour
 
         return resultSet;
     }
+
+    public HashSet<TileObject> GetWithinRadius(TileObject tileObj, int squareRadius, Func<TileObject, bool>? predicate = null)
+    {
+        return GetWithinRadius(tileObj.Origin, tileObj.Definition.Size, squareRadius, predicate);
+    }
+
+    public int GetEmptyWithinRadius(TileObject tileObj, int squareRadius, TileType tileType = TileType.Normal)
+    {
+        int count = 0;
+        Vector2Int origin = tileObj.Origin;
+        Vector2Int size = tileObj.Definition.Size;
+        int startX = origin.x - squareRadius;
+        int endX = origin.x + size.x - 1 + squareRadius;
+        int startY = origin.y - squareRadius;
+        int endY = origin.y + size.y - 1 + squareRadius;
+        for (int x = startX; x <= endX; x++)
+        {
+            for (int y = startY; y <= endY; y++)
+            {
+                // skip tiles that are inside the building footprint itself
+                if (x >= origin.x && x <= origin.x + size.x - 1 &&
+                    y >= origin.y && y <= origin.y + size.y - 1)
+                {
+                    continue;
+                }
+                if (!TryGetTile(new Vector2Int(x, y), out Tile tile)) continue;
+                if (tile.type == tileType && !tile.IsOccupied)
+                    count++;
+            }
+        }
+        return count;
+    }
 # nullable disable
 
     public void Clear(Vector2Int origin, Vector2Int size)

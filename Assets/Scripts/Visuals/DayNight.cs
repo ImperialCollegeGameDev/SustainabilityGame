@@ -11,6 +11,8 @@ using UnityEngine;
 
 public class DayNight : MonoBehaviour
 {
+    public static DayNight Instance { get; private set; }
+
     [Header("Audio (clock source)")]
     [Tooltip("If set, overrides AudioClip length as the day duration (seconds).")]
     public float manualDayLengthSeconds = 0f;
@@ -111,6 +113,13 @@ public class DayNight : MonoBehaviour
     void Awake()
     {
         BuildColourGradient();
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("Multiple DayNight instances detected. There should only be one.");
+            Destroy(this);
+            return;
+        }
+        Instance = this;
     }
 
     void Start()

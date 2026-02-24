@@ -25,10 +25,11 @@ public class UpgradeScreen : MonoBehaviour
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI PointsText;
 
-    private TileTypeState currentTile;
+    private TileObject currentTile;
 
-    public void Open(TileObjectDefinition def)
+    public void Open(TileObject tileObj)
     {
+        TileObjectDefinition def = tileObj.Definition;
         upgradePaths = new List<UpgradePathUI>();
         GetComponent<Canvas>().enabled = true;
         // Clear existing paths
@@ -41,10 +42,10 @@ public class UpgradeScreen : MonoBehaviour
         {
             UpgradePathUI upgradePath = Instantiate(UpgradePathPrefab, PathContainer.transform, false);
             upgradePaths.Add(upgradePath);
-            upgradePath.Init(path, def);
+            upgradePath.Init(path, tileObj);
         }
         NameText.text = def.DisplayName;
-        currentTile = TileStateCatalog.Instance.Get(def.Id);
+        currentTile = tileObj;
         UpdateInfo();
         GameState.Instance.SetTicking(false);
     }

@@ -60,7 +60,7 @@ public class DisplayStat : MonoBehaviour
             case StatType.Emissions:
                 intSubscription = UpdateFromInt;
                 GameState.Instance.OnEmissionsChanged += intSubscription;
-                UpdateFromInt(GameState.Instance.TotalEmissions);
+                UpdateFromInt(Mathf.FloorToInt(GameState.Instance.TotalEmissions));
                 break;
 
             case StatType.Population:

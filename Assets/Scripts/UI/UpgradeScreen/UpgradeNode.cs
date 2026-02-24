@@ -10,7 +10,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private Upgrade upgrade;
     private Button button;
-    private TileObjectDefinition def;
+    private TileObject tileObj;
 
     public Color UnlockedColor;
 
@@ -20,10 +20,10 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         button.onClick.AddListener(OnClick);
     }
 
-    public void Init(Upgrade upgrade, TileObjectDefinition def)
+    public void Init(Upgrade upgrade, TileObject tileObj)
     {
         this.upgrade = upgrade;
-        this.def = def;
+        this.tileObj = tileObj;
         NameText.text = upgrade.DisplayName;
     }
 
@@ -49,8 +49,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void OnClick()
     {
-        TileTypeState tile = TileStateCatalog.Instance.Get(def.Id);
-        if (tile.policyPoints < upgrade.PointsCost)
+        if (tileObj.policyPoints < upgrade.PointsCost)
         {
             MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Error);
             Notifications.Instance.PostNotification("Not enough policy points!");
@@ -64,23 +63,22 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
         
         MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Success);
-        tile.policyPoints -= upgrade.PointsCost;
+        tileObj.policyPoints -= upgrade.PointsCost;
         GameState.Instance.ChangeMoney(upgrade.MoneyCost);
-        tile.UnlockUpgrade(upgrade);
+        tileObj.UnlockUpgrade(upgrade);
         UpgradeScreen.Instance.UpdateInfo();
     }
 
     public void UpdateInfo()
     {
-        TileTypeState tile = TileStateCatalog.Instance.Get(def.Id);
-        if (tile.HasUpgrade(upgrade))
+        if (tileObj.HasUpgrade(upgrade))
         {
             button.interactable = false;
             ColorBlock colors = button.colors;
             colors.disabledColor = UnlockedColor;
             button.colors = colors;
         }
-        else if (tile.CanUnlock(upgrade))
+        else if (tileObj.CanUnlock(upgrade))
         {
             button.interactable = true;
         }

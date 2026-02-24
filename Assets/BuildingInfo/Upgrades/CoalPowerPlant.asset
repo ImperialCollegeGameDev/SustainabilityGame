@@ -16,7 +16,7 @@ MonoBehaviour:
   - PathName: Dirty
     Upgrades:
     - Id: Preheated
-      DisplayName: Pre-Heated
+      DisplayName: Air Preheater Retrofit
       Description: +20% Power
       PointsCost: 2
       MoneyCost: 350
@@ -28,7 +28,7 @@ MonoBehaviour:
   - PathName: Clean
     Upgrades:
     - Id: OverfireAir
-      DisplayName: Overfire Air
+      DisplayName: Overfire Air Injection
       Description: -15% Emission
       PointsCost: 1
       MoneyCost: 5
@@ -37,15 +37,25 @@ MonoBehaviour:
       Description: -25% Emission
       PointsCost: 4
       MoneyCost: 750
-  - PathName: Clean
+    - Id: Cogeneration
+      DisplayName: Cogeneration
+      Description: "+5% Power per adjacent Residential tile, \u221210% Emission"
+      PointsCost: 5
+      MoneyCost: 1200
+  - PathName: Reliability
     Upgrades:
-    - Id: OverfireAir
-      DisplayName: Overfire Air
-      Description: -15% Emission
+    - Id: Maintenance
+      DisplayName: Predictive Maintenance System
+      Description: '-20% Degradation, +10% Repair Cost '
       PointsCost: 1
-      MoneyCost: 5
-    - Id: SulfurScrubbers
-      DisplayName: Sulfur Scrubbers
-      Description: -25% Emission
+      MoneyCost: 10
+    - Id: Calibration
+      DisplayName: Peak Load Calibration
+      Description: -30% Degradation while Efficiency is greater than 80%
+      PointsCost: 3
+      MoneyCost: 20
+    - Id: Ash
+      DisplayName: Fly Ash Recycling
+      Description: -20% Emission, -10% Degradation
       PointsCost: 4
-      MoneyCost: 750
+      MoneyCost: 800

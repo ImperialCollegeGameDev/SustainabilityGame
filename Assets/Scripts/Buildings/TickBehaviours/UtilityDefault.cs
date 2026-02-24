@@ -23,6 +23,6 @@ class UtilityDefault : TickBehaviour
         GameState.Instance.Power += Mathf.FloorToInt(output * util.efficiency);
         GameState.Instance.EmissionsDelta += Mathf.FloorToInt(emission);
 
-        state.AddTime(delta);
+        tileObject.AddTime(delta);
     }
 }

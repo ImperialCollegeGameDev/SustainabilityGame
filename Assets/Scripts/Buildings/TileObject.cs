@@ -1,5 +1,5 @@
+using System;
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 
 public class TileObject : MonoBehaviour
@@ -10,6 +10,14 @@ public class TileObject : MonoBehaviour
 
     private MeshRenderer[] renderers; // All renderers in this object and its children, for selection highlighting
     [SerializeField] private MaterialPropertyBlock previewMPB; // For the placement preview material, to set the color based on whether placement is valid
+
+    private readonly HashSet<Upgrade> unlockedUpgrades = new HashSet<Upgrade>();
+    private readonly List<int> rewardThresholds = new List<int>() { 30, 60, 120, 180, 360 };
+    private int currentPointReward = 1; // The number of policy points awarded for the next threshold, increases by 1 each time
+    public int policyPoints = 0; // Points that can be spent on upgrades for this building
+    public float timeSpent = 0; // Multiple copies of the building can stack this up to unlock upgrades
+
+    private Boolean HasUpgrades => Definition.UpgradeTree != null && Definition.UpgradeTree.Paths.Length > 0;
 
     protected virtual void Awake()
     {
@@ -91,5 +99,88 @@ public class TileObject : MonoBehaviour
 
     public void Tick(float delta) {
         Definition.TickLogic.Tick(this, delta);
+    }
+
+    public void AddTime(float delta)
+    {
+        timeSpent += delta;
+        if (!HasUpgrades) return;
+        if (rewardThresholds.Count > 0 && timeSpent >= rewardThresholds[0])
+        {
+            policyPoints += currentPointReward;
+            currentPointReward++;
+            rewardThresholds.RemoveAt(0);
+        }
+    }
+
+    public void UnlockUpgrade(Upgrade upgrade)
+    {
+        if (Definition.UpgradeTree.Contains(upgrade))
+        {
+            unlockedUpgrades.Add(upgrade);
+            Notifications.Instance.PostNotification($"Unlocked upgrade: {upgrade.DisplayName} for {Definition.DisplayName}");
+        }
+        else
+        {
+            Debug.LogWarning($"Upgrade {upgrade.DisplayName} is not part of the upgrade tree for {Definition.DisplayName}");
+        }
+    }
+
+    public void UnlockUpgrade(String upgradeID)
+    {
+        Upgrade upgrade = GetUpgradeByID(upgradeID);
+        UnlockUpgrade(upgrade);
+    }
+
+    public bool HasUpgrade(String upgradeID)
+    {
+        Upgrade upgrade = GetUpgradeByID(upgradeID);
+        return unlockedUpgrades.Contains(upgrade);
+    }
+
+    public bool HasUpgrade(Upgrade upgrade)
+    {
+        return unlockedUpgrades.Contains(upgrade);
+    }
+
+    public bool CanUnlock(Upgrade upgrade)
+    {
+        if (!Definition.UpgradeTree.Contains(upgrade))
+            return false;
+        foreach (var path in Definition.UpgradeTree.Paths)
+        {
+            for (int i = 0; i < path.Upgrades.Length; i++)
+            {
+                if (path.Upgrades[i] == upgrade)
+                {
+                    if (i == 0 || HasUpgrade(path.Upgrades[i - 1]))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public bool CanUnlock(String upgradeID)
+    {
+        Upgrade upgrade = GetUpgradeByID(upgradeID);
+        return CanUnlock(upgrade);
+    }
+
+    private Upgrade GetUpgradeByID(String upgradeID)
+    {
+        foreach (var path in Definition.UpgradeTree.Paths)
+        {
+            foreach (var upgrade in path.Upgrades)
+                if (upgrade.Id == upgradeID)
+                    return upgrade;
+        }
+        return null;
     }
 }
