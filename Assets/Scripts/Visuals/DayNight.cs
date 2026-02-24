@@ -12,9 +12,6 @@ using UnityEngine;
 public class DayNight : MonoBehaviour
 {
     [Header("Audio (clock source)")]
-    [Tooltip("AudioSource playing the looped theme. Should be set to loop.")]
-    public AudioSource musicSource;
-
     [Tooltip("If set, overrides AudioClip length as the day duration (seconds).")]
     public float manualDayLengthSeconds = 0f;
 
@@ -124,7 +121,7 @@ public class DayNight : MonoBehaviour
         }
 
         // Basic safety checks
-        if (musicSource == null) Debug.LogWarning("[MusicSyncedDayNightCycle] musicSource not assigned.");
+        if (MusicManager.Instance == null) Debug.LogWarning("[MusicSyncedDayNightCycle] MusicManager not found.");
         if (directionalLight == null) Debug.LogWarning("[MusicSyncedDayNightCycle] directionalLight not assigned.");
     }
 
@@ -132,7 +129,7 @@ public class DayNight : MonoBehaviour
     {
         float dayLength = GetDayLengthSeconds();
         if (dayLength <= 0.01f) return;
-        if (musicSource == null || directionalLight == null) return;
+        if (MusicManager.Instance == null || directionalLight == null) return;
 
         // Use the music playback position as the clock. This stays in sync even if timeScale changes.
         float t = GetMusicPositionSeconds();
@@ -183,19 +180,16 @@ public class DayNight : MonoBehaviour
     private float GetDayLengthSeconds()
     {
         if (manualDayLengthSeconds > 0.01f) return manualDayLengthSeconds;
-        if (musicSource != null && musicSource.clip != null) return musicSource.clip.length;
+        if (MusicManager.Instance != null && MusicManager.Instance.MusicSource.clip != null) 
+            return MusicManager.Instance.TrackLength;
         return 0f;
     }
 
     private float GetMusicPositionSeconds()
     {
-        // If not playing yet, timeSamples may still be 0.
-        // Using timeSamples makes the clock stable even when seeking.
-        if (musicSource.clip == null) return 0f;
-
-        // timeSamples wraps for looping clips; Repeat also keeps safe.
-        float seconds = (float)musicSource.timeSamples / musicSource.clip.frequency;
-        return seconds;
+        // Get music position from MusicManager
+        if (MusicManager.Instance == null) return 0f;
+        return MusicManager.Instance.MusicPosition;
     }
 
     private void ApplyLightRotation(float day01)

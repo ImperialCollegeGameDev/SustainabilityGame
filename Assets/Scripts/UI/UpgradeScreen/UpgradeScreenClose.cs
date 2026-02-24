@@ -13,6 +13,7 @@ public class UpgradeScreenClose : MonoBehaviour
 
     void OnClick()
     {
+        MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Close);
         UpgradeScreen.Instance.Close();
     }
 }

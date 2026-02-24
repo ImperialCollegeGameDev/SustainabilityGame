@@ -37,6 +37,7 @@ public class SkillNode : MonoBehaviour
 
     void OnClicked()
     {
+        MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Click);
         if (tree == null) return;
         tree.TryUnlock(this);
     }

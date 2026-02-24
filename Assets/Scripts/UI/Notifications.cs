@@ -24,7 +24,7 @@ public class Notifications : MonoBehaviour
     {
         //Debug.Log($"Notification: {message}");
         GameObject notification = Instantiate(notificationPrefab, transform);
-        notification.GetComponent<TextMeshProUGUI>().SetText(message);
+        notification.GetComponentsInChildren<TextMeshProUGUI>()[1].SetText(message);
         Destroy(notification, notificationLifetime);
     }
 }

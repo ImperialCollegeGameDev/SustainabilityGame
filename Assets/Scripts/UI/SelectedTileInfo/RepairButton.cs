@@ -26,6 +26,7 @@ public class RepairButton : MonoBehaviour
 
     void OnClick()
     {
+        MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Click);
         util.TryRepair();
     }
 }
