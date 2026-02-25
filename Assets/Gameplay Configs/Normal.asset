@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameSettings
   EnergyReqPerPerson: 5
   MaxEmissionLogarithmic: 6
-  EmissionLogBase: 7
+  EmissionLogBase: 5
   StartingMoney: 77500
   TaxRate: 0.0003
   DissatisfactionDanger: 3

@@ -92,7 +92,7 @@ public class GameState : MonoBehaviour
             _fastTimer -= FastTickInterval;
         }
 
-        if (happiness <= 56.7f)
+        if (happiness <= 42f)
         {
             Debug.LogWarning("Your citizens are very unhappy! Consider reducing emissions or providing more energy.");
             MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.LungCancer);
