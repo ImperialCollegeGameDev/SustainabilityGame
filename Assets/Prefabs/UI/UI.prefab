@@ -4050,6 +4050,7 @@ GameObject:
   - component: {fileID: 7685833462312592722}
   - component: {fileID: 1865249599299968820}
   - component: {fileID: 7007592236803315714}
+  - component: {fileID: 6119002938575177340}
   m_Layer: 5
   m_Name: Nuclear
   m_TagString: Untagged
@@ -4158,6 +4159,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6119002938575177340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054120754346455812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127a2e4543751e24d926101870bc277b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingSelector
+  tile: {fileID: 11400000, guid: 6738b1dd84a225a4890535f0091bae57, type: 2}
+  tooltip: {fileID: 0}
 --- !u!1 &6502052898672614650
 GameObject:
   m_ObjectHideFlags: 0
