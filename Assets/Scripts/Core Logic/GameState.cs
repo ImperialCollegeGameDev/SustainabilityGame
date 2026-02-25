@@ -46,6 +46,7 @@ public class GameState : MonoBehaviour
 
     public long money { get; private set; }
     public int population = 0;
+    private int maxPopulation = 0;
     public int dissatisfiedPopulation { get; private set; } = 0;
     private int projectedHappiness = 100;
     public float happiness { get; private set; } = 100;
@@ -123,6 +124,9 @@ public class GameState : MonoBehaviour
 
         TaxThePoor(delta);
         UpdateHappinessAndDisplay();
+
+        if (population > maxPopulation)
+            maxPopulation = population;
     }
 
     public void FastTick(float delta) // For things that are very inexpensive to compute and we want fast feedback on
@@ -288,5 +292,10 @@ public class GameState : MonoBehaviour
     public void SaveGame()
     {
         SaveManager.Save();
+    }
+
+    public int GetScore()
+    {
+        return maxPopulation;
     }
 }
