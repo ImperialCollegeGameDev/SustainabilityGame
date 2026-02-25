@@ -1,0 +1,3289 @@
+fileFormatVersion: 2
+guid: 153ba89ccceb31f4e918952f4fac1cd8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8851948577513456877
+    second: grid_battery_0
+  - first:
+      213: -7860324052215141417
+    second: grid_battery_1
+  - first:
+      213: -2954254778690363950
+    second: grid_battery_2
+  - first:
+      213: -5871370279139816778
+    second: grid_battery_3
+  - first:
+      213: -233743336778388011
+    second: grid_battery_4
+  - first:
+      213: 7854475823009652250
+    second: grid_battery_5
+  - first:
+      213: -3017056214241301970
+    second: grid_battery_6
+  - first:
+      213: 1948666034418905003
+    second: grid_battery_7
+  - first:
+      213: -5909594664669858460
+    second: grid_battery_8
+  - first:
+      213: 2227184295390112145
+    second: grid_battery_9
+  - first:
+      213: 3906862237499283749
+    second: grid_battery_10
+  - first:
+      213: 5697015970003405005
+    second: grid_battery_11
+  - first:
+      213: -1267503762999635631
+    second: grid_battery_12
+  - first:
+      213: 4963324220745950514
+    second: grid_battery_13
+  - first:
+      213: -2585688782174079293
+    second: grid_battery_14
+  - first:
+      213: -4439782846602738169
+    second: grid_battery_15
+  - first:
+      213: 8038091736937927385
+    second: grid_battery_16
+  - first:
+      213: -1509165841099506131
+    second: grid_battery_17
+  - first:
+      213: -4657271625776030578
+    second: grid_battery_18
+  - first:
+      213: -5025332168720201551
+    second: grid_battery_19
+  - first:
+      213: -1414663246848605708
+    second: grid_battery_20
+  - first:
+      213: -7436217077479513509
+    second: grid_battery_21
+  - first:
+      213: 2707618060703385852
+    second: grid_battery_22
+  - first:
+      213: -4788339947298883812
+    second: grid_battery_23
+  - first:
+      213: -1308438077857071102
+    second: grid_battery_24
+  - first:
+      213: 4777020745038591649
+    second: grid_battery_25
+  - first:
+      213: -345678726504549807
+    second: grid_battery_26
+  - first:
+      213: 1033910030638237449
+    second: grid_battery_27
+  - first:
+      213: -6671905256843761713
+    second: grid_battery_28
+  - first:
+      213: -5564687733051635802
+    second: grid_battery_29
+  - first:
+      213: -7432732183168200316
+    second: grid_battery_30
+  - first:
+      213: -7312123866020841102
+    second: grid_battery_31
+  - first:
+      213: 7016695404590923352
+    second: grid_battery_32
+  - first:
+      213: 8916299758516788616
+    second: grid_battery_33
+  - first:
+      213: -3377197945095747329
+    second: grid_battery_34
+  - first:
+      213: -4926598804136564674
+    second: grid_battery_35
+  - first:
+      213: 6497856662709941259
+    second: grid_battery_36
+  - first:
+      213: -944907104385155004
+    second: grid_battery_37
+  - first:
+      213: -2016110632515452452
+    second: grid_battery_38
+  - first:
+      213: -6385861854551127745
+    second: grid_battery_39
+  - first:
+      213: 6594773186082490454
+    second: grid_battery_40
+  - first:
+      213: 6470981425140745804
+    second: grid_battery_41
+  - first:
+      213: -8564882362961458916
+    second: grid_battery_42
+  - first:
+      213: -10516908085971084
+    second: grid_battery_43
+  - first:
+      213: 5696316724196467120
+    second: grid_battery_44
+  - first:
+      213: -7252276540501875502
+    second: grid_battery_45
+  - first:
+      213: 6600965712772804849
+    second: grid_battery_46
+  - first:
+      213: -3368037125943857561
+    second: grid_battery_47
+  - first:
+      213: 5095064517298603956
+    second: grid_battery_48
+  - first:
+      213: -8896196289507104563
+    second: grid_battery_49
+  - first:
+      213: 1897674847481643144
+    second: grid_battery_50
+  - first:
+      213: -6326615314999349194
+    second: grid_battery_51
+  - first:
+      213: 7243982510473263663
+    second: grid_battery_52
+  - first:
+      213: -6044977112252350879
+    second: grid_battery_53
+  - first:
+      213: -5853109708006416399
+    second: grid_battery_54
+  - first:
+      213: 2706427198567160856
+    second: grid_battery_55
+  - first:
+      213: -2891242335449652262
+    second: grid_battery_56
+  - first:
+      213: -9053993601548591964
+    second: grid_battery_57
+  - first:
+      213: 6060926270621816525
+    second: grid_battery_58
+  - first:
+      213: 632371853555494021
+    second: grid_battery_59
+  - first:
+      213: 4824223647402475949
+    second: grid_battery_60
+  - first:
+      213: 3812217987023270807
+    second: grid_battery_61
+  - first:
+      213: -6073626799716784841
+    second: grid_battery_62
+  - first:
+      213: 3326684313020634637
+    second: grid_battery_63
+  - first:
+      213: 467774572108517081
+    second: grid_battery_64
+  - first:
+      213: 1203561698260020954
+    second: grid_battery_65
+  - first:
+      213: 3625246447696431360
+    second: grid_battery_66
+  - first:
+      213: 3955364325461178980
+    second: grid_battery_67
+  - first:
+      213: -5836105919960787650
+    second: grid_battery_68
+  - first:
+      213: -7503014273705293580
+    second: grid_battery_69
+  - first:
+      213: -5616484393310668343
+    second: grid_battery_70
+  - first:
+      213: 4535735108682179775
+    second: grid_battery_71
+  - first:
+      213: 8020535390550580127
+    second: grid_battery_72
+  - first:
+      213: -4614457647036039751
+    second: grid_battery_73
+  - first:
+      213: 2630232660706800418
+    second: grid_battery_74
+  - first:
+      213: 6597246167666392429
+    second: grid_battery_75
+  - first:
+      213: 6120385645806229288
+    second: grid_battery_76
+  - first:
+      213: 1941325438258303037
+    second: grid_battery_77
+  - first:
+      213: 4261403906095414188
+    second: grid_battery_78
+  - first:
+      213: 6698576489224824595
+    second: grid_battery_79
+  - first:
+      213: -1704493129363787252
+    second: grid_battery_80
+  - first:
+      213: -3309576098920212844
+    second: grid_battery_81
+  - first:
+      213: -5633648431659448279
+    second: grid_battery_82
+  - first:
+      213: 8788279250591013590
+    second: grid_battery_83
+  - first:
+      213: -7257373974470723876
+    second: grid_battery_84
+  - first:
+      213: 5594898308639162647
+    second: grid_battery_85
+  - first:
+      213: -7527722944511513588
+    second: grid_battery_86
+  - first:
+      213: 6583846786917537493
+    second: grid_battery_87
+  - first:
+      213: -6228973246510832412
+    second: grid_battery_88
+  - first:
+      213: 5818738648752080924
+    second: grid_battery_89
+  - first:
+      213: -995649752890921474
+    second: grid_battery_90
+  - first:
+      213: -4840710108604584503
+    second: grid_battery_91
+  - first:
+      213: 4522925673953452788
+    second: grid_battery_92
+  - first:
+      213: 7150610805545679311
+    second: grid_battery_93
+  - first:
+      213: -3081717762720905704
+    second: grid_battery_94
+  - first:
+      213: -1311119045128779709
+    second: grid_battery_95
+  - first:
+      213: -7966174334927282240
+    second: grid_battery_96
+  - first:
+      213: -1114367702846052488
+    second: grid_battery_97
+  - first:
+      213: 7173001315070955198
+    second: grid_battery_98
+  - first:
+      213: 5701829445672804976
+    second: grid_battery_99
+  - first:
+      213: 7874874956548340056
+    second: grid_battery_100
+  - first:
+      213: 3585426764166039911
+    second: grid_battery_101
+  - first:
+      213: -1892533597706717943
+    second: grid_battery_102
+  - first:
+      213: 5630653862241301509
+    second: grid_battery_103
+  - first:
+      213: -8650488358029860373
+    second: grid_battery_104
+  - first:
+      213: 5618850378399844283
+    second: grid_battery_105
+  - first:
+      213: -4724901494498440289
+    second: grid_battery_106
+  - first:
+      213: -4998290678617357377
+    second: grid_battery_107
+  - first:
+      213: 385864243227244489
+    second: grid_battery_108
+  - first:
+      213: -5563008405461513982
+    second: grid_battery_109
+  - first:
+      213: -2733969167521234167
+    second: grid_battery_110
+  - first:
+      213: -4100951413168374227
+    second: grid_battery_111
+  - first:
+      213: 7751553153056337849
+    second: grid_battery_112
+  - first:
+      213: 3859348909002532222
+    second: grid_battery_113
+  - first:
+      213: -4563909373200919304
+    second: grid_battery_114
+  - first:
+      213: 7085462219017284077
+    second: grid_battery_115
+  - first:
+      213: 2611013711565701803
+    second: grid_battery_116
+  - first:
+      213: 8570503545599574509
+    second: grid_battery_117
+  - first:
+      213: 2917047800826959587
+    second: grid_battery_118
+  - first:
+      213: -5791238042901909530
+    second: grid_battery_119
+  - first:
+      213: -8709630286764669934
+    second: grid_battery_120
+  - first:
+      213: 7370271699438002079
+    second: grid_battery_121
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grid_battery_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 223
+        width: 67
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de4c6b4e45078da70800000000000000
+      internalID: 8851948577513456877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 128
+        width: 92
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dbe1489be48ae290800000000000000
+      internalID: -7860324052215141417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 250
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dd192c5ee06007d0800000000000000
+      internalID: -2954254778690363950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_3
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 250
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bac517c6d3b48ea0800000000000000
+      internalID: -5871370279139816778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_4
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 250
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dda5b27ca391ccf0800000000000000
+      internalID: -233743336778388011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 250
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1e526f6524b00d60800000000000000
+      internalID: 7854475823009652250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_6
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 242
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2a23c2bb534126d0800000000000000
+      internalID: -3017056214241301970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_7
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 242
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baf686f0f6d0b0b10800000000000000
+      internalID: 1948666034418905003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_8
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 242
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4653fcd76f6ecfda0800000000000000
+      internalID: -5909594664669858460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_9
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 242
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1996e08015c88ee10800000000000000
+      internalID: 2227184295390112145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_10
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 233
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 529588c6186f73630800000000000000
+      internalID: 3906862237499283749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_11
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 233
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc8c7c337dddf0f40800000000000000
+      internalID: 5697015970003405005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_12
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 234
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1519fe60b0ce86ee0800000000000000
+      internalID: -1267503762999635631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_13
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 234
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 235a7aaf41541e440800000000000000
+      internalID: 4963324220745950514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_14
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 234
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c63dce80c9cd1cd0800000000000000
+      internalID: -2585688782174079293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_15
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 234
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7060f542609b262c0800000000000000
+      internalID: -4439782846602738169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_16
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 234
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d2103cd8d90d8f60800000000000000
+      internalID: 8038091736937927385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_17
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 234
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e3c16d9ad5e0be0800000000000000
+      internalID: -1509165841099506131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_18
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 225
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8c1d13b12c0e5fb0800000000000000
+      internalID: -4657271625776030578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_19
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 225
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b8c615940f624ab0800000000000000
+      internalID: -5025332168720201551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_20
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 226
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f1c9cea54b1e5ce0800000000000000
+      internalID: -1414663246848605708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_21
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 226
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b52e32087ff3dc890800000000000000
+      internalID: -7436217077479513509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_22
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 226
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf848a7d744639520800000000000000
+      internalID: 2707618060703385852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_23
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 226
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c17ff6900366c8db0800000000000000
+      internalID: -4788339947298883812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_24
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 226
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2000cb6208e77dde0800000000000000
+      internalID: -1308438077857071102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_25
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 226
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a672b0de036b4240800000000000000
+      internalID: 4777020745038591649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_26
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 226
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 152794c9707e33bf0800000000000000
+      internalID: -345678726504549807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 189
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 907c7e9e1bf295e00800000000000000
+      internalID: 1033910030638237449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_28
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 217
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc724c6a481a863a0800000000000000
+      internalID: -6671905256843761713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_29
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 218
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7cb716df146c2b0800000000000000
+      internalID: -5564687733051635802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_30
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 218
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48155afa571a9d890800000000000000
+      internalID: -7432732183168200316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_31
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 218
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 279fb2cc51e168a90800000000000000
+      internalID: -7312123866020841102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_32
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 218
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85ef1cf5b4f406160800000000000000
+      internalID: 7016695404590923352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_33
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 218
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88d5b49c36f0dbb70800000000000000
+      internalID: 8916299758516788616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_34
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 218
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff88362bc58c121d0800000000000000
+      internalID: -3377197945095747329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_35
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 218
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3863986d7431abb0800000000000000
+      internalID: -4926598804136564674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_36
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 218
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b043b3625360d2a50800000000000000
+      internalID: 6497856662709941259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_37
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 209
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4404161bef303e2f0800000000000000
+      internalID: -944907104385155004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_38
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 210
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd14701cf065504e0800000000000000
+      internalID: -2016110632515452452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_39
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 210
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3943ce1a7cd067a0800000000000000
+      internalID: -6385861854551127745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_40
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 210
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 658c7baa547558b50800000000000000
+      internalID: 6594773186082490454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_41
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 210
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c464aa9425b8dc950800000000000000
+      internalID: 6470981425140745804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_42
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 210
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c198cac9edc632980800000000000000
+      internalID: -8564882362961458916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_43
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 210
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47776658de2aadff0800000000000000
+      internalID: -10516908085971084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_44
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 210
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1e8d951e16d0f40800000000000000
+      internalID: 5696316724196467120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_45
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 210
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d4ac7e19ecba5b90800000000000000
+      internalID: -7252276540501875502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_46
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 202
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f03b54a7575b9b50800000000000000
+      internalID: 6600965712772804849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_47
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 202
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76ee9cd14145241d0800000000000000
+      internalID: -3368037125943857561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_48
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 202
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b7c7450f2e45b640800000000000000
+      internalID: 5095064517298603956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_49
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 202
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc8e7c7db9c5a8480800000000000000
+      internalID: -8896196289507104563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_50
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 202
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 880465f2835e55a10800000000000000
+      internalID: 1897674847481643144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_51
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 202
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 630faee04e85338a0800000000000000
+      internalID: -6326615314999349194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_52
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 202
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2ab6e786bbc78460800000000000000
+      internalID: 7243982510473263663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_53
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 202
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ef4d4185deb1ca0800000000000000
+      internalID: -6044977112252350879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_54
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 194
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ff13ee4bb395cea0800000000000000
+      internalID: -5853109708006416399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_55
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 194
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81c1d05a2392f8520800000000000000
+      internalID: 2706427198567160856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_56
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 194
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad3e3f31a6e30e7d0800000000000000
+      internalID: -2891242335449652262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_57
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 194
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ac590d1ac0c95280800000000000000
+      internalID: -9053993601548591964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_58
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 194
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc61f3ab45cbc1450800000000000000
+      internalID: 6060926270621816525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_59
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 194
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c6121b9d2a6c800800000000000000
+      internalID: 632371853555494021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_60
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 194
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da1c674f8d513f240800000000000000
+      internalID: 4824223647402475949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_61
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 194
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79370eaaf08b7e430800000000000000
+      internalID: 3812217987023270807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 182
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735a698ea9426bba0800000000000000
+      internalID: -6073626799716784841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_63
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 182
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d069575d1c1ca2e20800000000000000
+      internalID: 3326684313020634637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_64
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 182
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9de0d75be7edd7600800000000000000
+      internalID: 467774572108517081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_65
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 182
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adeed02ecf8e3b010800000000000000
+      internalID: 1203561698260020954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_66
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 186
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0094132df667f4230800000000000000
+      internalID: 3625246447696431360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_67
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 186
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46abd58c5e644e630800000000000000
+      internalID: 3955364325461178980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_68
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 186
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e35de29369cf10fa0800000000000000
+      internalID: -5836105919960787650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_69
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 186
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f84c1f4540ffd790800000000000000
+      internalID: -7503014273705293580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_70
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 186
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c93132a33d3e02b0800000000000000
+      internalID: -5616484393310668343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_71
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 186
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb4e44ccc0b22fe30800000000000000
+      internalID: 4535735108682179775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_72
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 186
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9b573e617aae4f60800000000000000
+      internalID: 8020535390550580127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_73
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 186
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bdf45de73726ffb0800000000000000
+      internalID: -4614457647036039751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 174
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2233f0a5ba6708420800000000000000
+      internalID: 2630232660706800418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_75
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 174
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6dff8f8f602e8b50800000000000000
+      internalID: 6597246167666392429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_76
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 174
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8271ea2515affe450800000000000000
+      internalID: 6120385645806229288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_77
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 174
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30d0d45339f0fa10800000000000000
+      internalID: 1941325438258303037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_78
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 178
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cab7743564c832b30800000000000000
+      internalID: 4261403906095414188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_79
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 178
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 317670d83df16fc50800000000000000
+      internalID: 6698576489224824595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_80
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 178
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c027d26978c6858e0800000000000000
+      internalID: -1704493129363787252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_81
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 178
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496dcbaa2160212d0800000000000000
+      internalID: -3309576098920212844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_82
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 178
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9288089899241d1b0800000000000000
+      internalID: -5633648431659448279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_83
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 178
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dad9668a6d36f970800000000000000
+      internalID: 8788279250591013590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_84
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 178
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6f18942d0a84b90800000000000000
+      internalID: -7257373974470723876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_85
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 178
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7110fd06e5215ad40800000000000000
+      internalID: 5594898308639162647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_86
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 178
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0c65d49dd7288790800000000000000
+      internalID: -7527722944511513588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 166
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d611dd15c58e5b50800000000000000
+      internalID: 6583846786917537493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_88
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 166
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e46f46b5dd3e89a0800000000000000
+      internalID: -6228973246510832412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_89
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 166
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1844b7d8ff40c050800000000000000
+      internalID: 5818738648752080924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_90
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 166
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd2b3e23ddbe22f0800000000000000
+      internalID: -995649752890921474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_91
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 170
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cd2bfbadc752dcb0800000000000000
+      internalID: -4840710108604584503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_92
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 170
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f26d7ddfe8a4ce30800000000000000
+      internalID: 4522925673953452788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_93
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 170
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc9be9f54a21c3360800000000000000
+      internalID: 7150610805545679311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_94
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 170
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 816420fb50a8b35d0800000000000000
+      internalID: -3081717762720905704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_95
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 170
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34889d0dc28fdcde0800000000000000
+      internalID: -1311119045128779709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_96
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 170
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf53d326a6727190800000000000000
+      internalID: -7966174334927282240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_97
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 170
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87761ba7a78f880f0800000000000000
+      internalID: -1114367702846052488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_98
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 170
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebec63e11be9b8360800000000000000
+      internalID: 7173001315070955198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_99
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 170
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 072a037dba7f02f40800000000000000
+      internalID: 5701829445672804976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 158
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 859fea3dc0d294d60800000000000000
+      internalID: 7874874956548340056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_101
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 158
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7698b4645aef1c130800000000000000
+      internalID: 3585426764166039911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_102
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 158
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 905f23f48be5cb5e0800000000000000
+      internalID: -1892533597706717943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_103
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 158
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 504f210fad9142e40800000000000000
+      internalID: 5630653862241301509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_104
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be16afdabaa43f780800000000000000
+      internalID: -8650488358029860373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_105
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb7879236aa2afd40800000000000000
+      internalID: 5618850378399844283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_106
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9b45b5df17cd6eb0800000000000000
+      internalID: -4724901494498440289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_107
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb3cdd02c1182aab0800000000000000
+      internalID: -4998290678617357377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_108
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c7b51d1c7dda5500800000000000000
+      internalID: 385864243227244489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_109
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20944fd44593cc2b0800000000000000
+      internalID: -5563008405461513982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_110
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 903c60ff68dfe0ad0800000000000000
+      internalID: -2733969167521234167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_111
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e76f0ea6e7617c0800000000000000
+      internalID: -4100951413168374227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_112
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf6b71f58c039b60800000000000000
+      internalID: 7751553153056337849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_113
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 126
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e75236192692f8530800000000000000
+      internalID: 3859348909002532222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_114
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 154
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4984f0b9cb9a0c0800000000000000
+      internalID: -4563909373200919304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_115
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 154
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de9e9f9095e945260800000000000000
+      internalID: 7085462219017284077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_116
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 154
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba24c8d032f2c3420800000000000000
+      internalID: 2611013711565701803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_117
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 154
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de140b5f09b80f670800000000000000
+      internalID: 8570503545599574509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_118
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 154
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e61029058f6b7820800000000000000
+      internalID: 2917047800826959587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_119
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 154
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ef6a1beea361afa0800000000000000
+      internalID: -5791238042901909530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_120
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 154
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2148868566d212780800000000000000
+      internalID: -8709630286764669934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grid_battery_121
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 154
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9fdd1faf07784660800000000000000
+      internalID: 7370271699438002079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      grid_battery_0: 8851948577513456877
+      grid_battery_1: -7860324052215141417
+      grid_battery_10: 3906862237499283749
+      grid_battery_100: 7874874956548340056
+      grid_battery_101: 3585426764166039911
+      grid_battery_102: -1892533597706717943
+      grid_battery_103: 5630653862241301509
+      grid_battery_104: -8650488358029860373
+      grid_battery_105: 5618850378399844283
+      grid_battery_106: -4724901494498440289
+      grid_battery_107: -4998290678617357377
+      grid_battery_108: 385864243227244489
+      grid_battery_109: -5563008405461513982
+      grid_battery_11: 5697015970003405005
+      grid_battery_110: -2733969167521234167
+      grid_battery_111: -4100951413168374227
+      grid_battery_112: 7751553153056337849
+      grid_battery_113: 3859348909002532222
+      grid_battery_114: -4563909373200919304
+      grid_battery_115: 7085462219017284077
+      grid_battery_116: 2611013711565701803
+      grid_battery_117: 8570503545599574509
+      grid_battery_118: 2917047800826959587
+      grid_battery_119: -5791238042901909530
+      grid_battery_12: -1267503762999635631
+      grid_battery_120: -8709630286764669934
+      grid_battery_121: 7370271699438002079
+      grid_battery_13: 4963324220745950514
+      grid_battery_14: -2585688782174079293
+      grid_battery_15: -4439782846602738169
+      grid_battery_16: 8038091736937927385
+      grid_battery_17: -1509165841099506131
+      grid_battery_18: -4657271625776030578
+      grid_battery_19: -5025332168720201551
+      grid_battery_2: -2954254778690363950
+      grid_battery_20: -1414663246848605708
+      grid_battery_21: -7436217077479513509
+      grid_battery_22: 2707618060703385852
+      grid_battery_23: -4788339947298883812
+      grid_battery_24: -1308438077857071102
+      grid_battery_25: 4777020745038591649
+      grid_battery_26: -345678726504549807
+      grid_battery_27: 1033910030638237449
+      grid_battery_28: -6671905256843761713
+      grid_battery_29: -5564687733051635802
+      grid_battery_3: -5871370279139816778
+      grid_battery_30: -7432732183168200316
+      grid_battery_31: -7312123866020841102
+      grid_battery_32: 7016695404590923352
+      grid_battery_33: 8916299758516788616
+      grid_battery_34: -3377197945095747329
+      grid_battery_35: -4926598804136564674
+      grid_battery_36: 6497856662709941259
+      grid_battery_37: -944907104385155004
+      grid_battery_38: -2016110632515452452
+      grid_battery_39: -6385861854551127745
+      grid_battery_4: -233743336778388011
+      grid_battery_40: 6594773186082490454
+      grid_battery_41: 6470981425140745804
+      grid_battery_42: -8564882362961458916
+      grid_battery_43: -10516908085971084
+      grid_battery_44: 5696316724196467120
+      grid_battery_45: -7252276540501875502
+      grid_battery_46: 6600965712772804849
+      grid_battery_47: -3368037125943857561
+      grid_battery_48: 5095064517298603956
+      grid_battery_49: -8896196289507104563
+      grid_battery_5: 7854475823009652250
+      grid_battery_50: 1897674847481643144
+      grid_battery_51: -6326615314999349194
+      grid_battery_52: 7243982510473263663
+      grid_battery_53: -6044977112252350879
+      grid_battery_54: -5853109708006416399
+      grid_battery_55: 2706427198567160856
+      grid_battery_56: -2891242335449652262
+      grid_battery_57: -9053993601548591964
+      grid_battery_58: 6060926270621816525
+      grid_battery_59: 632371853555494021
+      grid_battery_6: -3017056214241301970
+      grid_battery_60: 4824223647402475949
+      grid_battery_61: 3812217987023270807
+      grid_battery_62: -6073626799716784841
+      grid_battery_63: 3326684313020634637
+      grid_battery_64: 467774572108517081
+      grid_battery_65: 1203561698260020954
+      grid_battery_66: 3625246447696431360
+      grid_battery_67: 3955364325461178980
+      grid_battery_68: -5836105919960787650
+      grid_battery_69: -7503014273705293580
+      grid_battery_7: 1948666034418905003
+      grid_battery_70: -5616484393310668343
+      grid_battery_71: 4535735108682179775
+      grid_battery_72: 8020535390550580127
+      grid_battery_73: -4614457647036039751
+      grid_battery_74: 2630232660706800418
+      grid_battery_75: 6597246167666392429
+      grid_battery_76: 6120385645806229288
+      grid_battery_77: 1941325438258303037
+      grid_battery_78: 4261403906095414188
+      grid_battery_79: 6698576489224824595
+      grid_battery_8: -5909594664669858460
+      grid_battery_80: -1704493129363787252
+      grid_battery_81: -3309576098920212844
+      grid_battery_82: -5633648431659448279
+      grid_battery_83: 8788279250591013590
+      grid_battery_84: -7257373974470723876
+      grid_battery_85: 5594898308639162647
+      grid_battery_86: -7527722944511513588
+      grid_battery_87: 6583846786917537493
+      grid_battery_88: -6228973246510832412
+      grid_battery_89: 5818738648752080924
+      grid_battery_9: 2227184295390112145
+      grid_battery_90: -995649752890921474
+      grid_battery_91: -4840710108604584503
+      grid_battery_92: 4522925673953452788
+      grid_battery_93: 7150610805545679311
+      grid_battery_94: -3081717762720905704
+      grid_battery_95: -1311119045128779709
+      grid_battery_96: -7966174334927282240
+      grid_battery_97: -1114367702846052488
+      grid_battery_98: 7173001315070955198
+      grid_battery_99: 5701829445672804976
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

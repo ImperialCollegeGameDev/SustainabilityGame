@@ -7,6 +7,7 @@ public class MusicManager : MonoBehaviour
 {
     [Header("Music Sources")]
     [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource uiSource;
     [SerializeField] private AudioSource sfxSource;
 
     [Header("Volume Settings")]
@@ -19,11 +20,16 @@ public class MusicManager : MonoBehaviour
 
     [Header("UI Sound Effects")]
     [SerializeField] private AudioClip uiClickSound;
+    [SerializeField] private AudioClip gameLungCancer;
     [SerializeField] private AudioClip uiHoverSound;
     [SerializeField] private AudioClip uiSuccessSound;
     [SerializeField] private AudioClip uiErrorSound;
     [SerializeField] private AudioClip uiOpenSound;
     [SerializeField] private AudioClip uiCloseSound;
+
+    [SerializeField] private AudioClip mainMainAndCredits;
+    [SerializeField] private AudioClip mainLeaderboard;
+    [SerializeField] private AudioClip mainGame;
 
     // Track management
     private AudioClip currentTrack;
@@ -46,7 +52,8 @@ public class MusicManager : MonoBehaviour
         Success,
         Error,
         Open,
-        Close
+        Close,
+        LungCancer
     }
 
     // Properties for external access
@@ -235,6 +242,7 @@ public class MusicManager : MonoBehaviour
         AudioClip clipToPlay = soundType switch
         {
             UISoundType.Click => uiClickSound,
+            UISoundType.LungCancer => gameLungCancer,
             UISoundType.Hover => uiHoverSound,
             UISoundType.Success => uiSuccessSound,
             UISoundType.Error => uiErrorSound,
@@ -242,7 +250,9 @@ public class MusicManager : MonoBehaviour
             UISoundType.Close => uiCloseSound,
             _ => null
         };
-
+        // do not replay if already playing
+        if (sfxSource.isPlaying)
+            return;
         if (clipToPlay != null)
         {
             PlaySFX(clipToPlay, volumeScale);
