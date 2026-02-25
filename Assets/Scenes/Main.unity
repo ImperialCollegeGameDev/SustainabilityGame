@@ -1734,7 +1734,7 @@ PrefabInstance:
       objectReference: {fileID: 471363797}
     - target: {fileID: 3537000303617392968, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3537000303617392968, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_RenderMode
