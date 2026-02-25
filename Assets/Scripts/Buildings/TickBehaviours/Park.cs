@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "CityBuilder/TickBehaviours/Park")]
@@ -13,13 +14,32 @@ class Park : TickBehaviour
         }
 
         float emission = def.Utility.Emission * delta;
-        float mult = 1 - GameState.Instance.PreviousEmissionsDelta / 300f;
+        float mult = 50f / Mathf.Max(1f, GameState.Instance.PreviousEmissionsDelta);
+        mult = Mathf.Min(1, mult);
         emission *= mult;
-        emission = Mathf.Min(0, emission);
         TileTypeState state = TileStateCatalog.Instance.Get(def.Id);
 
-        GameState.Instance.EmissionsReductionDelta += Mathf.FloorToInt(emission);
+        // Store calculated values in the utility object
+        util.emissionMultiplier = mult;
+        util.actualEmission = Mathf.FloorToInt(emission);
+
+        GameState.Instance.EmissionsReductionDelta += util.actualEmission;
 
         tileObject.AddTime(delta);
+    }
+
+    public override List<StatRow> GetStats(TileObject tileObject)
+    {
+        List<StatRow> stats = new List<StatRow>();
+        
+        if (tileObject is not UtilityTileObject util)
+        {
+            return stats;
+        }
+
+        stats.Add(new StatRow("Emission Reduction", (-util.actualEmission).ToString(), Color.green));
+        stats.Add(new StatRow("Effectiveness", $"{Mathf.RoundToInt(util.emissionMultiplier * 100)}%", Color.cyan));
+
+        return stats;
     }
 }

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c42374c2aa8f08e42aa2c5750d728329, type: 3}
-  m_Name: InfiniteStartingMoney
+  m_Name: InfiniteMoney
   m_EditorClassIdentifier: Assembly-CSharp::GameSettings
-  EnergyReqPerPerson: 500
-  MaxEmissionLogarithmic: 6
-  EmissionLogBase: 7
+  EnergyReqPerPerson: 5
+  MaxEmissionLogarithmic: 3
+  EmissionLogBase: 6
   StartingMoney: 999999999
-  TaxRate: 0.5
-  DissatisfactionDanger: 2
+  TaxRate: 0.0003
+  DissatisfactionDanger: 3
   HappinessVolatility: 0.02
   SellRatio: 0.5
   MinimumEfficiency: 0.4
