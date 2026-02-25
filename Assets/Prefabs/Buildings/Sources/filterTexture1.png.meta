@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 3716574b66c0f0141b851ec6d18a8d74
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2458767639510262230
+    second: filterTexture1_0
+  - first:
+      213: 143816181699249000
+    second: filterTexture1_1
+  - first:
+      213: -2751349715260640391
+    second: filterTexture1_2
+  - first:
+      213: 3925086756055461798
+    second: filterTexture1_3
+  - first:
+      213: -5865252945715963578
+    second: filterTexture1_4
+  - first:
+      213: -6016668029121162041
+    second: filterTexture1_5
+  - first:
+      213: 415381619914895564
+    second: filterTexture1_6
+  - first:
+      213: 7607915554839145708
+    second: filterTexture1_7
+  - first:
+      213: -7053858184296260949
+    second: filterTexture1_8
+  - first:
+      213: 195669609969040700
+    second: filterTexture1_9
+  - first:
+      213: 4234286486926887921
+    second: filterTexture1_10
+  - first:
+      213: 1086431061189304143
+    second: filterTexture1_11
+  - first:
+      213: 6578371021246975805
+    second: filterTexture1_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: filterTexture1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 91
+        width: 11
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ed3c5ebd3b0edd0800000000000000
+      internalID: -2458767639510262230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 91
+        width: 12
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86303272e00fef100800000000000000
+      internalID: 143816181699249000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_2
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 91
+        width: 12
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9737401e20e31d9d0800000000000000
+      internalID: -2751349715260640391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_3
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 91
+        width: 12
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6afa64fcb95b87630800000000000000
+      internalID: 3925086756055461798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_4
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 117
+        width: 30
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64959c4758f6a9ea0800000000000000
+      internalID: -5865252945715963578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_5
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 105
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c498c02e40808ca0800000000000000
+      internalID: -6016668029121162041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 53
+        width: 11
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0f04de16bb3c500800000000000000
+      internalID: 415381619914895564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_7
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 53
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec2b5f73eeb49960800000000000000
+      internalID: 7607915554839145708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_8
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 53
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baa1a05ba59ab1e90800000000000000
+      internalID: -7053858184296260949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_9
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 53
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3d3b8b397827b200800000000000000
+      internalID: 195669609969040700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_10
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 69
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fb838a202533ca30800000000000000
+      internalID: 4234286486926887921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_11
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 69
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4f93234b47c31f00800000000000000
+      internalID: 1086431061189304143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: filterTexture1_12
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 57
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f462217911b4b50800000000000000
+      internalID: 6578371021246975805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      filterTexture1_0: -2458767639510262230
+      filterTexture1_1: 143816181699249000
+      filterTexture1_10: 4234286486926887921
+      filterTexture1_11: 1086431061189304143
+      filterTexture1_12: 6578371021246975805
+      filterTexture1_2: -2751349715260640391
+      filterTexture1_3: 3925086756055461798
+      filterTexture1_4: -5865252945715963578
+      filterTexture1_5: -6016668029121162041
+      filterTexture1_6: 415381619914895564
+      filterTexture1_7: 7607915554839145708
+      filterTexture1_8: -7053858184296260949
+      filterTexture1_9: 195669609969040700
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
