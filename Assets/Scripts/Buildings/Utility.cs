@@ -16,13 +16,7 @@ public class Utility
     public PowerType type;
     public int Output;
     public int Emission;
-
-    public Utility(PowerType type, int output, int emission)
-    {
-        this.type = type;
-        this.Output = output;
-        this.Emission = emission;
-    }
+    public int DegradeTime; // In seconds, how long it takes for maintenance required to max out
 
     public override string ToString()
     {

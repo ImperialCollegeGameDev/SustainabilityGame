@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
+  m_Name: KP
+  m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
+  Id: KP
+  DisplayName: KP
+  Prefab: {fileID: 5940491066109206705, guid: 82ae42f77c2c92a42940f2a20cdb5b94, type: 3}
+  Size: {x: 1, y: 1}
+  TileType: 1
+  TickLogic: {fileID: 11400000, guid: aa24d4090ee97db4ba68d4bd5284ad92, type: 2}
+  UpgradeTree: {fileID: 0}
+  Category: 1
+  Cost: 1000
+  Utility:
+    type: 1
+    Output: 40
+    Emission: 5
+  Residential:
+    MaxOccupancy: 50000
+  Infrastructure:
+    ResourceProduction: 0

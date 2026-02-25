@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c7740fa090b2a449abeffdaf082200, type: 3}
+  m_Name: CoalPowerPlant
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeTree
+  Paths:
+  - PathName: Dirty
+    Upgrades:
+    - Id: Preheated
+      DisplayName: Air Preheater Retrofit
+      Description: +20% Power
+      PointsCost: 2
+      MoneyCost: 350
+    - Id: SupplementaryFiring
+      DisplayName: Supplementary Firing
+      Description: +40% Power, +50% Emission
+      PointsCost: 5
+      MoneyCost: 500
+  - PathName: Clean
+    Upgrades:
+    - Id: OverfireAir
+      DisplayName: Overfire Air Injection
+      Description: -15% Emission
+      PointsCost: 1
+      MoneyCost: 5
+    - Id: SulfurScrubbers
+      DisplayName: Sulfur Scrubbers
+      Description: -25% Emission
+      PointsCost: 4
+      MoneyCost: 750
+    - Id: Cogeneration
+      DisplayName: Cogeneration
+      Description: "+5% Power per adjacent Residential tile, \u221210% Emission"
+      PointsCost: 5
+      MoneyCost: 1200
+  - PathName: Reliability
+    Upgrades:
+    - Id: Maintenance
+      DisplayName: Predictive Maintenance System
+      Description: '-20% Degradation, +10% Repair Cost '
+      PointsCost: 1
+      MoneyCost: 10
+    - Id: Calibration
+      DisplayName: Peak Load Calibration
+      Description: -30% Degradation while Efficiency is greater than 80%
+      PointsCost: 3
+      MoneyCost: 20
+    - Id: Ash
+      DisplayName: Fly Ash Recycling
+      Description: -20% Emission, -10% Degradation
+      PointsCost: 4
+      MoneyCost: 800

@@ -8,7 +8,9 @@ public enum StatType
     Money,
     Energy,
     Emissions,
-    UtilitiesCount
+    UtilitiesCount,
+    Population,
+    Happiness
 }
 
 /// <summary>
@@ -18,13 +20,13 @@ public enum StatType
 public class DisplayStat : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
-    [SerializeField] private StatType stat = StatType.Money;
+    public StatType stat = StatType.Money;
     [SerializeField] private string prefix = "";
     [SerializeField] private string suffix = "";
 
     // keep references so we can unsubscribe cleanly
     private Action<int> intSubscription;
-    private Action<List<Utility>> utilitiesSubscription;
+    private Action<long> longSubscription;
 
     void Start()
     {
@@ -44,27 +46,33 @@ public class DisplayStat : MonoBehaviour
         switch (stat)
         {
             case StatType.Money:
-                intSubscription = UpdateFromInt;
-                GameState.Instance.OnMoneyChanged += intSubscription;
-                UpdateFromInt(GameState.Instance.money);
+                longSubscription = UpdateFromLong;
+                GameState.Instance.OnMoneyChanged += longSubscription;
+                UpdateFromLong(GameState.Instance.money);
                 break;
 
             case StatType.Energy:
                 intSubscription = UpdateFromInt;
                 GameState.Instance.OnEnergyChanged += intSubscription;
-                UpdateFromInt(GameState.Instance.TotalEnergy);
+                UpdateFromInt(GameState.Instance.Power);
                 break;
 
             case StatType.Emissions:
                 intSubscription = UpdateFromInt;
                 GameState.Instance.OnEmissionsChanged += intSubscription;
-                UpdateFromInt(GameState.Instance.TotalEmissions);
+                UpdateFromInt(Mathf.FloorToInt(GameState.Instance.TotalEmissions));
                 break;
 
-            case StatType.UtilitiesCount:
-                utilitiesSubscription = UpdateFromUtilities;
-                GameState.Instance.OnUtilitiesChanged += utilitiesSubscription;
-                UpdateFromUtilities(new List<Utility>(GameState.Instance.OwnedUtilities));
+            case StatType.Population:
+                intSubscription = UpdateFromInt;
+                GameState.Instance.OnPopulationChanged += intSubscription;
+                UpdateFromInt(GameState.Instance.population);
+                break;
+
+            case StatType.Happiness:
+                intSubscription = UpdateFromInt;
+                GameState.Instance.OnHappinessChanged += intSubscription;
+                UpdateFromInt(Mathf.RoundToInt(GameState.Instance.happiness));
                 break;
 
             default:
@@ -73,16 +81,24 @@ public class DisplayStat : MonoBehaviour
         }
     }
 
-    void UpdateFromInt(int value)
+    void UpdateFromInt(int _value)
     {
+        long value = _value;
         if (text == null) return;
-        text.text = $"{prefix}{value}{suffix}";
+        if (stat == StatType.Energy) value *= 1000;
+        String formattedValue = NumberFormatter.Format(value, true);
+        text.text = $"{prefix}{formattedValue}{suffix}".Trim();
     }
 
-    void UpdateFromUtilities(List<Utility> utilities)
+    void UpdateFromLong(long value)
     {
         if (text == null) return;
-        text.text = $"{prefix}{utilities?.Count ?? 0}{suffix}";
+        if (stat == StatType.Money)
+        {
+            text.text = NumberFormatter.FormatMoney(value, false);
+            return;
+        }
+        text.text = $"{prefix}{NumberFormatter.Format(value, true)}{suffix}".Trim();
     }
 
     void OnDestroy()
@@ -92,16 +108,12 @@ public class DisplayStat : MonoBehaviour
         if (intSubscription != null)
         {
             // Try unsubscribing from all int events (safe even if not subscribed)
-            GameState.Instance.OnMoneyChanged -= intSubscription;
+            GameState.Instance.OnMoneyChanged -= longSubscription;
             GameState.Instance.OnEnergyChanged -= intSubscription;
             GameState.Instance.OnEmissionsChanged -= intSubscription;
+            GameState.Instance.OnPopulationChanged -= intSubscription;
+            GameState.Instance.OnHappinessChanged -= intSubscription;
             intSubscription = null;
         }
-
-        if (utilitiesSubscription != null)
-        {
-            GameState.Instance.OnUtilitiesChanged -= utilitiesSubscription;
-            utilitiesSubscription = null;
-        }
     }
-}       
+}

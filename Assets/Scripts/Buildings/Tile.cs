@@ -4,6 +4,7 @@ public class Tile
 {
     public Vector2Int GridPosition { get; private set; }
     public TileObject Occupant { get; set; } // null if empty
+    public TileType type { get; set; } = TileType.Invalid;
 
     public Tile(Vector2Int gridPosition)
     {
@@ -12,4 +13,12 @@ public class Tile
     }
 
     public bool IsOccupied => Occupant != null;
+}
+
+public enum TileType
+{
+    Invalid,
+    Normal,
+    Water,
+    Thermal,
 }
