@@ -1,0 +1,3185 @@
+fileFormatVersion: 2
+guid: a21378995ca78a54a85b114bfcbe35f2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1466493865857727285
+    second: nuclear_texture_0
+  - first:
+      213: 9181231643467727305
+    second: nuclear_texture_1
+  - first:
+      213: 4900538491311249003
+    second: nuclear_texture_2
+  - first:
+      213: 6034084547151611923
+    second: nuclear_texture_3
+  - first:
+      213: -9017332569071941529
+    second: nuclear_texture_4
+  - first:
+      213: -2973384466586217868
+    second: nuclear_texture_5
+  - first:
+      213: -4688483644135322682
+    second: nuclear_texture_6
+  - first:
+      213: -2810227096930177294
+    second: nuclear_texture_7
+  - first:
+      213: 6346968485714354547
+    second: nuclear_texture_8
+  - first:
+      213: -8393323177787210181
+    second: nuclear_texture_9
+  - first:
+      213: -1122490580091154000
+    second: nuclear_texture_10
+  - first:
+      213: -8499434315387184554
+    second: nuclear_texture_11
+  - first:
+      213: 8452172688678749097
+    second: nuclear_texture_12
+  - first:
+      213: -6920276105374893026
+    second: nuclear_texture_13
+  - first:
+      213: 7367511290108446578
+    second: nuclear_texture_14
+  - first:
+      213: -8502181779534908002
+    second: nuclear_texture_15
+  - first:
+      213: -781853626080799001
+    second: nuclear_texture_16
+  - first:
+      213: -8830757330149440374
+    second: nuclear_texture_17
+  - first:
+      213: -4240496406544545221
+    second: nuclear_texture_18
+  - first:
+      213: -2779577693752427573
+    second: nuclear_texture_19
+  - first:
+      213: 5341363846775151419
+    second: nuclear_texture_20
+  - first:
+      213: 5228077691115975917
+    second: nuclear_texture_21
+  - first:
+      213: -4247035643075386821
+    second: nuclear_texture_22
+  - first:
+      213: 3857009737784340620
+    second: nuclear_texture_23
+  - first:
+      213: -6968329738384462688
+    second: nuclear_texture_24
+  - first:
+      213: 4513179775047061320
+    second: nuclear_texture_25
+  - first:
+      213: -1669163183734289656
+    second: nuclear_texture_26
+  - first:
+      213: -2161976039656587056
+    second: nuclear_texture_27
+  - first:
+      213: -1346837162642018666
+    second: nuclear_texture_28
+  - first:
+      213: -8410331027845917952
+    second: nuclear_texture_29
+  - first:
+      213: 2746064145621650170
+    second: nuclear_texture_30
+  - first:
+      213: 6302224538783148284
+    second: nuclear_texture_31
+  - first:
+      213: -873274770442890982
+    second: nuclear_texture_32
+  - first:
+      213: -5449010259890628231
+    second: nuclear_texture_33
+  - first:
+      213: -3829282680878166865
+    second: nuclear_texture_34
+  - first:
+      213: 9171181323026426852
+    second: nuclear_texture_35
+  - first:
+      213: 197001194677167453
+    second: nuclear_texture_36
+  - first:
+      213: -6026018651691164778
+    second: nuclear_texture_37
+  - first:
+      213: 6267939795233447083
+    second: nuclear_texture_38
+  - first:
+      213: 1571719403157922229
+    second: nuclear_texture_39
+  - first:
+      213: -2451390839140991636
+    second: nuclear_texture_40
+  - first:
+      213: -6789349468425081537
+    second: nuclear_texture_41
+  - first:
+      213: -4075514329684472597
+    second: nuclear_texture_42
+  - first:
+      213: 1459791133921074495
+    second: nuclear_texture_43
+  - first:
+      213: -5843393789027487890
+    second: nuclear_texture_44
+  - first:
+      213: -7570783270599590972
+    second: nuclear_texture_45
+  - first:
+      213: -4040541022437562429
+    second: nuclear_texture_46
+  - first:
+      213: 5231346068037233373
+    second: nuclear_texture_47
+  - first:
+      213: 7836559004649979972
+    second: nuclear_texture_48
+  - first:
+      213: 66066358463658479
+    second: nuclear_texture_49
+  - first:
+      213: -8694033774401066387
+    second: nuclear_texture_50
+  - first:
+      213: -7969111331139937193
+    second: nuclear_texture_51
+  - first:
+      213: -6503892994688848861
+    second: nuclear_texture_52
+  - first:
+      213: 9106904753023688776
+    second: nuclear_texture_53
+  - first:
+      213: 4631259368954728549
+    second: nuclear_texture_54
+  - first:
+      213: -2705536358870176461
+    second: nuclear_texture_55
+  - first:
+      213: 162713586242706925
+    second: nuclear_texture_56
+  - first:
+      213: 6692776842407608265
+    second: nuclear_texture_57
+  - first:
+      213: 4535240069606720021
+    second: nuclear_texture_58
+  - first:
+      213: 2916809230465920320
+    second: nuclear_texture_59
+  - first:
+      213: 387665908522198426
+    second: nuclear_texture_60
+  - first:
+      213: -2367471231024551486
+    second: nuclear_texture_61
+  - first:
+      213: -4601034642893548684
+    second: nuclear_texture_62
+  - first:
+      213: -2631915321160936802
+    second: nuclear_texture_63
+  - first:
+      213: 4170261813801465207
+    second: nuclear_texture_64
+  - first:
+      213: -5915173587961986795
+    second: nuclear_texture_65
+  - first:
+      213: -4341753156279537737
+    second: nuclear_texture_66
+  - first:
+      213: -5014308667605326972
+    second: nuclear_texture_67
+  - first:
+      213: 2499849313892811225
+    second: nuclear_texture_68
+  - first:
+      213: 2155736269224482584
+    second: nuclear_texture_69
+  - first:
+      213: -476621516411689293
+    second: nuclear_texture_70
+  - first:
+      213: 2068572514068981207
+    second: nuclear_texture_71
+  - first:
+      213: -8190050243599425126
+    second: nuclear_texture_72
+  - first:
+      213: -708438018773036709
+    second: nuclear_texture_73
+  - first:
+      213: 5998836402833222131
+    second: nuclear_texture_74
+  - first:
+      213: -8322534991114955374
+    second: nuclear_texture_75
+  - first:
+      213: 6175780495209535371
+    second: nuclear_texture_76
+  - first:
+      213: 2958594756938773729
+    second: nuclear_texture_77
+  - first:
+      213: 3493550106431384485
+    second: nuclear_texture_78
+  - first:
+      213: -7893542574713204359
+    second: nuclear_texture_79
+  - first:
+      213: 4736795378679488740
+    second: nuclear_texture_80
+  - first:
+      213: -766627871145422858
+    second: nuclear_texture_81
+  - first:
+      213: -3228257120656716011
+    second: nuclear_texture_82
+  - first:
+      213: 7176031593630937002
+    second: nuclear_texture_83
+  - first:
+      213: 6670036700114239886
+    second: nuclear_texture_84
+  - first:
+      213: -5755610801033522021
+    second: nuclear_texture_85
+  - first:
+      213: -6039809661130797620
+    second: nuclear_texture_86
+  - first:
+      213: -6118772629590781825
+    second: nuclear_texture_87
+  - first:
+      213: -8858785312685534652
+    second: nuclear_texture_88
+  - first:
+      213: -3592127651125530210
+    second: nuclear_texture_89
+  - first:
+      213: -2913444325644649833
+    second: nuclear_texture_90
+  - first:
+      213: -2701616403873004756
+    second: nuclear_texture_91
+  - first:
+      213: -3288789862764674352
+    second: nuclear_texture_92
+  - first:
+      213: -4253491549863596654
+    second: nuclear_texture_93
+  - first:
+      213: -1258567565977123523
+    second: nuclear_texture_94
+  - first:
+      213: 2723652546332840465
+    second: nuclear_texture_95
+  - first:
+      213: 1807977158845946960
+    second: nuclear_texture_96
+  - first:
+      213: -109033258000665027
+    second: nuclear_texture_97
+  - first:
+      213: -8804072710567427868
+    second: nuclear_texture_98
+  - first:
+      213: 5755696272557848503
+    second: nuclear_texture_99
+  - first:
+      213: 3236710003501606785
+    second: nuclear_texture_100
+  - first:
+      213: -8607216485560067434
+    second: nuclear_texture_101
+  - first:
+      213: -5061424301906332920
+    second: nuclear_texture_102
+  - first:
+      213: -6541541720103898012
+    second: nuclear_texture_103
+  - first:
+      213: 8261624833679442384
+    second: nuclear_texture_104
+  - first:
+      213: 5136298271228651559
+    second: nuclear_texture_105
+  - first:
+      213: 3709832833941491796
+    second: nuclear_texture_106
+  - first:
+      213: 3173988276922957394
+    second: nuclear_texture_107
+  - first:
+      213: 7609494349065657445
+    second: nuclear_texture_108
+  - first:
+      213: -6658760674202585452
+    second: nuclear_texture_109
+  - first:
+      213: 3061684872534011843
+    second: nuclear_texture_110
+  - first:
+      213: -728272865446786319
+    second: nuclear_texture_111
+  - first:
+      213: -6313398664194653261
+    second: nuclear_texture_112
+  - first:
+      213: -3305105404387257741
+    second: nuclear_texture_113
+  - first:
+      213: 8940595480286766991
+    second: nuclear_texture_114
+  - first:
+      213: -3827753990387505643
+    second: nuclear_texture_115
+  - first:
+      213: 2885703082429176913
+    second: nuclear_texture_116
+  - first:
+      213: 7187172638156637812
+    second: nuclear_texture_117
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nuclear_texture_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 125
+        width: 89
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc4c24c4997f5abe0800000000000000
+      internalID: -1466493865857727285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 249
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c1487519894a6f70800000000000000
+      internalID: 9181231643467727305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 224
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b665cbe2bc5320440800000000000000
+      internalID: 4900538491311249003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_3
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 247
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31845a9fcef5db350800000000000000
+      internalID: 6034084547151611923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_4
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 232
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76808e6edcffbd280800000000000000
+      internalID: -9017332569071941529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_5
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 220
+        width: 43
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 472d670d49a6cb6d0800000000000000
+      internalID: -2973384466586217868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_6
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 241
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cbc51067f82feeb0800000000000000
+      internalID: -4688483644135322682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_7
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 247
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2feac4538511009d0800000000000000
+      internalID: -2810227096930177294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_8
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 249
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3716a97c536f41850800000000000000
+      internalID: 6346968485714354547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_9
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 241
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b36c0fe1a0de48b80800000000000000
+      internalID: -8393323177787210181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_10
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 227
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1d1fdb3cc1c60f0800000000000000
+      internalID: -1122490580091154000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_11
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 208
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65ad497a581fb0a80800000000000000
+      internalID: -8499434315387184554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_12
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 235
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a384f067462c4570800000000000000
+      internalID: 8452172688678749097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_13
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 198
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1c718f1c8d36ff90800000000000000
+      internalID: -6920276105374893026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_14
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 153
+        width: 59
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277089dcb78ae3660800000000000000
+      internalID: 7367511290108446578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_15
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 217
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e95f50fc7be220a80800000000000000
+      internalID: -8502181779534908002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_16
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 203
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e65a1ff44c4625f0800000000000000
+      internalID: -781853626080799001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_17
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 219
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8404cedef8d27580800000000000000
+      internalID: -8830757330149440374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_18
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 208
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3a87904cfab625c0800000000000000
+      internalID: -4240496406544545221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_19
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 187
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcb794a70d4fc69d0800000000000000
+      internalID: -2779577693752427573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_20
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 188
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3b952f6e16502a40800000000000000
+      internalID: 5341363846775151419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_21
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 199
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de4bc15e5fcdd8840800000000000000
+      internalID: 5228077691115975917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_22
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 189
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b32a11a959f7f05c0800000000000000
+      internalID: -4247035643075386821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_23
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 187
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80bbd3dbe9d68530800000000000000
+      internalID: 3857009737784340620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_24
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 181
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0acadc1d5058b4f90800000000000000
+      internalID: -6968329738384462688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_25
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 172
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84f4823f71902ae30800000000000000
+      internalID: 4513179775047061320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_26
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 171
+        width: 82
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80b8b519de0f5d8e0800000000000000
+      internalID: -1669163183734289656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_27
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 156
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d00d5f1f3e1ff1e0800000000000000
+      internalID: -2161976039656587056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_28
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 142
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69e6d668cb21f4de0800000000000000
+      internalID: -1346837162642018666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_29
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 159
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0035cc17d70884b80800000000000000
+      internalID: -8410331027845917952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_30
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 158
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa073a8acafb1620800000000000000
+      internalID: 2746064145621650170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_31
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 163
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf86be0d3dff57750800000000000000
+      internalID: 6302224538783148284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_32
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 157
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a11d07c193181e3f0800000000000000
+      internalID: -873274770442890982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_33
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 145
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97992c9e90a3164b0800000000000000
+      internalID: -5449010259890628231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_34
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 128
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fac83bda0b7abdac0800000000000000
+      internalID: -3829282680878166865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_35
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 139
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ebefa182d4964f70800000000000000
+      internalID: 9171181323026426852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_36
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 128
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d556f05fa83ebb200800000000000000
+      internalID: 197001194677167453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_37
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 147
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69bd118a6f74f5ca0800000000000000
+      internalID: -6026018651691164778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_38
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 144
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac9c68e8023cf650800000000000000
+      internalID: 6267939795233447083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_39
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 149
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b121d7487edfc510800000000000000
+      internalID: 1571719403157922229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_40
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 116
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6dba531509eafdd0800000000000000
+      internalID: -2451390839140991636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_41
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 131
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d298641a267c1a0800000000000000
+      internalID: -6789349468425081537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_42
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 119
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bec84266f4dd077c0800000000000000
+      internalID: -4075514329684472597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_43
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 137
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d51af4d48324410800000000000000
+      internalID: 1459791133921074495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_44
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 118
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6fea4afe4818eea0800000000000000
+      internalID: -5843393789027487890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_45
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 124
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cbf0742abc2fe690800000000000000
+      internalID: -7570783270599590972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_46
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 137
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c72739095d1de7c0800000000000000
+      internalID: -4040541022437562429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_47
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 137
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddaee723889799840800000000000000
+      internalID: 5231346068037233373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_48
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 131
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4400d8515ec01cc60800000000000000
+      internalID: 7836559004649979972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe974d3c007bae000800000000000000
+      internalID: 66066358463658479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_50
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 117
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6a639b5856985780800000000000000
+      internalID: -8694033774401066387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_51
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 100
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75c1ddb6777086190800000000000000
+      internalID: -7969111331139937193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_52
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 119
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32c6b6ac7c78db5a0800000000000000
+      internalID: -6503892994688848861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_53
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 100
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8402b475f99326e70800000000000000
+      internalID: 9106904753023688776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_54
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 119
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5601f3dcbd9854040800000000000000
+      internalID: 4631259368954728549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_55
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 100
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33da3a22401047ad0800000000000000
+      internalID: -2705536358870176461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_56
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 117
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ded50240523124200800000000000000
+      internalID: 162713586242706925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_57
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 104
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cf7aac041581ec50800000000000000
+      internalID: 6692776842407608265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_58
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 115
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 512c60880d860fe30800000000000000
+      internalID: 4535240069606720021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_59
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 102
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04d608b8a869a7820800000000000000
+      internalID: 2916809230465920320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_60
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 119
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a95aef00714416500800000000000000
+      internalID: 387665908522198426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_61
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 102
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c923d2757d052fd0800000000000000
+      internalID: -2367471231024551486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_62
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 121
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 473501f9e57d520c0800000000000000
+      internalID: -4601034642893548684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_63
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 104
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e925b4bb5fe897bd0800000000000000
+      internalID: -2631915321160936802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_64
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 125
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7753300560fbfd930800000000000000
+      internalID: 4170261813801465207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_65
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 103
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 511c0c036f419eda0800000000000000
+      internalID: -5915173587961986795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_66
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 90
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bfe689028efeb3c0800000000000000
+      internalID: -4341753156279537737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_67
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 101
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 483e83175d8996ab0800000000000000
+      internalID: -5014308667605326972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_68
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 90
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d1c59ac4bf31b220800000000000000
+      internalID: 2499849313892811225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_69
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 96
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8171d8c17b6baed10800000000000000
+      internalID: 2155736269224482584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_70
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 98
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b629fd8143b269f0800000000000000
+      internalID: -476621516411689293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_71
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 110
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d5e735edbb05bc10800000000000000
+      internalID: 2068572514068981207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 10
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a91a7a932b8175e80800000000000000
+      internalID: -8190050243599425126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_73
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 80
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b51d6a9106f1b26f0800000000000000
+      internalID: -708438018773036709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_74
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 80
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f96e88dce5204350800000000000000
+      internalID: 5998836402833222131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_75
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 80
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29595df258a608c80800000000000000
+      internalID: -8322534991114955374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_76
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 93
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8710c3c3a7c4b550800000000000000
+      internalID: 6175780495209535371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_77
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 89
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e43ba1914a0f0920800000000000000
+      internalID: 2958594756938773729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_78
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 87
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5abeedaef459b7030800000000000000
+      internalID: 3493550106431384485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_79
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 91
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9711cce99d0847290800000000000000
+      internalID: -7893542574713204359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_80
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 89
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e027efdc4a7cb140800000000000000
+      internalID: 4736795378679488740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_81
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 78
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff867153046c55f0800000000000000
+      internalID: -766627871145422858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_82
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 96
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f81a7b04de233d0800000000000000
+      internalID: -3228257120656716011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_83
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 93
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaf2a53d6b2669360800000000000000
+      internalID: 7176031593630937002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_84
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 70
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e81c0251a0bb09c50800000000000000
+      internalID: 6670036700114239886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_85
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 70
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b94def29876ff10b0800000000000000
+      internalID: -5755610801033522021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_86
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 70
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd835d0d194e2ca0800000000000000
+      internalID: -6039809661130797620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_87
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 74
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70dbd746b0c51ba0800000000000000
+      internalID: -6118772629590781825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_88
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 72
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4425ee7a1b54f0580800000000000000
+      internalID: -8858785312685534652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_89
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 70
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e91fdc6eee2362ec0800000000000000
+      internalID: -3592127651125530210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_90
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 75
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ab21962dd5197d0800000000000000
+      internalID: -2913444325644649833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_91
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 76
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2308c7c13ee18ad0800000000000000
+      internalID: -2701616403873004756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_92
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 70
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d281096b0fdb52d0800000000000000
+      internalID: -3288789862764674352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_93
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 83
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29d214ba8ff88f4c0800000000000000
+      internalID: -4253491549863596654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_94
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 87
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d350b18877ba88ee0800000000000000
+      internalID: -1258567565977123523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_95
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 81
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 112d1c37f8b5cc520800000000000000
+      internalID: 2723652546332840465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 69
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05c580b95a9371910800000000000000
+      internalID: 1807977158845946960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_97
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 71
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d36ba2c54d2ac7ef0800000000000000
+      internalID: -109033258000665027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_98
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 71
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e00be50486a1d580800000000000000
+      internalID: -8804072710567427868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_99
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 73
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b7b9d0d34750ef40800000000000000
+      internalID: 5755696272557848503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_100
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 65
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 187aaaf699a1bec20800000000000000
+      internalID: 3236710003501606785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_101
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 67
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69a5e4995360d8880800000000000000
+      internalID: -8607216485560067434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_102
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 67
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 803f75bf96532c9b0800000000000000
+      internalID: -5061424301906332920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_103
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 69
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4643fc1d676c735a0800000000000000
+      internalID: -6541541720103898012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_104
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 71
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d14207a30037a270800000000000000
+      internalID: 8261624833679442384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 61
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 728690d701cc74740800000000000000
+      internalID: 5136298271228651559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_106
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 63
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 450d9239e49fb7330800000000000000
+      internalID: 3709832833941491796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_107
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 65
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25e3f3775854c0c20800000000000000
+      internalID: 3173988276922957394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_108
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 61
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c966c2bca5a9960800000000000000
+      internalID: 7609494349065657445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_109
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 61
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49670d942745793a0800000000000000
+      internalID: -6658760674202585452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_110
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 61
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cfa3998b2a4d7a20800000000000000
+      internalID: 3061684872534011843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_111
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 61
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fa0d7bffa7a4e5f0800000000000000
+      internalID: -728272865446786319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_112
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 65
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b3804f5d5d4268a0800000000000000
+      internalID: -6313398664194653261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_113
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 62
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372164a5528e122d0800000000000000
+      internalID: -3305105404387257741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_114
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 63
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f87a4f25830631c70800000000000000
+      internalID: 8940595480286766991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_115
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 63
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5166e5ba60611eac0800000000000000
+      internalID: -3827753990387505643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_116
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 63
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15cd0731aa31c0820800000000000000
+      internalID: 2885703082429176913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nuclear_texture_117
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 63
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 476cbb46f67fdb360800000000000000
+      internalID: 7187172638156637812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      nuclear_texture_0: -1466493865857727285
+      nuclear_texture_1: 9181231643467727305
+      nuclear_texture_10: -1122490580091154000
+      nuclear_texture_100: 3236710003501606785
+      nuclear_texture_101: -8607216485560067434
+      nuclear_texture_102: -5061424301906332920
+      nuclear_texture_103: -6541541720103898012
+      nuclear_texture_104: 8261624833679442384
+      nuclear_texture_105: 5136298271228651559
+      nuclear_texture_106: 3709832833941491796
+      nuclear_texture_107: 3173988276922957394
+      nuclear_texture_108: 7609494349065657445
+      nuclear_texture_109: -6658760674202585452
+      nuclear_texture_11: -8499434315387184554
+      nuclear_texture_110: 3061684872534011843
+      nuclear_texture_111: -728272865446786319
+      nuclear_texture_112: -6313398664194653261
+      nuclear_texture_113: -3305105404387257741
+      nuclear_texture_114: 8940595480286766991
+      nuclear_texture_115: -3827753990387505643
+      nuclear_texture_116: 2885703082429176913
+      nuclear_texture_117: 7187172638156637812
+      nuclear_texture_12: 8452172688678749097
+      nuclear_texture_13: -6920276105374893026
+      nuclear_texture_14: 7367511290108446578
+      nuclear_texture_15: -8502181779534908002
+      nuclear_texture_16: -781853626080799001
+      nuclear_texture_17: -8830757330149440374
+      nuclear_texture_18: -4240496406544545221
+      nuclear_texture_19: -2779577693752427573
+      nuclear_texture_2: 4900538491311249003
+      nuclear_texture_20: 5341363846775151419
+      nuclear_texture_21: 5228077691115975917
+      nuclear_texture_22: -4247035643075386821
+      nuclear_texture_23: 3857009737784340620
+      nuclear_texture_24: -6968329738384462688
+      nuclear_texture_25: 4513179775047061320
+      nuclear_texture_26: -1669163183734289656
+      nuclear_texture_27: -2161976039656587056
+      nuclear_texture_28: -1346837162642018666
+      nuclear_texture_29: -8410331027845917952
+      nuclear_texture_3: 6034084547151611923
+      nuclear_texture_30: 2746064145621650170
+      nuclear_texture_31: 6302224538783148284
+      nuclear_texture_32: -873274770442890982
+      nuclear_texture_33: -5449010259890628231
+      nuclear_texture_34: -3829282680878166865
+      nuclear_texture_35: 9171181323026426852
+      nuclear_texture_36: 197001194677167453
+      nuclear_texture_37: -6026018651691164778
+      nuclear_texture_38: 6267939795233447083
+      nuclear_texture_39: 1571719403157922229
+      nuclear_texture_4: -9017332569071941529
+      nuclear_texture_40: -2451390839140991636
+      nuclear_texture_41: -6789349468425081537
+      nuclear_texture_42: -4075514329684472597
+      nuclear_texture_43: 1459791133921074495
+      nuclear_texture_44: -5843393789027487890
+      nuclear_texture_45: -7570783270599590972
+      nuclear_texture_46: -4040541022437562429
+      nuclear_texture_47: 5231346068037233373
+      nuclear_texture_48: 7836559004649979972
+      nuclear_texture_49: 66066358463658479
+      nuclear_texture_5: -2973384466586217868
+      nuclear_texture_50: -8694033774401066387
+      nuclear_texture_51: -7969111331139937193
+      nuclear_texture_52: -6503892994688848861
+      nuclear_texture_53: 9106904753023688776
+      nuclear_texture_54: 4631259368954728549
+      nuclear_texture_55: -2705536358870176461
+      nuclear_texture_56: 162713586242706925
+      nuclear_texture_57: 6692776842407608265
+      nuclear_texture_58: 4535240069606720021
+      nuclear_texture_59: 2916809230465920320
+      nuclear_texture_6: -4688483644135322682
+      nuclear_texture_60: 387665908522198426
+      nuclear_texture_61: -2367471231024551486
+      nuclear_texture_62: -4601034642893548684
+      nuclear_texture_63: -2631915321160936802
+      nuclear_texture_64: 4170261813801465207
+      nuclear_texture_65: -5915173587961986795
+      nuclear_texture_66: -4341753156279537737
+      nuclear_texture_67: -5014308667605326972
+      nuclear_texture_68: 2499849313892811225
+      nuclear_texture_69: 2155736269224482584
+      nuclear_texture_7: -2810227096930177294
+      nuclear_texture_70: -476621516411689293
+      nuclear_texture_71: 2068572514068981207
+      nuclear_texture_72: -8190050243599425126
+      nuclear_texture_73: -708438018773036709
+      nuclear_texture_74: 5998836402833222131
+      nuclear_texture_75: -8322534991114955374
+      nuclear_texture_76: 6175780495209535371
+      nuclear_texture_77: 2958594756938773729
+      nuclear_texture_78: 3493550106431384485
+      nuclear_texture_79: -7893542574713204359
+      nuclear_texture_8: 6346968485714354547
+      nuclear_texture_80: 4736795378679488740
+      nuclear_texture_81: -766627871145422858
+      nuclear_texture_82: -3228257120656716011
+      nuclear_texture_83: 7176031593630937002
+      nuclear_texture_84: 6670036700114239886
+      nuclear_texture_85: -5755610801033522021
+      nuclear_texture_86: -6039809661130797620
+      nuclear_texture_87: -6118772629590781825
+      nuclear_texture_88: -8858785312685534652
+      nuclear_texture_89: -3592127651125530210
+      nuclear_texture_9: -8393323177787210181
+      nuclear_texture_90: -2913444325644649833
+      nuclear_texture_91: -2701616403873004756
+      nuclear_texture_92: -3288789862764674352
+      nuclear_texture_93: -4253491549863596654
+      nuclear_texture_94: -1258567565977123523
+      nuclear_texture_95: 2723652546332840465
+      nuclear_texture_96: 1807977158845946960
+      nuclear_texture_97: -109033258000665027
+      nuclear_texture_98: -8804072710567427868
+      nuclear_texture_99: 5755696272557848503
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
