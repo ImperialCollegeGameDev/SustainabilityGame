@@ -1197,7 +1197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 26292504844878446, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 354.9226
+      value: 106
       objectReference: {fileID: 0}
     - target: {fileID: 26292504844878446, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1205,11 +1205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 26292504844878446, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 187.4613
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 26292504844878446, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -137.78998
+      value: -94.229996
       objectReference: {fileID: 0}
     - target: {fileID: 76789432797103130, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2210,7 +2210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7631993885729470625, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 354.9226
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7631993885729470625, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2218,11 +2218,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7631993885729470625, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 187.4613
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7631993885729470625, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -277.99503
+      value: -163.155
       objectReference: {fileID: 0}
     - target: {fileID: 7752149188151131725, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_Padding.m_Top
@@ -5644,7 +5644,7 @@ PrefabInstance:
     - target: {fileID: 8553513027454290289, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: Settings
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: cfbdecc01f4de774f878c8bc502225c7, type: 2}
     - target: {fileID: 8863085007665213145, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: buildings.Array.size
       value: 5

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,9 @@ public class TileInfoPanel : MonoBehaviour
     public UpgradesButton UpgradesButton;
     public DeleteButton DeleteButton;
     public VerticalLayoutGroup TileStatList;
+
+    private TileObject currentTileObject;
+    private Dictionary<string, TileStatDisplay> statDisplays = new Dictionary<string, TileStatDisplay>();
 
 
     void Start()
@@ -29,25 +33,44 @@ public class TileInfoPanel : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (currentTileObject != null)
+        {
+            UpdateStats();
+        }
+    }
+
     public void SetTile(TileObject tileObj)
     {
-        if (tileObj == null) {
+        if (tileObj == null)
+        {
             Debug.LogError("TileObject passed to SetTile is null.");
             return;
         }
+
+        currentTileObject = tileObj;
         TileObjectDefinition def = tileObj.Definition;
+
         // Clear previous stats
         foreach (Transform child in TileStatList.transform)
         {
             Destroy(child.gameObject);
         }
+        statDisplays.Clear();
 
         // Add new stats
         TileNameText.text = def.DisplayName;
-        foreach (StatRow stat in def.GetStats())
+
+        // Create stat displays from TickBehaviour
+        if (def.TickLogic != null)
         {
-            if (stat.Name == "Cost") continue;
-            CreateStatDisplay(stat.Name, stat.Value.ToString(), stat.Color);
+            List<StatRow> stats = def.TickLogic.GetStats(tileObj);
+            foreach (StatRow stat in stats)
+            {
+                TileStatDisplay display = CreateStatDisplay(stat.Name, stat.Value.ToString(), stat.Color);
+                statDisplays[stat.Name] = display;
+            }
         }
 
         if (tileObj.Definition.UpgradeTree != null)
@@ -64,22 +87,42 @@ public class TileInfoPanel : MonoBehaviour
         {
             UtilityBlock.gameObject.SetActive(true);
             UtilityBlock.Init(util);
-        } else
+        }
+        else
         {
             UtilityBlock.gameObject.SetActive(false);
         }
         DeleteButton.Init(tileObj);
     }
 
-    private void CreateStatDisplay(string name, string value, Color color)
+    private void UpdateStats()
+    {
+        if (currentTileObject == null || currentTileObject.Definition.TickLogic == null)
+        {
+            return;
+        }
+
+        List<StatRow> stats = currentTileObject.Definition.TickLogic.GetStats(currentTileObject);
+
+        foreach (StatRow stat in stats)
+        {
+            if (statDisplays.TryGetValue(stat.Name, out TileStatDisplay display))
+            {
+                display.UpdateValue(stat.Value.ToString(), stat.Color);
+            }
+        }
+    }
+
+    private TileStatDisplay CreateStatDisplay(string name, string value, Color color)
     {
         GameObject obj = Instantiate(_StatDisplayPrefab, TileStatList.transform, false);
 
         if (!obj.TryGetComponent(out TileStatDisplay statDisplay))
         {
             Debug.LogError("Stat Display Prefab does not have a TileStatDisplay component.");
-            return;
+            return null;
         }
         statDisplay.Init(name, value, color);
+        return statDisplay;
     }
 }

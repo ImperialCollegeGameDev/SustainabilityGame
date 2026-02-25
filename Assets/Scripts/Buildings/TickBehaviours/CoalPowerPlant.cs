@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "CityBuilder/TickBehaviours/CoalPowerPlant")]
-class CoalPowerPlant : TickBehaviour
+class CoalPowerPlant : UtilityDefault
 {
     public override void Tick(TileObject tileObject, float delta)
     {
@@ -32,7 +33,7 @@ class CoalPowerPlant : TickBehaviour
         if (tileObject.HasUpgrade("Cogeneration"))
         {
             emissionMult -= 0.1f;
-            outputMult += 0.05f * GridManager.Instance.GetWithinRadius(tileObject, 1, obj => obj.Definition.Category == BuildingCategory.Residential).Count;
+            outputMult += 0.05f * GridManager.Instance.GetWithinRadius(tileObject.Origin, tileObject.Definition.Size, 1, obj => obj.Definition.Category == BuildingCategory.Residential).Count;
         }
         if (tileObject.HasUpgrade("Maintenance"))
         {
@@ -52,8 +53,14 @@ class CoalPowerPlant : TickBehaviour
         util.efficiency -= degradeMult * (delta / def.Utility.DegradeTime) * (1 - GameState.Instance.Settings.MinimumEfficiency);
         util.efficiency = Mathf.Max(util.efficiency, GameState.Instance.Settings.MinimumEfficiency);
 
-        GameState.Instance.Power += Mathf.FloorToInt(output * outputMult * util.efficiency);
-        GameState.Instance.EmissionsDelta += Mathf.FloorToInt(emission * emissionMult);
+        util.outputMultiplier = outputMult;
+        util.emissionMultiplier = emissionMult;
+        util.degradeMultiplier = degradeMult;
+        util.actualOutput = output * outputMult * util.efficiency;
+        util.actualEmission = emission * emissionMult;
+
+        GameState.Instance.Power += Mathf.FloorToInt(util.actualOutput);
+        GameState.Instance.EmissionsDelta += util.actualEmission;
 
         tileObject.AddTime(delta);
     }

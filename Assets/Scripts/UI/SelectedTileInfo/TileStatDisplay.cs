@@ -1,11 +1,12 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TileStatDisplay : MonoBehaviour
 {
     public TextMeshProUGUI statNameText;
     public TextMeshProUGUI statValueText;
+
+    private string statName;
 
     private void Awake()
     {
@@ -21,14 +22,15 @@ public class TileStatDisplay : MonoBehaviour
 
     public void Init(string statName, string statValue, Color statColor)
     {
+        this.statName = statName;
         this.statNameText.text = statName;
-        this.statValueText.text = statValue;
-        this.statNameText.color = statColor;
-        this.statValueText.color = statColor;
+        UpdateValue(statValue, statColor);
+    }
 
-        if (statName == "Power")
-        {
-            statValueText.text = NumberFormatter.FormatPower(double.Parse(statValue));
-        }
+    public void UpdateValue(string statValue, Color statColor)
+    {
+        statValueText.text = statValue;
+        statNameText.color = statColor;
+        statValueText.color = statColor;
     }
 }
