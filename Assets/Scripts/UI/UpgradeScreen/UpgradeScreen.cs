@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -58,7 +57,19 @@ public class UpgradeScreen : MonoBehaviour
 
     public void UpdateInfo()
     {
-        PointsText.text = $"{currentTile.policyPoints}";
+        if (currentTile != null)
+        {
+            TileTypeState state = TileStateCatalog.Instance.Get(currentTile.Definition.Id);
+            if (state != null)
+            {
+                PointsText.text = $"{state.policyPoints}";
+            }
+            else
+            {
+                PointsText.text = "0";
+            }
+        }
+        
         foreach (var path in upgradePaths)
         {
             path.UpdateInfo();

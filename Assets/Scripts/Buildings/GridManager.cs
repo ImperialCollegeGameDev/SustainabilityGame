@@ -162,6 +162,15 @@ public class GridManager : MonoBehaviour
         );
     }
 
+    public Vector3 GridToWorldTrue(Vector2 gridPos)
+    {
+        return new Vector3(
+            gridPos.x * tileSize,
+            0f,
+            gridPos.y * tileSize
+        );
+    }
+
     public Vector2Int WorldToGrid(Vector3 worldPos)
     {
         return new Vector2Int(
@@ -180,12 +189,10 @@ public class GridManager : MonoBehaviour
     {
         if (def == null)
         {
-            //Debug.LogWarning($"Selected TileObjectDefinition not found");
-            Notifications.Instance.PostNotification($"Select a building first.");
             return false;
         }
 
-        if (!GridManager.Instance.CanPlace(def.Size, gridPos, def.TileType))
+        if (!CanPlace(def.Size, gridPos, def.TileType))
         {
             //Debug.Log("Cannot place there (out of bounds or occupied).");
             Notifications.Instance.PostNotification($"Cannot be constructed at this location.");
@@ -194,8 +201,6 @@ public class GridManager : MonoBehaviour
 
         if (GameState.Instance.money - def.Cost < 0)
         {
-            //Debug.Log("Not enough money to place that building.");
-            Notifications.Instance.PostNotification($"Not enough money to place that building.");
             return false;
         }
 
@@ -218,8 +223,7 @@ public class GridManager : MonoBehaviour
 
         tileObj.transform.SetParent(terrain);
 
-        GridManager.Instance.Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
-        Notifications.Instance.PostNotification($"Created building {def.name}.");
+        Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
 
         GameState.Instance.Tick(0.0001f);
 
@@ -235,7 +239,7 @@ public class GridManager : MonoBehaviour
             return false;
         }
 
-        if (!GridManager.Instance.CanPlace(def.Size, gridPos, def.TileType))
+        if (!CanPlace(def.Size, gridPos, def.TileType))
         {
             //Debug.Log("Cannot place there (out of bounds or occupied).");
             Notifications.Instance.PostNotification($"Cannot be constructed at this location.");
@@ -258,8 +262,7 @@ public class GridManager : MonoBehaviour
 
         tileObj.transform.SetParent(terrain);
 
-        GridManager.Instance.Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
-        Notifications.Instance.PostNotification($"Created building {def.name}.");
+        Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
 
         switch (def.Category)
         {
@@ -406,6 +409,15 @@ public class GridManager : MonoBehaviour
     public List<TileObject> GetTileObjects()
     {
         return tiles.Values.Select(t => t.Occupant).Where(o => o != null).Distinct().ToList();
+    }
+
+    public List<TileObject> GetTileObjects(Func<TileObject, bool> predicate)
+    {
+        return tiles.Values
+            .Select(t => t.Occupant)
+            .Where(o => o != null && predicate(o))
+            .Distinct()
+            .ToList();
     }
 
 

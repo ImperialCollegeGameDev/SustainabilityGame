@@ -22,11 +22,18 @@ public class RepairButton : MonoBehaviour
     private void Update()
     {
         PriceText.text = NumberFormatter.FormatMoney(util.CurrentRepairCost());
+        if (util.CurrentRepairCost() <= 0)
+        {
+            button.interactable = false;
+        }
+        else
+        {
+            button.interactable = true;
+        }
     }
 
     void OnClick()
     {
-        MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Click);
         util.TryRepair();
     }
 }
