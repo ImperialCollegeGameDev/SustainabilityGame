@@ -151,9 +151,13 @@ public class GameState : MonoBehaviour
 
     public void UpdateHappinessAndDisplay()
     {
-        requiredEnergy = population * Settings.EnergyReqPerPerson;
+        float effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson;
+        if (!DayNight.Instance.IsDaytime)
+            effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson * Settings.NighttimeEnergyMultiplier;
 
-        dissatisfiedPopulation = population - Power / Settings.EnergyReqPerPerson;
+        requiredEnergy = Mathf.FloorToInt(population * effectiveEnergyReqPerPerson);
+
+        dissatisfiedPopulation = Mathf.FloorToInt(population - Power / effectiveEnergyReqPerPerson);
         dissatisfiedPopulation = Math.Max(dissatisfiedPopulation, 0);
 
         projectedHappiness = Mathf.RoundToInt(100f * (1 - 1.5f * EmissionsPercentage));

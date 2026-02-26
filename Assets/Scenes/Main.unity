@@ -2062,7 +2062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6895166113813773878, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -57.000122
+      value: -57
       objectReference: {fileID: 0}
     - target: {fileID: 7007592236803315714, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -5328,7 +5328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 98.65, y: -46.175903}
+  m_AnchoredPosition: {x: 98.65, y: -46.176025}
   m_SizeDelta: {x: 177.3, y: 26.082}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2122278294
@@ -5716,7 +5716,7 @@ PrefabInstance:
     - target: {fileID: 8553513027454290289, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: Settings
       value: 
-      objectReference: {fileID: 11400000, guid: cfbdecc01f4de774f878c8bc502225c7, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8863085007665213145, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: buildings.Array.size
       value: 12
