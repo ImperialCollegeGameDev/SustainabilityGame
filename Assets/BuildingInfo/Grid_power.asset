@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
   m_Name: Grid_power
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
-  Id: GridPower
+  Id: Grid
   DisplayName: GridPower
   Prefab: {fileID: 1501230553749349402, guid: 7412410af0111da41a645691b88d398f, type: 3}
   Size: {x: 1, y: 1}

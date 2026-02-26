@@ -1,0 +1,4017 @@
+fileFormatVersion: 2
+guid: 6e0e52e108cf2b44f868e6fa3b9bd1df
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1433579412886864603
+    second: neighbourHOOD-4_0
+  - first:
+      213: 5714531931144866716
+    second: neighbourHOOD-4_1
+  - first:
+      213: -6178682103596974946
+    second: neighbourHOOD-4_2
+  - first:
+      213: 4076667778138992529
+    second: neighbourHOOD-4_3
+  - first:
+      213: -8038832616939107721
+    second: neighbourHOOD-4_4
+  - first:
+      213: 6308270167756222347
+    second: neighbourHOOD-4_5
+  - first:
+      213: 2473916118951720073
+    second: neighbourHOOD-4_6
+  - first:
+      213: -1697408498732169487
+    second: neighbourHOOD-4_7
+  - first:
+      213: -1192420725810380485
+    second: neighbourHOOD-4_8
+  - first:
+      213: 7261024910434100900
+    second: neighbourHOOD-4_9
+  - first:
+      213: -8201338659575218399
+    second: neighbourHOOD-4_10
+  - first:
+      213: -9210096552863385402
+    second: neighbourHOOD-4_11
+  - first:
+      213: -5718128621578843272
+    second: neighbourHOOD-4_12
+  - first:
+      213: -1014890731275856129
+    second: neighbourHOOD-4_13
+  - first:
+      213: -6135620931090560176
+    second: neighbourHOOD-4_14
+  - first:
+      213: -6502458770182150432
+    second: neighbourHOOD-4_15
+  - first:
+      213: -2653889806379068460
+    second: neighbourHOOD-4_16
+  - first:
+      213: -6661998817076049691
+    second: neighbourHOOD-4_17
+  - first:
+      213: -3584889755730967726
+    second: neighbourHOOD-4_18
+  - first:
+      213: -7904572629116765372
+    second: neighbourHOOD-4_19
+  - first:
+      213: -2536781449735800207
+    second: neighbourHOOD-4_20
+  - first:
+      213: -2689792467227229266
+    second: neighbourHOOD-4_21
+  - first:
+      213: -5385913723102697974
+    second: neighbourHOOD-4_22
+  - first:
+      213: -4894286641176774589
+    second: neighbourHOOD-4_23
+  - first:
+      213: 3458826363368948257
+    second: neighbourHOOD-4_24
+  - first:
+      213: -6772840672253374273
+    second: neighbourHOOD-4_25
+  - first:
+      213: -6396372382552737294
+    second: neighbourHOOD-4_26
+  - first:
+      213: -6935274880242974404
+    second: neighbourHOOD-4_27
+  - first:
+      213: -5967870934214790695
+    second: neighbourHOOD-4_28
+  - first:
+      213: -513632862806925103
+    second: neighbourHOOD-4_29
+  - first:
+      213: 375180086040305511
+    second: neighbourHOOD-4_30
+  - first:
+      213: -5866831454546539180
+    second: neighbourHOOD-4_31
+  - first:
+      213: -7539697158175827766
+    second: neighbourHOOD-4_32
+  - first:
+      213: -7658395044801098524
+    second: neighbourHOOD-4_33
+  - first:
+      213: -8478206548488993258
+    second: neighbourHOOD-4_34
+  - first:
+      213: 4680778828985301546
+    second: neighbourHOOD-4_35
+  - first:
+      213: 1344640763856956732
+    second: neighbourHOOD-4_36
+  - first:
+      213: 7769017818971297465
+    second: neighbourHOOD-4_37
+  - first:
+      213: -3604752796475071303
+    second: neighbourHOOD-4_38
+  - first:
+      213: 7578276470116321803
+    second: neighbourHOOD-4_39
+  - first:
+      213: 232754384782288833
+    second: neighbourHOOD-4_40
+  - first:
+      213: 1985774038906999381
+    second: neighbourHOOD-4_41
+  - first:
+      213: -1078052084367538388
+    second: neighbourHOOD-4_42
+  - first:
+      213: 9027700980207222177
+    second: neighbourHOOD-4_43
+  - first:
+      213: 1941354065799859072
+    second: neighbourHOOD-4_44
+  - first:
+      213: -6047036321632760893
+    second: neighbourHOOD-4_45
+  - first:
+      213: -6999322293095062180
+    second: neighbourHOOD-4_46
+  - first:
+      213: 6425357239218599304
+    second: neighbourHOOD-4_47
+  - first:
+      213: -5754794159239888262
+    second: neighbourHOOD-4_48
+  - first:
+      213: 3710804793352752626
+    second: neighbourHOOD-4_49
+  - first:
+      213: 2322561321249578724
+    second: neighbourHOOD-4_50
+  - first:
+      213: 963087927091322920
+    second: neighbourHOOD-4_51
+  - first:
+      213: 8758585866343280537
+    second: neighbourHOOD-4_52
+  - first:
+      213: -4505288165915139470
+    second: neighbourHOOD-4_53
+  - first:
+      213: -4282450844073442652
+    second: neighbourHOOD-4_54
+  - first:
+      213: -3438334814758290474
+    second: neighbourHOOD-4_55
+  - first:
+      213: -3011838878185342481
+    second: neighbourHOOD-4_56
+  - first:
+      213: -5764732285506904810
+    second: neighbourHOOD-4_57
+  - first:
+      213: -953548509410145132
+    second: neighbourHOOD-4_58
+  - first:
+      213: 468473165556880305
+    second: neighbourHOOD-4_59
+  - first:
+      213: -4223241403814976045
+    second: neighbourHOOD-4_60
+  - first:
+      213: 5134812117645350793
+    second: neighbourHOOD-4_61
+  - first:
+      213: -4732960849779648361
+    second: neighbourHOOD-4_62
+  - first:
+      213: -3487088802202398009
+    second: neighbourHOOD-4_63
+  - first:
+      213: 7759986926426713375
+    second: neighbourHOOD-4_64
+  - first:
+      213: -5411271483854020604
+    second: neighbourHOOD-4_65
+  - first:
+      213: -8147561553570413980
+    second: neighbourHOOD-4_66
+  - first:
+      213: -4359976589320536962
+    second: neighbourHOOD-4_67
+  - first:
+      213: -952596523502769040
+    second: neighbourHOOD-4_68
+  - first:
+      213: -1569747729004112588
+    second: neighbourHOOD-4_69
+  - first:
+      213: -1320084844435052534
+    second: neighbourHOOD-4_70
+  - first:
+      213: 8379113449678793124
+    second: neighbourHOOD-4_71
+  - first:
+      213: 787286943328500493
+    second: neighbourHOOD-4_72
+  - first:
+      213: -7252539702802832152
+    second: neighbourHOOD-4_73
+  - first:
+      213: 861708014445816957
+    second: neighbourHOOD-4_74
+  - first:
+      213: 6075602199765972400
+    second: neighbourHOOD-4_75
+  - first:
+      213: 5509975632806311706
+    second: neighbourHOOD-4_76
+  - first:
+      213: 4441857630491747266
+    second: neighbourHOOD-4_77
+  - first:
+      213: -8350035884808819984
+    second: neighbourHOOD-4_78
+  - first:
+      213: -4606151836482900401
+    second: neighbourHOOD-4_79
+  - first:
+      213: -7717560116740088234
+    second: neighbourHOOD-4_80
+  - first:
+      213: 6344797311049540398
+    second: neighbourHOOD-4_81
+  - first:
+      213: -8469875163920317193
+    second: neighbourHOOD-4_82
+  - first:
+      213: 1829275599474923125
+    second: neighbourHOOD-4_83
+  - first:
+      213: 4557158505925213269
+    second: neighbourHOOD-4_84
+  - first:
+      213: -301722204933543892
+    second: neighbourHOOD-4_85
+  - first:
+      213: -8294388227708107888
+    second: neighbourHOOD-4_86
+  - first:
+      213: 5590616020258627349
+    second: neighbourHOOD-4_87
+  - first:
+      213: 8912563774627635868
+    second: neighbourHOOD-4_88
+  - first:
+      213: -6847810880646990663
+    second: neighbourHOOD-4_89
+  - first:
+      213: 3313490749341739551
+    second: neighbourHOOD-4_90
+  - first:
+      213: -6419205493514486515
+    second: neighbourHOOD-4_91
+  - first:
+      213: -7095573135110552591
+    second: neighbourHOOD-4_92
+  - first:
+      213: 4216501657532313192
+    second: neighbourHOOD-4_93
+  - first:
+      213: -8956888631323043245
+    second: neighbourHOOD-4_94
+  - first:
+      213: 2398623538021407796
+    second: neighbourHOOD-4_95
+  - first:
+      213: 7856824793184067090
+    second: neighbourHOOD-4_96
+  - first:
+      213: -4191089859643521730
+    second: neighbourHOOD-4_97
+  - first:
+      213: 6060238760374177038
+    second: neighbourHOOD-4_98
+  - first:
+      213: 8345265254297256588
+    second: neighbourHOOD-4_99
+  - first:
+      213: 2419321700671231394
+    second: neighbourHOOD-4_100
+  - first:
+      213: -4351128725558778202
+    second: neighbourHOOD-4_101
+  - first:
+      213: 2734962637604323288
+    second: neighbourHOOD-4_102
+  - first:
+      213: 6310017739930646790
+    second: neighbourHOOD-4_103
+  - first:
+      213: -5297158289329957504
+    second: neighbourHOOD-4_104
+  - first:
+      213: -5525627022768473589
+    second: neighbourHOOD-4_105
+  - first:
+      213: 8364371208921146455
+    second: neighbourHOOD-4_106
+  - first:
+      213: -2578640730487758476
+    second: neighbourHOOD-4_107
+  - first:
+      213: -2333677536868597412
+    second: neighbourHOOD-4_108
+  - first:
+      213: -9190554858995289538
+    second: neighbourHOOD-4_109
+  - first:
+      213: 3478275145812213496
+    second: neighbourHOOD-4_110
+  - first:
+      213: 60198455068717373
+    second: neighbourHOOD-4_111
+  - first:
+      213: -8542072835162066014
+    second: neighbourHOOD-4_112
+  - first:
+      213: 1199673014881887014
+    second: neighbourHOOD-4_113
+  - first:
+      213: -5915946304804932580
+    second: neighbourHOOD-4_114
+  - first:
+      213: 561153270808231220
+    second: neighbourHOOD-4_115
+  - first:
+      213: -5462220219691115328
+    second: neighbourHOOD-4_116
+  - first:
+      213: 8289795573347976738
+    second: neighbourHOOD-4_117
+  - first:
+      213: -1111938350161742298
+    second: neighbourHOOD-4_118
+  - first:
+      213: -1133930882349096035
+    second: neighbourHOOD-4_119
+  - first:
+      213: 2531847979145510442
+    second: neighbourHOOD-4_120
+  - first:
+      213: 7025129035242998040
+    second: neighbourHOOD-4_121
+  - first:
+      213: 7837732419966001450
+    second: neighbourHOOD-4_122
+  - first:
+      213: -4603898535728364169
+    second: neighbourHOOD-4_123
+  - first:
+      213: -836806037362768518
+    second: neighbourHOOD-4_124
+  - first:
+      213: 6182166914320310868
+    second: neighbourHOOD-4_125
+  - first:
+      213: -1688565911756908409
+    second: neighbourHOOD-4_126
+  - first:
+      213: 3070388641893307322
+    second: neighbourHOOD-4_127
+  - first:
+      213: 7010119337852452835
+    second: neighbourHOOD-4_128
+  - first:
+      213: -720147395081283044
+    second: neighbourHOOD-4_129
+  - first:
+      213: 1697000442219290358
+    second: neighbourHOOD-4_130
+  - first:
+      213: 7759555828501976183
+    second: neighbourHOOD-4_131
+  - first:
+      213: -2909340847169073169
+    second: neighbourHOOD-4_132
+  - first:
+      213: -6509035443823657177
+    second: neighbourHOOD-4_133
+  - first:
+      213: -480316833589837614
+    second: neighbourHOOD-4_134
+  - first:
+      213: 1304220450553814725
+    second: neighbourHOOD-4_135
+  - first:
+      213: 69016858154800772
+    second: neighbourHOOD-4_136
+  - first:
+      213: -7933982349119119508
+    second: neighbourHOOD-4_137
+  - first:
+      213: -5679026097438342257
+    second: neighbourHOOD-4_138
+  - first:
+      213: -8302875566022584196
+    second: neighbourHOOD-4_139
+  - first:
+      213: 8230887541072208931
+    second: neighbourHOOD-4_140
+  - first:
+      213: -7060212846018922633
+    second: neighbourHOOD-4_141
+  - first:
+      213: 7728621490298164211
+    second: neighbourHOOD-4_142
+  - first:
+      213: -2711597488948356415
+    second: neighbourHOOD-4_143
+  - first:
+      213: 4829425280997327125
+    second: neighbourHOOD-4_144
+  - first:
+      213: -3745786133120092283
+    second: neighbourHOOD-4_145
+  - first:
+      213: 2229695368326996222
+    second: neighbourHOOD-4_146
+  - first:
+      213: 4610435199647839449
+    second: neighbourHOOD-4_147
+  - first:
+      213: -6950709618032065749
+    second: neighbourHOOD-4_148
+  - first:
+      213: -3257107336954127583
+    second: neighbourHOOD-4_149
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: neighbourHOOD-4_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 895
+        width: 129
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd24f6e61e815e310800000000000000
+      internalID: 1433579412886864603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 911
+        width: 50
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9b4485b3881e4f40800000000000000
+      internalID: 5714531931144866716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_2
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 855
+        width: 34
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9cf903ec59e04aa0800000000000000
+      internalID: -6178682103596974946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_3
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 855
+        width: 34
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19f614fbebb339830800000000000000
+      internalID: 4076667778138992529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_4
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 967
+        width: 90
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a45829354507090800000000000000
+      internalID: -8038832616939107721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_5
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 975
+        width: 50
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8fad408b4a7b8750800000000000000
+      internalID: 6308270167756222347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_6
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 955
+        width: 30
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 984fa325a9d155220800000000000000
+      internalID: 2473916118951720073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_7
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 991
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f60752b6f79178e0800000000000000
+      internalID: -1697408498732169487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_8
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1007
+        width: 50
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b314247eaaba37fe0800000000000000
+      internalID: -1192420725810380485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_9
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 955
+        width: 58
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a6efab7fa754c460800000000000000
+      internalID: 7261024910434100900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_10
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 963
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12f375111fdfe2e80800000000000000
+      internalID: -8201338659575218399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_11
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 987
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c8378b7bf92f2080800000000000000
+      internalID: -9210096552863385402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_12
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 923
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87b8cca805025a0b0800000000000000
+      internalID: -5718128621578843272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_13
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 967
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff6577cc1426ae1f0800000000000000
+      internalID: -1014890731275856129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_14
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 907
+        width: 90
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05b45e56545e9daa0800000000000000
+      internalID: -6135620931090560176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_15
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 919
+        width: 58
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e66ba43330a2c5a0800000000000000
+      internalID: -6502458770182150432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_16
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 919
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d3deb1384d7b2bd0800000000000000
+      internalID: -2653889806379068460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_17
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 943
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e80c166f53db83a0800000000000000
+      internalID: -6661998817076049691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_18
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 923
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25308beb2c9ef3ec0800000000000000
+      internalID: -3584889755730967726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_19
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 911
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b3834f2115d4290800000000000000
+      internalID: -7904572629116765372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_20
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 907
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17a72bf36ba8bccd0800000000000000
+      internalID: -2536781449735800207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_21
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 907
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea3466f8000fbaad0800000000000000
+      internalID: -2689792467227229266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_22
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 899
+        width: 90
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a06ef8f21046145b0800000000000000
+      internalID: -5385913723102697974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_23
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 915
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 348f7bb1b30041cb0800000000000000
+      internalID: -4894286641176774589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_24
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 795
+        width: 50
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122cc587048300030800000000000000
+      internalID: 3458826363368948257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_25
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 907
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb0150aea490202a0800000000000000
+      internalID: -6772840672253374273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 763
+        width: 129
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f933de15358b37a0800000000000000
+      internalID: -6396372382552737294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_27
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 703
+        width: 26
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c318d67bd34f0cf90800000000000000
+      internalID: -6935274880242974404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_28
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 719
+        width: 18
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d1bfb4210ddd2da0800000000000000
+      internalID: -5967870934214790695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_29
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 719
+        width: 18
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d02d63f1a53fd8f0800000000000000
+      internalID: -513632862806925103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_30
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 719
+        width: 18
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f9b3bec48e43500800000000000000
+      internalID: 375180086040305511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_31
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 871
+        width: 90
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45d4aaa30e3d49ea0800000000000000
+      internalID: -5866831454546539180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_32
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 879
+        width: 90
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac858e4b16d9d5790800000000000000
+      internalID: -7539697158175827766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_33
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 755
+        width: 26
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ecc40d584ae7b590800000000000000
+      internalID: -7658395044801098524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_34
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 795
+        width: 35
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6164ce8401c575a80800000000000000
+      internalID: -8478206548488993258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_35
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 799
+        width: 30
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a76dd8b8775f040800000000000000
+      internalID: 4680778828985301546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_36
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 859
+        width: 90
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3d243886af19a210800000000000000
+      internalID: 1344640763856956732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_37
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 683
+        width: 34
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6d6795b8811db60800000000000000
+      internalID: 7769017818971297465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_38
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 683
+        width: 32
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4e10f2e6859fdc0800000000000000
+      internalID: -3604752796475071303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_39
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 839
+        width: 90
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0a0cf25c427b2960800000000000000
+      internalID: 7578276470116321803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_40
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 811
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7ecd831e8ea3300800000000000000
+      internalID: 232754384782288833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_41
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 819
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5529e31a7f2ee8b10800000000000000
+      internalID: 1985774038906999381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_42
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 811
+        width: 130
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2747ed475df901f0800000000000000
+      internalID: -1078052084367538388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_43
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 799
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad72bfe536d84d70800000000000000
+      internalID: 9027700980207222177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_44
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 775
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08bc243bc3311fa10800000000000000
+      internalID: 1941354065799859072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_45
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 783
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cbc139018c941ca0800000000000000
+      internalID: -6047036321632760893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 647
+        width: 33
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c55a89b55796dde90800000000000000
+      internalID: -6999322293095062180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_47
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 647
+        width: 34
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 885fb96bd547b2950800000000000000
+      internalID: 6425357239218599304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_48
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 559
+        width: 18
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a72830fc33dd220b0800000000000000
+      internalID: -5754794159239888262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_49
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 575
+        width: 18
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fd8b928c4d6f7330800000000000000
+      internalID: 3710804793352752626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_50
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 575
+        width: 18
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee942a57356b3020800000000000000
+      internalID: 2322561321249578724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_51
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 591
+        width: 26
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 820eeb5fd539d5d00800000000000000
+      internalID: 963087927091322920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_52
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 591
+        width: 21
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99fe522c07fbc8970800000000000000
+      internalID: 8758585866343280537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_53
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 719
+        width: 35
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2726bdb78400a71c0800000000000000
+      internalID: -4505288165915139470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_54
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 683
+        width: 18
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a24eee85ada194c0800000000000000
+      internalID: -4282450844073442652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_55
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 747
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6db397bf3b49840d0800000000000000
+      internalID: -3438334814758290474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_56
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 739
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe93d096f7cc336d0800000000000000
+      internalID: -3011838878185342481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_57
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 755
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d9229778e8fffa0800000000000000
+      internalID: -5764732285506904810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_58
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 719
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c418ccea054c2f0800000000000000
+      internalID: -953548509410145132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_59
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 743
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b312dbacd9508600800000000000000
+      internalID: 468473165556880305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_60
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 695
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d5e2e4a1580465c0800000000000000
+      internalID: -4223241403814976045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_61
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 727
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9875f946a64824740800000000000000
+      internalID: 5134812117645350793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_62
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 731
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7989d05fe25215eb0800000000000000
+      internalID: -4732960849779648361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_63
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 703
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c2db74b53f5b9fc0800000000000000
+      internalID: -3487088802202398009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_64
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 531
+        width: 18
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1de653def201bb60800000000000000
+      internalID: 7759986926426713375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_65
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 531
+        width: 18
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4002ead614d47e4b0800000000000000
+      internalID: -5411271483854020604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_66
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 683
+        width: 90
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4624ec54feb0eee80800000000000000
+      internalID: -8147561553570413980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_67
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 707
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7cb78464604e73c0800000000000000
+      internalID: -4359976589320536962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_68
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 515
+        width: 18
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c685a4282b7c2f0800000000000000
+      internalID: -952596523502769040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_69
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 675
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435dbb1e1c2273ae0800000000000000
+      internalID: -1569747729004112588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_70
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 671
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a08621ef3dd1eade0800000000000000
+      internalID: -1320084844435052534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_71
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 679
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a96dccb947984470800000000000000
+      internalID: 8379113449678793124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_72
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 695
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0bf561cd410dea00800000000000000
+      internalID: 787286943328500493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_73
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 683
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e4250fd09dc95b90800000000000000
+      internalID: -7252539702802832152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_74
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 637
+        width: 27
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c6625afd665fb00800000000000000
+      internalID: 861708014445816957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_75
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 683
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5f1a1c200e05450800000000000000
+      internalID: 6075602199765972400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_76
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 567
+        width: 26
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a177a7a15ad577c40800000000000000
+      internalID: 5509975632806311706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_77
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 607
+        width: 34
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c3a1502bf5a4ad30800000000000000
+      internalID: 4441857630491747266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_78
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 655
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0faa4386a96be1c80800000000000000
+      internalID: -8350035884808819984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_79
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 647
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e6ce42f49a310c0800000000000000
+      internalID: -4606151836482900401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_80
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 607
+        width: 34
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65e1cf496f7b5e490800000000000000
+      internalID: -7717560116740088234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_81
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 607
+        width: 35
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2326f8c98f3d0850800000000000000
+      internalID: 6344797311049540398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_82
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 639
+        width: 50
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f440aae965f47a80800000000000000
+      internalID: -8469875163920317193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_83
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 671
+        width: 16
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5761efe3774e26910800000000000000
+      internalID: 1829275599474923125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_84
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 627
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55c72da24874e3f30800000000000000
+      internalID: 4557158505925213269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_85
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 651
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c28a612d04110dbf0800000000000000
+      internalID: -301722204933543892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 571
+        width: 33
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093c64a3ad964ec80800000000000000
+      internalID: -8294388227708107888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_87
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 575
+        width: 30
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51f9f1b66abd59d40800000000000000
+      internalID: 5590616020258627349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_88
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 595
+        width: 50
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c92e1b04889cfab70800000000000000
+      internalID: 8912563774627635868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_89
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 635
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b43bf90940b7f0a0800000000000000
+      internalID: -6847810880646990663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_90
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 631
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1aae09e742ebfd20800000000000000
+      internalID: 3313490749341739551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_91
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 615
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0d35d23d966ae6a0800000000000000
+      internalID: -6419205493514486515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_92
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 607
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f34eebd3d5778d90800000000000000
+      internalID: -7095573135110552591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_93
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 611
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86e2f04eae5048a30800000000000000
+      internalID: 4216501657532313192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_94
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 607
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a5145de3db2b380800000000000000
+      internalID: -8956888631323043245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_95
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 491
+        width: 18
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43c18ad366f994120800000000000000
+      internalID: 2398623538021407796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_96
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 551
+        width: 26
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21ed73ca58c090d60800000000000000
+      internalID: 7856824793184067090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_97
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 571
+        width: 58
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e35c43e5af146d5c0800000000000000
+      internalID: -4191089859643521730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_98
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 595
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d08264b0b4a1450800000000000000
+      internalID: 6060238760374177038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_99
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 531
+        width: 18
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c824cce988650d370800000000000000
+      internalID: 8345265254297256588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_100
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 551
+        width: 18
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a517e5c448239120800000000000000
+      internalID: 2419321700671231394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_101
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 587
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a622153a7fad93c0800000000000000
+      internalID: -4351128725558778202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_102
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 539
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dffe58470a84f520800000000000000
+      internalID: 2734962637604323288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_103
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 579
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609bafad3bfa19750800000000000000
+      internalID: 6310017739930646790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_104
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 522
+        width: 29
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 085d875f996bc76b0800000000000000
+      internalID: -5297158289329957504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_105
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 543
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0af592bf770153b0800000000000000
+      internalID: -5525627022768473589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_106
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 567
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 754ef355c47341470800000000000000
+      internalID: 8364371208921146455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_107
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 495
+        width: 17
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4716ce7fae3d63cd0800000000000000
+      internalID: -2578640730487758476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_108
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 511
+        width: 14
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5183a205ac1d9fd0800000000000000
+      internalID: -2333677536868597412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_109
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 467
+        width: 14
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3278d4ac07947080800000000000000
+      internalID: -9190554858995289538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_110
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 467
+        width: 14
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fef43101d0554030800000000000000
+      internalID: 3478275145812213496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_111
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 467
+        width: 14
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d31f56a0d2ed5d000800000000000000
+      internalID: 60198455068717373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_112
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 467
+        width: 14
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a3b6a6a306747980800000000000000
+      internalID: -8542072835162066014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_113
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 567
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62328aa304816a010800000000000000
+      internalID: 1199673014881887014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_114
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 495
+        width: 18
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1431d70e2656eda0800000000000000
+      internalID: -5915946304804932580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_115
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 495
+        width: 18
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43db21b3ded99c700800000000000000
+      internalID: 561153270808231220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_116
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 495
+        width: 18
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ccda5876ab4234b0800000000000000
+      internalID: -5462220219691115328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_117
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 491
+        width: 18
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 226030a17254b0370800000000000000
+      internalID: 8289795573347976738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_118
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 507
+        width: 18
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 626b97a36f99190f0800000000000000
+      internalID: -1111938350161742298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_119
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 559
+        width: 130
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d93acbdced77340f0800000000000000
+      internalID: -1133930882349096035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_120
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 499
+        width: 18
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2e324e925ee22320800000000000000
+      internalID: 2531847979145510442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_121
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 551
+        width: 130
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81901f603a54e7160800000000000000
+      internalID: 7025129035242998040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_122
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 495
+        width: 18
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21e2a02c1835cc60800000000000000
+      internalID: 7837732419966001450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_123
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 519
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77548fb9caaab10c0800000000000000
+      internalID: -4603898535728364169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_124
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 543
+        width: 130
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a750715b7511364f0800000000000000
+      internalID: -836806037362768518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_125
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 479
+        width: 14
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4522c36dd087bc550800000000000000
+      internalID: 6182166914320310868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_126
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 495
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78855e9ef320198e0800000000000000
+      internalID: -1688565911756908409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_127
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 483
+        width: 14
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab3d172c3363c9a20800000000000000
+      internalID: 3070388641893307322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_128
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 483
+        width: 14
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3efbac58562f84160800000000000000
+      internalID: 7010119337852452835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_129
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 515
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1ad14a72c58106f0800000000000000
+      internalID: -720147395081283044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_130
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 535
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fe592e39e4fc8710800000000000000
+      internalID: 1697000442219290358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_131
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 511
+        width: 34
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7741ca40aea7fab60800000000000000
+      internalID: 7759555828501976183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_132
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 503
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fef04f1f9e1ff97d0800000000000000
+      internalID: -2909340847169073169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_133
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 495
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72fb67c00c24ba5a0800000000000000
+      internalID: -6509035443823657177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_134
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 527
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d0cc3a72629559f0800000000000000
+      internalID: -480316833589837614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_135
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 519
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ce5f08f695891210800000000000000
+      internalID: 1304220450553814725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_136
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 495
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48694d1877235f000800000000000000
+      internalID: 69016858154800772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_137
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 495
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f198ae615d4e190800000000000000
+      internalID: -7933982349119119508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_138
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 487
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f83c3086adb0031b0800000000000000
+      internalID: -5679026097438342257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_139
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 487
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7814f8c9a246cc80800000000000000
+      internalID: -8302875566022584196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_140
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 495
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3242cc70c9cf93270800000000000000
+      internalID: 8230887541072208931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_141
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 499
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 777746ab2d5150e90800000000000000
+      internalID: -7060212846018922633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_142
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 491
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f31ca42c44914b60800000000000000
+      internalID: 7728621490298164211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_143
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 491
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ca546153787e5ad0800000000000000
+      internalID: -2711597488948356415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_144
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 492
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5110327a4b0950340800000000000000
+      internalID: 4829425280997327125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_145
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 499
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 587fac2ab5b440cc0800000000000000
+      internalID: -3745786133120092283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_146
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 491
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef0e672cf1871fe10800000000000000
+      internalID: 2229695368326996222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_147
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 487
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d477fe036e8bff30800000000000000
+      internalID: 4610435199647839449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_148
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 499
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b23ce48cd6e1a8f90800000000000000
+      internalID: -6950709618032065749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: neighbourHOOD-4_149
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 491
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12bd789422e6cc2d0800000000000000
+      internalID: -3257107336954127583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      neighbourHOOD-4_0: 1433579412886864603
+      neighbourHOOD-4_1: 5714531931144866716
+      neighbourHOOD-4_10: -8201338659575218399
+      neighbourHOOD-4_100: 2419321700671231394
+      neighbourHOOD-4_101: -4351128725558778202
+      neighbourHOOD-4_102: 2734962637604323288
+      neighbourHOOD-4_103: 6310017739930646790
+      neighbourHOOD-4_104: -5297158289329957504
+      neighbourHOOD-4_105: -5525627022768473589
+      neighbourHOOD-4_106: 8364371208921146455
+      neighbourHOOD-4_107: -2578640730487758476
+      neighbourHOOD-4_108: -2333677536868597412
+      neighbourHOOD-4_109: -9190554858995289538
+      neighbourHOOD-4_11: -9210096552863385402
+      neighbourHOOD-4_110: 3478275145812213496
+      neighbourHOOD-4_111: 60198455068717373
+      neighbourHOOD-4_112: -8542072835162066014
+      neighbourHOOD-4_113: 1199673014881887014
+      neighbourHOOD-4_114: -5915946304804932580
+      neighbourHOOD-4_115: 561153270808231220
+      neighbourHOOD-4_116: -5462220219691115328
+      neighbourHOOD-4_117: 8289795573347976738
+      neighbourHOOD-4_118: -1111938350161742298
+      neighbourHOOD-4_119: -1133930882349096035
+      neighbourHOOD-4_12: -5718128621578843272
+      neighbourHOOD-4_120: 2531847979145510442
+      neighbourHOOD-4_121: 7025129035242998040
+      neighbourHOOD-4_122: 7837732419966001450
+      neighbourHOOD-4_123: -4603898535728364169
+      neighbourHOOD-4_124: -836806037362768518
+      neighbourHOOD-4_125: 6182166914320310868
+      neighbourHOOD-4_126: -1688565911756908409
+      neighbourHOOD-4_127: 3070388641893307322
+      neighbourHOOD-4_128: 7010119337852452835
+      neighbourHOOD-4_129: -720147395081283044
+      neighbourHOOD-4_13: -1014890731275856129
+      neighbourHOOD-4_130: 1697000442219290358
+      neighbourHOOD-4_131: 7759555828501976183
+      neighbourHOOD-4_132: -2909340847169073169
+      neighbourHOOD-4_133: -6509035443823657177
+      neighbourHOOD-4_134: -480316833589837614
+      neighbourHOOD-4_135: 1304220450553814725
+      neighbourHOOD-4_136: 69016858154800772
+      neighbourHOOD-4_137: -7933982349119119508
+      neighbourHOOD-4_138: -5679026097438342257
+      neighbourHOOD-4_139: -8302875566022584196
+      neighbourHOOD-4_14: -6135620931090560176
+      neighbourHOOD-4_140: 8230887541072208931
+      neighbourHOOD-4_141: -7060212846018922633
+      neighbourHOOD-4_142: 7728621490298164211
+      neighbourHOOD-4_143: -2711597488948356415
+      neighbourHOOD-4_144: 4829425280997327125
+      neighbourHOOD-4_145: -3745786133120092283
+      neighbourHOOD-4_146: 2229695368326996222
+      neighbourHOOD-4_147: 4610435199647839449
+      neighbourHOOD-4_148: -6950709618032065749
+      neighbourHOOD-4_149: -3257107336954127583
+      neighbourHOOD-4_15: -6502458770182150432
+      neighbourHOOD-4_16: -2653889806379068460
+      neighbourHOOD-4_17: -6661998817076049691
+      neighbourHOOD-4_18: -3584889755730967726
+      neighbourHOOD-4_19: -7904572629116765372
+      neighbourHOOD-4_2: -6178682103596974946
+      neighbourHOOD-4_20: -2536781449735800207
+      neighbourHOOD-4_21: -2689792467227229266
+      neighbourHOOD-4_22: -5385913723102697974
+      neighbourHOOD-4_23: -4894286641176774589
+      neighbourHOOD-4_24: 3458826363368948257
+      neighbourHOOD-4_25: -6772840672253374273
+      neighbourHOOD-4_26: -6396372382552737294
+      neighbourHOOD-4_27: -6935274880242974404
+      neighbourHOOD-4_28: -5967870934214790695
+      neighbourHOOD-4_29: -513632862806925103
+      neighbourHOOD-4_3: 4076667778138992529
+      neighbourHOOD-4_30: 375180086040305511
+      neighbourHOOD-4_31: -5866831454546539180
+      neighbourHOOD-4_32: -7539697158175827766
+      neighbourHOOD-4_33: -7658395044801098524
+      neighbourHOOD-4_34: -8478206548488993258
+      neighbourHOOD-4_35: 4680778828985301546
+      neighbourHOOD-4_36: 1344640763856956732
+      neighbourHOOD-4_37: 7769017818971297465
+      neighbourHOOD-4_38: -3604752796475071303
+      neighbourHOOD-4_39: 7578276470116321803
+      neighbourHOOD-4_4: -8038832616939107721
+      neighbourHOOD-4_40: 232754384782288833
+      neighbourHOOD-4_41: 1985774038906999381
+      neighbourHOOD-4_42: -1078052084367538388
+      neighbourHOOD-4_43: 9027700980207222177
+      neighbourHOOD-4_44: 1941354065799859072
+      neighbourHOOD-4_45: -6047036321632760893
+      neighbourHOOD-4_46: -6999322293095062180
+      neighbourHOOD-4_47: 6425357239218599304
+      neighbourHOOD-4_48: -5754794159239888262
+      neighbourHOOD-4_49: 3710804793352752626
+      neighbourHOOD-4_5: 6308270167756222347
+      neighbourHOOD-4_50: 2322561321249578724
+      neighbourHOOD-4_51: 963087927091322920
+      neighbourHOOD-4_52: 8758585866343280537
+      neighbourHOOD-4_53: -4505288165915139470
+      neighbourHOOD-4_54: -4282450844073442652
+      neighbourHOOD-4_55: -3438334814758290474
+      neighbourHOOD-4_56: -3011838878185342481
+      neighbourHOOD-4_57: -5764732285506904810
+      neighbourHOOD-4_58: -953548509410145132
+      neighbourHOOD-4_59: 468473165556880305
+      neighbourHOOD-4_6: 2473916118951720073
+      neighbourHOOD-4_60: -4223241403814976045
+      neighbourHOOD-4_61: 5134812117645350793
+      neighbourHOOD-4_62: -4732960849779648361
+      neighbourHOOD-4_63: -3487088802202398009
+      neighbourHOOD-4_64: 7759986926426713375
+      neighbourHOOD-4_65: -5411271483854020604
+      neighbourHOOD-4_66: -8147561553570413980
+      neighbourHOOD-4_67: -4359976589320536962
+      neighbourHOOD-4_68: -952596523502769040
+      neighbourHOOD-4_69: -1569747729004112588
+      neighbourHOOD-4_7: -1697408498732169487
+      neighbourHOOD-4_70: -1320084844435052534
+      neighbourHOOD-4_71: 8379113449678793124
+      neighbourHOOD-4_72: 787286943328500493
+      neighbourHOOD-4_73: -7252539702802832152
+      neighbourHOOD-4_74: 861708014445816957
+      neighbourHOOD-4_75: 6075602199765972400
+      neighbourHOOD-4_76: 5509975632806311706
+      neighbourHOOD-4_77: 4441857630491747266
+      neighbourHOOD-4_78: -8350035884808819984
+      neighbourHOOD-4_79: -4606151836482900401
+      neighbourHOOD-4_8: -1192420725810380485
+      neighbourHOOD-4_80: -7717560116740088234
+      neighbourHOOD-4_81: 6344797311049540398
+      neighbourHOOD-4_82: -8469875163920317193
+      neighbourHOOD-4_83: 1829275599474923125
+      neighbourHOOD-4_84: 4557158505925213269
+      neighbourHOOD-4_85: -301722204933543892
+      neighbourHOOD-4_86: -8294388227708107888
+      neighbourHOOD-4_87: 5590616020258627349
+      neighbourHOOD-4_88: 8912563774627635868
+      neighbourHOOD-4_89: -6847810880646990663
+      neighbourHOOD-4_9: 7261024910434100900
+      neighbourHOOD-4_90: 3313490749341739551
+      neighbourHOOD-4_91: -6419205493514486515
+      neighbourHOOD-4_92: -7095573135110552591
+      neighbourHOOD-4_93: 4216501657532313192
+      neighbourHOOD-4_94: -8956888631323043245
+      neighbourHOOD-4_95: 2398623538021407796
+      neighbourHOOD-4_96: 7856824793184067090
+      neighbourHOOD-4_97: -4191089859643521730
+      neighbourHOOD-4_98: 6060238760374177038
+      neighbourHOOD-4_99: 8345265254297256588
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

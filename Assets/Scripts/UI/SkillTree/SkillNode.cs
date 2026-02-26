@@ -1,19 +1,24 @@
 // SkillNodeUI.cs
 // Attach to: each hexagon Button GameObject (with Image + Button + child label)
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SkillNode : MonoBehaviour
+public class SkillNode : MonoBehaviour  //, IPointerEnterHandler, IPointerExitHandler
 {
-    public string skillId; // e.g. "geology"
     public List<SkillNode> prerequisites = new List<SkillNode>();
+    //[SerializeField] private BuildingSelectorTooltip tooltip;
     public int cost = 40000;
 
     private SkillTreeUI tree;
     private Button btn;
     private Image img;
+
+    [HideInInspector]
+    public string skillId;
 
     // which skills will this building unlock
     public List<string> unlockBuildingIds = new List<string>();
@@ -63,4 +68,25 @@ public class SkillNode : MonoBehaviour
 
         img.color = c;
     }
+
+    //private Coroutine hideRoutine;
+
+    //public void OnPointerEnter(PointerEventData eventData)
+    //{
+    //    if (hideRoutine != null)
+    //        StopCoroutine(hideRoutine);
+
+    //    tooltip.Show(skillId, cost, this);
+    //}
+
+    //public void OnPointerExit(PointerEventData eventData)
+    //{
+    //    hideRoutine = StartCoroutine(HideDelayed());
+    //}
+
+    //private IEnumerator HideDelayed()
+    //{
+    //    yield return new WaitForSeconds(0.05f);
+    //    tooltip.Hide(this);
+    //}
 }
