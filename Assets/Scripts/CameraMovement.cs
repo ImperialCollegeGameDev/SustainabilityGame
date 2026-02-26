@@ -7,10 +7,13 @@ public class CameraMovement : MonoBehaviour
     public float cameraZoom = 5.0f;
     public float cameraZoomMin;
     public float cameraZoomMax;
+    public Vector2 lowerBounds;
+    public Vector2 upperBounds;
     Transform pivotTransform;
     Vector3 currentVelocity;
     Camera cam;
     private float distance = 120f;
+
 
     // base rotation the camera should return to; tilt will be applied as a small offset on top of this
     private Quaternion baseLocalRotation;
@@ -57,6 +60,7 @@ public class CameraMovement : MonoBehaviour
             Time.deltaTime * 8f);
 
         pivotTransform.position += currentVelocity * Time.deltaTime;
+        pivotTransform.position = new Vector3(Mathf.Clamp(pivotTransform.position.x, lowerBounds.x, upperBounds.x), pivotTransform.position.y, Mathf.Clamp(pivotTransform.position.z, lowerBounds.y, upperBounds.y));
     }
 
     void HandleTilt()

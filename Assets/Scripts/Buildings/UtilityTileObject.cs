@@ -31,10 +31,8 @@ public class UtilityTileObject : TileObject
         {
             GameState.Instance.ChangeMoney(-CurrentRepairCost());
             efficiency = 1f;
-            Notifications.Instance.PostNotification($"Successfully repaired {Definition.DisplayName}!");
-        } else
-        {
-            Notifications.Instance.PostNotification("Not enough money to repair!");
+            MusicManager.Instance.PlayUISound(MusicManager.UISoundType.Repair);
+            FlavourManager.Instance.SpawnRepairParticles(Center + Vector3.up * 1.2f);
         }
     }
 }

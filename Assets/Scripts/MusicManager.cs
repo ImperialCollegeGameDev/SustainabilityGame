@@ -26,6 +26,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip uiErrorSound;
     [SerializeField] private AudioClip uiOpenSound;
     [SerializeField] private AudioClip uiCloseSound;
+    [SerializeField] private AudioClip repairSound;
 
     [SerializeField] private AudioClip mainMainAndCredits;
     [SerializeField] private AudioClip mainLeaderboard;
@@ -53,6 +54,7 @@ public class MusicManager : MonoBehaviour
         Error,
         Open,
         Close,
+        Repair,
         LungCancer
     }
 
@@ -69,7 +71,6 @@ public class MusicManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
             Initialize();
         }
         else
@@ -248,6 +249,7 @@ public class MusicManager : MonoBehaviour
             UISoundType.Error => uiErrorSound,
             UISoundType.Open => uiOpenSound,
             UISoundType.Close => uiCloseSound,
+            UISoundType.Repair => repairSound,
             _ => null
         };
         // do not replay if already playing

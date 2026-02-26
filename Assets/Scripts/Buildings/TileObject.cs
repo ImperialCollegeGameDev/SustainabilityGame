@@ -5,6 +5,7 @@ using UnityEngine;
 public class TileObject : MonoBehaviour
 {
     public Vector2Int Origin { get; private set; }
+    public Vector3 Center => GridManager.Instance.GridToWorldTrue(Origin + new Vector2(0.5f * Definition.Size.x, 0.5f * Definition.Size.y));
 
     public TileObjectDefinition Definition { get; private set; } // Important details about this particular building like its power output, max occupancy etc.
 
@@ -12,12 +13,6 @@ public class TileObject : MonoBehaviour
     [SerializeField] private MaterialPropertyBlock previewMPB; // For the placement preview material, to set the color based on whether placement is valid
 
     private readonly HashSet<Upgrade> unlockedUpgrades = new HashSet<Upgrade>();
-    private readonly List<int> rewardThresholds = new List<int>() { 30, 60, 120, 180, 360 };
-    private int currentPointReward = 1; // The number of policy points awarded for the next threshold, increases by 1 each time
-    public int policyPoints = 0; // Points that can be spent on upgrades for this building
-    public float timeSpent = 0; // Multiple copies of the building can stack this up to unlock upgrades
-
-    private Boolean HasUpgrades => Definition.UpgradeTree != null && Definition.UpgradeTree.Paths.Length > 0;
 
     protected virtual void Awake()
     {
@@ -103,13 +98,10 @@ public class TileObject : MonoBehaviour
 
     public void AddTime(float delta)
     {
-        timeSpent += delta;
-        if (!HasUpgrades) return;
-        if (rewardThresholds.Count > 0 && timeSpent >= rewardThresholds[0])
+        TileTypeState state = TileStateCatalog.Instance.Get(Definition.Id);
+        if (state != null)
         {
-            policyPoints += currentPointReward;
-            currentPointReward++;
-            rewardThresholds.RemoveAt(0);
+            state.AddTime(delta);
         }
     }
 

@@ -49,7 +49,14 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void OnClick()
     {
-        if (tileObj.policyPoints < upgrade.PointsCost)
+        TileTypeState state = TileStateCatalog.Instance.Get(tileObj.Definition.Id);
+        if (state == null)
+        {
+            Debug.LogError($"TileTypeState not found for {tileObj.Definition.Id}");
+            return;
+        }
+
+        if (state.policyPoints < upgrade.PointsCost)
         {
             MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Error);
             Notifications.Instance.PostNotification("Not enough policy points!");
@@ -63,8 +70,8 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
         
         MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Success);
-        tileObj.policyPoints -= upgrade.PointsCost;
-        GameState.Instance.ChangeMoney(upgrade.MoneyCost);
+        state.policyPoints -= upgrade.PointsCost;
+        GameState.Instance.ChangeMoney(-upgrade.MoneyCost);
         tileObj.UnlockUpgrade(upgrade);
         UpgradeScreen.Instance.UpdateInfo();
     }

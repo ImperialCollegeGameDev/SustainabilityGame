@@ -56,7 +56,7 @@ public class GameState : MonoBehaviour
     public float EmissionsDelta = 0;
     public float PreviousEmissionsDelta { get; private set; } = 0;
     public float EmissionsReductionDelta = 0;
-    public float EmissionsLogarithmicScale => Mathf.Log(TotalEmissions + 1 + Mathf.Pow(Settings.EmissionLogBase, 4)) / Mathf.Log(Settings.EmissionLogBase) - 4;
+    public float EmissionsLogarithmicScale => Mathf.Log(TotalEmissions + 1 + Mathf.Pow(Settings.EmissionLogBase, Settings.EmissionScale)) / Mathf.Log(Settings.EmissionLogBase) - Settings.EmissionScale;
     public float EmissionsPercentage => EmissionsLogarithmicScale / Settings.MaxEmissionLogarithmic;
 
     public int requiredEnergy { get; private set; } = 0;
@@ -197,7 +197,6 @@ public class GameState : MonoBehaviour
         GridMouse.Instance.ClearPlacementHighlight();
         SelectionManager.Instance.Deselect();
         CurrentMode = InteractionMode.None;
-        Notifications.Instance.PostNotification("Interaction mode set to None");
     }
 
     public void SetModeSelect() //bool toggleMode = false)
@@ -209,7 +208,6 @@ public class GameState : MonoBehaviour
         //}
         CurrentMode = InteractionMode.Select;
         GridMouse.Instance.ClearPlacementHighlight();
-        Notifications.Instance.PostNotification("Interaction mode set to Select");
     }
 
     public void SetModePlace() //bool toggleMode = false)
@@ -221,7 +219,6 @@ public class GameState : MonoBehaviour
         //    return;
         //}
         CurrentMode = InteractionMode.Place;
-        Notifications.Instance.PostNotification("Interaction mode set to Place");
         if (buildingToBePlaced == null)
         {
             Debug.Log("No building selected to preview.");
@@ -251,7 +248,6 @@ public class GameState : MonoBehaviour
         }
         CurrentMode = InteractionMode.Delete;
         GridMouse.Instance.ClearPlacementHighlight();
-        Notifications.Instance.PostNotification("Interaction mode set to Delete");
     }
 
     public void UnlockBuilding(string id)
