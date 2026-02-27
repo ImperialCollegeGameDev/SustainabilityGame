@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3284592355168022281}
   - component: {fileID: 3112403618066826837}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Filter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de68c209f7dda747a54e1d2f74c4e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TileObject
-  policyPoints: 0
-  timeSpent: 0
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &8040898172157407182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95,9 +94,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3477864577585124648, guid: 31b15d28a1169c4428c8ea041ed268ba, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -2883608572424811287, guid: 31b15d28a1169c4428c8ea041ed268ba, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31b15d28a1169c4428c8ea041ed268ba, type: 3}
       propertyPath: m_Name
       value: filter
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31b15d28a1169c4428c8ea041ed268ba, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

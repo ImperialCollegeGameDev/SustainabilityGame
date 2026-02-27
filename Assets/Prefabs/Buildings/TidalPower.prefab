@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 718736763517532053}
   - component: {fileID: 3160335882411848845}
   - component: {fileID: 8034855151374710016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3191769102536268374}
   - component: {fileID: 2951212837590200945}
   - component: {fileID: 4144141783599704842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 2261152317285612504}
   - component: {fileID: 3496601980384728285}
   - component: {fileID: 6825739345839002785}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 1710217449670054888}
   - component: {fileID: 3331294106448475224}
   - component: {fileID: 3363525109633419513}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 160936822099037520}
   - component: {fileID: 1016256223125270356}
   - component: {fileID: 9172411244240091754}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,8 @@ GameObject:
   - component: {fileID: 7825371087440243}
   - component: {fileID: -7454521133605676857}
   - component: {fileID: 9090508027006144022}
-  m_Layer: 0
+  - component: {fileID: 5903328740208368484}
+  m_Layer: 6
   m_Name: TidalPower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +478,7 @@ Transform:
   m_GameObject: {fileID: 1501230553749349402}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.14705883, y: 0, z: 1.6666666}
+  m_LocalPosition: {x: -2.7941177, y: -1.61, z: 3.1944444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -496,8 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb68cdb9a8fb6e4995e17fb9ee3576b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UtilityTileObject
-  policyPoints: 0
-  timeSpent: 0
+  Offset: {x: 0, y: -6, z: 0}
 --- !u!114 &9090508027006144022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +516,27 @@ MonoBehaviour:
   - {fileID: 5640965581036277876}
   rotationAxis: {x: 1, y: 0, z: 0}
   rotationSpeed: 100
+--- !u!65 &5903328740208368484
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501230553749349402}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.434924, y: 42.512466, z: 4.5571704}
+  m_Center: {x: -0.0711174, y: -16.892044, z: -0.06756997}
 --- !u!1 &1593239339923995653
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +548,7 @@ GameObject:
   - component: {fileID: 1012628275604478932}
   - component: {fileID: 6932994677096005409}
   - component: {fileID: 7883853510254240220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7636425092917164330}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: torus2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +671,7 @@ GameObject:
   - component: {fileID: 4247381237704623550}
   - component: {fileID: 4321645130526870672}
   - component: {fileID: 7672461263243715606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -738,7 +759,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5301963364815186559}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -753,7 +774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2314488058919820958}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.27563733, z: 0, w: 0.96126175}
+  m_LocalRotation: {x: -0.9589399, y: -0.019129047, z: -0.27498785, w: 0.066708885}
   m_LocalPosition: {x: 0.26355982, y: -3.6429193e-16, z: 0.16790614}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -775,7 +796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8519646874206367371}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: group2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +811,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2371406288015938069}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.2815041, z: 0, w: 0.95956004}
+  m_LocalRotation: {x: -0.95724225, y: -0.019537678, z: -0.28083998, w: 0.06659219}
   m_LocalPosition: {x: 0.26355982, y: -3.6429193e-16, z: 0.16790614}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -814,7 +835,7 @@ GameObject:
   - component: {fileID: 8106237830403634996}
   - component: {fileID: 3891708413123184286}
   - component: {fileID: 5326407810800229495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,8 +851,8 @@ Transform:
   m_GameObject: {fileID: 2463507566731478455}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.27982903, z: -0, w: 0.96004987}
-  m_LocalPosition: {x: -0, y: 0, z: 1.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0, y: 6.34, z: 1.25}
+  m_LocalScale: {x: 1, y: 21, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7681078302694013134}
@@ -904,7 +925,7 @@ GameObject:
   - component: {fileID: 4108207819072814258}
   - component: {fileID: 3088517664755756280}
   - component: {fileID: 392096111643952165}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -994,7 +1015,7 @@ GameObject:
   - component: {fileID: 8112282609699883757}
   - component: {fileID: 2265167908353410392}
   - component: {fileID: 7752713667153538733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1084,7 +1105,7 @@ GameObject:
   - component: {fileID: 6098455929293369634}
   - component: {fileID: 6390778364909497290}
   - component: {fileID: 4276215852782937264}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1174,7 +1195,7 @@ GameObject:
   - component: {fileID: 8966513930337626859}
   - component: {fileID: 2692412140704096274}
   - component: {fileID: 5455101892316141624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1262,7 +1283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5640965581036277876}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: group3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1277,7 +1298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4144796265135168157}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.27068442, z: 0, w: 0.9626681}
+  m_LocalRotation: {x: -0.9603437, y: -0.018785972, z: -0.2700438, w: 0.06680885}
   m_LocalPosition: {x: 0.26355982, y: -3.6429193e-16, z: 0.16790614}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1301,7 +1322,7 @@ GameObject:
   - component: {fileID: 7396539042628930625}
   - component: {fileID: 3577305733865887725}
   - component: {fileID: 5735362389055223242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: torus_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1391,7 +1412,7 @@ GameObject:
   - component: {fileID: 2700186170594039990}
   - component: {fileID: 5318460553572275250}
   - component: {fileID: 3542103241242074889}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1479,7 +1500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6468982364102849718}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: torus1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1514,7 +1535,7 @@ GameObject:
   - component: {fileID: 5229841661533760522}
   - component: {fileID: 2261751658013281267}
   - component: {fileID: 2835335647794345036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1604,7 +1625,7 @@ GameObject:
   - component: {fileID: 3142128372394183588}
   - component: {fileID: 7336541577824874508}
   - component: {fileID: 2980467014829645243}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1694,7 +1715,7 @@ GameObject:
   - component: {fileID: 2774301757174944059}
   - component: {fileID: 4922244762817825619}
   - component: {fileID: 8499797182993383931}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1784,7 +1805,7 @@ GameObject:
   - component: {fileID: 7476709428340084606}
   - component: {fileID: 6917104054932508093}
   - component: {fileID: 5556754650790508544}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1874,7 +1895,7 @@ GameObject:
   - component: {fileID: 8910621187848885255}
   - component: {fileID: 6693617196288964282}
   - component: {fileID: 6401668734946991313}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1890,8 +1911,8 @@ Transform:
   m_GameObject: {fileID: 6827114441231775685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.27982903, z: -0, w: 0.96004987}
-  m_LocalPosition: {x: -0, y: 0, z: 1.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0, y: 6.34, z: 1.25}
+  m_LocalScale: {x: 1, y: 21, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7681078302694013134}
@@ -1964,7 +1985,7 @@ GameObject:
   - component: {fileID: 1719161318474407639}
   - component: {fileID: 238783304093909014}
   - component: {fileID: 1802552435088952990}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2052,7 +2073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7681078302694013134}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: fanmodel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2092,7 +2113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4382886880326778259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: torus3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2127,7 +2148,7 @@ GameObject:
   - component: {fileID: 8055761721158821490}
   - component: {fileID: 2092200417761651640}
   - component: {fileID: 2243445402126359834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2217,7 +2238,7 @@ GameObject:
   - component: {fileID: 4126901907811524611}
   - component: {fileID: 4614978499860723276}
   - component: {fileID: 5853346937511885851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2307,7 +2328,7 @@ GameObject:
   - component: {fileID: 2694040964832418684}
   - component: {fileID: 1947988770519997961}
   - component: {fileID: 8148997006766174625}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2397,7 +2418,7 @@ GameObject:
   - component: {fileID: 5916894537390581920}
   - component: {fileID: 6382923056232005409}
   - component: {fileID: 9222342537237080551}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: torus_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2487,7 +2508,7 @@ GameObject:
   - component: {fileID: 3900965135308395699}
   - component: {fileID: 8744899162011288777}
   - component: {fileID: 195460041241654232}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2577,7 +2598,7 @@ GameObject:
   - component: {fileID: 4192123420078287074}
   - component: {fileID: 5851458712607637554}
   - component: {fileID: 2293782124129168228}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2667,7 +2688,7 @@ GameObject:
   - component: {fileID: 6112799632733170025}
   - component: {fileID: 3364325107738634643}
   - component: {fileID: 6171561632581360605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2683,8 +2704,8 @@ Transform:
   m_GameObject: {fileID: 9035970975242923510}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.27982903, z: -0, w: 0.96004987}
-  m_LocalPosition: {x: -0, y: 0, z: 1.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0, y: 6.34, z: 1.25}
+  m_LocalScale: {x: 1, y: 21, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7681078302694013134}

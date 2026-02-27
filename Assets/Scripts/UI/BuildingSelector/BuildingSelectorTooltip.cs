@@ -8,6 +8,7 @@ public class BuildingSelectorTooltip : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI priceText;
+    public BuildMenuManager menuManager;
 
     private Coroutine hideRoutine;
     private object currentSource;
@@ -20,6 +21,8 @@ public class BuildingSelectorTooltip : MonoBehaviour
 
     public void Show(string buildingName, int price, object source)
     {
+        if (menuManager.isAnimating)
+            return;
         currentSource = source;
         if (hideRoutine != null)
             StopCoroutine(hideRoutine);

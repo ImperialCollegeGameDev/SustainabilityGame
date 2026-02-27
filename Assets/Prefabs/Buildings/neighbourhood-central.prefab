@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3892682410544216933}
   - component: {fileID: 7425878681647140130}
   - component: {fileID: 8135261214610651731}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3110860486803725927}
   - component: {fileID: 5671624674832165707}
   - component: {fileID: 6729192591735355185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4357957778858966652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tall buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 7076117438763615058}
   - component: {fileID: 8987356777172421708}
   - component: {fileID: 1687218949771171351}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 5550211410814665587}
   - component: {fileID: 3119229996956851051}
   - component: {fileID: 36142735716160729}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 1097433712597980254}
   - component: {fileID: 3207763265581237307}
   - component: {fileID: 458012998601059191}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 2776126371635101510}
   - component: {fileID: 8275635455425981546}
   - component: {fileID: 284737987977521525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2390958475132272254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: citycenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ GameObject:
   - component: {fileID: 2763619585866830932}
   - component: {fileID: 2239684087593323783}
   - component: {fileID: 9163589445040227957}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 7393805522397679042}
   - component: {fileID: 3327700180500546693}
   - component: {fileID: 4203500360864452838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,7 +799,7 @@ GameObject:
   - component: {fileID: 4585971125889365973}
   - component: {fileID: 5411405196112460412}
   - component: {fileID: 7606686134924160075}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -887,7 +887,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6080413698286429176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +930,7 @@ GameObject:
   - component: {fileID: 4914973555918388220}
   - component: {fileID: 3067160032794151022}
   - component: {fileID: 3487027995856222734}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,7 +1019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5130151439202093867}
   - component: {fileID: 1895839430136911728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: neighbourhood-central
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1055,6 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b65de9531d274fba9cff6f6605178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResidentialTileObject
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &6516063114490946494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,7 +1067,7 @@ GameObject:
   - component: {fileID: 4791681715568863011}
   - component: {fileID: 5804952136653265974}
   - component: {fileID: 3417768781457193846}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1156,7 +1157,7 @@ GameObject:
   - component: {fileID: 4232933403577292951}
   - component: {fileID: 6604404481487743275}
   - component: {fileID: 2038017920322392887}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1246,7 +1247,7 @@ GameObject:
   - component: {fileID: 8643369198960969668}
   - component: {fileID: 6022913776997068999}
   - component: {fileID: 5724186214202658352}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1373,7 +1374,7 @@ GameObject:
   - component: {fileID: 1054211923671253536}
   - component: {fileID: 4874472758383480690}
   - component: {fileID: 4688124136132209209}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1463,7 +1464,7 @@ GameObject:
   - component: {fileID: 5933667206455191951}
   - component: {fileID: 2919480621598408364}
   - component: {fileID: 1650812172184925551}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

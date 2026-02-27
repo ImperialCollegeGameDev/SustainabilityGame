@@ -14,7 +14,7 @@ public class BuildMenuManager : MonoBehaviour
     public float animDuration = 0.15f;
 
     bool isOpen = false;
-    bool isAnimating = false;
+    public bool isAnimating { get; private set; } = false;
 
 
     public List<GameObject> buildingButtons;
