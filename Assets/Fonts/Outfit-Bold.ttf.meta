@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b4671bd7aff29db43a35effbd296e08a
+guid: 6f39d28c317b42546bb3c2e4f4c50eea
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Zeitmax
+  - Outfit
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
