@@ -29,12 +29,13 @@ public class GameState : MonoBehaviour
     }
 
     public GameSettings Settings;
-
+    public bool PAUSED = true; // game doesnt exist on first load
+    private float _timer = 0f;
+    
     private const float TickInterval = 0.3f;
     private const float FastTickInterval = 0.2f;
     private float Timescale = 1f;
     private bool isTicking = true;
-    private float _timer = 0f;
     private float _fastTimer = 0f;
 
     // UI callbacks (UI scripts can subscribe to these)
@@ -46,10 +47,13 @@ public class GameState : MonoBehaviour
 
     public long money { get; private set; }
     public int population = 0;
-    private int maxPopulation = 0;
     public int dissatisfiedPopulation { get; private set; } = 0;
     private int projectedHappiness = 100;
     public float happiness { get; private set; } = 100;
+
+    // Score Management - moved from Main
+    private int maxPopulation = 0;
+    private int currentScore = 0;
 
     public int Power = 0;
     public float TotalEmissions { get; private set; } = 0;
@@ -69,16 +73,18 @@ public class GameState : MonoBehaviour
     public bool IsBuildingUnlocked(string id) => unlockedBuildings.Contains(id);
     public event System.Action OnBuildingUnlocksChanged;
 
-
     void Start()
     {
         money = Settings.StartingMoney;
-        UpdateHappinessAndDisplay();
+        //UpdateHappinessAndDisplay();
     }
 
     private void Update()
     {
         _timer += Time.deltaTime;
+
+        if (PAUSED) return;
+
         if (_timer >= TickInterval)
         {
             Tick(TickInterval * Timescale);
@@ -94,9 +100,8 @@ public class GameState : MonoBehaviour
 
         if (happiness <= 42f)
         {
-            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.LungCancer);
+            MusicManager.Instance?.PlayGameSFX(MusicManager.SFXSoundType.LungCancer);
         }
-        //print(buildingToBePlaced);
     }
 
     public void Tick(float delta) // Delta is the time in seconds since last tick
@@ -129,8 +134,12 @@ public class GameState : MonoBehaviour
         TaxThePoor(delta);
         UpdateHappinessAndDisplay();
 
+        // Update max population tracking
         if (population > maxPopulation)
+        {
             maxPopulation = population;
+            currentScore = maxPopulation;
+        }
     }
 
     public void FastTick(float delta) // For things that are very inexpensive to compute and we want fast feedback on
@@ -275,31 +284,61 @@ public class GameState : MonoBehaviour
         Timescale = value;
     }
 
-    public void LoadGame()
-    {
-        SaveState data = SaveManager.Load();
-        if (data == null) return;
+    #region Score Management
 
+    /// <summary>
+    /// Gets the current game score
+    /// </summary>
+    public int GetScore()
+    {
+        return currentScore;
+    }
+
+    /// <summary>
+    /// Gets the maximum population reached
+    /// </summary>
+    public int GetMaxPopulation()
+    {
+        return maxPopulation;
+    }
+
+    /// <summary>
+    /// Resets the score data for a new game
+    /// </summary>
+    public void ResetScore()
+    {
+        maxPopulation = 0;
+        currentScore = 0;
+    }
+
+    #endregion
+
+    #region Save/Load Data Application
+
+    /// <summary>
+    /// Applies loaded save data to the current game state
+    /// </summary>
+    public void ApplyLoadedData(SaveState data)
+    {
         money = data.money;
         happiness = data.happiness;
         TotalEmissions = data.emissions;
+        maxPopulation = data.maxPopulation;
+        currentScore = maxPopulation;
+
+        Debug.LogWarning(data);
 
         GridManager.Instance.DeleteAll();
         GridManager.Instance.GenerateGrid();
 
         foreach (TileSaveData tileSave in data.tiles)
         {
+            Debug.Log(tileSave.gridPosition + " " + tileSave.def.Id + " occ: " + tileSave.occupancy);
             GridManager.Instance.TryForcePlace(tileSave.def, tileSave.gridPosition, tileSave.occupancy);
         }
+
+        UpdateHappinessAndDisplay();
     }
 
-    public void SaveGame()
-    {
-        SaveManager.Save();
-    }
-
-    public int GetScore()
-    {
-        return maxPopulation;
-    }
+    #endregion
 }

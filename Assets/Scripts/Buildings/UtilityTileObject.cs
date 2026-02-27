@@ -31,7 +31,7 @@ public class UtilityTileObject : TileObject
         {
             GameState.Instance.ChangeMoney(-CurrentRepairCost());
             efficiency = 1f;
-            MusicManager.Instance.PlayUISound(MusicManager.UISoundType.Repair);
+            MusicManager.Instance.PlayGameSFX(MusicManager.SFXSoundType.Repair);
             FlavourManager.Instance.SpawnRepairParticles(Center + Vector3.up * 1.2f);
         }
     }
