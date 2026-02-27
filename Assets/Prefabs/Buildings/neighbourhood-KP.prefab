@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1817325930815271427}
   - component: {fileID: 8746917657624227962}
   - component: {fileID: 7829522235409785537}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5130151439202093867}
   - component: {fileID: 1895839430136911728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: neighbourhood-KP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b65de9531d274fba9cff6f6605178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResidentialTileObject
-  occupancy: 0
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &7609559041479552491
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 8643369198960969668}
   - component: {fileID: 6022913776997068999}
   - component: {fileID: 5724186214202658352}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

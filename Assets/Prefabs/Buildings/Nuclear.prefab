@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8433925406809732941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tower2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 4873615072211544315}
   - component: {fileID: 9017531173821209942}
   - component: {fileID: 7452031738047432965}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4173722214916228302}
   - component: {fileID: 8472044276204636373}
   - component: {fileID: 2949291210371619402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 1433582166352818566}
   - component: {fileID: 78029552179268243}
   - component: {fileID: 9147999250973519315}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 2239283653552052135}
   - component: {fileID: 1771992858930303079}
   - component: {fileID: 313539913148890775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cone_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6097984518148204450}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tower3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7825371087440243}
   - component: {fileID: -7454521133605676857}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nuclear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,8 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb68cdb9a8fb6e4995e17fb9ee3576b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UtilityTileObject
-  policyPoints: 0
-  timeSpent: 0
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1538993282119336050
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +490,7 @@ GameObject:
   - component: {fileID: 4581716734006918280}
   - component: {fileID: 6159580189088309358}
   - component: {fileID: 8500674894656755402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: White Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5345,7 +5344,7 @@ GameObject:
   - component: {fileID: 6844676399375355916}
   - component: {fileID: 3460239742985371319}
   - component: {fileID: 5222816026464023194}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cone_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5433,7 +5432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4244139934415264179}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: particles (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5465,7 +5464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5082154945542214009}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tower1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5501,7 +5500,7 @@ GameObject:
   - component: {fileID: 490720178470120484}
   - component: {fileID: 7869912721373866809}
   - component: {fileID: 2630771322712527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5591,7 +5590,7 @@ GameObject:
   - component: {fileID: 2256139335761114637}
   - component: {fileID: 8874780538800356712}
   - component: {fileID: 4962826812404604694}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cylinder_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5681,7 +5680,7 @@ GameObject:
   - component: {fileID: 850705490671418331}
   - component: {fileID: 3885472653409830805}
   - component: {fileID: 9085535523038381935}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cylinder_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5771,7 +5770,7 @@ GameObject:
   - component: {fileID: 7687776287753793218}
   - component: {fileID: 4555222199172592243}
   - component: {fileID: 6379512739481850367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5861,7 +5860,7 @@ GameObject:
   - component: {fileID: 8940080742045101618}
   - component: {fileID: 2306094571004706414}
   - component: {fileID: 6988943337771447476}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cylinder_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5952,7 +5951,7 @@ GameObject:
   - component: {fileID: 1506445283640899520}
   - component: {fileID: 6877382457892246416}
   - component: {fileID: 4211488558598358851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6092,7 +6091,7 @@ GameObject:
   - component: {fileID: 458892649981943549}
   - component: {fileID: 7331589378856185211}
   - component: {fileID: 2536790025993756652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cone_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6182,7 +6181,7 @@ GameObject:
   - component: {fileID: 4495309146516926375}
   - component: {fileID: 7567951071422024335}
   - component: {fileID: 3528275017307286418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6272,7 +6271,7 @@ GameObject:
   - component: {fileID: 7897054539070327601}
   - component: {fileID: 2153098960655217595}
   - component: {fileID: 5791426692459998236}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6360,7 +6359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8556426417257957461}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: tower4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6396,7 +6395,7 @@ GameObject:
   - component: {fileID: 9098254754840525265}
   - component: {fileID: 1166103275228281837}
   - component: {fileID: 9053822063138348157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6486,7 +6485,7 @@ GameObject:
   - component: {fileID: 7251137508389161768}
   - component: {fileID: 1768026433463444510}
   - component: {fileID: 6389119558822286931}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cylinder_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6576,7 +6575,7 @@ GameObject:
   - component: {fileID: 2893600580852283292}
   - component: {fileID: 471708890840889522}
   - component: {fileID: 6721619025102756915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cylinder_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6666,7 +6665,7 @@ GameObject:
   - component: {fileID: 2486774713528468213}
   - component: {fileID: 4677554733209428854}
   - component: {fileID: 2899143964715049292}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6757,7 +6756,7 @@ GameObject:
   - component: {fileID: 4320829456852080337}
   - component: {fileID: 7566081149425994796}
   - component: {fileID: 8931531598014180827}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: White Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11611,7 +11610,7 @@ GameObject:
   - component: {fileID: 7784138433345923582}
   - component: {fileID: 3654649257255716617}
   - component: {fileID: 3918225041181459454}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11701,7 +11700,7 @@ GameObject:
   - component: {fileID: 3610007875850766550}
   - component: {fileID: 5533464805207954475}
   - component: {fileID: 400805680503674122}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11791,7 +11790,7 @@ GameObject:
   - component: {fileID: 8408519622255908913}
   - component: {fileID: 5440973342470145623}
   - component: {fileID: 6008068803412706381}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11881,7 +11880,7 @@ GameObject:
   - component: {fileID: 1994653825499872161}
   - component: {fileID: 2433308907398561359}
   - component: {fileID: 1958693848412448664}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11971,7 +11970,7 @@ GameObject:
   - component: {fileID: 581628838009891233}
   - component: {fileID: 2350445609719992974}
   - component: {fileID: 3011153152457353750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cone_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12061,7 +12060,7 @@ GameObject:
   - component: {fileID: 3717507126991284670}
   - component: {fileID: 1412313239560598019}
   - component: {fileID: 3921803021500192586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cone_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12152,7 +12151,7 @@ GameObject:
   - component: {fileID: 5571205716357686893}
   - component: {fileID: 2565052014298466937}
   - component: {fileID: 3890973200030921279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12290,7 +12289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3446103951906312669}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12324,7 +12323,7 @@ GameObject:
   - component: {fileID: 7460990519182890924}
   - component: {fileID: 4077223247903181330}
   - component: {fileID: 3457271193706831828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cone_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12414,7 +12413,7 @@ GameObject:
   - component: {fileID: 2072608023704098587}
   - component: {fileID: 6046354261914077568}
   - component: {fileID: 3615051668376412799}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cylinder_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12504,7 +12503,7 @@ GameObject:
   - component: {fileID: 3136811786701665846}
   - component: {fileID: 6762689778389356386}
   - component: {fileID: 2109302897670334548}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cone_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12594,7 +12593,7 @@ GameObject:
   - component: {fileID: 444473530736055990}
   - component: {fileID: 579163840284777888}
   - component: {fileID: 3936349430566938566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sphere_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12684,7 +12683,7 @@ GameObject:
   - component: {fileID: 2289231961277137282}
   - component: {fileID: 4146933086700487492}
   - component: {fileID: 9044388661830289121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cylinder_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12774,7 +12773,7 @@ GameObject:
   - component: {fileID: 545780353148027142}
   - component: {fileID: 7961570759470043649}
   - component: {fileID: 35268197208692201}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12864,7 +12863,7 @@ GameObject:
   - component: {fileID: 3047000260041452654}
   - component: {fileID: 2852895915009030140}
   - component: {fileID: 3098556542733382589}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12952,7 +12951,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8121122969629747419}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: nuclear
   m_TagString: Untagged
   m_Icon: {fileID: 0}

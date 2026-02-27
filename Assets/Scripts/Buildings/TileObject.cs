@@ -14,6 +14,8 @@ public class TileObject : MonoBehaviour
 
     private readonly HashSet<Upgrade> unlockedUpgrades = new HashSet<Upgrade>();
 
+    [SerializeField] private Vector3 Offset = Vector3.zero;
+
     protected virtual void Awake()
     {
         renderers = GetComponentsInChildren<MeshRenderer>(true);
@@ -41,7 +43,7 @@ public class TileObject : MonoBehaviour
                 worldPos.x + (Definition.Size.x - 1) * 0.5f * GridManager.Instance.tileSize,
                 worldPos.y,
                 worldPos.z + (Definition.Size.y - 1) * 0.5f * GridManager.Instance.tileSize
-            );
+            ) + Offset;
         // Occupancy status of tiles is also stored in GridManager
     }
 
