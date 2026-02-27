@@ -7,6 +7,9 @@ public class SaveState
     public long money;
     public float happiness;
     public float emissions;
+    public int maxPopulation; // Added max population to save state
+    public string playerIdentity; // Unity Authentication ID to save state
+    public string playerName; // Player display name to save state
 
     public List<TileSaveData> tiles;
 }

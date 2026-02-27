@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
   m_Name: GeothermalPlant
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
-  Id: GeothermalPlant
+  Id: Geothermal
   DisplayName: Geothermal Plant
   Prefab: {fileID: 3858034575480737441, guid: 9a201810c5ab3b94bbad4a982404762c, type: 3}
   Size: {x: 1, y: 2}
-  TileType: 1
+  TileType: 3
   TickLogic: {fileID: 11400000, guid: 1356596fe4c3f484490dda0f26a998ce, type: 2}
   UpgradeTree: {fileID: 0}
   Category: 0

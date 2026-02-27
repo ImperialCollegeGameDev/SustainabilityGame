@@ -14,6 +14,7 @@ public class Notifications : MonoBehaviour
         if (Instance != null)
         {
             Destroy(gameObject);
+            Debug.LogWarning("Multiple instances of Notifications detected. Destroying duplicate.");
             return;
         }
         Instance = this;
@@ -22,7 +23,16 @@ public class Notifications : MonoBehaviour
 
     public void PostNotification(string message)
     {
-        //Debug.Log($"Notification: {message}");
+        if (notificationPrefab == null)
+        {
+            Debug.LogError("Notification prefab is not assigned in the inspector.");
+            return;
+        }
+        if (transform == null)
+        {
+            Debug.LogError("Notifications script is not attached to a GameObject.");
+            return;
+        }
         GameObject notification = Instantiate(notificationPrefab, transform);
         notification.GetComponentsInChildren<TextMeshProUGUI>()[1].SetText(message);
         Destroy(notification, notificationLifetime);

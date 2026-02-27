@@ -4,8 +4,10 @@ using UnityEngine;
 public class GameSettings : ScriptableObject
 {
     public int EnergyReqPerPerson = 5;
-    public float MaxEmissionLogarithmic = 6;
+    public float NighttimeEnergyMultiplier = 0.4f;
+    public float MaxEmissionLogarithmic = 1.5f;
     public int EmissionLogBase = 7; // Lower is more punishing
+    public float EmissionScale = 4.5f;
     public int StartingMoney = 775;
     public float TaxRate = 0.0003f;
     public float DissatisfactionDanger = 3.0f;

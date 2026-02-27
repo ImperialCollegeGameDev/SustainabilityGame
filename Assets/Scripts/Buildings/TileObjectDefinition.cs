@@ -79,4 +79,5 @@ public class StatRow
 public abstract class TickBehaviour : ScriptableObject
 {
     public abstract void Tick(TileObject instance, float delta);
+    public abstract List<StatRow> GetStats(TileObject instance);
 }

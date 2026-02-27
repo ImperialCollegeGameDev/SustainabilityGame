@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "CityBuilder/TickBehaviours/ResidenceDefault")]
@@ -31,5 +32,23 @@ class ResidenceDefault : TickBehaviour
         }
 
         resTile.occupancy = occupancy;
+    }
+
+    public override List<StatRow> GetStats(TileObject tileObject)
+    {
+        List<StatRow> stats = new List<StatRow>();
+        
+        if (tileObject is not ResidentialTileObject resTile)
+        {
+            return stats;
+        }
+
+        TileObjectDefinition def = tileObject.Definition;
+        
+        stats.Add(new StatRow("Current Occupancy", Mathf.FloorToInt(resTile.occupancy).ToString(), Color.green));
+        stats.Add(new StatRow("Max Occupancy", def.Residential.MaxOccupancy.ToString(), Color.yellow));
+        stats.Add(new StatRow("Occupancy %", $"{Mathf.RoundToInt((resTile.occupancy / def.Residential.MaxOccupancy) * 100)}%", Color.cyan));
+
+        return stats;
     }
 }

@@ -13,6 +13,7 @@ public class MusicManager : MonoBehaviour
     [Header("Volume Settings")]
     [SerializeField, Range(0f, 1f)] private float masterVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float musicVolume = 1f;
+    [SerializeField, Range(0f, 1f)] private float uiVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float sfxVolume = 1f;
 
     [Header("Fade Settings")]
@@ -20,12 +21,15 @@ public class MusicManager : MonoBehaviour
 
     [Header("UI Sound Effects")]
     [SerializeField] private AudioClip uiClickSound;
-    [SerializeField] private AudioClip gameLungCancer;
     [SerializeField] private AudioClip uiHoverSound;
     [SerializeField] private AudioClip uiSuccessSound;
     [SerializeField] private AudioClip uiErrorSound;
     [SerializeField] private AudioClip uiOpenSound;
     [SerializeField] private AudioClip uiCloseSound;
+
+    [Header("Game Sound Effects")]
+    [SerializeField] private AudioClip gameLungCancer;
+    [SerializeField] private AudioClip repairSound;
 
     [SerializeField] private AudioClip mainMainAndCredits;
     [SerializeField] private AudioClip mainLeaderboard;
@@ -52,8 +56,14 @@ public class MusicManager : MonoBehaviour
         Success,
         Error,
         Open,
-        Close,
-        LungCancer
+        Close
+    }
+
+    // Game SFX enum
+    public enum SFXSoundType
+    {
+        LungCancer,
+        Repair
     }
 
     // Properties for external access
@@ -69,7 +79,6 @@ public class MusicManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
             Initialize();
         }
         else
@@ -96,6 +105,13 @@ public class MusicManager : MonoBehaviour
             musicSource = gameObject.AddComponent<AudioSource>();
             musicSource.loop = true;
             musicSource.playOnAwake = false;
+        }
+
+        if (uiSource == null)
+        {
+            uiSource = gameObject.AddComponent<AudioSource>();
+            uiSource.loop = false;
+            uiSource.playOnAwake = false;
         }
 
         if (sfxSource == null)
@@ -242,7 +258,6 @@ public class MusicManager : MonoBehaviour
         AudioClip clipToPlay = soundType switch
         {
             UISoundType.Click => uiClickSound,
-            UISoundType.LungCancer => gameLungCancer,
             UISoundType.Hover => uiHoverSound,
             UISoundType.Success => uiSuccessSound,
             UISoundType.Error => uiErrorSound,
@@ -250,9 +265,29 @@ public class MusicManager : MonoBehaviour
             UISoundType.Close => uiCloseSound,
             _ => null
         };
+        
         // do not replay if already playing
-        if (sfxSource.isPlaying)
+        if (uiSource.isPlaying)
             return;
+            
+        if (clipToPlay != null)
+        {
+            uiSource.PlayOneShot(clipToPlay, volumeScale * uiVolume * masterVolume);
+        }
+    }
+
+    /// <summary>
+    /// Plays a game sound effect by type
+    /// </summary>
+    public void PlayGameSFX(SFXSoundType soundType, float volumeScale = 1f)
+    {
+        AudioClip clipToPlay = soundType switch
+        {
+            SFXSoundType.LungCancer => gameLungCancer,
+            SFXSoundType.Repair => repairSound,
+            _ => null
+        };
+        
         if (clipToPlay != null)
         {
             PlaySFX(clipToPlay, volumeScale);
@@ -280,6 +315,15 @@ public class MusicManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Sets the UI volume
+    /// </summary>
+    public void SetUIVolume(float volume)
+    {
+        uiVolume = Mathf.Clamp01(volume);
+        ApplyVolumeSettings();
+    }
+
+    /// <summary>
     /// Sets the sound effects volume
     /// </summary>
     public void SetSFXVolume(float volume)
@@ -299,6 +343,11 @@ public class MusicManager : MonoBehaviour
     public float GetMusicVolume() => musicVolume;
 
     /// <summary>
+    /// Gets the current UI volume
+    /// </summary>
+    public float GetUIVolume() => uiVolume;
+
+    /// <summary>
     /// Gets the current SFX volume
     /// </summary>
     public float GetSFXVolume() => sfxVolume;
@@ -307,6 +356,9 @@ public class MusicManager : MonoBehaviour
     {
         if (musicSource != null)
             musicSource.volume = musicVolume * masterVolume;
+
+        if (uiSource != null)
+            uiSource.volume = uiVolume * masterVolume;
 
         if (sfxSource != null)
             sfxSource.volume = sfxVolume * masterVolume;

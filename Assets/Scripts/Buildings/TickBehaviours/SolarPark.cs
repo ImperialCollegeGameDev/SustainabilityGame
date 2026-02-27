@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "CityBuilder/TickBehaviours/SolarPark")]
-class SolarPark : TickBehaviour
+class SolarPark : UtilityDefault
 {
     public override void Tick(TileObject tileObject, float delta)
     {
@@ -57,8 +58,14 @@ class SolarPark : TickBehaviour
         util.efficiency -= degradeMult * (delta / def.Utility.DegradeTime) * (1 - GameState.Instance.Settings.MinimumEfficiency);
         util.efficiency = Mathf.Max(util.efficiency, GameState.Instance.Settings.MinimumEfficiency);
 
-        GameState.Instance.Power += Mathf.FloorToInt(output * outputMult * util.efficiency);
-        GameState.Instance.EmissionsDelta += emission * emissionMult;
+        util.outputMultiplier = outputMult;
+        util.emissionMultiplier = emissionMult;
+        util.degradeMultiplier = degradeMult;
+        util.actualOutput = output * outputMult * util.efficiency;
+        util.actualEmission = emission * emissionMult;
+
+        GameState.Instance.Power += Mathf.FloorToInt(util.actualOutput);
+        GameState.Instance.EmissionsDelta += util.actualEmission;
 
         tileObject.AddTime(delta);
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nuclear
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: Nuclear
-  DisplayName: Nuclear
+  DisplayName: Nuclear Plant
   Prefab: {fileID: 1501230553749349402, guid: f0f8e410a3e68a84187745add63ad54c, type: 3}
   Size: {x: 2, y: 2}
   TileType: 1

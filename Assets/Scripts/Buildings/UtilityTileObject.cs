@@ -6,6 +6,13 @@ public class UtilityTileObject : TileObject
     [NonSerialized] public float efficiency = 1f;
     [NonSerialized] public float repairCostMult = 1f;
 
+    // Cached calculated values from last Tick
+    [NonSerialized] public float actualOutput = 0;
+    [NonSerialized] public float actualEmission = 0;
+    [NonSerialized] public float outputMultiplier = 1f;
+    [NonSerialized] public float emissionMultiplier = 1f;
+    [NonSerialized] public float degradeMultiplier = 1f;
+
     public int CurrentRepairCost()
     {
         float damagePercent = 1f - efficiency;
@@ -24,10 +31,8 @@ public class UtilityTileObject : TileObject
         {
             GameState.Instance.ChangeMoney(-CurrentRepairCost());
             efficiency = 1f;
-            Notifications.Instance.PostNotification($"Successfully repaired {Definition.DisplayName}!");
-        } else
-        {
-            Notifications.Instance.PostNotification("Not enough money to repair!");
+            MusicManager.Instance.PlayGameSFX(MusicManager.SFXSoundType.Repair);
+            FlavourManager.Instance.SpawnRepairParticles(Center + Vector3.up * 1.2f);
         }
     }
 }

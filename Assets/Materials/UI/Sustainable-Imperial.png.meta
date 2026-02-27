@@ -1,0 +1,1313 @@
+fileFormatVersion: 2
+guid: ab41f4ecd3da348468d3991563c1aa4e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2549915409092881809
+    second: Sustainable-Imperial_0
+  - first:
+      213: -9200480021045551175
+    second: Sustainable-Imperial_1
+  - first:
+      213: -6594337615021361161
+    second: Sustainable-Imperial_2
+  - first:
+      213: -9164368731302202877
+    second: Sustainable-Imperial_3
+  - first:
+      213: 8354679345754377216
+    second: Sustainable-Imperial_4
+  - first:
+      213: 419287630159795507
+    second: Sustainable-Imperial_5
+  - first:
+      213: -5391531490351112337
+    second: Sustainable-Imperial_6
+  - first:
+      213: -1761102046625830831
+    second: Sustainable-Imperial_7
+  - first:
+      213: 6390176058894489607
+    second: Sustainable-Imperial_8
+  - first:
+      213: -854146216783806949
+    second: Sustainable-Imperial_9
+  - first:
+      213: -7514248101001991986
+    second: Sustainable-Imperial_10
+  - first:
+      213: -6494558242835202261
+    second: Sustainable-Imperial_11
+  - first:
+      213: -8868067845887689205
+    second: Sustainable-Imperial_12
+  - first:
+      213: -3283968137155202409
+    second: Sustainable-Imperial_13
+  - first:
+      213: -645950098950205953
+    second: Sustainable-Imperial_14
+  - first:
+      213: -7117835776455718400
+    second: Sustainable-Imperial_15
+  - first:
+      213: 3092133882716606778
+    second: Sustainable-Imperial_16
+  - first:
+      213: 5803279231144786431
+    second: Sustainable-Imperial_17
+  - first:
+      213: 4600426338272964356
+    second: Sustainable-Imperial_18
+  - first:
+      213: 624037848420786567
+    second: Sustainable-Imperial_19
+  - first:
+      213: 2704685270293873043
+    second: Sustainable-Imperial_20
+  - first:
+      213: -1977848298753007427
+    second: Sustainable-Imperial_21
+  - first:
+      213: -8005495705395041471
+    second: Sustainable-Imperial_22
+  - first:
+      213: -7808104227577614067
+    second: Sustainable-Imperial_23
+  - first:
+      213: 3648156312499636061
+    second: Sustainable-Imperial_24
+  - first:
+      213: -770478709449743856
+    second: Sustainable-Imperial_25
+  - first:
+      213: -5314702100759576347
+    second: Sustainable-Imperial_26
+  - first:
+      213: -3910551357428391942
+    second: Sustainable-Imperial_27
+  - first:
+      213: 6724522512875555085
+    second: Sustainable-Imperial_28
+  - first:
+      213: 2552576418889102332
+    second: Sustainable-Imperial_29
+  - first:
+      213: 369855985342224882
+    second: Sustainable-Imperial_30
+  - first:
+      213: -3112945372010275795
+    second: Sustainable-Imperial_31
+  - first:
+      213: 8750131374873350797
+    second: Sustainable-Imperial_32
+  - first:
+      213: 8078856623770866935
+    second: Sustainable-Imperial_33
+  - first:
+      213: -7304617507572762679
+    second: Sustainable-Imperial_34
+  - first:
+      213: 6512387398139585181
+    second: Sustainable-Imperial_35
+  - first:
+      213: -6347939093094394688
+    second: Sustainable-Imperial_36
+  - first:
+      213: 5092645994658241803
+    second: Sustainable-Imperial_37
+  - first:
+      213: 7112571725690494790
+    second: Sustainable-Imperial_38
+  - first:
+      213: -8761816983685808882
+    second: Sustainable-Imperial_39
+  - first:
+      213: -1054162827175584848
+    second: Sustainable-Imperial_40
+  - first:
+      213: 7273902753808393562
+    second: Sustainable-Imperial_41
+  - first:
+      213: -4164376340691011700
+    second: Sustainable-Imperial_42
+  - first:
+      213: 514567622623094261
+    second: Sustainable-Imperial_43
+  - first:
+      213: 2099859549839032117
+    second: Sustainable-Imperial_44
+  - first:
+      213: -5627858047723473302
+    second: Sustainable-Imperial_45
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sustainable-Imperial_0
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 904
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19da646fd8e136320800000000000000
+      internalID: 2549915409092881809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_1
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 904
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf5086ca24515080800000000000000
+      internalID: -9200480021045551175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_2
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 904
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7b7af90e43c74a0800000000000000
+      internalID: -6594337615021361161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_3
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 904
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 302f80c913f91d080800000000000000
+      internalID: -9164368731302202877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_4
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 904
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c8bf79998c1f370800000000000000
+      internalID: 8354679345754377216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_5
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 904
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 335d36ec0eb91d500800000000000000
+      internalID: 419287630159795507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_6
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 904
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6f1a42dcae6d25b0800000000000000
+      internalID: -5391531490351112337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_7
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 904
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15867a1f40f4f87e0800000000000000
+      internalID: -1761102046625830831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_8
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 823
+        width: 72
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7089c9ad4477ea850800000000000000
+      internalID: 6390176058894489607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_9
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 823
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1e7b529a867524f0800000000000000
+      internalID: -854146216783806949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_10
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 823
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec86f911a2708b790800000000000000
+      internalID: -7514248101001991986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_11
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 823
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2ff8b210b1bed5a0800000000000000
+      internalID: -6494558242835202261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_12
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 823
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0efcc9774b4ee480800000000000000
+      internalID: -8868067845887689205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_13
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 823
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792b923e0600d62d0800000000000000
+      internalID: -3283968137155202409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_14
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 823
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffdc171becf1907f0800000000000000
+      internalID: -645950098950205953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_15
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 823
+        width: 72
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00a4aceb21e583d90800000000000000
+      internalID: -7117835776455718400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_16
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 744
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a31d54d226779ea20800000000000000
+      internalID: 3092133882716606778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_17
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 744
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff979c0b6b3698050800000000000000
+      internalID: 5803279231144786431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_18
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 663
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40f6c1c616ff7df30800000000000000
+      internalID: 4600426338272964356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_19
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 663
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7812589ed1709a800800000000000000
+      internalID: 624037848420786567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_20
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 583
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 391091d5ce8f88520800000000000000
+      internalID: 2704685270293873043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_21
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 583
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db0673d83754d84e0800000000000000
+      internalID: -1977848298753007427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_22
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 502
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14b63052214c6e090800000000000000
+      internalID: -8005495705395041471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_23
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 502
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d01b20af29a04a390800000000000000
+      internalID: -7808104227577614067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_24
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 423
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57c3a366dad0a230800000000000000
+      internalID: 3648156312499636061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_25
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 423
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0122f3822b5be45f0800000000000000
+      internalID: -770478709449743856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_26
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 341
+        width: 77
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e0043d09926e36b0800000000000000
+      internalID: -5314702100759576347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_27
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 343
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aff1f88624eeab9c0800000000000000
+      internalID: -3910551357428391942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_28
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 262
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d098010f89d425d50800000000000000
+      internalID: 6724522512875555085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_29
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 262
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf37ce59ab29c6320800000000000000
+      internalID: 2552576418889102332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_30
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 181
+        width: 72
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f910602f0ef12500800000000000000
+      internalID: 369855985342224882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_31
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 181
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2c91206da89cc4d0800000000000000
+      internalID: -3112945372010275795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_32
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 181
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8293511026be6970800000000000000
+      internalID: 8750131374873350797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_33
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 181
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f49c23bb4ddd1070800000000000000
+      internalID: 8078856623770866935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_34
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 181
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c7b6011419c0aa90800000000000000
+      internalID: -7304617507572762679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_35
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 181
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9227d1a5d5a06a50800000000000000
+      internalID: 6512387398139585181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_36
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 181
+        width: 73
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c41b44170797e7a0800000000000000
+      internalID: -6347939093094394688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_37
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 181
+        width: 72
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0d9b66dc86bca640800000000000000
+      internalID: 5092645994658241803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_38
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 103
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64fd44dec4ee4b260800000000000000
+      internalID: 7112571725690494790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_39
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 103
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d3c6c10e5c76680800000000000000
+      internalID: -8761816983685808882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_40
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 103
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb17ce6e7cde51f0800000000000000
+      internalID: -1054162827175584848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_41
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 103
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a552c7b040812f460800000000000000
+      internalID: 7273902753808393562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_42
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 103
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c87321e28c92536c0800000000000000
+      internalID: -4164376340691011700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_43
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 103
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f5ed57c68c142700800000000000000
+      internalID: 514567622623094261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_44
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 103
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53ffd529223342d10800000000000000
+      internalID: 2099859549839032117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sustainable-Imperial_45
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 103
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a667e1b5ce4d5e1b0800000000000000
+      internalID: -5627858047723473302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Sustainable-Imperial_0: 2549915409092881809
+      Sustainable-Imperial_1: -9200480021045551175
+      Sustainable-Imperial_10: -7514248101001991986
+      Sustainable-Imperial_11: -6494558242835202261
+      Sustainable-Imperial_12: -8868067845887689205
+      Sustainable-Imperial_13: -3283968137155202409
+      Sustainable-Imperial_14: -645950098950205953
+      Sustainable-Imperial_15: -7117835776455718400
+      Sustainable-Imperial_16: 3092133882716606778
+      Sustainable-Imperial_17: 5803279231144786431
+      Sustainable-Imperial_18: 4600426338272964356
+      Sustainable-Imperial_19: 624037848420786567
+      Sustainable-Imperial_2: -6594337615021361161
+      Sustainable-Imperial_20: 2704685270293873043
+      Sustainable-Imperial_21: -1977848298753007427
+      Sustainable-Imperial_22: -8005495705395041471
+      Sustainable-Imperial_23: -7808104227577614067
+      Sustainable-Imperial_24: 3648156312499636061
+      Sustainable-Imperial_25: -770478709449743856
+      Sustainable-Imperial_26: -5314702100759576347
+      Sustainable-Imperial_27: -3910551357428391942
+      Sustainable-Imperial_28: 6724522512875555085
+      Sustainable-Imperial_29: 2552576418889102332
+      Sustainable-Imperial_3: -9164368731302202877
+      Sustainable-Imperial_30: 369855985342224882
+      Sustainable-Imperial_31: -3112945372010275795
+      Sustainable-Imperial_32: 8750131374873350797
+      Sustainable-Imperial_33: 8078856623770866935
+      Sustainable-Imperial_34: -7304617507572762679
+      Sustainable-Imperial_35: 6512387398139585181
+      Sustainable-Imperial_36: -6347939093094394688
+      Sustainable-Imperial_37: 5092645994658241803
+      Sustainable-Imperial_38: 7112571725690494790
+      Sustainable-Imperial_39: -8761816983685808882
+      Sustainable-Imperial_4: 8354679345754377216
+      Sustainable-Imperial_40: -1054162827175584848
+      Sustainable-Imperial_41: 7273902753808393562
+      Sustainable-Imperial_42: -4164376340691011700
+      Sustainable-Imperial_43: 514567622623094261
+      Sustainable-Imperial_44: 2099859549839032117
+      Sustainable-Imperial_45: -5627858047723473302
+      Sustainable-Imperial_5: 419287630159795507
+      Sustainable-Imperial_6: -5391531490351112337
+      Sustainable-Imperial_7: -1761102046625830831
+      Sustainable-Imperial_8: 6390176058894489607
+      Sustainable-Imperial_9: -854146216783806949
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
