@@ -129,7 +129,6 @@ public class GameState : MonoBehaviour
         }
 
         TotalEmissions += EmissionsDelta + EmissionsReductionDelta;
-        Debug.Log($"+ {EmissionsDelta} - {EmissionsReductionDelta}");
         TotalEmissions -= Settings.AtmosphericDissipation * TotalEmissions * delta;
         TotalEmissions = Math.Max(TotalEmissions, 0);
 
