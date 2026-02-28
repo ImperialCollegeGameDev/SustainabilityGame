@@ -2871,6 +2871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResidentialTileObject
   Offset: {x: 0, y: 0, z: 0}
+  iconHeightOffset: 5
 --- !u!1 &4891850226102373998
 GameObject:
   m_ObjectHideFlags: 0

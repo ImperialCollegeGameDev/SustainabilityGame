@@ -21,6 +21,7 @@ MonoBehaviour:
   UpgradeTree: {fileID: 0}
   Category: 0
   Cost: 150
+  CountsAsPowerSource: 1
   Utility:
     type: 1
     Output: 35000

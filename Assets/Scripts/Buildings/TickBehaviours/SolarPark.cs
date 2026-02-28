@@ -67,6 +67,9 @@ class SolarPark : UtilityDefault
         GameState.Instance.Power += Mathf.FloorToInt(util.actualOutput);
         GameState.Instance.EmissionsDelta += util.actualEmission;
 
+        util.actualEmission /= delta;
+
         tileObject.AddTime(delta);
+        UpdateStatus(util);
     }
 }

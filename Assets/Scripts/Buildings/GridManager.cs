@@ -23,6 +23,9 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private LayerMask groundMask;
 
+    public Sprite needsRepairIcon;
+    public Sprite needsPowerIcon;
+
     private void Awake()
     {
         if (Instance != null)
@@ -242,7 +245,7 @@ public class GridManager : MonoBehaviour
         Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
 
         GameState.Instance.Tick(0.0001f);
-
+        DoGridUpdate();
         return true;
     }
 
@@ -289,7 +292,7 @@ public class GridManager : MonoBehaviour
                 }
                 break;
         }
-
+        DoGridUpdate();
         return true;
     }
 
@@ -307,6 +310,7 @@ public class GridManager : MonoBehaviour
 
         Clear(obj.Origin, def.Size); // Handles grid logic of marking tiles as unoccupied
 
+        DoGridUpdate();
         Notifications.Instance.PostNotification($"Deleted building {def.name}.");
     }
 
@@ -338,6 +342,14 @@ public class GridManager : MonoBehaviour
                 Vector2Int pos = new Vector2Int(origin.x + x, origin.y + y);
                 tiles[pos].Occupant = obj;
             }
+        }
+    }
+
+    public void DoGridUpdate() // When a tile is placed or deleted, the other tiles can get updated. This includes the tile was placed itself.
+    {
+        foreach (var tileObj in GetTileObjects())
+        {
+            tileObj.GridUpdate();
         }
     }
 

@@ -47,7 +47,6 @@ class ResidenceDefault : TickBehaviour
         
         stats.Add(new StatRow("Current Occupancy", Mathf.FloorToInt(resTile.occupancy).ToString(), Color.green));
         stats.Add(new StatRow("Max Occupancy", def.Residential.MaxOccupancy.ToString(), Color.yellow));
-        stats.Add(new StatRow("Occupancy %", $"{Mathf.RoundToInt((resTile.occupancy / def.Residential.MaxOccupancy) * 100)}%", Color.cyan));
 
         return stats;
     }

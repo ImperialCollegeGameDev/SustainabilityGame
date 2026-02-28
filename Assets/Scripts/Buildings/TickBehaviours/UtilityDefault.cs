@@ -30,7 +30,10 @@ class UtilityDefault : TickBehaviour
         GameState.Instance.Power += Mathf.FloorToInt(util.actualOutput);
         GameState.Instance.EmissionsDelta += util.actualEmission;
 
+        util.actualEmission /= delta;
+
         tileObject.AddTime(delta);
+        UpdateStatus(util);
     }
 
     public override List<StatRow> GetStats(TileObject tileObject)
@@ -48,5 +51,18 @@ class UtilityDefault : TickBehaviour
         stats.Add(new StatRow("Emission Multiplier", $"{Mathf.RoundToInt(util.emissionMultiplier * 100)}%", Color.magenta));
 
         return stats;
+    }
+
+    protected void UpdateStatus(UtilityTileObject util)
+    {
+        if (util.efficiency > 0.7f)
+        {
+            if (util.Status != BuildingStatus.None)
+                util.SetStatus(BuildingStatus.None);
+        } else
+        {
+            if (util.Status != BuildingStatus.NeedsRepair)
+                util.SetStatus(BuildingStatus.NeedsRepair);
+        }
     }
 }
