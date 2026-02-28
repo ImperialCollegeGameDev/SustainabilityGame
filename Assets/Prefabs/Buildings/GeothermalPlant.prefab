@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4928678291142041891}
   - component: {fileID: 373641688515540576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GeothermalPlant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb68cdb9a8fb6e4995e17fb9ee3576b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UtilityTileObject
-  policyPoints: 0
-  timeSpent: 0
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &2094708625951356160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95,9 +94,93 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8365580577446002887, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7999872260562706363, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7117635288259338864, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6510159958561231311, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6490715251156506198, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5526837127488653021, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4682598333058104571, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -4146800378230933972, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3729412095897491257, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3450922675184524586, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1218647968999599595, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -465990048770509749, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 219725289010732863, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
       propertyPath: m_Name
       value: geothermal_plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372474688469503908, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728898159160712675, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773450776531510694, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842586628313625557, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102490173101183587, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148458308160334736, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8362787173682777456, guid: 070536f4006411a4e86742bb0ffec31f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

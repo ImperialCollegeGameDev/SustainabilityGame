@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5008801706196216421}
   - component: {fileID: 1154547841061467860}
   - component: {fileID: 8627265594060395864}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 1247543870749338368}
   - component: {fileID: 5058776271713717800}
   - component: {fileID: 2289044941893152565}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 4802341416911114134}
   - component: {fileID: 3662545012636497692}
   - component: {fileID: 9182248876361738427}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 4384177490168722721}
   - component: {fileID: 3325791942803885620}
   - component: {fileID: 5892565979772135796}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 2350453973907088817}
   - component: {fileID: 4672742835425415874}
   - component: {fileID: 1761448341941501055}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 1647943001847316585}
   - component: {fileID: 6530252657846733938}
   - component: {fileID: 567275340853911277}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 3025788067917965443}
   - component: {fileID: 4757255568377212830}
   - component: {fileID: 3403588805312296296}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5110119039274479344}
   - component: {fileID: 6132675612011322655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: neighbourhood-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,8 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b65de9531d274fba9cff6f6605178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResidentialTileObject
-  policyPoints: 0
-  timeSpent: 0
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &6110671853329970886
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6883372700501650556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: neighbourhood-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +732,7 @@ GameObject:
   - component: {fileID: 395120256601123017}
   - component: {fileID: 622944703440548699}
   - component: {fileID: 302560939706398490}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +822,7 @@ GameObject:
   - component: {fileID: 3791131788106366726}
   - component: {fileID: 1078182061959199464}
   - component: {fileID: 3754890470528099135}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +912,7 @@ GameObject:
   - component: {fileID: 2102040116179291249}
   - component: {fileID: 7203632657648160908}
   - component: {fileID: 3079710031829995949}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1002,7 @@ GameObject:
   - component: {fileID: 6594309286945971350}
   - component: {fileID: 7255467487071027952}
   - component: {fileID: 8958314894580187370}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,7 +1092,7 @@ GameObject:
   - component: {fileID: 4842620817114328409}
   - component: {fileID: 2127191553394934702}
   - component: {fileID: 1824790979218442073}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1183,7 +1182,7 @@ GameObject:
   - component: {fileID: 986408428300109394}
   - component: {fileID: 8059370131516254161}
   - component: {fileID: 507065364509664747}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1273,7 +1272,7 @@ GameObject:
   - component: {fileID: 2603395336039671906}
   - component: {fileID: 5356376061082386218}
   - component: {fileID: 5496889818049547701}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mesh_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}

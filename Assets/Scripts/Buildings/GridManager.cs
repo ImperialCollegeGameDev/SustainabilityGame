@@ -62,7 +62,7 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private List<TileTriangle> hardcodedTriangles = new List<TileTriangle>
+    private List<TileTriangle> hardcodedTriangles = new List<TileTriangle>
     {
         new TileTriangle(TileType.Normal,
             new Vector2Int(2, 17),
@@ -70,24 +70,40 @@ public class GridManager : MonoBehaviour
             new Vector2Int(14, 35)),
 
         new TileTriangle(TileType.Normal,
-            new Vector2Int(17, 29),
-            new Vector2Int(21, 35),
+            new Vector2Int(22, 28),
+            new Vector2Int(16, 30),
             new Vector2Int(14, 35)),
 
         new TileTriangle(TileType.Normal,
-            new Vector2Int(25, 30),
-            new Vector2Int(20, 27), 
+            new Vector2Int(25, 29),
+            new Vector2Int(17, 28),
             new Vector2Int(24, 16)),
 
         new TileTriangle(TileType.Normal,
             new Vector2Int(24, 16),
-            new Vector2Int(7, 16),
+            new Vector2Int(7, 16), 
             new Vector2Int(20, 12)),
+
+        new TileTriangle(TileType.Normal,
+            new Vector2Int(24, 19),
+            new Vector2Int(22, 28),
+            new Vector2Int(27, 30)),
+
+        new TileTriangle(TileType.Normal,
+            new Vector2Int(7, 17),
+            new Vector2Int(8, 14),
+            new Vector2Int(24, 16)),
+
+        new TileTriangle(TileType.Normal,
+            new Vector2Int(18, 24),
+            new Vector2Int(20, 35),
+            new Vector2Int(14, 35)),
 
         new TileTriangle(TileType.Water,
             new Vector2Int(0, 18),
             new Vector2Int(12, 35),
             new Vector2Int(0, 35)),
+
     };
 
     private void SetTileTypeRectangle(TileType type, int x1, int y1, int x2, int y2)
@@ -302,7 +318,11 @@ public class GridManager : MonoBehaviour
             {
                 Vector2Int checkPos = new Vector2Int(origin.x + x, origin.y + y);
                 if (!tiles.ContainsKey(checkPos)) return false;
-                if (tiles[checkPos].type != tileType) return false;
+                if (tiles[checkPos].type != tileType)
+                {
+                    Debug.Log("Tile type mismatch. Cannot place " + tileType + " on " + tiles[checkPos].type);
+                    return false;
+                }
                 if (tiles[checkPos].IsOccupied) return false;
             }
         }
@@ -421,7 +441,6 @@ public class GridManager : MonoBehaviour
     }
 
 
-    #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         // Ensure grid exists in edit mode
@@ -503,14 +522,11 @@ public class GridManager : MonoBehaviour
             Handles.Label(labelPos, $"({gridPos.x}, {gridPos.y})");
         }
     }
-    #endif
 
     private void OnValidate()
     {
         GenerateGrid();
-        #if UNITY_EDITOR
         SceneView.RepaintAll();
-        #endif
     }
 
     [System.Serializable]

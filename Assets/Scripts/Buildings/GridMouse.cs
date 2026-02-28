@@ -6,6 +6,7 @@ public class GridMouse : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private LayerMask buildingMask; // Add a layer mask for buildings
     [SerializeField] private Transform groundTransform; // assign the same tiltTarget used by CameraMovement
     
     public Material PreviewMaterial; // a transparent material for the placement preview
@@ -47,13 +48,21 @@ public class GridMouse : MonoBehaviour
     {
         if (GameState.Instance.CurrentMode == GameState.InteractionMode.None) return;
 
+
+        TileObject clickedBuilding = TryGetClickedBuilding();
         if (!TryGetMouseGridPosition(out Vector2Int gridPos)) return;
 
         if (GameState.Instance.CurrentMode == GameState.InteractionMode.Place) TryPlace(gridPos);
 
-        GridManager.Instance.TryGetTile(gridPos, out Tile tile);
-        if (tile == null) return;
-        TileObject obj = tile.Occupant;
+        TileObject obj = clickedBuilding;
+        if (obj == null)
+        {
+            GridManager.Instance.TryGetTile(gridPos, out Tile tile);
+            if (tile != null)
+            {
+                obj = tile.Occupant;
+            }
+        }
 
         switch (GameState.Instance.CurrentMode)
         {
@@ -65,6 +74,27 @@ public class GridMouse : MonoBehaviour
                     GridManager.Instance.Delete(obj);
                 break;
         }
+    }
+
+    TileObject TryGetClickedBuilding()
+    {
+        // Fail if pointer is over UI
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            return null;
+
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        // Raycast against building layer
+        if (Physics.Raycast(ray, out RaycastHit hit, 1000f, buildingMask))
+        {
+            // Try to find TileObject component in the hit object or its parents
+            TileObject tileObject = hit.collider.GetComponentInParent<TileObject>();
+            if (tileObject != null)
+            {
+                return tileObject;
+            }
+        }
+        return null;
     }
 
     void TryPlace(Vector2Int gridPos) // Attempts to place the current chosen building at the given position
@@ -80,8 +110,8 @@ public class GridMouse : MonoBehaviour
     {
         if (placementHighlight != null)
         {
-            Destroy(placementHighlight);
-            placementHighlight.gameObject.SetActive(false);
+            Destroy(placementHighlight.gameObject);
+            placementHighlight = null;
         }
     }
 
