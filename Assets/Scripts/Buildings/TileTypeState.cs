@@ -11,7 +11,10 @@ public class TileTypeState // Can store runtime info about a specific type of bu
     [NonSerialized] public int policyPoints = 0; // Points that can be spent on upgrades for this building type
     [NonSerialized] public float timeSpent = 0; // Accumulated time spent across all instances of this building type
     [NonSerialized] public int currentPointReward = 1; // The number of policy points awarded for the next threshold, increases by 1 each time
-    private readonly List<int> rewardThresholds = new List<int>() { 30, 60, 120, 300, 600, 1100 };
+    private readonly List<int> rewardThresholds = new List<int>() { 30, 60, 120, 180, 360 };
+
+    // Upgrades unlocked for this building type (shared across all instances)
+    private readonly HashSet<Upgrade> typeUnlockedUpgrades = new HashSet<Upgrade>();
 
     public void AddTime(float delta)
     {
@@ -25,11 +28,26 @@ public class TileTypeState // Can store runtime info about a specific type of bu
             policyPoints += currentPointReward;
             currentPointReward++;
             rewardThresholds.RemoveAt(0);
-
-            foreach (var tileObj in GridManager.Instance.GetTileObjects(o => o.Definition == Definition))
-            {
-                FlavourManager.Instance.SpawnText(tileObj.Center + Vector3.up * 2.5f, $"+{currentPointReward - 1} policy point!", Color.paleGreen);
-            }
         }
+    }
+
+    public bool HasUpgradeUnlocked(Upgrade upgrade)
+    {
+        return typeUnlockedUpgrades.Contains(upgrade);
+    }
+
+    public void UnlockUpgrade(Upgrade upgrade)
+    {
+        typeUnlockedUpgrades.Add(upgrade);
+    }
+
+    public bool IsUpgradeUnlockedForType(string upgradeId)
+    {
+        foreach (var upgrade in typeUnlockedUpgrades)
+        {
+            if (upgrade.Id == upgradeId)
+                return true;
+        }
+        return false;
     }
 }

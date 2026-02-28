@@ -231,6 +231,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
+  needsRepairIcon: {fileID: 147966393699494312, guid: 520fc810d0b3ef746b47df2ded50f8e1, type: 3}
+  needsPowerIcon: {fileID: 7052111003925266755, guid: 6e15a9fee7b2edf4b82c34f5caa0abb7, type: 3}
 --- !u!1 &7867173778075461998
 GameObject:
   m_ObjectHideFlags: 0

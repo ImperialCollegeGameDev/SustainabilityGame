@@ -5,6 +5,7 @@ public enum BuildingCategory
 {
     Utility,
     Residential,
+    PollutionReducer,
     Infrastructure
 }
 
@@ -23,10 +24,13 @@ public class TileObjectDefinition : ScriptableObject
     [Header("Gameplay")]
     public BuildingCategory Category = BuildingCategory.Utility;
     public int Cost = 0;
+    public bool CountsAsPowerSource = false;
 
+    [Header("Category Specific Info")]
     public Utility Utility;
     public ResidentialData Residential;
     public InfrastructureData Infrastructure;
+    public PollutionReducerData PollutionReducer;
 
     public List<StatRow> GetStats()
     {
@@ -60,6 +64,13 @@ public class ResidentialData
 public class InfrastructureData
 {
     public int ResourceProduction;
+}
+
+[System.Serializable]
+public class PollutionReducerData
+{
+    public int EmissionReduction;
+    public int EmissionReducingCapacity = 30;
 }
 
 public class StatRow

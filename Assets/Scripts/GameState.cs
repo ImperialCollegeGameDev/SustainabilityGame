@@ -47,6 +47,7 @@ public class GameState : MonoBehaviour
 
     public long money { get; private set; }
     public int population = 0;
+    public int peopleWhoCanAccessPower = 0;
     public int dissatisfiedPopulation { get; private set; } = 0;
     private int projectedHappiness = 100;
     public float happiness { get; private set; } = 100;
@@ -55,6 +56,7 @@ public class GameState : MonoBehaviour
     private int maxPopulation = 0;
     private int currentScore = 0;
 
+    public float effectiveEnergyReqPerPerson = 0;
     public int Power = 0;
     public float TotalEmissions { get; private set; } = 0;
     public float EmissionsDelta = 0;
@@ -71,7 +73,7 @@ public class GameState : MonoBehaviour
     // keeps track of unlocked skills and corresponding buildings
     HashSet<string> unlockedBuildings = new HashSet<string>();
     public bool IsBuildingUnlocked(string id) => unlockedBuildings.Contains(id);
-    public event System.Action OnBuildingUnlocksChanged;
+    public event Action OnBuildingUnlocksChanged;
 
     void Start()
     {
@@ -110,7 +112,7 @@ public class GameState : MonoBehaviour
 
         population = 0;
         Power = 0;
-
+        peopleWhoCanAccessPower = 0;
         EmissionsDelta = 0;
         EmissionsReductionDelta = 0;
 
@@ -121,12 +123,14 @@ public class GameState : MonoBehaviour
             if (tileObj is ResidentialTileObject res)
             {
                 population += Mathf.FloorToInt(res.occupancy);
+                if (res.canAccessPower)
+                    peopleWhoCanAccessPower += Mathf.FloorToInt(res.occupancy);
             }
         }
 
         TotalEmissions += EmissionsDelta + EmissionsReductionDelta;
-        // Debug.Log($"+ {EmissionsDelta} - {EmissionsReductionDelta}");
-        TotalEmissions -= Mathf.RoundToInt(Settings.AtmosphericDissipation * TotalEmissions * delta);
+        Debug.Log($"+ {EmissionsDelta} - {EmissionsReductionDelta}");
+        TotalEmissions -= Settings.AtmosphericDissipation * TotalEmissions * delta;
         TotalEmissions = Math.Max(TotalEmissions, 0);
 
         PreviousEmissionsDelta = EmissionsDelta;
@@ -160,7 +164,7 @@ public class GameState : MonoBehaviour
 
     public void UpdateHappinessAndDisplay()
     {
-        float effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson;
+        effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson;
         if (!DayNight.Instance.IsDaytime)
             effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson * Settings.NighttimeEnergyMultiplier;
 
@@ -173,7 +177,10 @@ public class GameState : MonoBehaviour
         projectedHappiness = Math.Max(projectedHappiness, 0);
 
         if (population > 0)
-            projectedHappiness = Mathf.FloorToInt(projectedHappiness * (1 - Settings.DissatisfactionDanger * dissatisfiedPopulation / (float) population));
+        {
+            projectedHappiness = Mathf.FloorToInt(projectedHappiness * (1 - Settings.DissatisfactionDanger * dissatisfiedPopulation / (float)population));
+            projectedHappiness = Mathf.FloorToInt(projectedHappiness * (peopleWhoCanAccessPower / (float)population));
+        }
 
         StatChangeUpdate();
     }

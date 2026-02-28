@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3284592355168022281}
-  - component: {fileID: 3112403618066826837}
+  - component: {fileID: 5992546448926727805}
   m_Layer: 6
   m_Name: Filter
   m_TagString: Untagged
@@ -26,14 +26,14 @@ Transform:
   m_GameObject: {fileID: 8443678452620338302}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 87.82, y: 0, z: 116.64}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7502358392795220005}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3112403618066826837
+--- !u!114 &5992546448926727805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8443678452620338302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7de68c209f7dda747a54e1d2f74c4e0f, type: 3}
+  m_Script: {fileID: 11500000, guid: be80d442b7abd6c4eac54e328408646e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TileObject
+  m_EditorClassIdentifier: Assembly-CSharp::PollutionReducerTileObject
   Offset: {x: 0, y: 0, z: 0}
+  iconHeightOffset: 7
 --- !u!1001 &8040898172157407182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56,7 +57,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 31b15d28a1169c4428c8ea041ed268ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.41910553
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 31b15d28a1169c4428c8ea041ed268ba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -64,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 31b15d28a1169c4428c8ea041ed268ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.9544296
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 31b15d28a1169c4428c8ea041ed268ba, type: 3}
       propertyPath: m_LocalRotation.w

@@ -21,6 +21,7 @@ MonoBehaviour:
   UpgradeTree: {fileID: 11400000, guid: 3618368b72e97364c9e4995468b52fc8, type: 2}
   Category: 0
   Cost: 500
+  CountsAsPowerSource: 1
   Utility:
     type: 0
     Output: 350000
@@ -30,3 +31,6 @@ MonoBehaviour:
     MaxOccupancy: 0
   Infrastructure:
     ResourceProduction: 0
+  PollutionReducer:
+    EmissionReduction: 0
+    EmissionReducingCapacity: 30
