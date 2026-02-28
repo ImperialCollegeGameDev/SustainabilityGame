@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
+  m_Name: CCS
+  m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
+  Id: Geothermal
+  DisplayName: Geothermal Plant
+  Prefab: {fileID: 3858034575480737441, guid: 1b700d9ba0511c2408af6e11e25c9d81, type: 3}
+  Size: {x: 2, y: 2}
+  TileType: 1
+  TickLogic: {fileID: 11400000, guid: 1356596fe4c3f484490dda0f26a998ce, type: 2}
+  UpgradeTree: {fileID: 0}
+  Category: 0
+  Cost: 1000
+  CountsAsPowerSource: 0
+  Utility:
+    type: 0
+    Output: 0
+    Emission: 0
+    DegradeTime: 600
+  Residential:
+    MaxOccupancy: 0
+  Infrastructure:
+    ResourceProduction: 0
+  PollutionReducer:
+    EmissionReduction: 120
+    EmissionReducingCapacity: 800
