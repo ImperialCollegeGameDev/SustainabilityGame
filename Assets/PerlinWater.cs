@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class OceanGenerator : MonoBehaviour
@@ -31,10 +31,23 @@ public class OceanGenerator : MonoBehaviour
     [Range(0f, 1f)]
     public float sharpess = 0.2f;       // 浪尖尖锐度 (防止变线条，限制在 0.3 以下)
 
+    [Header("🏖️ 海岸泡沫设置")]
+    public LayerMask terrainLayer;           // 在 Inspector 里选 Ground 层
+    public float shoreDistance = 3f;         // 检测半径，越大泡沫带越宽
+    [Range(0f, 1f)]
+    public float shoreFoamStrength = 1.0f;   // 海岸泡沫强度上限
+    public int shoreUpdateInterval = 6;      // 每隔多少帧更新一次海岸泡沫
+
+    private static readonly Vector3[] HorizontalDirs =
+    {
+        Vector3.forward, Vector3.back, Vector3.left, Vector3.right
+    };
     private Mesh mesh;
-    private Vector3[] baseVertices; // 原始平面位置
+    private Vector3[] baseVertices;    // 原始平面位置
     private Vector3[] currentVertices; // 动起来后的位置
-    private Color[] foamColors; // 存泡沫数据
+    private Color[] foamColors;        // 存泡沫数据
+    private float[] shoreFoamCache;    // 海岸泡沫缓存，避免每帧都射线检测
+    private int frameCounter;          // 帧计数器
 
     void Start()
     {
@@ -91,6 +104,9 @@ public class OceanGenerator : MonoBehaviour
             }
         }
 
+        shoreFoamCache = new float[totalVerts];
+        frameCounter = 0;
+
         mesh.vertices = baseVertices;
         mesh.triangles = triangles;
         mesh.RecalculateNormals();
@@ -102,6 +118,9 @@ public class OceanGenerator : MonoBehaviour
     {
         float time = Time.time;
         float maxPossibleHeight = wave1Height + wave2Height + wave3Height;
+
+        frameCounter++;
+        bool updateShore = (frameCounter % shoreUpdateInterval == 0);
 
         for (int i = 0; i < baseVertices.Length; i++)
         {
@@ -116,20 +135,45 @@ public class OceanGenerator : MonoBehaviour
             // 应用位置 (原始 + 偏移)
             currentVertices[i] = v + displacement;
 
-            // --- 计算泡沫 ---
-            // 逻辑：如果当前波浪高度很高，或者是浪尖(Y值大)，就显示泡沫
-            // 归一化高度 (0 到 1)
+            // --- 计算浪尖泡沫 ---
             float normalizedHeight = Mathf.Clamp01((displacement.y + maxPossibleHeight) / (maxPossibleHeight * 2f));
 
-            float foam = 0f;
+            float waveFoam = 0f;
             if (normalizedHeight > foamThreshold)
             {
-                // 超过阈值，产生泡沫。用 (当前高度 - 阈值) 算强度
-                foam = (normalizedHeight - foamThreshold) / (1.0f - foamThreshold);
+                waveFoam = (normalizedHeight - foamThreshold) / (1.0f - foamThreshold);
             }
 
-            // 存入顶点颜色 R 通道
-            foamColors[i] = new Color(foam, foam, foam, 1);
+            // --- 计算海岸泡沫 (水平射线检测，每 shoreUpdateInterval 帧更新一次) ---
+            if (updateShore)
+            {
+                Vector3 worldPos = transform.TransformPoint(currentVertices[i]);
+
+                // 只向四个水平方向发射射线，避免检测到海底或头顶的地形
+                float closestHit = float.MaxValue;
+                foreach (Vector3 dir in HorizontalDirs)
+                {
+                    if (Physics.Raycast(worldPos, dir, out RaycastHit hit, shoreDistance, terrainLayer))
+                    {
+                        if (hit.distance < closestHit)
+                            closestHit = hit.distance;
+                    }
+                }
+
+                if (closestHit < shoreDistance)
+                {
+                    // 越靠近地形，泡沫越强
+                    shoreFoamCache[i] = Mathf.Clamp01(1f - closestHit / shoreDistance) * shoreFoamStrength;
+                }
+                else
+                {
+                    shoreFoamCache[i] = 0f;
+                }
+            }
+
+            // 合并两种泡沫，取较大值写入 R 通道，Shader 直接读取不需要改
+            float combinedFoam = Mathf.Max(waveFoam, shoreFoamCache[i]);
+            foamColors[i] = new Color(combinedFoam, combinedFoam, combinedFoam, 1f);
         }
 
         mesh.vertices = currentVertices;

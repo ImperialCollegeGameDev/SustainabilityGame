@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af39accb9576d14498f67f1d5890069a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.5
+      value: -4.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: af39accb9576d14498f67f1d5890069a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -182,7 +182,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: af39accb9576d14498f67f1d5890069a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5b2bba64312bb3747b1c9ae12b4e2a82, type: 2}
+      objectReference: {fileID: 2100000, guid: 253b0587c95d10d4fae3ea2dbb279d95, type: 2}
     - target: {fileID: 919132149155446097, guid: af39accb9576d14498f67f1d5890069a, type: 3}
       propertyPath: m_Name
       value: ocean 2
@@ -274,6 +274,10 @@ PrefabInstance:
     - target: {fileID: 971240084038750099, guid: 22743072f714f3a46a9b38a88874a029, type: 3}
       propertyPath: m_Name
       value: Terrain 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971240084038750099, guid: 22743072f714f3a46a9b38a88874a029, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1345173972678850419, guid: 22743072f714f3a46a9b38a88874a029, type: 3}
       propertyPath: m_LocalScale.x
@@ -1076,7 +1080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 26292504844878446, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -94.229996
+      value: -100.57001
       objectReference: {fileID: 0}
     - target: {fileID: 76789432797103130, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1158,6 +1162,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 364436740603411864, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 364436740603411864, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 399047117183597564, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -37
@@ -1242,6 +1254,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 896658897158359554, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 896658897158359554, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 998934110800336963, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_SizeDelta.x
       value: 1297.1135
@@ -1343,6 +1363,14 @@ PrefabInstance:
       value: Some Incredibly Cool Description that spans way too many lines for some
         reason. 6 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1799295321525355320, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1799295321525355320, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1804609968795833998, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1648,13 +1676,29 @@ PrefabInstance:
       value: -0.6061707
       objectReference: {fileID: 0}
     - target: {fileID: 3441854326572474884, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3441854326572474884, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_fontSizeBase
       value: 124
       objectReference: {fileID: 0}
+    - target: {fileID: 3441854326572474884, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3460554020977419891, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_text
       value: 10B
       objectReference: {fileID: 0}
+    - target: {fileID: 3460554020977419891, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3460554020977419891, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3460554020977419891, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_TextWrappingMode
       value: 0
@@ -1715,6 +1759,14 @@ PrefabInstance:
       propertyPath: buildingSelector
       value: 
       objectReference: {fileID: 1255781569}
+    - target: {fileID: 4173789635374751245, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4173789635374751245, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4197289641775107741, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_text
       value: Upgrade Name Super Long
@@ -1723,6 +1775,14 @@ PrefabInstance:
       propertyPath: m_margin.w
       value: -42.875015
       objectReference: {fileID: 0}
+    - target: {fileID: 4197289641775107741, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4197289641775107741, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4330594735868849083, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: tooltip
       value: 
@@ -1739,6 +1799,14 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 0.13696317
       objectReference: {fileID: 0}
+    - target: {fileID: 4569590323273107629, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4569590323273107629, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4662140691479128496, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_margin.w
       value: -6.335266
@@ -1755,6 +1823,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4705518366017185568, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4705518366017185568, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4727574344610071059, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1983,6 +2059,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: BuildMenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6769161144379438784, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6769161144379438784, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6794877977160421182, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_margin.w
       value: -5.6166687
@@ -2197,7 +2281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7631993885729470625, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -163.155
+      value: -172.09001
       objectReference: {fileID: 0}
     - target: {fileID: 7752149188151131725, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_Padding.m_Top
@@ -2335,6 +2419,14 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 2.078888
       objectReference: {fileID: 0}
+    - target: {fileID: 9032977037757173562, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 9032977037757173562, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 9032977037757173562, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_TextWrappingMode
       value: 0
@@ -3088,6 +3180,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2ff87ff7d81f36459b8072db8950934, type: 3}
   m_PrefabInstance: {fileID: 1030895569}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1091965958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d3cf104ae56188045b3a16e96277a906, type: 3}
+  m_PrefabInstance: {fileID: 1229722283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1145897450 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 821121980039899420, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
@@ -3121,17 +3218,23 @@ MonoBehaviour:
   wave1Dir: 45
   wave1Speed: 0.5
   wave1Length: 17.6
-  wave1Height: 0.06
+  wave1Height: 0.08
   wave2Dir: 135
   wave2Speed: 1
   wave2Length: 10
-  wave2Height: 0.3
+  wave2Height: 0.105
   wave3Dir: 0
   wave3Speed: 1.5
   wave3Length: 4
-  wave3Height: 0.15
+  wave3Height: 0.045
   foamThreshold: 0.65
-  sharpess: 0.2
+  sharpess: 0.511
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 16
+  shoreDistance: 17
+  shoreFoamStrength: 1
+  shoreUpdateInterval: 6
 --- !u!1001 &1187628162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3282,16 +3385,68 @@ PrefabInstance:
       propertyPath: m_Name
       value: mountain
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d3cf104ae56188045b3a16e96277a906, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d3cf104ae56188045b3a16e96277a906, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1229722287}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d3cf104ae56188045b3a16e96277a906, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1229722288}
   m_SourcePrefab: {fileID: 100100000, guid: d3cf104ae56188045b3a16e96277a906, type: 3}
 --- !u!4 &1229722284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d3cf104ae56188045b3a16e96277a906, type: 3}
   m_PrefabInstance: {fileID: 1229722283}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &1229722287
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091965958}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -462981019419857548, guid: d3cf104ae56188045b3a16e96277a906, type: 3}
+--- !u!154 &1229722288
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091965958}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!1 &1255781569 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3519929981716684611, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
@@ -4351,6 +4506,12 @@ MonoBehaviour:
   wave3Height: 0.15
   foamThreshold: 0.65
   sharpess: 0.2
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  shoreDistance: 1.5
+  shoreFoamStrength: 1
+  shoreUpdateInterval: 6
 --- !u!1001 &2108242257
 PrefabInstance:
   m_ObjectHideFlags: 0
