@@ -639,17 +639,6 @@ public class Leaderboard : MonoBehaviour
         
         try
         {
-            // Cancel all tweens to prevent errors
-            LeanTween.cancelAll();
-            
-            // Clean up tracked entries
-            foreach (var entry in activeLeaderboardEntries)
-            {
-                if (entry != null)
-                {
-                    LeanTween.cancel(entry);
-                }
-            }
             activeLeaderboardEntries.Clear();
         }
         catch (System.Exception e)

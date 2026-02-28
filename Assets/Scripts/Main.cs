@@ -33,10 +33,6 @@ public class Main : MonoBehaviour
     // Player name cache for leaderboard display
     private Dictionary<string, string> playerNameCache = new Dictionary<string, string>();
 
-    //// Events for game flow management
-    //public System.Action OnGameStarted;
-    //public System.Action OnGameLoaded;
-    //public System.Action OnGameSaved;
 
     void Awake()
     {
@@ -44,7 +40,7 @@ public class Main : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject.transform.parent.gameObject);
+            DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
             Debug.Log("[Main] Main instance created and set to DontDestroyOnLoad");
         }
@@ -338,6 +334,14 @@ public class Main : MonoBehaviour
         
         Debug.Log($"[Main] IsAuthenticationReady: {IsAuthenticationReady}");
         SceneTransition.i.SendToScene("Leaderboard");
+    }
+
+
+    public void ViewCredits()
+    {
+        Debug.Log("[Main] Attempting to visit leaderboard...");
+        SceneTransition.i.SendToScene("Credits");
+
     }
 
     /// <summary>
@@ -715,6 +719,7 @@ public class Main : MonoBehaviour
             SaveGame(); // Save when app loses focus
         }
     }
+
 
     #endregion
 
