@@ -8,7 +8,7 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
 
     public GameObject SelectedTileInfoPanelPrefab;
     private GameObject SelectedTileInfoPanel;
-    private Canvas canvas;
+    [SerializeField] private Canvas canvas;
     private RectTransform canvasRect;
     private Camera mainCamera;
 
@@ -58,6 +58,11 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
         if (SelectedTileInfoPanel != null) Destroy(SelectedTileInfoPanel);
         
         // Try instantiating directly under canvas
+        if (canvas == null)
+        {
+            Debug.LogError("No Canvas found for instantiating SelectedTileInfoPanel.");
+            return;
+        }
         SelectedTileInfoPanel = Instantiate(SelectedTileInfoPanelPrefab, canvas.transform);
         
         if (SelectedTileInfoPanel.TryGetComponent(out TileInfoPanel panel))

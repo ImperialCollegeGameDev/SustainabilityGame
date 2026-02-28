@@ -1369,6 +1369,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 821121980039899420, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+      propertyPath: menuManager
+      value: 
+      objectReference: {fileID: 1255781571}
     - target: {fileID: 848356150984593457, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2614,6 +2618,11 @@ MonoBehaviour:
 --- !u!224 &459707902 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8731412506001331228, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
+  m_PrefabInstance: {fileID: 459707899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &459707903 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2995356116690867998, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
   m_PrefabInstance: {fileID: 459707899}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &471363795
@@ -4777,6 +4786,10 @@ PrefabInstance:
       propertyPath: repairSound
       value: 
       objectReference: {fileID: 8300000, guid: 498315fc516eb3e4c959b9028bc420ea, type: 3}
+    - target: {fileID: 2520367636854615674, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 459707903}
     - target: {fileID: 2520367636854615674, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: SelectedTileInfoCanvas
       value: 

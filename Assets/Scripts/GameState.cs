@@ -47,7 +47,7 @@ public class GameState : MonoBehaviour
 
     public long money { get; private set; }
     public int population = 0;
-    public int peopleWhoCanAccessPower = 0;
+    public float weightedHappinessSum = 0;
     public int dissatisfiedPopulation { get; private set; } = 0;
     private int projectedHappiness = 100;
     public float happiness { get; private set; } = 100;
@@ -112,7 +112,7 @@ public class GameState : MonoBehaviour
 
         population = 0;
         Power = 0;
-        peopleWhoCanAccessPower = 0;
+        weightedHappinessSum = 0;
         EmissionsDelta = 0;
         EmissionsReductionDelta = 0;
 
@@ -123,8 +123,7 @@ public class GameState : MonoBehaviour
             if (tileObj is ResidentialTileObject res)
             {
                 population += Mathf.FloorToInt(res.occupancy);
-                if (res.canAccessPower)
-                    peopleWhoCanAccessPower += Mathf.FloorToInt(res.occupancy);
+                weightedHappinessSum += Mathf.FloorToInt(res.occupancy * res.LocalHappiness);
             }
         }
 
@@ -178,7 +177,7 @@ public class GameState : MonoBehaviour
         if (population > 0)
         {
             projectedHappiness = Mathf.FloorToInt(projectedHappiness * (1 - Settings.DissatisfactionDanger * dissatisfiedPopulation / (float)population));
-            projectedHappiness = Mathf.FloorToInt(projectedHappiness * (peopleWhoCanAccessPower / (float)population));
+            projectedHappiness = Mathf.FloorToInt(projectedHappiness * (weightedHappinessSum / population));
         }
 
         StatChangeUpdate();

@@ -25,11 +25,6 @@ MonoBehaviour:
       Description: +25% Power
       PointsCost: 3
       MoneyCost: 60
-    - Id: Bifacial
-      DisplayName: Bifacial Modules
-      Description: +2% Power for every empty/solar tile within 2 tiles
-      PointsCost: 5
-      MoneyCost: 120
   - PathName: Consistency
     Upgrades:
     - Id: Battery

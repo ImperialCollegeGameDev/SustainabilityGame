@@ -324,7 +324,6 @@ public class GridManager : MonoBehaviour
                 if (!tiles.ContainsKey(checkPos)) return false;
                 if (tiles[checkPos].type != tileType)
                 {
-                    Debug.Log("Tile type mismatch. Cannot place " + tileType + " on " + tiles[checkPos].type);
                     return false;
                 }
                 if (tiles[checkPos].IsOccupied) return false;

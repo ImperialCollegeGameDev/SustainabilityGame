@@ -4,7 +4,9 @@ using UnityEngine;
 public class ResidentialTileObject : TileObject
 {
     [NonSerialized] public float occupancy = 0; // The occupancy at this current moment for this particular TileObject, definition has the max occupancy
-    [NonSerialized] public bool canAccessPower = false;
+    public bool canAccessPower { get; private set; } = false;
+    [NonSerialized] public float LocalHappiness = 1f; // Combined happiness factor (power access * location happiness)
+
     private void OnDestroy()
     {
         GameState.Instance.population -= Mathf.FloorToInt(occupancy);

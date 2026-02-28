@@ -23,14 +23,10 @@ class SolarPark : UtilityDefault
         float degradeMult = 1f;
 
         bool canOutputAtNight = false;
+        outputMult -= 0.02f * GridManager.Instance.GetWithinRadius(tileObject, 2, obj => obj.Definition != tileObject.Definition).Count;
 
         if (tileObject.HasUpgrade("Monocrystalline")) outputMult += 0.15f;
         if (tileObject.HasUpgrade("AxisTracking")) outputMult += 0.25f;
-        if (tileObject.HasUpgrade("Bifacial"))
-        {
-            outputMult += 0.02f * (GridManager.Instance.GetWithinRadius(tileObject, 2, obj => obj.Definition == tileObject.Definition).Count
-                + GridManager.Instance.GetEmptyWithinRadius(tileObject, 2));
-        }
         if (tileObject.HasUpgrade("SmartInverters"))
         {
             if (GridManager.Instance.GetWithinRadius(tileObject, 1, obj => obj.Definition == tileObject.Definition).Count >= 1)
