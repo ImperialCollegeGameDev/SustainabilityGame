@@ -1,17 +1,14 @@
-// SkillNodeUI.cs
-// Attach to: each hexagon Button GameObject (with Image + Button + child label)
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
-public class SkillNode : MonoBehaviour  //, IPointerEnterHandler, IPointerExitHandler
+public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public List<SkillNode> prerequisites = new List<SkillNode>();
-    //[SerializeField] private BuildingSelectorTooltip tooltip;
     public int cost = 40000;
+
+    [SerializeField] private SkillNodeTooltip tooltip;
 
     private SkillTreeUI tree;
     private Button btn;
@@ -20,14 +17,12 @@ public class SkillNode : MonoBehaviour  //, IPointerEnterHandler, IPointerExitHa
     [HideInInspector]
     public string skillId;
 
-    // which skills will this building unlock
     public List<string> unlockBuildingIds = new List<string>();
 
     private void Awake()
     {
         skillId = gameObject.name;
     }
-
 
     public void Init(SkillTreeUI treeRef)
     {
@@ -47,6 +42,20 @@ public class SkillNode : MonoBehaviour  //, IPointerEnterHandler, IPointerExitHa
         tree.TryUnlock(this);
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (tooltip == null) return;
+        tooltip.Show(skillId, cost, this);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (tooltip == null) return;
+        tooltip.Hide(this);
+    }
+
+    public void SetTooltip(SkillNodeTooltip t) => tooltip = t;
+
     public void RefreshVisuals()
     {
         if (tree == null) return;
@@ -54,39 +63,13 @@ public class SkillNode : MonoBehaviour  //, IPointerEnterHandler, IPointerExitHa
         bool isUnlocked = tree.IsUnlocked(skillId);
         bool canUnlock = tree.CanUnlock(this);
 
-        // Button interactable only if unlockable (simple)
         btn.interactable = canUnlock;
 
         Color c = img.color;
-
-        if (isUnlocked)
-            c.a = 1f;      // fully unlocked
-        else if (canUnlock)
-            c.a = 0.6f;
-        else
-            c.a = 0.2f;    // locked
+        if (isUnlocked) c.a = 1f;
+        else if (canUnlock) c.a = 0.6f;
+        else c.a = 0.2f;
 
         img.color = c;
     }
-
-    //private Coroutine hideRoutine;
-
-    //public void OnPointerEnter(PointerEventData eventData)
-    //{
-    //    if (hideRoutine != null)
-    //        StopCoroutine(hideRoutine);
-
-    //    tooltip.Show(skillId, cost, this);
-    //}
-
-    //public void OnPointerExit(PointerEventData eventData)
-    //{
-    //    hideRoutine = StartCoroutine(HideDelayed());
-    //}
-
-    //private IEnumerator HideDelayed()
-    //{
-    //    yield return new WaitForSeconds(0.05f);
-    //    tooltip.Hide(this);
-    //}
 }

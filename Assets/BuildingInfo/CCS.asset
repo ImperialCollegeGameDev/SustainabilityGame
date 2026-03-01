@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
   m_Name: CCS
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
-  Id: Geothermal
-  DisplayName: Geothermal Plant
+  Id: CCS
+  DisplayName: CCS Plant
   Prefab: {fileID: 3858034575480737441, guid: 1b700d9ba0511c2408af6e11e25c9d81, type: 3}
   Size: {x: 2, y: 2}
   TileType: 1
