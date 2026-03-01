@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
   m_Name: Recycling
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
-  Id: Geothermal
-  DisplayName: Geothermal Plant
+  Id: Recycling
+  DisplayName: Recycling Plant
   Prefab: {fileID: 1501230553749349402, guid: 4d5b97ef5fbe98546bbea3249cc681d8, type: 3}
   Size: {x: 1, y: 2}
   TileType: 1
@@ -34,3 +34,7 @@ MonoBehaviour:
   PollutionReducer:
     EmissionReduction: 40
     EmissionReducingCapacity: 80
+  PowerBank:
+    StorageCapacity: 1000
+    ChargeRate: 50
+    DischargeRate: 50

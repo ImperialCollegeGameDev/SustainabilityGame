@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "CityBuilder/TickBehaviours/SolarPark")]
-class SolarPark : UtilityDefault
+[CreateAssetMenu(menuName = "CityBuilder/TickBehaviours/WindFarm")]
+class WindFarm : UtilityDefault
 {
     public override void Tick(TileObject tileObject, float delta)
     {
