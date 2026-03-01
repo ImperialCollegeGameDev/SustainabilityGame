@@ -33,7 +33,13 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (hideRoutine != null)
             StopCoroutine(hideRoutine);
 
-        UpgradeTooltip.Instance.Show(upgrade.DisplayName, upgrade.PointsCost, upgrade.MoneyCost, upgrade.Description, this);
+        string pointsCostText = $"{upgrade.PointsCost} Policy Points";
+        if (TileStateCatalog.Instance.Get(tileObj.Definition.Id) is TileTypeState state && state.HasUpgradeUnlocked(upgrade))
+        {
+            pointsCostText = "Already Unlocked";
+        }
+
+        UpgradeTooltip.Instance.Show(upgrade.DisplayName, pointsCostText, upgrade.MoneyCost, upgrade.Description, this);
     }
 
     public void OnPointerExit(PointerEventData eventData)

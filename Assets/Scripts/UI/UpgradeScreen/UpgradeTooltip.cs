@@ -33,14 +33,14 @@ public class UpgradeTooltip : MonoBehaviour
             transform.position = Mouse.current.position.ReadValue() + new Vector2(1.0f, 1.0f);
     }
 
-    public void Show(string name, int points, long price, string description, object source)
+    public void Show(string name, string points, long price, string description, object source)
     {
         currentSource = source;
         if (hideRoutine != null)
             StopCoroutine(hideRoutine);
 
         nameText.text = name;
-        pointsText.text = $"{points}";
+        pointsText.text = points;
         priceText.text = NumberFormatter.FormatMoney(price);
         descriptionText.text = description;
         gameObject.SetActive(true);

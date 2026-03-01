@@ -28,6 +28,16 @@ public class TileTypeState // Can store runtime info about a specific type of bu
             policyPoints += currentPointReward;
             currentPointReward++;
             rewardThresholds.RemoveAt(0);
+
+            foreach (TileObject tileObject in GridManager.Instance.GetTileObjects())
+            {
+                if (tileObject.Definition == Definition)
+                {
+                    FlavourManager.Instance.SpawnText(tileObject.Center + Vector3.up * 4,
+                        $"+{currentPointReward - 1} policy point{(currentPointReward - 1 > 1 ? "s" : "")}!",
+                        Color.green);
+                }
+            }
         }
     }
 
