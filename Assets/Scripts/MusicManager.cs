@@ -31,6 +31,8 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip gameLungCancer;
     [SerializeField] private AudioClip repairSound;
 
+
+    [Header("Main Tracks")]
     [SerializeField] private AudioClip mainMainAndCredits;
     [SerializeField] private AudioClip mainLeaderboard;
     [SerializeField] private AudioClip mainGame;
@@ -66,12 +68,46 @@ public class MusicManager : MonoBehaviour
         Repair
     }
 
+    // Main Track enum
+    public enum MainTrackType
+    {
+        MainAndCredits,
+        Leaderboard,
+        Game
+    }
+
     // Properties for external access
     public AudioSource MusicSource => musicSource;
     public float MusicPosition => musicSource != null ? (float)musicSource.timeSamples / musicSource.clip.frequency : 0f;
     public float TrackLength => musicSource?.clip?.length ?? 0f;
     public bool IsPlaying => musicSource != null && musicSource.isPlaying && !isPaused;
     public bool IsPaused => isPaused;
+
+    /// <summary>
+    /// Public access to music volume (0-1 range)
+    /// </summary>
+    public float MusicVolumePublic
+    {
+        get => musicVolume;
+        set
+        {
+            musicVolume = Mathf.Clamp01(value);
+            ApplyVolumeSettings();
+        }
+    }
+
+    /// <summary>
+    /// Public access to SFX volume (0-1 range)
+    /// </summary>
+    public float SFXVolumePublic
+    {
+        get => sfxVolume;
+        set
+        {
+            sfxVolume = Mathf.Clamp01(value);
+            ApplyVolumeSettings();
+        }
+    }
 
     void Awake()
     {
@@ -124,29 +160,52 @@ public class MusicManager : MonoBehaviour
 
     #region Music Control
     /// <summary>
-    /// Plays a music track with optional fade-in
+    /// Plays a main track by type with automatic fade and prevents restarting current track
     /// </summary>
-    public void PlayTrack(AudioClip track, bool fadeIn = false)
+    public void PlayMainTrack(MainTrackType trackType)
     {
-        if (track == null)
+        AudioClip clipToPlay = trackType switch
         {
-            Debug.LogWarning("[MusicManager] Cannot play null track");
+            MainTrackType.MainAndCredits => mainMainAndCredits,
+            MainTrackType.Leaderboard => mainLeaderboard,
+            MainTrackType.Game => mainGame,
+            _ => null
+        };
+        
+        if (clipToPlay == null)
+        {
+            Debug.LogWarning($"[MusicManager] No audio clip assigned for track type: {trackType}");
+            return;
+        }
+
+        // Check if the requested track is already playing
+        if (currentTrack == clipToPlay && musicSource.isPlaying && !isPaused)
+        {
+            Debug.Log($"[MusicManager] Track '{trackType}' is already playing, skipping playback");
+            return;
+        }
+
+        // If the same track is paused, just resume it
+        if (currentTrack == clipToPlay && isPaused)
+        {
+            Debug.Log($"[MusicManager] Resuming paused track '{trackType}'");
+            ResumeMusic();
             return;
         }
 
         StopFade();
 
-        if (fadeIn && musicSource.isPlaying)
+        if (musicSource.isPlaying)
         {
-            fadeCoroutine = StartCoroutine(CrossFade(track));
+            fadeCoroutine = StartCoroutine(CrossFade(clipToPlay));
         }
         else
         {
-            musicSource.clip = track;
+            musicSource.clip = clipToPlay;
             musicSource.Play();
-            currentTrack = track;
+            currentTrack = clipToPlay;
             isPaused = false;
-            OnTrackChanged?.Invoke(track);
+            OnTrackChanged?.Invoke(clipToPlay);
         }
     }
 
@@ -351,6 +410,23 @@ public class MusicManager : MonoBehaviour
     /// Gets the current SFX volume
     /// </summary>
     public float GetSFXVolume() => sfxVolume;
+
+    /// <summary>
+    /// Sets the music volume (0-1 range)
+    /// </summary>
+    public void SetMusicVolumeToggle(float volume)
+    {
+        SetMusicVolume(volume);
+    }
+
+    /// <summary>
+    /// Sets both SFX and UI volume (0-1 range)
+    /// </summary>
+    public void SetSFXUIVolumeToggle(float volume)
+    {
+        SetSFXVolume(volume);
+        SetUIVolume(volume);
+    }
 
     private void ApplyVolumeSettings()
     {

@@ -47,7 +47,7 @@ MonoBehaviour:
   Settings: {fileID: 0}
   PAUSED: 1
   population: 0
-  peopleWhoCanAccessPower: 0
+  weightedHappinessSum: 0
   effectiveEnergyReqPerPerson: 0
   Power: 0
   EmissionsDelta: 0
@@ -99,15 +99,15 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3d784c362f854234b9199d42a1a2781f, type: 3}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 40
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -212,7 +212,7 @@ MonoBehaviour:
   uiOpenSound: {fileID: 0}
   uiCloseSound: {fileID: 0}
   gameLungCancer: {fileID: 8300000, guid: 81d1e491da8998f4ba4eaa685c1321f7, type: 3}
-  repairSound: {fileID: 0}
+  repairSound: {fileID: 8300000, guid: 498315fc516eb3e4c959b9028bc420ea, type: 3}
   mainMainAndCredits: {fileID: 8300000, guid: 4f44074bf8c3f904fab4c212c8862a06, type: 3}
   mainLeaderboard: {fileID: 8300000, guid: aa1259a71a66b8843bc539269d0a31cc, type: 3}
   mainGame: {fileID: 8300000, guid: 3d784c362f854234b9199d42a1a2781f, type: 3}
@@ -325,7 +325,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -470,6 +470,7 @@ MonoBehaviour:
   leafScaleRange: {x: 4.5, y: 5.5}
   spawnBatchSize: 15
   spawnBatchDelay: 0.1
+  leafBaseSize: 50
 --- !u!223 &4772099894944226935
 Canvas:
   m_ObjectHideFlags: 0

@@ -649,35 +649,7 @@ public class Leaderboard : MonoBehaviour
 
     public void ReturnHome()
     {
-        Debug.Log("[Leaderboard] ReturnHome called - loading main menu scene");
-        
-        try
-        {
-            // Add null check for SceneTransition singleton
-            if (SceneTransition.i != null)
-            {
-                SceneTransition.i.SendToScene("Home");
-            }
-            else
-            {
-                Debug.LogError("[Leaderboard] SceneTransition singleton is null! Cannot transition to Home scene.");
-                // Fallback to direct scene loading
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Home");
-            }
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError($"[Leaderboard] Failed to return home: {e.Message}");
-            // Last resort fallback
-            try
-            {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Home");
-            }
-            catch (System.Exception fallbackException)
-            {
-                Debug.LogError($"[Leaderboard] Fallback scene load also failed: {fallbackException.Message}");
-            }
-        }
+        Main.Instance.ReturnHome();
     }
 }
 

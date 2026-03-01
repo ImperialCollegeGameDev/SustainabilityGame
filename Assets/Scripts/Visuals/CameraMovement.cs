@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class CameraMovement : MonoBehaviour
 {
     public float cameraMoveSpeed = 2.0f;
-    public float cameraZoom = 5.0f;
+    public float cameraZoom = 40.0f;
     public float cameraZoomMin;
     public float cameraZoomMax;
     public Vector2 lowerBounds;
@@ -22,7 +22,7 @@ public class CameraMovement : MonoBehaviour
     {
         pivotTransform = transform.parent;
         cam = transform.GetComponent<Camera>();
-        transform.localPosition = -transform.forward * cameraZoom * distance;
+        transform.localPosition = -transform.forward * distance;
         //transform.TransformDirection();
 
         // capture the camera's stable isometric rotation so tilt becomes a small additive offset

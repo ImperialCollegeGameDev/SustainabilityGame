@@ -18,12 +18,10 @@ public class Main : MonoBehaviour
     /// Singleton instance of the Main class for cross-scene access
     /// </summary>
     public static Main Instance { get; private set; }
-    
+
     // Leaderboard configuration
     private const string LeaderboardId = "SusGameMainLeaderboard";
-    
     private bool loadGame = false;
-    private int anonAuth = -1;
     
     // Identity management
     public static bool IsAuthenticationReady { get; private set; } = false;
@@ -55,6 +53,7 @@ public class Main : MonoBehaviour
     {
         Debug.Log("[Main] Main.Start() called - Initializing Unity Services...");
         await InitializeUnityServices();
+        MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.MainAndCredits);
     }
 
     void Update()
@@ -310,6 +309,12 @@ public class Main : MonoBehaviour
         savedPlayerIdentity = null;
         Debug.Log("[Main] Cleared saved identity for fresh start");
         
+        // Play game music track
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.Game);
+        }
+        
         SceneTransition.i.SendToScene("Main");
     }
 
@@ -332,6 +337,12 @@ public class Main : MonoBehaviour
             Debug.Log($"[Main] Player identity verified: {playerId}");
         }
         
+        // Play leaderboard music track
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.Leaderboard);
+        }
+        
         Debug.Log($"[Main] IsAuthenticationReady: {IsAuthenticationReady}");
         SceneTransition.i.SendToScene("Leaderboard");
     }
@@ -339,9 +350,15 @@ public class Main : MonoBehaviour
 
     public void ViewCredits()
     {
-        Debug.Log("[Main] Attempting to visit leaderboard...");
+        Debug.Log("[Main] Attempting to visit credits...");
+        
+        // Play main/credits music track
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.MainAndCredits);
+        }
+        
         SceneTransition.i.SendToScene("Credits");
-
     }
 
     /// <summary>
@@ -350,6 +367,13 @@ public class Main : MonoBehaviour
     public void ReturnHome()
     {
         Debug.Log("[Main] Returning to home scene");
+        
+        // Play main/credits music track for home
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.MainAndCredits);
+        }
+        
         SceneTransition.i.SendToScene("Home");
     }
 
