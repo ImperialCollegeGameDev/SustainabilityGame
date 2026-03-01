@@ -23,6 +23,11 @@ public class ResidentialTileObject : TileObject
             .GetWithinRadius(this, GameState.Instance.Settings.RequiredProximityToPower,
             tileObj => tileObj.Definition.CountsAsPowerSource)
             .Count > 0;
+        canAccessPower |= GridManager.Instance
+            .GetWithinRadius(this, GameState.Instance.Settings.RequiredProximityToPower * 2,
+            tileObj => tileObj.Definition.Category == BuildingCategory.PowerBank)
+            .Count > 0;
+
         if (!canAccessPower && Status != BuildingStatus.NeedsPower)
         {
             SetStatus(BuildingStatus.NeedsPower);

@@ -6,7 +6,8 @@ public enum BuildingCategory
     Utility,
     Residential,
     PollutionReducer,
-    Infrastructure
+    Infrastructure,
+    PowerBank
 }
 
 [CreateAssetMenu(menuName = "CityBuilder/TileObjectDefinition")]
@@ -31,6 +32,7 @@ public class TileObjectDefinition : ScriptableObject
     public ResidentialData Residential;
     public InfrastructureData Infrastructure;
     public PollutionReducerData PollutionReducer;
+    public PowerBankData PowerBank;
 
     public List<StatRow> GetStats()
     {
@@ -48,6 +50,9 @@ public class TileObjectDefinition : ScriptableObject
                 break;
             case BuildingCategory.Infrastructure:
                 stats.Add(new StatRow("Resource Production", Infrastructure.ResourceProduction.ToString(), Color.magenta));
+                break;
+            case BuildingCategory.PowerBank:
+                stats.Add(new StatRow("Storage Capacity", PowerBank.StorageCapacity.ToString(), Color.cyan));
                 break;
         }
         return stats;
@@ -71,6 +76,14 @@ public class PollutionReducerData
 {
     public int EmissionReduction;
     public int EmissionReducingCapacity = 30;
+}
+
+[System.Serializable]
+public class PowerBankData
+{
+    public float StorageCapacity = 1000f; // Maximum energy that can be stored
+    public float ChargeRate = 50f; // Energy per tick when charging
+    public float DischargeRate = 50f; // Energy per tick when discharging
 }
 
 public class StatRow

@@ -498,6 +498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UtilityTileObject
   Offset: {x: 0, y: -6, z: 0}
+  iconHeightOffset: 5
 --- !u!114 &9090508027006144022
 MonoBehaviour:
   m_ObjectHideFlags: 0

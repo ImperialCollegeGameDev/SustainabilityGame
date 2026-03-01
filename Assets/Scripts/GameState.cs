@@ -23,7 +23,7 @@ public class GameState : MonoBehaviour
 
         if (Settings == null)
         {
-            Debug.LogWarning("GameSettings not assigned in GameState. Using default settings.");
+            Debug.Log("GameSettings not assigned in GameState. Using default settings.");
             Settings = ScriptableObject.CreateInstance<GameSettings>();
         }
     }
@@ -58,6 +58,9 @@ public class GameState : MonoBehaviour
 
     public float effectiveEnergyReqPerPerson = 0;
     public int Power = 0;
+    public float ExcessPower { get; private set; } = 0; // Excess energy produced this tick, available for storage
+    public float PowerDeficit { get; private set; } = 0; // Power shortage this tick, can be supplied by batteries
+    
     public float TotalEmissions { get; private set; } = 0;
     public float EmissionsDelta = 0;
     public float PreviousEmissionsDelta { get; private set; } = 0;
@@ -127,6 +130,25 @@ public class GameState : MonoBehaviour
             }
         }
 
+        // Calculate energy requirements
+        effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson;
+        if (!DayNight.Instance.IsDaytime)
+            effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson * Settings.NighttimeEnergyMultiplier;
+
+        requiredEnergy = Mathf.CeilToInt(population * effectiveEnergyReqPerPerson);
+
+        // Calculate excess power or deficit BEFORE battery processing
+        if (Power >= requiredEnergy)
+        {
+            ExcessPower = Power - requiredEnergy;
+            PowerDeficit = 0;
+        }
+        else
+        {
+            ExcessPower = 0;
+            PowerDeficit = requiredEnergy - Power;
+        }
+
         TotalEmissions += EmissionsDelta + EmissionsReductionDelta;
         TotalEmissions -= Settings.AtmosphericDissipation * TotalEmissions * delta;
         TotalEmissions = Math.Max(TotalEmissions, 0);
@@ -142,6 +164,21 @@ public class GameState : MonoBehaviour
             maxPopulation = population;
             currentScore = maxPopulation;
         }
+    }
+
+    public float ConsumeExcessPower(float amount)
+    {
+        float consumed = Mathf.Min(amount, ExcessPower);
+        ExcessPower -= consumed;
+        return consumed;
+    }
+
+    public float SupplyPowerFromStorage(float amount)
+    {
+        float supplied = Mathf.Min(amount, PowerDeficit);
+        PowerDeficit -= supplied;
+        Power += Mathf.FloorToInt(supplied); // Add to total power
+        return supplied;
     }
 
     public void FastTick(float delta) // For things that are very inexpensive to compute and we want fast feedback on
@@ -162,12 +199,6 @@ public class GameState : MonoBehaviour
 
     public void UpdateHappinessAndDisplay()
     {
-        effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson;
-        if (!DayNight.Instance.IsDaytime)
-            effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson * Settings.NighttimeEnergyMultiplier;
-
-        requiredEnergy = Mathf.FloorToInt(population * effectiveEnergyReqPerPerson);
-
         dissatisfiedPopulation = Mathf.FloorToInt(population - Power / effectiveEnergyReqPerPerson);
         dissatisfiedPopulation = Math.Max(dissatisfiedPopulation, 0);
 
@@ -219,11 +250,6 @@ public class GameState : MonoBehaviour
 
     public void SetModeSelect() //bool toggleMode = false)
     {
-        //if (toggleMode && CurrentMode == InteractionMode.Select)
-        //{
-        //    SetModeNone();
-        //    return;
-        //}
         CurrentMode = InteractionMode.Select;
         GridMouse.Instance.ClearPlacementHighlight();
     }
@@ -231,11 +257,6 @@ public class GameState : MonoBehaviour
     public void SetModePlace() //bool toggleMode = false)
     {
         SelectionManager.Instance.Deselect();
-        //if (toggleMode && CurrentMode == InteractionMode.Place)
-        //{
-        //    SetModeNone();
-        //    return;
-        //}
         CurrentMode = InteractionMode.Place;
         if (buildingToBePlaced == null)
         {
@@ -291,25 +312,16 @@ public class GameState : MonoBehaviour
 
     #region Score Management
 
-    /// <summary>
-    /// Gets the current game score
-    /// </summary>
     public int GetScore()
     {
         return currentScore;
     }
 
-    /// <summary>
-    /// Gets the maximum population reached
-    /// </summary>
     public int GetMaxPopulation()
     {
         return maxPopulation;
     }
 
-    /// <summary>
-    /// Resets the score data for a new game
-    /// </summary>
     public void ResetScore()
     {
         maxPopulation = 0;
@@ -320,9 +332,6 @@ public class GameState : MonoBehaviour
 
     #region Save/Load Data Application
 
-    /// <summary>
-    /// Applies loaded save data to the current game state
-    /// </summary>
     public void ApplyLoadedData(SaveState data)
     {
         money = data.money;

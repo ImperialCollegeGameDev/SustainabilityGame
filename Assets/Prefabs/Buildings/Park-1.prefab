@@ -1584,7 +1584,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2007665065020626182}
-  - component: {fileID: -8931708262205833453}
+  - component: {fileID: -3816900389018559108}
   m_Layer: 6
   m_Name: Park-1
   m_TagString: Untagged
@@ -1609,7 +1609,7 @@ Transform:
   - {fileID: 4983365012970328835}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8931708262205833453
+--- !u!114 &-3816900389018559108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1618,7 +1618,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4751149540787121050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be80d442b7abd6c4eac54e328408646e, type: 3}
+  m_Script: {fileID: 11500000, guid: 02a9e54ac96a5bd4d91589a462be8dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PollutionReducerTileObject
   Offset: {x: 0, y: 0, z: 0}

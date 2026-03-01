@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
-  m_Name: Grid_power
+  m_Name: GridBattery
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
-  Id: Grid
-  DisplayName: GridPower
+  Id: Battery
+  DisplayName: Grid Battery
   Prefab: {fileID: 1501230553749349402, guid: 7412410af0111da41a645691b88d398f, type: 3}
   Size: {x: 1, y: 1}
   TileType: 1
-  TickLogic: {fileID: 11400000, guid: 1356596fe4c3f484490dda0f26a998ce, type: 2}
+  TickLogic: {fileID: 11400000, guid: 8eedd0dd503162043a39d1629cec11fc, type: 2}
   UpgradeTree: {fileID: 0}
-  Category: 0
-  Cost: 100
+  Category: 4
+  Cost: 300
   CountsAsPowerSource: 1
   Utility:
     type: 1
@@ -31,3 +31,10 @@ MonoBehaviour:
     MaxOccupancy: 0
   Infrastructure:
     ResourceProduction: 0
+  PollutionReducer:
+    EmissionReduction: 0
+    EmissionReducingCapacity: 30
+  PowerBank:
+    StorageCapacity: 1440000
+    ChargeRate: 6700
+    DischargeRate: 60000

@@ -2709,7 +2709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4928678291142041891}
-  - component: {fileID: 1369203896554751899}
+  - component: {fileID: 6261014784265817604}
   m_Layer: 6
   m_Name: CCS
   m_TagString: Untagged
@@ -2735,7 +2735,7 @@ Transform:
   - {fileID: 4919425568974158228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1369203896554751899
+--- !u!114 &6261014784265817604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2744,11 +2744,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3858034575480737441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be80d442b7abd6c4eac54e328408646e, type: 3}
+  m_Script: {fileID: 11500000, guid: 02a9e54ac96a5bd4d91589a462be8dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PollutionReducerTileObject
   Offset: {x: 0, y: 0, z: 0}
-  iconHeightOffset: 7
+  iconHeightOffset: 6
 --- !u!1 &4103287299120499666
 GameObject:
   m_ObjectHideFlags: 0
