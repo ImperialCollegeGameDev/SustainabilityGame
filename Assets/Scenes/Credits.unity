@@ -266,7 +266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4821834255749058943, guid: 04ae786485c2ab24cae6026a0056b640, type: 3}
       propertyPath: link2_text
-      value: https://github.com/abhinav-gg
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7918300495942839112, guid: 04ae786485c2ab24cae6026a0056b640, type: 3}
       propertyPath: m_Pivot.x
@@ -1147,6 +1147,11 @@ MonoBehaviour:
   slideDistance: 50
   animationDuration: 0.6
   easeType: 6
+  iconPulseScale: 1.25
+  iconPulseDuration: 1.1
+  iconPulseDelay: 0.3
+  linkPulseScale: 1.05
+  linkPulseDuration: 1.5
 --- !u!1001 &758776139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2045,7 +2050,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1758049234}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.59371835
+  m_Size: 0.5937184
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

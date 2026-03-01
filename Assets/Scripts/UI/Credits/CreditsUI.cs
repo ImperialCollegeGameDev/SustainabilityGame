@@ -101,7 +101,7 @@ public class CreditsUI : MonoBehaviour
         int childCount = spawnparent.transform.childCount;
         if (childCount <= 1) yield break; // Only padding, nothing to animate
 
-        yield return new WaitForSeconds(2f); // Initial delay before starting animations
+        yield return new WaitForSeconds(1.5f); // Initial delay before starting animations
 
 
         // Start from index 1 to skip the padding (first child)

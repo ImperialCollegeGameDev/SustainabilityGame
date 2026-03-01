@@ -517,6 +517,7 @@ public class GridManager : MonoBehaviour
 
     private void DrawMouseGridCoordinate()
     {
+        #if UNITY_EDITOR
         Event e = Event.current;
         if (e == null) return;
 
@@ -532,12 +533,15 @@ public class GridManager : MonoBehaviour
             Handles.color = Color.yellow;
             Handles.Label(labelPos, $"({gridPos.x}, {gridPos.y})");
         }
+        #endif
     }
 
     private void OnValidate()
     {
         GenerateGrid();
+        #if UNITY_EDITOR
         SceneView.RepaintAll();
+        #endif
     }
 
     [System.Serializable]
