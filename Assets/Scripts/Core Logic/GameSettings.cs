@@ -6,7 +6,7 @@ public class GameSettings : ScriptableObject
     public int EnergyReqPerPerson = 5;
     public float NighttimeEnergyMultiplier = 0.4f;
     public int RequiredProximityToPower = 1;
-    public float TaxRate = 0.0003f;
+    public float TaxRate = 0.3f;
     public float DissatisfactionDanger = 3.0f;
     public float HappinessVolatility = 0.02f;
     public float MaxEmissionLogarithmic = 1.5f;

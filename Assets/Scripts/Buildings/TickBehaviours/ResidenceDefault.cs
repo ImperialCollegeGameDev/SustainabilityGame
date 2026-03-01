@@ -62,6 +62,17 @@ class ResidenceDefault : TickBehaviour
         }
 
         resTile.occupancy = occupancy;
+
+        List<StatRow> stats = new List<StatRow>();
+
+        stats.Add(new StatRow("Current Occupancy", Mathf.FloorToInt(resTile.occupancy).ToString(), Color.green));
+        stats.Add(new StatRow("Max Occupancy", def.Residential.MaxOccupancy.ToString(), Color.yellow));
+
+        Color happinessColor = resTile.LocalHappiness >= 0.8f ? Color.green :
+                               resTile.LocalHappiness >= 0.5f ? Color.yellow : Color.red;
+        stats.Add(new StatRow("Local Happiness", $"{Mathf.RoundToInt(resTile.LocalHappiness * 100)}%", happinessColor));
+
+        tileObject.Stats = stats;
     }
 
     private float CalculateLocationHappiness(ResidentialTileObject resTile)
@@ -94,26 +105,5 @@ class ResidenceDefault : TickBehaviour
         locationHappiness = Mathf.Clamp(locationHappiness, 0f, 2f);
 
         return locationHappiness;
-    }
-
-    public override List<StatRow> GetStats(TileObject tileObject)
-    {
-        List<StatRow> stats = new List<StatRow>();
-        
-        if (tileObject is not ResidentialTileObject resTile)
-        {
-            return stats;
-        }
-
-        TileObjectDefinition def = tileObject.Definition;
-        
-        stats.Add(new StatRow("Current Occupancy", Mathf.FloorToInt(resTile.occupancy).ToString(), Color.green));
-        stats.Add(new StatRow("Max Occupancy", def.Residential.MaxOccupancy.ToString(), Color.yellow));
-        
-        Color happinessColor = resTile.LocalHappiness >= 0.8f ? Color.green : 
-                               resTile.LocalHappiness >= 0.5f ? Color.yellow : Color.red;
-        stats.Add(new StatRow("Local Happiness", $"{Mathf.RoundToInt(resTile.LocalHappiness * 100)}%", happinessColor));
-
-        return stats;
     }
 }

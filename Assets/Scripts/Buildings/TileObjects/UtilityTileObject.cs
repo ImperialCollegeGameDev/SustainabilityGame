@@ -6,13 +6,6 @@ public class UtilityTileObject : TileObject
     [NonSerialized] public float efficiency = 1f;
     [NonSerialized] public float repairCostMult = 1f;
 
-    // Cached calculated values from last Tick
-    [NonSerialized] public float actualOutput = 0;
-    [NonSerialized] public float actualEmission = 0;
-    [NonSerialized] public float outputMultiplier = 1f;
-    [NonSerialized] public float emissionMultiplier = 1f;
-    [NonSerialized] public float degradeMultiplier = 1f;
-
     public int CurrentRepairCost()
     {
         float damagePercent = 1f - efficiency;

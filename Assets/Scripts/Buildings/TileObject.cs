@@ -35,6 +35,8 @@ public class TileObject : MonoBehaviour
 
     public BuildingStatus Status => currentStatus;
 
+    public List<StatRow> Stats = new List<StatRow>();
+
     protected virtual void Awake()
     {
         renderers = GetComponentsInChildren<MeshRenderer>(true);

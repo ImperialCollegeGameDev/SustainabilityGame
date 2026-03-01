@@ -66,24 +66,10 @@ public class GridBattery : TickBehaviour
         battery.storedEnergy = Mathf.Clamp(battery.storedEnergy, 0f, powerBankData.StorageCapacity);
 
         tileObject.AddTime(delta);
-    }
 
-    public override List<StatRow> GetStats(TileObject tileObject)
-    {
+
+        // STAT DISPLAY
         List<StatRow> stats = new List<StatRow>();
-
-        if (tileObject is not PowerBankTileObject battery)
-        {
-            return stats;
-        }
-
-        TileObjectDefinition def = tileObject.Definition;
-        PowerBankData powerBankData = def.PowerBank;
-
-        if (powerBankData == null)
-        {
-            return stats;
-        }
 
         // Display current charge
         float chargePercent = (battery.storedEnergy / powerBankData.StorageCapacity) * 100f;
@@ -123,6 +109,6 @@ public class GridBattery : TickBehaviour
 
         stats.Add(new StatRow("Status", status, statusColor));
 
-        return stats;
+        tileObject.Stats = stats;
     }
 }

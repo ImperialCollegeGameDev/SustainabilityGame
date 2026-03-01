@@ -26,21 +26,12 @@ class Park : TickBehaviour
         pr.emissionReduction /= delta;
 
         tileObject.AddTime(delta);
-    }
 
-    public override List<StatRow> GetStats(TileObject tileObject)
-    {
         List<StatRow> stats = new List<StatRow>();
-        
-        if (tileObject is not PollutionReducerTileObject pr)
-        {
-            Debug.LogError("GetStats called on non-PollutionReducerTileObject.");
-            return stats;
-        }
 
         stats.Add(new StatRow("Emission Reduction", NumberFormatter.Format(pr.emissionReduction), Color.green));
         stats.Add(new StatRow("Effectiveness", $"{Mathf.RoundToInt(pr.emissionMultiplier * 100)}%", Color.cyan));
 
-        return stats;
+        tileObject.Stats = stats;
     }
 }
