@@ -22,34 +22,7 @@ class WindFarm : UtilityDefault
         float emissionMult = 1f;
         float degradeMult = 1f;
 
-        bool canOutputAtNight = false;
-        outputMult -= 0.02f * GridManager.Instance.GetWithinRadius(tileObject, 2, obj => obj.Definition != tileObject.Definition).Count;
-
-        if (tileObject.HasUpgrade("Monocrystalline")) outputMult += 0.15f;
-        if (tileObject.HasUpgrade("AxisTracking")) outputMult += 0.25f;
-        if (tileObject.HasUpgrade("SmartInverters"))
-        {
-            if (GridManager.Instance.GetWithinRadius(tileObject, 1, obj => obj.Definition == tileObject.Definition).Count >= 1)
-            {
-                outputMult += 0.2f;
-            }
-        }
-        if (tileObject.HasUpgrade("Rooftop"))
-        {
-            outputMult += 0.05f * GridManager.Instance.GetWithinRadius(tileObject, 1, obj => obj.Definition.Category == BuildingCategory.Residential).Count;
-        }
-        if (tileObject.HasUpgrade("Battery") && !DayNight.Instance.IsDaytime)
-        {
-            outputMult *= 0.4f;
-            canOutputAtNight = true;
-        }
-
-        if (!canOutputAtNight && !DayNight.Instance.IsDaytime)
-        {
-            outputMult = 0f;
-            emissionMult = 0f;
-            degradeMult = 0.7f;
-        }
+        outputMult -= 0.02f * GridManager.Instance.GetWithinRadius(tileObject, 2, obj => true).Count;
 
         util.efficiency -= degradeMult * (delta / def.Utility.DegradeTime) * (1 - GameState.Instance.Settings.MinimumEfficiency);
         util.efficiency = Mathf.Max(util.efficiency, GameState.Instance.Settings.MinimumEfficiency);
