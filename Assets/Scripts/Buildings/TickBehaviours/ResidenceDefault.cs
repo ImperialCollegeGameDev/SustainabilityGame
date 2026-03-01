@@ -7,8 +7,7 @@ class ResidenceDefault : TickBehaviour
     [Header("Location Happiness Modifiers")]
     [SerializeField] private Dictionary<string, float> locationHappinessModifiers = new Dictionary<string, float>()
     {
-        { "Park", 0.15f },
-        { "Solar", 0.05f },
+        { "Park", 0.05f },
         { "Coal", -0.2f },
         { "Geothermal", -0.1f },
         { "Nuclear", -0.6f },

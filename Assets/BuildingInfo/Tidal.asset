@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: Tidal
   DisplayName: Tidal Power
+  description: Harnesses the natural tide to generate power. Can only be placed in
+    water (obviously)
   Prefab: {fileID: 1501230553749349402, guid: 0e05aeb7c72603a4fa8eb771b1dfe1a8, type: 3}
   Size: {x: 1, y: 1}
   TileType: 2
@@ -23,11 +25,17 @@ MonoBehaviour:
   Cost: 250
   CountsAsPowerSource: 1
   Utility:
-    type: 0
     Output: 150000
     Emission: 3
-    DegradeTime: 100
+    DegradeTime: 400
   Residential:
     MaxOccupancy: 0
   Infrastructure:
     ResourceProduction: 0
+  PollutionReducer:
+    EmissionReduction: 0
+    EmissionReducingCapacity: 30
+  PowerBank:
+    StorageCapacity: 1000
+    ChargeRate: 50
+    DischargeRate: 50

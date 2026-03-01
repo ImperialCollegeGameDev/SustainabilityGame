@@ -606,7 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillNode
   prerequisites:
   - {fileID: 1202353731524610027}
-  cost: 800
+  cost: 200
   tooltip: {fileID: 3563389179755798181}
   skillId: 
   unlockBuildingIds: []
@@ -1290,7 +1290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillNode
   prerequisites:
   - {fileID: 62530058543829639}
-  cost: 800
+  cost: 200
   tooltip: {fileID: 3563389179755798181}
   skillId: 
   unlockBuildingIds: []
@@ -1430,7 +1430,7 @@ MonoBehaviour:
   prerequisites:
   - {fileID: 6055595049408665925}
   - {fileID: 2173359414400382076}
-  cost: 1200
+  cost: 1000000
   tooltip: {fileID: 3563389179755798181}
   skillId: 
   unlockBuildingIds: []
@@ -1821,7 +1821,7 @@ MonoBehaviour:
   prerequisites:
   - {fileID: 2380187461095688854}
   - {fileID: 8535198353934731917}
-  cost: 1200
+  cost: 500
   tooltip: {fileID: 3563389179755798181}
   skillId: 
   unlockBuildingIds:
@@ -2098,10 +2098,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillNode
   prerequisites: []
-  cost: 800
+  cost: 200
   tooltip: {fileID: 3563389179755798181}
   skillId: 
-  unlockBuildingIds: []
+  unlockBuildingIds:
+  - Filter
 --- !u!1 &3280038029316805688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,7 +2516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillNode
   prerequisites:
   - {fileID: 6055595049408665925}
-  cost: 1200
+  cost: 1000
   tooltip: {fileID: 3563389179755798181}
   skillId: 
   unlockBuildingIds:
@@ -2656,7 +2657,7 @@ MonoBehaviour:
   prerequisites:
   - {fileID: 810518491860405980}
   - {fileID: 436967906022196892}
-  cost: 1200
+  cost: 900
   tooltip: {fileID: 3563389179755798181}
   skillId: 
   unlockBuildingIds:
@@ -2797,7 +2798,7 @@ MonoBehaviour:
   prerequisites:
   - {fileID: 2380187461095688854}
   - {fileID: 6055595049408665925}
-  cost: 1200
+  cost: 500
   tooltip: {fileID: 3563389179755798181}
   skillId: 
   unlockBuildingIds:
@@ -3011,7 +3012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillNode
   prerequisites: []
-  cost: 800
+  cost: 200
   tooltip: {fileID: 3563389179755798181}
   skillId: 
   unlockBuildingIds: []
@@ -3151,7 +3152,7 @@ MonoBehaviour:
   prerequisites:
   - {fileID: 8535198353934731917}
   - {fileID: 810518491860405980}
-  cost: 1200
+  cost: 800
   tooltip: {fileID: 3563389179755798181}
   skillId: 
   unlockBuildingIds:
@@ -3365,7 +3366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillNode
   prerequisites: []
-  cost: 800
+  cost: 200
   tooltip: {fileID: 3563389179755798181}
   skillId: 
   unlockBuildingIds: []

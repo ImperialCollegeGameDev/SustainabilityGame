@@ -16,6 +16,7 @@ public class TileObjectDefinition : ScriptableObject
     [Header("General")]
     public string Id;
     public string DisplayName;
+    public string description;
     public GameObject Prefab;
     public Vector2Int Size = Vector2Int.one;
     public TileType TileType = TileType.Normal;

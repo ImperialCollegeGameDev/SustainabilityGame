@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: Recycling
   DisplayName: Recycling Plant
+  description: Immensely reduces the need to manufacture goods, and reduces pollution
+    to a large extent
   Prefab: {fileID: 1501230553749349402, guid: 4d5b97ef5fbe98546bbea3249cc681d8, type: 3}
   Size: {x: 1, y: 2}
   TileType: 1
-  TickLogic: {fileID: 11400000, guid: 1356596fe4c3f484490dda0f26a998ce, type: 2}
+  TickLogic: {fileID: 11400000, guid: a86291eba6247f14e9e9e2a629245d38, type: 2}
   UpgradeTree: {fileID: 0}
-  Category: 0
+  Category: 2
   Cost: 1000
   CountsAsPowerSource: 0
   Utility:
-    type: 0
     Output: 0
     Emission: 0
     DegradeTime: 600
@@ -32,8 +33,8 @@ MonoBehaviour:
   Infrastructure:
     ResourceProduction: 0
   PollutionReducer:
-    EmissionReduction: 40
-    EmissionReducingCapacity: 80
+    EmissionReduction: 55
+    EmissionReducingCapacity: 120
   PowerBank:
     StorageCapacity: 1000
     ChargeRate: 50

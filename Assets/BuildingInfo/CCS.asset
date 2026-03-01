@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: CCS
   DisplayName: CCS Plant
+  description: Extracts carbon from the atmosphere and stores it in bulk
   Prefab: {fileID: 3858034575480737441, guid: 1b700d9ba0511c2408af6e11e25c9d81, type: 3}
   Size: {x: 2, y: 2}
   TileType: 1
   TickLogic: {fileID: 11400000, guid: 1356596fe4c3f484490dda0f26a998ce, type: 2}
   UpgradeTree: {fileID: 0}
-  Category: 0
-  Cost: 1000
+  Category: 2
+  Cost: 5000
   CountsAsPowerSource: 0
   Utility:
-    type: 0
     Output: 0
     Emission: 0
     DegradeTime: 600
@@ -34,3 +34,7 @@ MonoBehaviour:
   PollutionReducer:
     EmissionReduction: 120
     EmissionReducingCapacity: 800
+  PowerBank:
+    StorageCapacity: 1000
+    ChargeRate: 50
+    DischargeRate: 50
