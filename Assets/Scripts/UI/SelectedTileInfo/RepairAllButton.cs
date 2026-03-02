@@ -22,15 +22,6 @@ public class RepairAllButton : MonoBehaviour
     private void Update()
     {
         PriceText.text = UpdatePriceText();
-
-        if (util.CurrentRepairCost() <= 0)
-        {
-            button.interactable = false;
-        }
-        else
-        {
-            button.interactable = true;
-        }
     }
 
 
