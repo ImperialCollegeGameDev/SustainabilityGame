@@ -118,7 +118,7 @@ public class GameState : MonoBehaviour
         }
 
         // Check for game over condition
-        if (happiness <= 99f)
+        if (happiness <= 3f)
         {
             PAUSED = true;
             Instantiate(GameOverPrefab);
