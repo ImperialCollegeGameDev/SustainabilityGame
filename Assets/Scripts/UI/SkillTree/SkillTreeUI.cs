@@ -83,6 +83,7 @@ public class SkillTreeUI : MonoBehaviour
             return;
         }
 
+        MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Buy);
         unlocked.Add(node.skillId);
         GameState.Instance.ChangeMoney(-node.cost);
         Notifications.Instance.PostNotification($"Unlocked {node.skillId}");

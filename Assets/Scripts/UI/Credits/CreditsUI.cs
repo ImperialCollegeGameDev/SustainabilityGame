@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class CreditsUI : MonoBehaviour
 {
+
+    public GameObject creditText;
     public GameObject spawnparent;
 
     [Header("Animation Settings")]
@@ -34,6 +36,13 @@ public class CreditsUI : MonoBehaviour
     private void HideAllEntries()
     {
         if (spawnparent == null) return;
+
+        // Store and hide creditText
+        if (creditText != null)
+        {
+            originalScales[creditText] = creditText.transform.localScale;
+            creditText.transform.localScale = Vector3.zero;
+        }
 
         int childCount = spawnparent.transform.childCount;
         // Start from index 1 to skip the padding (first child)
@@ -103,6 +112,13 @@ public class CreditsUI : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f); // Initial delay before starting animations
 
+
+        // animate the credit text entrance separetely once
+        Vector3 creditTextTargetScale = originalScales.ContainsKey(creditText) ? originalScales[creditText] : Vector3.one;
+        LeanTween.scale(creditText, creditTextTargetScale, animationDuration)
+            .setEase(easeType)
+            .setDelay(0.5f)
+            .setIgnoreTimeScale(true);
 
         // Start from index 1 to skip the padding (first child)
         for (int i = 1; i < childCount; i++)

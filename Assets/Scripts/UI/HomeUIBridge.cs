@@ -28,4 +28,9 @@ public class HomeUIBridge : MonoBehaviour
     {
         Main.Instance.ViewCredits();
     }
+
+    public void OpenSettings()
+    {
+        Main.Instance.OpenSettings();
+    }
 }

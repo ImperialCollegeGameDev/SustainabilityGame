@@ -65,7 +65,6 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         // Check if this specific building instance already has the upgrade
         if (tileObj.HasUpgrade(upgrade))
         {
-            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Error);
             Notifications.Instance.PostNotification("This building already has this upgrade!");
             return;
         }
@@ -80,7 +79,6 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         // Check if we have enough policy points (only if first time for type)
         if (isFirstTimeForType && state.policyPoints < pointsCost)
         {
-            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Error);
             Notifications.Instance.PostNotification("Not enough policy points!");
             return;
         }
@@ -88,12 +86,9 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         // Check if we have enough money
         if (GameState.Instance.money < moneyCost)
         {
-            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Error);
             Notifications.Instance.PostNotification("Not enough money!");
             return;
         }
-        
-        MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Success);
 
         // Deduct policy points only if it's the first time for this building type
         if (isFirstTimeForType)

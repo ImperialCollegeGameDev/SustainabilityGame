@@ -49,14 +49,14 @@ public class BuildMenuManager : MonoBehaviour
         if (isOpen)
         {
             if (isAnimating) return;
-            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Close);
+            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Click);
             CloseAll();         // closes categories + all submenus
             isOpen = false;
             GameState.Instance.SetModeSelect();
         }
         else
         {
-            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Open);
+            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Click);
             OpenCategories();
             isOpen = true;
             RefreshBuildingButtons();

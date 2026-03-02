@@ -40,10 +40,10 @@ public static class SaveManager
 
             data.tiles = new List<TileSaveData>();
 
-            // Get tile data from GridManager
-            if (GridManager.Instance != null)
+            // Get tile data from GameState (authoritative source)
+            if (GameState.Instance != null)
             {
-                foreach (var tileObj in GridManager.Instance.GetTileObjects())
+                foreach (var tileObj in GameState.Instance.GetBuildings())
                 {
                     TileSaveData tileData = new TileSaveData();
                     tileData.gridPosition = tileObj.Origin;

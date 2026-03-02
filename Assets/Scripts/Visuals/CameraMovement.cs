@@ -31,6 +31,7 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
+        if (GameState.Instance.PAUSED) return; // Don't allow camera movement when game is paused
         HandleCameraMovement();
         HandleCameraZoom();
         HandleTilt();

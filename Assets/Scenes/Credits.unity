@@ -1142,6 +1142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5a8f8626359fb47a227f9f17950a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreditsUI
+  creditText: {fileID: 2096933539}
   spawnparent: {fileID: 636789540}
   entryDelay: 0.15
   slideDistance: 50

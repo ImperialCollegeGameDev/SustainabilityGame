@@ -59,9 +59,25 @@ public class GridManager : MonoBehaviour
 
     public void DeleteAll()
     {
-        foreach (TileObject tileObj in GetTileObjects())
+        // Get all tile objects before clearing
+        List<TileObject> tileObjects = GetTileObjects();
+
+        // Clear GameState's building list
+        if (GameState.Instance != null)
         {
-            Delete(tileObj);
+            GameState.Instance.ClearBuildings();
+        }
+
+        // Delete all buildings from the grid (visual removal and grid clearing only)
+        foreach (TileObject tileObj in tileObjects)
+        {
+            if (SelectionManager.Instance.Selected == tileObj)
+            {
+                SelectionManager.Instance.Deselect();
+            }
+
+            tileObj.Remove(); // Handles visual/model removal
+            Clear(tileObj.Origin, tileObj.Definition.Size); // Handles grid logic of marking tiles as unoccupied
         }
     }
 
@@ -225,6 +241,7 @@ public class GridManager : MonoBehaviour
 
         // Deduct money
         GameState.Instance.ChangeMoney(-def.Cost);
+        MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Build);
 
         // Instantiate visual prefab and place it on grid
         GameObject obj = Instantiate(def.Prefab);
@@ -243,6 +260,9 @@ public class GridManager : MonoBehaviour
         tileObj.transform.SetParent(terrain);
 
         Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
+
+        // Register the building with GameState
+        GameState.Instance.RegisterBuilding(tileObj);
 
         GameState.Instance.Tick(0.0001f);
         DoGridUpdate();
@@ -292,6 +312,10 @@ public class GridManager : MonoBehaviour
                 }
                 break;
         }
+
+        // Register the building with GameState
+        GameState.Instance.RegisterBuilding(tileObj);
+
         DoGridUpdate();
         return true;
     }
@@ -302,6 +326,9 @@ public class GridManager : MonoBehaviour
         {
             SelectionManager.Instance.Deselect();
         }
+
+        // Unregister from GameState before removal
+        GameState.Instance.UnregisterBuilding(obj);
 
         obj.Remove(); // Handles visual/model removal
 
@@ -346,9 +373,13 @@ public class GridManager : MonoBehaviour
 
     public void DoGridUpdate() // When a tile is placed or deleted, the other tiles can get updated. This includes the tile was placed itself.
     {
-        foreach (var tileObj in GetTileObjects())
+        // Use GameState's building list for grid updates
+        if (GameState.Instance != null)
         {
-            tileObj.GridUpdate();
+            foreach (var tileObj in GameState.Instance.GetBuildings())
+            {
+                tileObj.GridUpdate();
+            }
         }
     }
 

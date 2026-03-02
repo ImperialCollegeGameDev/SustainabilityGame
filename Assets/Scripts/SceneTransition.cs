@@ -129,6 +129,7 @@ public class SceneTransition : MonoBehaviour
         
         // Start spawning leaves
         StartCoroutine(SpawnLeavesInBatches());
+        MusicManager.Instance.PlayUISound(MusicManager.UISoundType.Leaves);
         
         // Immediately start loading scene in background (but don't activate yet)
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);

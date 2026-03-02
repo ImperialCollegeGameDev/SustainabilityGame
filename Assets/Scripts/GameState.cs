@@ -21,6 +21,9 @@ public class GameState : MonoBehaviour
         }
         Instance = this;
 
+        // Initialize the buildings list
+        buildings = new List<TileObject>();
+
         if (Settings == null)
         {
             Debug.Log("GameSettings not assigned in GameState. Using default settings.");
@@ -78,6 +81,9 @@ public class GameState : MonoBehaviour
     public bool IsBuildingUnlocked(string id) => unlockedBuildings.Contains(id);
     public event Action OnBuildingUnlocksChanged;
 
+    // Maintains the authoritative list of all placed buildings in the game
+    private List<TileObject> buildings = new List<TileObject>();
+
     void Start()
     {
         money = Settings.StartingMoney;
@@ -119,8 +125,8 @@ public class GameState : MonoBehaviour
         EmissionsDelta = 0;
         EmissionsReductionDelta = 0;
 
-        List<TileObject> tileObjects = GridManager.Instance.GetTileObjects();
-        foreach (TileObject tileObj in tileObjects)
+        // Use the internal buildings list instead of querying GridManager
+        foreach (TileObject tileObj in buildings)
         {
             tileObj.Tick(delta);
             if (tileObj is ResidentialTileObject res)
@@ -330,6 +336,73 @@ public class GameState : MonoBehaviour
 
     #endregion
 
+    #region Building Management
+
+    /// <summary>
+    /// Register a building when it's placed on the grid
+    /// Called by GridManager after successful placement
+    /// </summary>
+    public void RegisterBuilding(TileObject building)
+    {
+        if (building == null)
+        {
+            Debug.LogWarning("[GameState] Attempted to register null building");
+            return;
+        }
+
+        if (!buildings.Contains(building))
+        {
+            buildings.Add(building);
+            Debug.Log($"[GameState] Registered building: {building.Definition.Id} at {building.Origin}. Total: {buildings.Count}");
+        }
+        else
+        {
+            Debug.LogWarning($"[GameState] Building already registered: {building.Definition.Id}");
+        }
+    }
+
+    /// <summary>
+    /// Unregister a building when it's removed from the grid
+    /// Called by GridManager before deletion
+    /// </summary>
+    public void UnregisterBuilding(TileObject building)
+    {
+        if (building == null)
+        {
+            Debug.LogWarning("[GameState] Attempted to unregister null building");
+            return;
+        }
+
+        if (buildings.Remove(building))
+        {
+            Debug.Log($"[GameState] Unregistered building: {building.Definition.Id}. Remaining: {buildings.Count}");
+        }
+        else
+        {
+            Debug.LogWarning($"[GameState] Building not found for unregistration: {building.Definition.Id}");
+        }
+    }
+
+    /// <summary>
+    /// Clear all registered buildings
+    /// Called during game reset or before loading
+    /// </summary>
+    public void ClearBuildings()
+    {
+        buildings.Clear();
+        Debug.Log("[GameState] Cleared all registered buildings");
+    }
+
+    /// <summary>
+    /// Get the list of all registered buildings
+    /// </summary>
+    public List<TileObject> GetBuildings()
+    {
+        return buildings;
+    }
+
+    #endregion
+
     #region Save/Load Data Application
 
     public void ApplyLoadedData(SaveState data)
@@ -340,17 +413,33 @@ public class GameState : MonoBehaviour
         maxPopulation = data.maxPopulation;
         currentScore = maxPopulation;
 
-        Debug.LogWarning(data);
+        Debug.Log($"[GameState] Loading save data with {data.tiles.Count} buildings");
+
+        // Clear the buildings list before regenerating
+        buildings.Clear();
+
+        // Ensure GridManager is ready
+        if (GridManager.Instance == null)
+        {
+            Debug.LogError("[GameState] GridManager.Instance is null during ApplyLoadedData!");
+            return;
+        }
 
         GridManager.Instance.DeleteAll();
         GridManager.Instance.GenerateGrid();
 
         foreach (TileSaveData tileSave in data.tiles)
         {
-            Debug.Log(tileSave.gridPosition + " " + tileSave.def.Id + " occ: " + tileSave.occupancy);
+            if (tileSave.def == null)
+            {
+                Debug.LogWarning($"[GameState] Skipping tile with null definition at {tileSave.gridPosition}");
+                continue;
+            }
+            Debug.Log($"[GameState] Loading tile: {tileSave.gridPosition} {tileSave.def.Id} occ: {tileSave.occupancy}");
             GridManager.Instance.TryForcePlace(tileSave.def, tileSave.gridPosition, tileSave.occupancy);
         }
 
+        Debug.Log($"[GameState] Load complete. {buildings.Count} buildings registered.");
         UpdateHappinessAndDisplay();
     }
 

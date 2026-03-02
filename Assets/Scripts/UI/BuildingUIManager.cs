@@ -11,4 +11,13 @@ public class UIManager : MonoBehaviour
         if (buildingSelector.activeSelf != placementActive)
             buildingSelector.SetActive(placementActive);
     }
+
+
+    public void PauseGame()
+    {
+
+        Main.Instance.PauseGame();
+    }
+
+
 }
