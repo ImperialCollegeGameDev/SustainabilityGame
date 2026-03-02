@@ -7,6 +7,9 @@ using UnityEngine;
 public class SkillTreeUI : MonoBehaviour
 {
     public GameObject panelRoot; // set to the gameobject which contains the skill hexagons
+    public List<GameObject> nodesToAnimate;
+
+
     CanvasGroup cg;
 
     private List<SkillNode> nodes = new List<SkillNode>();

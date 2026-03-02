@@ -31,6 +31,7 @@ public class GameState : MonoBehaviour
         }
     }
 
+    public GameObject GameOverPrefab;
     public GameSettings Settings;
     public bool PAUSED = true; // game doesnt exist on first load
     private float _timer = 0f;
@@ -109,10 +110,21 @@ public class GameState : MonoBehaviour
             _fastTimer -= FastTickInterval;
         }
 
-        if (happiness <= 42f)
+        if (happiness <= 25f)
         {
             MusicManager.Instance?.PlayGameSFX(MusicManager.SFXSoundType.LungCancer);
+        } else if (happiness > 99f) {
+            MusicManager.Instance?.PlayGameSFX(MusicManager.SFXSoundType.LSD);
         }
+
+        // Check for game over condition
+        if (happiness <= 99f)
+        {
+            PAUSED = true;
+            Instantiate(GameOverPrefab);
+        }
+
+
     }
 
     public void Tick(float delta) // Delta is the time in seconds since last tick

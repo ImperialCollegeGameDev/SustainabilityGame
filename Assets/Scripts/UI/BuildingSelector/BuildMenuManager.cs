@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class BuildMenuManager : MonoBehaviour
 {
@@ -128,7 +129,11 @@ public class BuildMenuManager : MonoBehaviour
 
 
     // ---------- Helpers ----------
-
+    void OnDisable()
+    {
+        Debug.Log($"{gameObject.name} was disabled!", this);
+        Debug.Log(Environment.StackTrace);
+    }
 
 
     void OpenCategories()

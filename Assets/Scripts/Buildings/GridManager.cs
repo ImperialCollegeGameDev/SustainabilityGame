@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,6 +12,7 @@ using UnityEditor;
 [ExecuteAlways]
 public class GridManager : MonoBehaviour
 {
+    public TextMeshProUGUI username;
     public static GridManager Instance { get; private set; }
     // Any script can use GridManager.Instance
 
@@ -357,6 +360,11 @@ public class GridManager : MonoBehaviour
             }
         }
         return true;
+    }
+
+    private void Start()
+    {
+        username.text = Main.Instance.CurrentPlayerDisplayName;
     }
 
     public void Occupy(TileObject obj, Vector2Int origin, Vector2Int size)

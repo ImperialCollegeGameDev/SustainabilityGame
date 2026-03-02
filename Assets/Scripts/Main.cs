@@ -29,6 +29,11 @@ public class Main : MonoBehaviour
     private string savedPlayerIdentity = null;
     private string playerDisplayName = null;
     
+    /// <summary>
+    /// Public property to access the current player's display name for UI
+    /// </summary>
+    public string CurrentPlayerDisplayName => GetCurrentPlayerDisplayName();
+    
     // Player name cache for leaderboard display
     private Dictionary<string, string> playerNameCache = new Dictionary<string, string>();
 
@@ -175,7 +180,7 @@ public class Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Create a new anonymous identity
+    /// Create a new anonymous identity and generate a display name
     /// </summary>
     private async Task CreateNewIdentity()
     {
@@ -193,6 +198,10 @@ public class Main : MonoBehaviour
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
         Debug.Log($"[Main] Anonymous sign-in completed. Player ID: {AuthenticationService.Instance.PlayerId}");
+        
+        // Generate display name for this new identity
+        GeneratePlayerDisplayName();
+        Debug.Log($"[Main] Generated display name for new identity: {playerDisplayName}");
     }
 
     /// <summary>
@@ -377,12 +386,9 @@ public class Main : MonoBehaviour
             // Small delay to ensure state is cleared
             await Task.Delay(200);
             
-            // Create new anonymous account
+            // Create new anonymous account (this will also generate a display name)
             Debug.Log("[Main] Creating new anonymous account");
             await CreateNewIdentity();
-            
-            // Generate new display name
-            GeneratePlayerDisplayName();
             
             Debug.Log($"[Main] New identity created - Player ID: {AuthenticationService.Instance.PlayerId}, Display Name: {playerDisplayName}");
         }
