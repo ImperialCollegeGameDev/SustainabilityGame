@@ -17,7 +17,7 @@ public class SkillNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [HideInInspector]
     public string skillId;
 
-    public List<string> unlockBuildingIds = new List<string>();
+    public List<string> unlockBuildingIds = new List<string>();     // name of the gameObject in BuilderSelector (in UI prefab)
 
     private void Awake()
     {

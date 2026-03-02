@@ -5727,7 +5727,7 @@ GameObject:
   - component: {fileID: 4496608752615395497}
   - component: {fileID: 5333190285745940384}
   m_Layer: 5
-  m_Name: CCS-plant
+  m_Name: CCS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7972,6 +7972,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1508075112530909771}
     m_Modifications:
     - target: {fileID: 487863637656254208, guid: 521e9f403dfe01741ba012d9724da98c, type: 3}
+      propertyPath: m_fontSize
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 487863637656254208, guid: 521e9f403dfe01741ba012d9724da98c, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 8d0c5750bd881114a8afc5ef64d9ffc0, type: 2}
@@ -8081,7 +8085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3935598569283965725, guid: 521e9f403dfe01741ba012d9724da98c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -87.725006
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 4108463675194861812, guid: 521e9f403dfe01741ba012d9724da98c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8212,6 +8216,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5447370007497072201, guid: 521e9f403dfe01741ba012d9724da98c, type: 3}
+      propertyPath: m_fontSize
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447370007497072201, guid: 521e9f403dfe01741ba012d9724da98c, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 8d0c5750bd881114a8afc5ef64d9ffc0, type: 2}
@@ -8289,7 +8297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6857061283026938322, guid: 521e9f403dfe01741ba012d9724da98c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -168.13501
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 7368111170820723377, guid: 521e9f403dfe01741ba012d9724da98c, type: 3}
       propertyPath: m_ConstrainProportionsScale
