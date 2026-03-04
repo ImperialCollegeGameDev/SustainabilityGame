@@ -93,9 +93,9 @@ public class GameState : MonoBehaviour
 
     private void Update()
     {
-        _timer += Time.deltaTime;
-
         if (PAUSED) return;
+
+        _timer += Time.deltaTime;
 
         if (_timer >= TickInterval)
         {

@@ -3617,8 +3617,8 @@ MonoBehaviour:
   terrainLayer:
     serializedVersion: 2
     m_Bits: 16
-  shoreDistance: 17
-  shoreFoamStrength: 1
+  shoreDistance: 58.5
+  shoreFoamStrength: 0.834
   shoreUpdateInterval: 6
 --- !u!1001 &1187628162
 PrefabInstance:

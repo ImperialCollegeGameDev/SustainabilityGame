@@ -97,3 +97,9 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+/Assets/com.IvanMurzak
+.cursor/mcp.json
+Assets/com.IvanMurzak.meta
+Assets/Scenes/Main.unity
+Packages/manifest.json
+Assets/Scenes/Main.unity
