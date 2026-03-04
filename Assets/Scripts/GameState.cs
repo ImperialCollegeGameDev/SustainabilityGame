@@ -343,8 +343,10 @@ public class GameState : MonoBehaviour
     public void ResetScore()
     {
         maxPopulation = 0;
+        population = 0;
         currentScore = 0;
         happiness = 100f;
+        money = Settings.StartingMoney;
     }
 
     #endregion

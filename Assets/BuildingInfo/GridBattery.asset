@@ -22,7 +22,7 @@ MonoBehaviour:
   TickLogic: {fileID: 11400000, guid: 8eedd0dd503162043a39d1629cec11fc, type: 2}
   UpgradeTree: {fileID: 0}
   Category: 4
-  Cost: 300
+  Cost: 100
   CountsAsPowerSource: 1
   Utility:
     Output: 35000
@@ -37,5 +37,5 @@ MonoBehaviour:
     EmissionReducingCapacity: 30
   PowerBank:
     StorageCapacity: 1440000
-    ChargeRate: 20000
-    DischargeRate: 40000
+    ChargeRate: 6700
+    DischargeRate: 67000

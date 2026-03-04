@@ -65,21 +65,32 @@ public class BuildMenuManager : MonoBehaviour
     }
 
     // Category button -> open its submenu, close others
+    // Category button -> open its submenu, close others
+    // Category button -> toggle its submenu, close others
     public void OpenSubMenu(Transform submenu)
     {
         if (isAnimating) return;
 
+        // If already open - close it
+        if (submenu.gameObject.activeSelf && submenu.localScale == Vector3.one)
+        {
+            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Click);
+            Close(submenu);
+            return;
+        }
+
         MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Click);
 
+        // Close other submenus
         for (int i = 0; i < subMenus.Count; i++)
         {
             if (subMenus[i] != submenu)
                 CloseInstant(subMenus[i]);
         }
 
+        // Open selected submenu
         Open(submenu);
     }
-
 
 
     // ---------- Enable/Disable Buttons ----------
