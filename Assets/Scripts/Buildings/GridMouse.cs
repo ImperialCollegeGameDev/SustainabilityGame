@@ -102,7 +102,7 @@ public class GridMouse : MonoBehaviour
         bool placed = GridManager.Instance.TryPlace(GameState.Instance.buildingToBePlaced, gridPos);
         if (!placed) // placement failed (invalid location or insufficient funds)
         {
-            // feedback can be added here (sound, UI message)
+            MusicManager.Instance.PlayUISound(MusicManager.UISoundType.Fail);
         }
     }
 

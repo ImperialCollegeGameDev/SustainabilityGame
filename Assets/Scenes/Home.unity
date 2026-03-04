@@ -289,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 427899219788358603, guid: b8c4078ab4d459244bdbde1083a3309c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50.699997
+      value: -50.700012
       objectReference: {fileID: 0}
     - target: {fileID: 427899219788358603, guid: b8c4078ab4d459244bdbde1083a3309c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -535,11 +535,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 427899219788358603, guid: b8c4078ab4d459244bdbde1083a3309c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -52.700012
+      value: -52.69995
       objectReference: {fileID: 0}
     - target: {fileID: 427899219788358603, guid: b8c4078ab4d459244bdbde1083a3309c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50.899994
+      value: -50.900024
       objectReference: {fileID: 0}
     - target: {fileID: 427899219788358603, guid: b8c4078ab4d459244bdbde1083a3309c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1910,6 +1910,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2445224001427940704, guid: 20650ab407d649643aa852fbd7d0e928, type: 3}
+      propertyPath: uiFailSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f081b0dbff88aba4ba938b54fad136dd, type: 3}
     - target: {fileID: 3842158376267627783, guid: 20650ab407d649643aa852fbd7d0e928, type: 3}
       propertyPath: m_Name
       value: Managers

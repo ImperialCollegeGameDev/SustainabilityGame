@@ -34,7 +34,7 @@ public class TileTypeState // Can store runtime info about a specific type of bu
                 if (tileObject.Definition == Definition)
                 {
                     FlavourManager.Instance.SpawnText(tileObject.Center + Vector3.up * 4,
-                        $"+{currentPointReward - 1} policy point{(currentPointReward - 1 > 1 ? "s" : "")}!",
+                        $"+{currentPointReward - 1} research point{(currentPointReward - 1 > 1 ? "s" : "")}!",
                         Color.green);
                 }
             }

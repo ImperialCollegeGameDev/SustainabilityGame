@@ -23,6 +23,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip uiBuySound;
     [SerializeField] private AudioClip uiBuildSound;
     [SerializeField] private AudioClip uiLeavesSound;
+    [SerializeField] private AudioClip uiFailSound;
 
     [Header("Game Sound Effects")]
     [SerializeField] private AudioClip gameLungCancer;
@@ -57,7 +58,8 @@ public class MusicManager : MonoBehaviour
         Click,
         Buy,
         Build,
-        Leaves
+        Leaves,
+        Fail,
     }
 
     // Game SFX enum
@@ -65,7 +67,7 @@ public class MusicManager : MonoBehaviour
     {
         LungCancer,
         Repair,
-        LSD
+        LSD,
     }
 
     // Main Track enum
@@ -73,7 +75,7 @@ public class MusicManager : MonoBehaviour
     {
         MainAndCredits,
         Leaderboard,
-        Game
+        Game,
     }
 
     // Properties for external access
@@ -336,6 +338,7 @@ public class MusicManager : MonoBehaviour
             UISoundType.Buy => uiBuySound,
             UISoundType.Build => uiBuildSound,
             UISoundType.Leaves => uiLeavesSound,
+            UISoundType.Fail => uiFailSound,
             _ => null
         };
             
