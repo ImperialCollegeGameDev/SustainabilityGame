@@ -37,5 +37,5 @@ MonoBehaviour:
     EmissionReducingCapacity: 30
   PowerBank:
     StorageCapacity: 1440000
-    ChargeRate: 6700
-    DischargeRate: 60000
+    ChargeRate: 20000
+    DischargeRate: 40000

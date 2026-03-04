@@ -344,6 +344,7 @@ public class GameState : MonoBehaviour
     {
         maxPopulation = 0;
         currentScore = 0;
+        happiness = 100f;
     }
 
     #endregion
