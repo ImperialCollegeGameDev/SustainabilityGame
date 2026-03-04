@@ -9,7 +9,7 @@ class UtilityDefault : TickBehaviour
         TileObjectDefinition def = tileObject.Definition;
         if (tileObject is not UtilityTileObject util)
         {
-            Debug.LogError("TickBehaviour UtilityDefault applied to non-utility tile object.");
+            Debug.LogError($"TickBehaviour UtilityDefault applied to non-utility tile object {def.DisplayName}.");
             return;
         }
 
@@ -21,32 +21,39 @@ class UtilityDefault : TickBehaviour
         util.efficiency -= (delta / def.Utility.DegradeTime) * (1 - GameState.Instance.Settings.MinimumEfficiency);
         util.efficiency = Mathf.Max(util.efficiency, GameState.Instance.Settings.MinimumEfficiency);
 
-        util.outputMultiplier = 1f;
-        util.emissionMultiplier = 1f;
-        util.degradeMultiplier = 1f;
-        util.actualOutput = output * util.outputMultiplier * util.efficiency;
-        util.actualEmission = emission * util.emissionMultiplier;
+        float outputMultiplier = 1f;
+        float emissionMultiplier = 1f;
+        float actualOutput = output * outputMultiplier * util.efficiency;
+        float actualEmission = emission * emissionMultiplier;
 
-        GameState.Instance.Power += Mathf.FloorToInt(util.actualOutput);
-        GameState.Instance.EmissionsDelta += util.actualEmission;
+        GameState.Instance.Power += Mathf.FloorToInt(actualOutput);
+        GameState.Instance.EmissionsDelta += actualEmission;
+
+        actualEmission /= delta;
 
         tileObject.AddTime(delta);
-    }
+        UpdateStatus(util);
 
-    public override List<StatRow> GetStats(TileObject tileObject)
-    {
         List<StatRow> stats = new List<StatRow>();
 
-        if (tileObject is not UtilityTileObject util)
+        stats.Add(new StatRow("Power Output", actualOutput.ToString(), Color.green));
+        stats.Add(new StatRow("Emissions", actualEmission.ToString(), Color.red));
+        stats.Add(new StatRow("Output Multiplier", $"{Mathf.RoundToInt(outputMultiplier * 100)}%", Color.cyan));
+        stats.Add(new StatRow("Emission Multiplier", $"{Mathf.RoundToInt(emissionMultiplier * 100)}%", Color.magenta));
+
+        tileObject.Stats = stats;
+    }
+
+    protected void UpdateStatus(UtilityTileObject util)
+    {
+        if (util.efficiency > 0.7f)
         {
-            return stats;
+            if (util.Status != BuildingStatus.None)
+                util.SetStatus(BuildingStatus.None);
+        } else
+        {
+            if (util.Status != BuildingStatus.NeedsRepair)
+                util.SetStatus(BuildingStatus.NeedsRepair);
         }
-
-        stats.Add(new StatRow("Power Output", util.actualOutput.ToString(), Color.green));
-        stats.Add(new StatRow("Emissions", util.actualEmission.ToString(), Color.red));
-        stats.Add(new StatRow("Output Multiplier", $"{Mathf.RoundToInt(util.outputMultiplier * 100)}%", Color.cyan));
-        stats.Add(new StatRow("Emission Multiplier", $"{Mathf.RoundToInt(util.emissionMultiplier * 100)}%", Color.magenta));
-
-        return stats;
     }
 }

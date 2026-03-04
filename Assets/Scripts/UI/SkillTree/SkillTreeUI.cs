@@ -7,6 +7,9 @@ using UnityEngine;
 public class SkillTreeUI : MonoBehaviour
 {
     public GameObject panelRoot; // set to the gameobject which contains the skill hexagons
+    public List<GameObject> nodesToAnimate;
+
+
     CanvasGroup cg;
 
     private List<SkillNode> nodes = new List<SkillNode>();
@@ -83,6 +86,7 @@ public class SkillTreeUI : MonoBehaviour
             return;
         }
 
+        MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Buy);
         unlocked.Add(node.skillId);
         GameState.Instance.ChangeMoney(-node.cost);
         Notifications.Instance.PostNotification($"Unlocked {node.skillId}");

@@ -5,7 +5,9 @@ public enum BuildingCategory
 {
     Utility,
     Residential,
-    Infrastructure
+    PollutionReducer,
+    Infrastructure,
+    PowerBank
 }
 
 [CreateAssetMenu(menuName = "CityBuilder/TileObjectDefinition")]
@@ -14,6 +16,7 @@ public class TileObjectDefinition : ScriptableObject
     [Header("General")]
     public string Id;
     public string DisplayName;
+    public string description;
     public GameObject Prefab;
     public Vector2Int Size = Vector2Int.one;
     public TileType TileType = TileType.Normal;
@@ -23,10 +26,14 @@ public class TileObjectDefinition : ScriptableObject
     [Header("Gameplay")]
     public BuildingCategory Category = BuildingCategory.Utility;
     public int Cost = 0;
+    public bool CountsAsPowerSource = false;
 
+    [Header("Category Specific Info")]
     public Utility Utility;
     public ResidentialData Residential;
     public InfrastructureData Infrastructure;
+    public PollutionReducerData PollutionReducer;
+    public PowerBankData PowerBank;
 
     public List<StatRow> GetStats()
     {
@@ -45,6 +52,9 @@ public class TileObjectDefinition : ScriptableObject
             case BuildingCategory.Infrastructure:
                 stats.Add(new StatRow("Resource Production", Infrastructure.ResourceProduction.ToString(), Color.magenta));
                 break;
+            case BuildingCategory.PowerBank:
+                stats.Add(new StatRow("Storage Capacity", PowerBank.StorageCapacity.ToString(), Color.cyan));
+                break;
         }
         return stats;
     }
@@ -60,6 +70,21 @@ public class ResidentialData
 public class InfrastructureData
 {
     public int ResourceProduction;
+}
+
+[System.Serializable]
+public class PollutionReducerData
+{
+    public int EmissionReduction;
+    public int EmissionReducingCapacity = 30;
+}
+
+[System.Serializable]
+public class PowerBankData
+{
+    public float StorageCapacity = 1000f; // Maximum energy that can be stored
+    public float ChargeRate = 50f; // Energy per tick when charging
+    public float DischargeRate = 50f; // Energy per tick when discharging
 }
 
 public class StatRow
@@ -79,5 +104,4 @@ public class StatRow
 public abstract class TickBehaviour : ScriptableObject
 {
     public abstract void Tick(TileObject instance, float delta);
-    public abstract List<StatRow> GetStats(TileObject instance);
 }

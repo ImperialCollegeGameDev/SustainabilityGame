@@ -639,7 +639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5110119039274479344}
-  - component: {fileID: 6132675612011322655}
+  - component: {fileID: 1084402331593452011}
   m_Layer: 6
   m_Name: neighbourhood-2
   m_TagString: Untagged
@@ -663,7 +663,7 @@ Transform:
   - {fileID: 6883372700501650556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6132675612011322655
+--- !u!114 &1084402331593452011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -672,10 +672,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4689204956282939486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d0b65de9531d274fba9cff6f6605178, type: 3}
+  m_Script: {fileID: 11500000, guid: e961fccac550c934b80cdb0576127581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResidentialTileObject
   Offset: {x: 0, y: 0, z: 0}
+  iconHeightOffset: 6
 --- !u!1 &6110671853329970886
 GameObject:
   m_ObjectHideFlags: 0

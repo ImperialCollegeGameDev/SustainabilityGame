@@ -21,13 +21,17 @@ public class GameState : MonoBehaviour
         }
         Instance = this;
 
+        // Initialize the buildings list
+        buildings = new List<TileObject>();
+
         if (Settings == null)
         {
-            Debug.LogWarning("GameSettings not assigned in GameState. Using default settings.");
+            Debug.Log("GameSettings not assigned in GameState. Using default settings.");
             Settings = ScriptableObject.CreateInstance<GameSettings>();
         }
     }
 
+    public GameObject GameOverPrefab;
     public GameSettings Settings;
     public bool PAUSED = true; // game doesnt exist on first load
     private float _timer = 0f;
@@ -47,6 +51,7 @@ public class GameState : MonoBehaviour
 
     public long money { get; private set; }
     public int population = 0;
+    public float weightedHappinessSum = 0;
     public int dissatisfiedPopulation { get; private set; } = 0;
     private int projectedHappiness = 100;
     public float happiness { get; private set; } = 100;
@@ -55,7 +60,11 @@ public class GameState : MonoBehaviour
     private int maxPopulation = 0;
     private int currentScore = 0;
 
+    public float effectiveEnergyReqPerPerson = 0;
     public int Power = 0;
+    public float ExcessPower { get; private set; } = 0; // Excess energy produced this tick, available for storage
+    public float PowerDeficit { get; private set; } = 0; // Power shortage this tick, can be supplied by batteries
+    
     public float TotalEmissions { get; private set; } = 0;
     public float EmissionsDelta = 0;
     public float PreviousEmissionsDelta { get; private set; } = 0;
@@ -71,7 +80,10 @@ public class GameState : MonoBehaviour
     // keeps track of unlocked skills and corresponding buildings
     HashSet<string> unlockedBuildings = new HashSet<string>();
     public bool IsBuildingUnlocked(string id) => unlockedBuildings.Contains(id);
-    public event System.Action OnBuildingUnlocksChanged;
+    public event Action OnBuildingUnlocksChanged;
+
+    // Maintains the authoritative list of all placed buildings in the game
+    private List<TileObject> buildings = new List<TileObject>();
 
     void Start()
     {
@@ -98,10 +110,21 @@ public class GameState : MonoBehaviour
             _fastTimer -= FastTickInterval;
         }
 
-        if (happiness <= 42f)
+        if (happiness <= 25f)
         {
             MusicManager.Instance?.PlayGameSFX(MusicManager.SFXSoundType.LungCancer);
+        } else if (happiness > 99f) {
+            MusicManager.Instance?.PlayGameSFX(MusicManager.SFXSoundType.LSD);
         }
+
+        // Check for game over condition
+        if (happiness <= 3f)
+        {
+            PAUSED = true;
+            Instantiate(GameOverPrefab);
+        }
+
+
     }
 
     public void Tick(float delta) // Delta is the time in seconds since last tick
@@ -110,23 +133,42 @@ public class GameState : MonoBehaviour
 
         population = 0;
         Power = 0;
-
+        weightedHappinessSum = 0;
         EmissionsDelta = 0;
         EmissionsReductionDelta = 0;
 
-        List<TileObject> tileObjects = GridManager.Instance.GetTileObjects();
-        foreach (TileObject tileObj in tileObjects)
+        // Use the internal buildings list instead of querying GridManager
+        foreach (TileObject tileObj in buildings)
         {
             tileObj.Tick(delta);
             if (tileObj is ResidentialTileObject res)
             {
                 population += Mathf.FloorToInt(res.occupancy);
+                weightedHappinessSum += Mathf.FloorToInt(res.occupancy * res.LocalHappiness);
             }
         }
 
+        // Calculate energy requirements
+        effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson;
+        if (!DayNight.Instance.IsDaytime)
+            effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson * Settings.NighttimeEnergyMultiplier;
+
+        requiredEnergy = Mathf.CeilToInt(population * effectiveEnergyReqPerPerson);
+
+        // Calculate excess power or deficit BEFORE battery processing
+        if (Power >= requiredEnergy)
+        {
+            ExcessPower = Power - requiredEnergy;
+            PowerDeficit = 0;
+        }
+        else
+        {
+            ExcessPower = 0;
+            PowerDeficit = requiredEnergy - Power;
+        }
+
         TotalEmissions += EmissionsDelta + EmissionsReductionDelta;
-        // Debug.Log($"+ {EmissionsDelta} - {EmissionsReductionDelta}");
-        TotalEmissions -= Mathf.RoundToInt(Settings.AtmosphericDissipation * TotalEmissions * delta);
+        TotalEmissions -= Settings.AtmosphericDissipation * TotalEmissions * delta;
         TotalEmissions = Math.Max(TotalEmissions, 0);
 
         PreviousEmissionsDelta = EmissionsDelta;
@@ -140,6 +182,21 @@ public class GameState : MonoBehaviour
             maxPopulation = population;
             currentScore = maxPopulation;
         }
+    }
+
+    public float ConsumeExcessPower(float amount)
+    {
+        float consumed = Mathf.Min(amount, ExcessPower);
+        ExcessPower -= consumed;
+        return consumed;
+    }
+
+    public float SupplyPowerFromStorage(float amount)
+    {
+        float supplied = Mathf.Min(amount, PowerDeficit);
+        PowerDeficit -= supplied;
+        Power += Mathf.FloorToInt(supplied); // Add to total power
+        return supplied;
     }
 
     public void FastTick(float delta) // For things that are very inexpensive to compute and we want fast feedback on
@@ -160,12 +217,6 @@ public class GameState : MonoBehaviour
 
     public void UpdateHappinessAndDisplay()
     {
-        float effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson;
-        if (!DayNight.Instance.IsDaytime)
-            effectiveEnergyReqPerPerson = Settings.EnergyReqPerPerson * Settings.NighttimeEnergyMultiplier;
-
-        requiredEnergy = Mathf.FloorToInt(population * effectiveEnergyReqPerPerson);
-
         dissatisfiedPopulation = Mathf.FloorToInt(population - Power / effectiveEnergyReqPerPerson);
         dissatisfiedPopulation = Math.Max(dissatisfiedPopulation, 0);
 
@@ -173,7 +224,10 @@ public class GameState : MonoBehaviour
         projectedHappiness = Math.Max(projectedHappiness, 0);
 
         if (population > 0)
-            projectedHappiness = Mathf.FloorToInt(projectedHappiness * (1 - Settings.DissatisfactionDanger * dissatisfiedPopulation / (float) population));
+        {
+            projectedHappiness = Mathf.FloorToInt(projectedHappiness * (1 - Settings.DissatisfactionDanger * dissatisfiedPopulation / (float)population));
+            projectedHappiness = Mathf.FloorToInt(projectedHappiness * (weightedHappinessSum / population));
+        }
 
         StatChangeUpdate();
     }
@@ -214,11 +268,6 @@ public class GameState : MonoBehaviour
 
     public void SetModeSelect() //bool toggleMode = false)
     {
-        //if (toggleMode && CurrentMode == InteractionMode.Select)
-        //{
-        //    SetModeNone();
-        //    return;
-        //}
         CurrentMode = InteractionMode.Select;
         GridMouse.Instance.ClearPlacementHighlight();
     }
@@ -226,11 +275,6 @@ public class GameState : MonoBehaviour
     public void SetModePlace() //bool toggleMode = false)
     {
         SelectionManager.Instance.Deselect();
-        //if (toggleMode && CurrentMode == InteractionMode.Place)
-        //{
-        //    SetModeNone();
-        //    return;
-        //}
         CurrentMode = InteractionMode.Place;
         if (buildingToBePlaced == null)
         {
@@ -286,25 +330,16 @@ public class GameState : MonoBehaviour
 
     #region Score Management
 
-    /// <summary>
-    /// Gets the current game score
-    /// </summary>
     public int GetScore()
     {
         return currentScore;
     }
 
-    /// <summary>
-    /// Gets the maximum population reached
-    /// </summary>
     public int GetMaxPopulation()
     {
         return maxPopulation;
     }
 
-    /// <summary>
-    /// Resets the score data for a new game
-    /// </summary>
     public void ResetScore()
     {
         maxPopulation = 0;
@@ -313,11 +348,75 @@ public class GameState : MonoBehaviour
 
     #endregion
 
-    #region Save/Load Data Application
+    #region Building Management
 
     /// <summary>
-    /// Applies loaded save data to the current game state
+    /// Register a building when it's placed on the grid
+    /// Called by GridManager after successful placement
     /// </summary>
+    public void RegisterBuilding(TileObject building)
+    {
+        if (building == null)
+        {
+            Debug.LogWarning("[GameState] Attempted to register null building");
+            return;
+        }
+
+        if (!buildings.Contains(building))
+        {
+            buildings.Add(building);
+            Debug.Log($"[GameState] Registered building: {building.Definition.Id} at {building.Origin}. Total: {buildings.Count}");
+        }
+        else
+        {
+            Debug.LogWarning($"[GameState] Building already registered: {building.Definition.Id}");
+        }
+    }
+
+    /// <summary>
+    /// Unregister a building when it's removed from the grid
+    /// Called by GridManager before deletion
+    /// </summary>
+    public void UnregisterBuilding(TileObject building)
+    {
+        if (building == null)
+        {
+            Debug.LogWarning("[GameState] Attempted to unregister null building");
+            return;
+        }
+
+        if (buildings.Remove(building))
+        {
+            Debug.Log($"[GameState] Unregistered building: {building.Definition.Id}. Remaining: {buildings.Count}");
+        }
+        else
+        {
+            Debug.LogWarning($"[GameState] Building not found for unregistration: {building.Definition.Id}");
+        }
+    }
+
+    /// <summary>
+    /// Clear all registered buildings
+    /// Called during game reset or before loading
+    /// </summary>
+    public void ClearBuildings()
+    {
+        buildings.Clear();
+        Debug.Log("[GameState] Cleared all registered buildings");
+    }
+
+    /// <summary>
+    /// Get the list of all registered buildings
+    /// </summary>
+    public List<TileObject> GetBuildings()
+    {
+        return buildings;
+    }
+
+    #endregion
+
+    #region Save/Load Data Application
+
     public void ApplyLoadedData(SaveState data)
     {
         money = data.money;
@@ -326,17 +425,33 @@ public class GameState : MonoBehaviour
         maxPopulation = data.maxPopulation;
         currentScore = maxPopulation;
 
-        Debug.LogWarning(data);
+        Debug.Log($"[GameState] Loading save data with {data.tiles.Count} buildings");
+
+        // Clear the buildings list before regenerating
+        buildings.Clear();
+
+        // Ensure GridManager is ready
+        if (GridManager.Instance == null)
+        {
+            Debug.LogError("[GameState] GridManager.Instance is null during ApplyLoadedData!");
+            return;
+        }
 
         GridManager.Instance.DeleteAll();
         GridManager.Instance.GenerateGrid();
 
         foreach (TileSaveData tileSave in data.tiles)
         {
-            Debug.Log(tileSave.gridPosition + " " + tileSave.def.Id + " occ: " + tileSave.occupancy);
+            if (tileSave.def == null)
+            {
+                Debug.LogWarning($"[GameState] Skipping tile with null definition at {tileSave.gridPosition}");
+                continue;
+            }
+            Debug.Log($"[GameState] Loading tile: {tileSave.gridPosition} {tileSave.def.Id} occ: {tileSave.occupancy}");
             GridManager.Instance.TryForcePlace(tileSave.def, tileSave.gridPosition, tileSave.occupancy);
         }
 
+        Debug.Log($"[GameState] Load complete. {buildings.Count} buildings registered.");
         UpdateHappinessAndDisplay();
     }
 

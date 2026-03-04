@@ -11,7 +11,6 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioSource sfxSource;
 
     [Header("Volume Settings")]
-    [SerializeField, Range(0f, 1f)] private float masterVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float musicVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float uiVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float sfxVolume = 1f;
@@ -21,16 +20,16 @@ public class MusicManager : MonoBehaviour
 
     [Header("UI Sound Effects")]
     [SerializeField] private AudioClip uiClickSound;
-    [SerializeField] private AudioClip uiHoverSound;
-    [SerializeField] private AudioClip uiSuccessSound;
-    [SerializeField] private AudioClip uiErrorSound;
-    [SerializeField] private AudioClip uiOpenSound;
-    [SerializeField] private AudioClip uiCloseSound;
+    [SerializeField] private AudioClip uiBuySound;
+    [SerializeField] private AudioClip uiBuildSound;
+    [SerializeField] private AudioClip uiLeavesSound;
 
     [Header("Game Sound Effects")]
     [SerializeField] private AudioClip gameLungCancer;
     [SerializeField] private AudioClip repairSound;
+    [SerializeField] private AudioClip gameLSDSound;
 
+    [Header("Main Tracks")]
     [SerializeField] private AudioClip mainMainAndCredits;
     [SerializeField] private AudioClip mainLeaderboard;
     [SerializeField] private AudioClip mainGame;
@@ -39,6 +38,10 @@ public class MusicManager : MonoBehaviour
     private AudioClip currentTrack;
     private bool isPaused;
     private Coroutine fadeCoroutine;
+    
+    // SFX tracking to prevent overlapping sounds
+    private AudioClip currentSFXClip;
+    private float sfxStartTime;
 
     // Events for other systems to listen to
     public static event Action<AudioClip> OnTrackChanged;
@@ -52,18 +55,25 @@ public class MusicManager : MonoBehaviour
     public enum UISoundType
     {
         Click,
-        Hover,
-        Success,
-        Error,
-        Open,
-        Close
+        Buy,
+        Build,
+        Leaves
     }
 
     // Game SFX enum
     public enum SFXSoundType
     {
         LungCancer,
-        Repair
+        Repair,
+        LSD
+    }
+
+    // Main Track enum
+    public enum MainTrackType
+    {
+        MainAndCredits,
+        Leaderboard,
+        Game
     }
 
     // Properties for external access
@@ -72,6 +82,32 @@ public class MusicManager : MonoBehaviour
     public float TrackLength => musicSource?.clip?.length ?? 0f;
     public bool IsPlaying => musicSource != null && musicSource.isPlaying && !isPaused;
     public bool IsPaused => isPaused;
+
+    /// <summary>
+    /// Public access to music volume (0-1 range)
+    /// </summary>
+    public float MusicVolumePublic
+    {
+        get => musicVolume;
+        set
+        {
+            musicVolume = Mathf.Clamp01(value);
+            ApplyVolumeSettings();
+        }
+    }
+
+    /// <summary>
+    /// Public access to SFX volume (0-1 range)
+    /// </summary>
+    public float SFXVolumePublic
+    {
+        get => sfxVolume;
+        set
+        {
+            sfxVolume = Mathf.Clamp01(value);
+            ApplyVolumeSettings();
+        }
+    }
 
     void Awake()
     {
@@ -94,7 +130,12 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
-        // Handle any real-time audio updates if needed
+        // Handle SFX cleanup when finished playing
+        if (currentSFXClip != null && !sfxSource.isPlaying)
+        {
+            currentSFXClip = null;
+            sfxStartTime = 0f;
+        }
     }
 
     private void Initialize()
@@ -124,29 +165,52 @@ public class MusicManager : MonoBehaviour
 
     #region Music Control
     /// <summary>
-    /// Plays a music track with optional fade-in
+    /// Plays a main track by type with automatic fade and prevents restarting current track
     /// </summary>
-    public void PlayTrack(AudioClip track, bool fadeIn = false)
+    public void PlayMainTrack(MainTrackType trackType)
     {
-        if (track == null)
+        AudioClip clipToPlay = trackType switch
         {
-            Debug.LogWarning("[MusicManager] Cannot play null track");
+            MainTrackType.MainAndCredits => mainMainAndCredits,
+            MainTrackType.Leaderboard => mainLeaderboard,
+            MainTrackType.Game => mainGame,
+            _ => null
+        };
+        
+        if (clipToPlay == null)
+        {
+            Debug.LogWarning($"[MusicManager] No audio clip assigned for track type: {trackType}");
+            return;
+        }
+
+        // Check if the requested track is already playing
+        if (currentTrack == clipToPlay && musicSource.isPlaying && !isPaused)
+        {
+            Debug.Log($"[MusicManager] Track '{trackType}' is already playing, skipping playback");
+            return;
+        }
+
+        // If the same track is paused, just resume it
+        if (currentTrack == clipToPlay && isPaused)
+        {
+            Debug.Log($"[MusicManager] Resuming paused track '{trackType}'");
+            ResumeMusic();
             return;
         }
 
         StopFade();
 
-        if (fadeIn && musicSource.isPlaying)
+        if (musicSource.isPlaying)
         {
-            fadeCoroutine = StartCoroutine(CrossFade(track));
+            fadeCoroutine = StartCoroutine(CrossFade(clipToPlay));
         }
         else
         {
-            musicSource.clip = track;
+            musicSource.clip = clipToPlay;
             musicSource.Play();
-            currentTrack = track;
+            currentTrack = clipToPlay;
             isPaused = false;
-            OnTrackChanged?.Invoke(track);
+            OnTrackChanged?.Invoke(clipToPlay);
         }
     }
 
@@ -235,7 +299,17 @@ public class MusicManager : MonoBehaviour
     {
         if (clip != null)
         {
-            sfxSource.PlayOneShot(clip, volumeScale * sfxVolume * masterVolume);
+            // Check if the same SFX is already playing
+            if (currentSFXClip == clip && sfxSource.isPlaying)
+            {
+                return; // Skip playing if same clip is already active
+            }
+            
+            // Update tracking variables
+            currentSFXClip = clip;
+            sfxStartTime = Time.time;
+            
+            sfxSource.PlayOneShot(clip, volumeScale * sfxVolume * 0.5f);
         }
     }
 
@@ -246,7 +320,7 @@ public class MusicManager : MonoBehaviour
     {
         if (clip != null)
         {
-            AudioSource.PlayClipAtPoint(clip, position, volumeScale * sfxVolume * masterVolume);
+            AudioSource.PlayClipAtPoint(clip, position, volumeScale * sfxVolume * 0.5f);
         }
     }
 
@@ -255,24 +329,19 @@ public class MusicManager : MonoBehaviour
     /// </summary>
     public void PlayUISound(UISoundType soundType, float volumeScale = 1f)
     {
+        Debug.LogWarning($"[MusicManager] PlayUISound called with type: {soundType}");
         AudioClip clipToPlay = soundType switch
         {
             UISoundType.Click => uiClickSound,
-            UISoundType.Hover => uiHoverSound,
-            UISoundType.Success => uiSuccessSound,
-            UISoundType.Error => uiErrorSound,
-            UISoundType.Open => uiOpenSound,
-            UISoundType.Close => uiCloseSound,
+            UISoundType.Buy => uiBuySound,
+            UISoundType.Build => uiBuildSound,
+            UISoundType.Leaves => uiLeavesSound,
             _ => null
         };
-        
-        // do not replay if already playing
-        if (uiSource.isPlaying)
-            return;
             
         if (clipToPlay != null)
         {
-            uiSource.PlayOneShot(clipToPlay, volumeScale * uiVolume * masterVolume);
+            uiSource.PlayOneShot(clipToPlay, volumeScale * uiVolume);
         }
     }
 
@@ -285,26 +354,24 @@ public class MusicManager : MonoBehaviour
         {
             SFXSoundType.LungCancer => gameLungCancer,
             SFXSoundType.Repair => repairSound,
+            SFXSoundType.LSD => gameLSDSound,
             _ => null
         };
         
         if (clipToPlay != null)
         {
+            // Check if the same game SFX is already playing
+            if (currentSFXClip == clipToPlay && sfxSource.isPlaying)
+            {
+                return; // Skip playing if same clip is already active
+            }
+            
             PlaySFX(clipToPlay, volumeScale);
         }
     }
     #endregion
 
     #region Volume Control
-    /// <summary>
-    /// Sets the master volume (affects all audio)
-    /// </summary>
-    public void SetMasterVolume(float volume)
-    {
-        masterVolume = Mathf.Clamp01(volume);
-        ApplyVolumeSettings();
-    }
-
     /// <summary>
     /// Sets the music volume
     /// </summary>
@@ -333,11 +400,6 @@ public class MusicManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Gets the current master volume
-    /// </summary>
-    public float GetMasterVolume() => masterVolume;
-
-    /// <summary>
     /// Gets the current music volume
     /// </summary>
     public float GetMusicVolume() => musicVolume;
@@ -352,16 +414,33 @@ public class MusicManager : MonoBehaviour
     /// </summary>
     public float GetSFXVolume() => sfxVolume;
 
+    /// <summary>
+    /// Sets the music volume (0-1 range)
+    /// </summary>
+    public void SetMusicVolumeToggle(float volume)
+    {
+        SetMusicVolume(volume);
+    }
+
+    /// <summary>
+    /// Sets both SFX and UI volume (0-1 range)
+    /// </summary>
+    public void SetSFXUIVolumeToggle(float volume)
+    {
+        SetSFXVolume(volume);
+        SetUIVolume(volume);
+    }
+
     private void ApplyVolumeSettings()
     {
         if (musicSource != null)
-            musicSource.volume = musicVolume * masterVolume;
+            musicSource.volume = musicVolume * 0.3f;
 
         if (uiSource != null)
-            uiSource.volume = uiVolume * masterVolume;
+            uiSource.volume = uiVolume;
 
         if (sfxSource != null)
-            sfxSource.volume = sfxVolume * masterVolume;
+            sfxSource.volume = sfxVolume * 0.5f;
     }
     #endregion
 
@@ -447,20 +526,6 @@ public class MusicManager : MonoBehaviour
     #endregion
 
     #region Utility
-    /// <summary>
-    /// Mutes all audio
-    /// </summary>
-    public void MuteAll()
-    {
-        SetMasterVolume(0f);
-    }
-
-    /// <summary>
-    /// Unmutes all audio to previous volume levels
-    /// </summary>
-    public void UnmuteAll()
-    {
-        SetMasterVolume(1f);
-    }
+    // Utility methods can be added here if needed in the future
     #endregion
 }

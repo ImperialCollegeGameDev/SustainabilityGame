@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class BuildMenuManager : MonoBehaviour
 {
@@ -49,14 +50,14 @@ public class BuildMenuManager : MonoBehaviour
         if (isOpen)
         {
             if (isAnimating) return;
-            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Close);
+            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Click);
             CloseAll();         // closes categories + all submenus
             isOpen = false;
             GameState.Instance.SetModeSelect();
         }
         else
         {
-            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Open);
+            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Click);
             OpenCategories();
             isOpen = true;
             RefreshBuildingButtons();
@@ -128,7 +129,11 @@ public class BuildMenuManager : MonoBehaviour
 
 
     // ---------- Helpers ----------
-
+    void OnDisable()
+    {
+        Debug.Log($"{gameObject.name} was disabled!", this);
+        Debug.Log(Environment.StackTrace);
+    }
 
 
     void OpenCategories()

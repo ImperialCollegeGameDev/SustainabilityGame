@@ -2,6 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BuildingStatus
+{
+    None,
+    NeedsRepair,
+    NeedsPower
+}
+
 public class TileObject : MonoBehaviour
 {
     public Vector2Int Origin { get; private set; }
@@ -16,9 +23,33 @@ public class TileObject : MonoBehaviour
 
     [SerializeField] private Vector3 Offset = Vector3.zero;
 
+    // Status icon system
+    [Header("Status")]
+    [SerializeField] private float iconHeightOffset = 7f;
+    private float iconScale = 9f;
+    
+    private BuildingStatus currentStatus = BuildingStatus.None;
+    private GameObject statusIconObject;
+    private SpriteRenderer statusIconRenderer;
+    private Camera mainCamera;
+
+    public BuildingStatus Status => currentStatus;
+
+    public List<StatRow> Stats = new List<StatRow>();
+
     protected virtual void Awake()
     {
         renderers = GetComponentsInChildren<MeshRenderer>(true);
+        mainCamera = Camera.main;
+    }
+
+    protected virtual void Update()
+    {
+        // Billboard behavior - make icon face camera
+        if (statusIconObject != null && statusIconObject.activeSelf && mainCamera != null)
+        {
+            statusIconObject.transform.rotation = Quaternion.LookRotation(statusIconObject.transform.position - mainCamera.transform.position);
+        }
     }
 
     public void Init(TileObjectDefinition def)
@@ -26,7 +57,7 @@ public class TileObject : MonoBehaviour
         Definition = def;
     }
 
-    public void Place(Vector2Int origin)
+    public virtual void Place(Vector2Int origin)
     {
         Origin = origin;
         if (Definition == null)
@@ -49,8 +80,82 @@ public class TileObject : MonoBehaviour
 
     public virtual void Remove()
     {
+        if (statusIconObject != null)
+        {
+            Destroy(statusIconObject);
+        }
         Destroy(gameObject);
         // Occupancy is handled by GridManager
+    }
+
+    public void SetStatus(BuildingStatus newStatus)
+    {
+        if (currentStatus == newStatus)
+            return;
+
+        currentStatus = newStatus;
+
+        if (newStatus == BuildingStatus.None)
+        {
+            // Hide icon
+            if (statusIconObject != null)
+            {
+                statusIconObject.SetActive(false);
+            }
+        }
+        else
+        {
+            // Show icon with appropriate sprite
+            if (statusIconObject == null)
+            {
+                CreateStatusIcon();
+            }
+            else
+            {
+                statusIconObject.SetActive(true);
+            }
+
+            UpdateStatusIcon();
+        }
+    }
+
+    private void CreateStatusIcon()
+    {
+        // Create icon GameObject
+        statusIconObject = new GameObject("StatusIcon");
+        statusIconObject.transform.SetParent(transform);
+        
+        // Position above the building
+        Vector3 iconPosition = transform.position + Vector3.up * iconHeightOffset;
+        statusIconObject.transform.position = iconPosition;
+        
+        // Add SpriteRenderer for 2D icon in 3D space
+        statusIconRenderer = statusIconObject.AddComponent<SpriteRenderer>();
+        statusIconRenderer.transform.localScale = Vector3.one * iconScale;
+        
+        // Set sorting layer to render above everything
+        statusIconRenderer.sortingOrder = 1;
+    }
+
+    private void UpdateStatusIcon()
+    {
+        if (statusIconRenderer == null)
+            return;
+
+        switch (currentStatus)
+        {
+            case BuildingStatus.NeedsRepair:
+                statusIconRenderer.sprite = GridManager.Instance.needsRepairIcon;
+                statusIconRenderer.color = new Color(1f, 0.5f, 0f, 1f); // Orange tint
+                break;
+            case BuildingStatus.NeedsPower:
+                statusIconRenderer.sprite = GridManager.Instance.needsPowerIcon;
+                statusIconRenderer.color = new Color(1f, 1f, 0f, 1f); // Yellow tint
+                break;
+            case BuildingStatus.None:
+                statusIconRenderer.sprite = null;
+                break;
+        }
     }
 
     public List<Vector2Int> OccupiedTiles()
@@ -176,5 +281,10 @@ public class TileObject : MonoBehaviour
                     return upgrade;
         }
         return null;
+    }
+
+    public virtual void GridUpdate()
+    {
+        return;
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -32,7 +33,7 @@ public class BuildingSelector : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if (hideRoutine != null)
             StopCoroutine(hideRoutine);
 
-        tooltip.Show(tile.DisplayName, tile.Cost, this);
+        tooltip.Show(tile.DisplayName, tile.Cost, tile.description, this);
     }
 
     public void OnPointerExit(PointerEventData eventData)

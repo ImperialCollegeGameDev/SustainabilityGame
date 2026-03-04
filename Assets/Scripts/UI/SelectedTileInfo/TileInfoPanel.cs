@@ -65,7 +65,7 @@ public class TileInfoPanel : MonoBehaviour
         // Create stat displays from TickBehaviour
         if (def.TickLogic != null)
         {
-            List<StatRow> stats = def.TickLogic.GetStats(tileObj);
+            List<StatRow> stats = tileObj.Stats;
             foreach (StatRow stat in stats)
             {
                 TileStatDisplay display = CreateStatDisplay(stat.Name, stat.Value.ToString(), stat.Color);
@@ -102,7 +102,7 @@ public class TileInfoPanel : MonoBehaviour
             return;
         }
 
-        List<StatRow> stats = currentTileObject.Definition.TickLogic.GetStats(currentTileObject);
+        List<StatRow> stats = currentTileObject.Stats;
 
         foreach (StatRow stat in stats)
         {

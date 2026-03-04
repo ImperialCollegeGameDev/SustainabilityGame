@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
+  m_Name: Recycling
+  m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
+  Id: Recycling
+  DisplayName: Recycling Plant
+  description: Immensely reduces the need to manufacture goods, and reduces pollution
+    to a large extent
+  Prefab: {fileID: 1501230553749349402, guid: 4d5b97ef5fbe98546bbea3249cc681d8, type: 3}
+  Size: {x: 1, y: 2}
+  TileType: 1
+  TickLogic: {fileID: 11400000, guid: a86291eba6247f14e9e9e2a629245d38, type: 2}
+  UpgradeTree: {fileID: 0}
+  Category: 2
+  Cost: 1000
+  CountsAsPowerSource: 0
+  Utility:
+    Output: 0
+    Emission: 0
+    DegradeTime: 600
+  Residential:
+    MaxOccupancy: 0
+  Infrastructure:
+    ResourceProduction: 0
+  PollutionReducer:
+    EmissionReduction: 55
+    EmissionReducingCapacity: 120
+  PowerBank:
+    StorageCapacity: 1000
+    ChargeRate: 50
+    DischargeRate: 50

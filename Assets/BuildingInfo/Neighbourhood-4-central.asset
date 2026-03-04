@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: central
   DisplayName: Central Business
+  description: A home for many. Must be placed within one tile of a power plant or
+    within two tiles of a grid battery. Earns you tax revenue
   Prefab: {fileID: 5940491066109206705, guid: 36a9735c21819fa428ec50ce47d71b88, type: 3}
   Size: {x: 2, y: 2}
   TileType: 1
@@ -21,8 +23,8 @@ MonoBehaviour:
   UpgradeTree: {fileID: 0}
   Category: 1
   Cost: 10000
+  CountsAsPowerSource: 0
   Utility:
-    type: 1
     Output: 40
     Emission: 5
     DegradeTime: 0
@@ -30,3 +32,10 @@ MonoBehaviour:
     MaxOccupancy: 200000
   Infrastructure:
     ResourceProduction: 0
+  PollutionReducer:
+    EmissionReduction: 0
+    EmissionReducingCapacity: 30
+  PowerBank:
+    StorageCapacity: 1000
+    ChargeRate: 50
+    DischargeRate: 50

@@ -18,25 +18,25 @@ public class Main : MonoBehaviour
     /// Singleton instance of the Main class for cross-scene access
     /// </summary>
     public static Main Instance { get; private set; }
-    
+
     // Leaderboard configuration
     private const string LeaderboardId = "SusGameMainLeaderboard";
-    
     private bool loadGame = false;
-    private int anonAuth = -1;
     
     // Identity management
     public static bool IsAuthenticationReady { get; private set; } = false;
+    public GameObject PauseUI; // Reference to the pause UI to manage its state across scenes
     private string savedPlayerIdentity = null;
     private string playerDisplayName = null;
+    
+    /// <summary>
+    /// Public property to access the current player's display name for UI
+    /// </summary>
+    public string CurrentPlayerDisplayName => GetCurrentPlayerDisplayName();
     
     // Player name cache for leaderboard display
     private Dictionary<string, string> playerNameCache = new Dictionary<string, string>();
 
-    //// Events for game flow management
-    //public System.Action OnGameStarted;
-    //public System.Action OnGameLoaded;
-    //public System.Action OnGameSaved;
 
     void Awake()
     {
@@ -44,7 +44,7 @@ public class Main : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject.transform.parent.gameObject);
+            DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
             Debug.Log("[Main] Main instance created and set to DontDestroyOnLoad");
         }
@@ -59,12 +59,43 @@ public class Main : MonoBehaviour
     {
         Debug.Log("[Main] Main.Start() called - Initializing Unity Services...");
         await InitializeUnityServices();
+        MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.MainAndCredits);
     }
 
-    void Update()
+    public void OpenSettings()
     {
-        
+        GameObject p = Instantiate(PauseUI);
+        // set camera to main camera
+        // p.GetComponent<Canvas>().worldCamera = Camera.main;
+        p.GetComponent<Canvas>().sortingOrder = 100; // Ensure it appears above other UI
+
+        // call the setup function
+        Debug.Log("[Main] Opening settings menu...", p.GetComponent<PauseUI>());
+        p.GetComponent<PauseUI>().Load("GAME SETTINGS", false);
     }
+
+    public void PauseGame()
+    {
+        GameObject p = Instantiate(PauseUI);
+        // set camera to main camera
+        p.GetComponent<Canvas>().sortingOrder = 100; // Ensure it appears above other UI
+
+        // call the setup function
+        Debug.Log("[Main] Opening pause menu...", p.GetComponent<PauseUI>());
+        GameState.Instance.PAUSED = true;
+
+        // create unpause game action callback
+        System.Action unpauseAction = () =>
+        {
+            Debug.Log("[Main] Unpausing game from pause menu callback");
+            GameState.Instance.PAUSED = false;
+        };
+
+        p.GetComponent<PauseUI>().Load("PAUSED GAME", true, unpauseAction);
+    }
+
+    
+
 
     #region Unity Services & Authentication
 
@@ -149,7 +180,7 @@ public class Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Create a new anonymous identity
+    /// Create a new anonymous identity and generate a display name
     /// </summary>
     private async Task CreateNewIdentity()
     {
@@ -167,6 +198,10 @@ public class Main : MonoBehaviour
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
         Debug.Log($"[Main] Anonymous sign-in completed. Player ID: {AuthenticationService.Instance.PlayerId}");
+        
+        // Generate display name for this new identity
+        GeneratePlayerDisplayName();
+        Debug.Log($"[Main] Generated display name for new identity: {playerDisplayName}");
     }
 
     /// <summary>
@@ -297,7 +332,7 @@ public class Main : MonoBehaviour
     #region Game Flow Management
 
     /// <summary>
-    /// Starts a new game session
+    /// Starts a new game session with a new anonymous account
     /// </summary>
     public void StartNewGame()
     {
@@ -310,11 +345,59 @@ public class Main : MonoBehaviour
             GameState.Instance.ResetScore();
         }
         
-        // Clear any saved identity for fresh start
-        savedPlayerIdentity = null;
-        Debug.Log("[Main] Cleared saved identity for fresh start");
+        // Sign out and create new identity for fresh leaderboard entry
+        _ = CreateNewIdentityForNewGame();
+        
+        // Play game music track
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.Game);
+        }
         
         SceneTransition.i.SendToScene("Main");
+    }
+
+    /// <summary>
+    /// Creates a new anonymous identity for a new game session
+    /// </summary>
+    private async Task CreateNewIdentityForNewGame()
+    {
+        Debug.Log("[Main] Creating new identity for new game...");
+        
+        try
+        {
+            // Clear saved identity and display name first
+            savedPlayerIdentity = null;
+            playerDisplayName = null;
+            playerNameCache.Clear();
+            Debug.Log("[Main] Cleared saved identity, display name, and name cache");
+            
+            // Sign out and clear session token to force new anonymous account
+            if (AuthenticationService.Instance.IsSignedIn)
+            {
+                Debug.Log("[Main] Signing out from current account");
+                AuthenticationService.Instance.SignOut();
+            }
+            
+            // Clear the session token to ensure we get a new anonymous account
+            Debug.Log("[Main] Clearing session token");
+            AuthenticationService.Instance.ClearSessionToken();
+            
+            // Small delay to ensure state is cleared
+            await Task.Delay(200);
+            
+            // Create new anonymous account (this will also generate a display name)
+            Debug.Log("[Main] Creating new anonymous account");
+            await CreateNewIdentity();
+            
+            Debug.Log($"[Main] New identity created - Player ID: {AuthenticationService.Instance.PlayerId}, Display Name: {playerDisplayName}");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"[Main] Failed to create new identity for new game: {e.Message}");
+            Debug.LogError($"[Main] Stack trace: {e.StackTrace}");
+            // Continue anyway - game can still be played without leaderboard
+        }
     }
 
     /// <summary>
@@ -336,8 +419,28 @@ public class Main : MonoBehaviour
             Debug.Log($"[Main] Player identity verified: {playerId}");
         }
         
+        // Play leaderboard music track
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.Leaderboard);
+        }
+        
         Debug.Log($"[Main] IsAuthenticationReady: {IsAuthenticationReady}");
         SceneTransition.i.SendToScene("Leaderboard");
+    }
+
+
+    public void ViewCredits()
+    {
+        Debug.Log("[Main] Attempting to visit credits...");
+        
+        // Play main/credits music track
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.MainAndCredits);
+        }
+        
+        SceneTransition.i.SendToScene("Credits");
     }
 
     /// <summary>
@@ -346,6 +449,13 @@ public class Main : MonoBehaviour
     public void ReturnHome()
     {
         Debug.Log("[Main] Returning to home scene");
+        
+        // Play main/credits music track for home
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.MainAndCredits);
+        }
+        
         SceneTransition.i.SendToScene("Home");
     }
 
@@ -666,7 +776,6 @@ public class Main : MonoBehaviour
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
             Debug.Log("[Main] Unsubscribed from SceneManager.sceneLoaded");
-            SaveGame();  
         }
     }
 
@@ -674,9 +783,6 @@ public class Main : MonoBehaviour
     public void onExitGame()
     {
         Debug.Log("[Main] onExitGame called - saving and exiting...");
-
-        // save game before exiting
-        SaveGame();
 
         // then quit application
         Application.Quit();
@@ -699,7 +805,6 @@ public class Main : MonoBehaviour
         if (pauseStatus) 
         {
             Debug.Log("[Main] App paused, saving game");
-            SaveGame(); // Save when app loses focus
         }
     }
 
@@ -712,9 +817,9 @@ public class Main : MonoBehaviour
         if (!hasFocus) 
         {
             Debug.Log("[Main] App lost focus, saving game");
-            SaveGame(); // Save when app loses focus
         }
     }
+
 
     #endregion
 

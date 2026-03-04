@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,6 +12,7 @@ using UnityEditor;
 [ExecuteAlways]
 public class GridManager : MonoBehaviour
 {
+    public TextMeshProUGUI username;
     public static GridManager Instance { get; private set; }
     // Any script can use GridManager.Instance
 
@@ -22,6 +25,9 @@ public class GridManager : MonoBehaviour
     private Dictionary<Vector2Int, Tile> tiles = new();
 
     [SerializeField] private LayerMask groundMask;
+
+    public Sprite needsRepairIcon;
+    public Sprite needsPowerIcon;
 
     private void Awake()
     {
@@ -56,9 +62,25 @@ public class GridManager : MonoBehaviour
 
     public void DeleteAll()
     {
-        foreach (TileObject tileObj in GetTileObjects())
+        // Get all tile objects before clearing
+        List<TileObject> tileObjects = GetTileObjects();
+
+        // Clear GameState's building list
+        if (GameState.Instance != null)
         {
-            Delete(tileObj);
+            GameState.Instance.ClearBuildings();
+        }
+
+        // Delete all buildings from the grid (visual removal and grid clearing only)
+        foreach (TileObject tileObj in tileObjects)
+        {
+            if (SelectionManager.Instance.Selected == tileObj)
+            {
+                SelectionManager.Instance.Deselect();
+            }
+
+            tileObj.Remove(); // Handles visual/model removal
+            Clear(tileObj.Origin, tileObj.Definition.Size); // Handles grid logic of marking tiles as unoccupied
         }
     }
 
@@ -222,6 +244,7 @@ public class GridManager : MonoBehaviour
 
         // Deduct money
         GameState.Instance.ChangeMoney(-def.Cost);
+        MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Build);
 
         // Instantiate visual prefab and place it on grid
         GameObject obj = Instantiate(def.Prefab);
@@ -241,8 +264,11 @@ public class GridManager : MonoBehaviour
 
         Occupy(tileObj, gridPos, def.Size); // Handles grid logic - marking tiles as occupied
 
-        GameState.Instance.Tick(0.0001f);
+        // Register the building with GameState
+        GameState.Instance.RegisterBuilding(tileObj);
 
+        GameState.Instance.Tick(0.0001f);
+        DoGridUpdate();
         return true;
     }
 
@@ -290,6 +316,10 @@ public class GridManager : MonoBehaviour
                 break;
         }
 
+        // Register the building with GameState
+        GameState.Instance.RegisterBuilding(tileObj);
+
+        DoGridUpdate();
         return true;
     }
 
@@ -300,6 +330,9 @@ public class GridManager : MonoBehaviour
             SelectionManager.Instance.Deselect();
         }
 
+        // Unregister from GameState before removal
+        GameState.Instance.UnregisterBuilding(obj);
+
         obj.Remove(); // Handles visual/model removal
 
         TileObjectDefinition def = obj.Definition;
@@ -307,6 +340,7 @@ public class GridManager : MonoBehaviour
 
         Clear(obj.Origin, def.Size); // Handles grid logic of marking tiles as unoccupied
 
+        DoGridUpdate();
         Notifications.Instance.PostNotification($"Deleted building {def.name}.");
     }
 
@@ -320,13 +354,17 @@ public class GridManager : MonoBehaviour
                 if (!tiles.ContainsKey(checkPos)) return false;
                 if (tiles[checkPos].type != tileType)
                 {
-                    Debug.Log("Tile type mismatch. Cannot place " + tileType + " on " + tiles[checkPos].type);
                     return false;
                 }
                 if (tiles[checkPos].IsOccupied) return false;
             }
         }
         return true;
+    }
+
+    private void Start()
+    {
+        username.text = Main.Instance.CurrentPlayerDisplayName;
     }
 
     public void Occupy(TileObject obj, Vector2Int origin, Vector2Int size)
@@ -337,6 +375,18 @@ public class GridManager : MonoBehaviour
             {
                 Vector2Int pos = new Vector2Int(origin.x + x, origin.y + y);
                 tiles[pos].Occupant = obj;
+            }
+        }
+    }
+
+    public void DoGridUpdate() // When a tile is placed or deleted, the other tiles can get updated. This includes the tile was placed itself.
+    {
+        // Use GameState's building list for grid updates
+        if (GameState.Instance != null)
+        {
+            foreach (var tileObj in GameState.Instance.GetBuildings())
+            {
+                tileObj.GridUpdate();
             }
         }
     }
@@ -506,6 +556,7 @@ public class GridManager : MonoBehaviour
 
     private void DrawMouseGridCoordinate()
     {
+        #if UNITY_EDITOR
         Event e = Event.current;
         if (e == null) return;
 
@@ -521,12 +572,15 @@ public class GridManager : MonoBehaviour
             Handles.color = Color.yellow;
             Handles.Label(labelPos, $"({gridPos.x}, {gridPos.y})");
         }
+        #endif
     }
 
     private void OnValidate()
     {
         GenerateGrid();
+        #if UNITY_EDITOR
         SceneView.RepaintAll();
+        #endif
     }
 
     [System.Serializable]

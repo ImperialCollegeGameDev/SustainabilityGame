@@ -14,19 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: Wind
   DisplayName: Wind Farm
+  description: Works best when placed away from other buildings
   Prefab: {fileID: 5940491066109206705, guid: 9bbf97b4439a53f44a83d6cb2f198de6, type: 3}
   Size: {x: 1, y: 1}
   TileType: 1
-  TickLogic: {fileID: 11400000, guid: 1356596fe4c3f484490dda0f26a998ce, type: 2}
+  TickLogic: {fileID: 11400000, guid: a08661c7584ac134db933518e62de8c5, type: 2}
   UpgradeTree: {fileID: 0}
   Category: 0
   Cost: 150
+  CountsAsPowerSource: 1
   Utility:
-    type: 1
-    Output: 35000
+    Output: 50000
     Emission: 5
-    DegradeTime: 2000
+    DegradeTime: 1333
   Residential:
     MaxOccupancy: 0
   Infrastructure:
     ResourceProduction: 0
+  PollutionReducer:
+    EmissionReduction: 0
+    EmissionReducingCapacity: 30
+  PowerBank:
+    StorageCapacity: 1000
+    ChargeRate: 50
+    DischargeRate: 50

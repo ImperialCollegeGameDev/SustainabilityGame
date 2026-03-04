@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2083cd05c5d045344b67a10ac7c8c992, type: 3}
+  m_Name: GridBattery
+  m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
+  Id: Battery
+  DisplayName: Grid Battery
+  description: Stores excess energy in off-hours and discharges it when needed. Can
+    also transmit power to far-off places
+  Prefab: {fileID: 1501230553749349402, guid: 7412410af0111da41a645691b88d398f, type: 3}
+  Size: {x: 1, y: 1}
+  TileType: 1
+  TickLogic: {fileID: 11400000, guid: 8eedd0dd503162043a39d1629cec11fc, type: 2}
+  UpgradeTree: {fileID: 0}
+  Category: 4
+  Cost: 300
+  CountsAsPowerSource: 1
+  Utility:
+    Output: 35000
+    Emission: 0
+    DegradeTime: 2000
+  Residential:
+    MaxOccupancy: 0
+  Infrastructure:
+    ResourceProduction: 0
+  PollutionReducer:
+    EmissionReduction: 0
+    EmissionReducingCapacity: 30
+  PowerBank:
+    StorageCapacity: 1440000
+    ChargeRate: 6700
+    DischargeRate: 60000

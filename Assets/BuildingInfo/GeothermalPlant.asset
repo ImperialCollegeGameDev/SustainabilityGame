@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: Geothermal
   DisplayName: Geothermal Plant
+  description: Drills through the earth and uses magma to produce energy. It isn't
+    easy to find a place to build one
   Prefab: {fileID: 3858034575480737441, guid: 9a201810c5ab3b94bbad4a982404762c, type: 3}
   Size: {x: 1, y: 2}
   TileType: 3
@@ -21,8 +23,8 @@ MonoBehaviour:
   UpgradeTree: {fileID: 0}
   Category: 0
   Cost: 200
+  CountsAsPowerSource: 1
   Utility:
-    type: 0
     Output: 100000
     Emission: 8
     DegradeTime: 600
@@ -30,3 +32,10 @@ MonoBehaviour:
     MaxOccupancy: 0
   Infrastructure:
     ResourceProduction: 0
+  PollutionReducer:
+    EmissionReduction: 0
+    EmissionReducingCapacity: 30
+  PowerBank:
+    StorageCapacity: 1000
+    ChargeRate: 50
+    DischargeRate: 50

@@ -14,15 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: Neighbourhood-2
   DisplayName: Sub-urban area 2
+  description: A home for many. Must be placed within one tile of a power plant or
+    within two tiles of a grid battery. Earns you tax revenue
   Prefab: {fileID: 4689204956282939486, guid: 25293766b839cb045855156b9a3dbf66, type: 3}
   Size: {x: 1, y: 1}
   TileType: 1
   TickLogic: {fileID: 11400000, guid: aa24d4090ee97db4ba68d4bd5284ad92, type: 2}
   UpgradeTree: {fileID: 0}
   Category: 1
-  Cost: 400
+  Cost: 180
+  CountsAsPowerSource: 0
   Utility:
-    type: 1
     Output: 20
     Emission: 5
     DegradeTime: 0
@@ -30,3 +32,10 @@ MonoBehaviour:
     MaxOccupancy: 32000
   Infrastructure:
     ResourceProduction: 0
+  PollutionReducer:
+    EmissionReduction: 0
+    EmissionReducingCapacity: 30
+  PowerBank:
+    StorageCapacity: 1000
+    ChargeRate: 50
+    DischargeRate: 50

@@ -719,7 +719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7825371087440243}
-  - component: {fileID: -7454521133605676857}
+  - component: {fileID: 9124228941639869337}
   m_Layer: 6
   m_Name: GridPower
   m_TagString: Untagged
@@ -744,7 +744,7 @@ Transform:
   - {fileID: 3501541360342917402}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7454521133605676857
+--- !u!114 &9124228941639869337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -753,10 +753,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1501230553749349402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fb68cdb9a8fb6e4995e17fb9ee3576b, type: 3}
+  m_Script: {fileID: 11500000, guid: 59049b69e20e7ec43a0fa4a7621fd019, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UtilityTileObject
+  m_EditorClassIdentifier: Assembly-CSharp::PowerBankTileObject
   Offset: {x: 0, y: 0, z: 0}
+  iconHeightOffset: 5
 --- !u!1 &1600687811689399549
 GameObject:
   m_ObjectHideFlags: 0

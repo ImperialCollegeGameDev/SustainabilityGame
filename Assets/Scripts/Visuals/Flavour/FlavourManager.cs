@@ -16,7 +16,7 @@ public class FlavourManager : MonoBehaviour
         Vector2Int gridPosition,
         string text,
         Color color,
-        float fontSize = 16)
+        float fontSize = 18)
     {
         Vector3 worldPosition = GridManager.Instance.GridToWorld(gridPosition);
         SpawnText(worldPosition, text, color, fontSize);
@@ -26,7 +26,7 @@ public class FlavourManager : MonoBehaviour
         Vector3 worldPosition,
         string text,
         Color color,
-        float fontSize = 16)
+        float fontSize = 18)
     {
         GameObject obj = Instantiate(
             flavourTextPrefab

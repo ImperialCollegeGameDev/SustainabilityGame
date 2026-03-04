@@ -7,39 +7,31 @@ class Park : TickBehaviour
     public override void Tick(TileObject tileObject, float delta)
     {
         TileObjectDefinition def = tileObject.Definition;
-        if (tileObject is not UtilityTileObject util)
+        if (tileObject is not PollutionReducerTileObject pr)
         {
-            Debug.LogError("TickBehaviour UtilityDefault applied to non-utility tile object.");
+            Debug.LogError("TickBehaviour applied to non-PollutionReducerTileObject.");
             return;
         }
 
-        float emission = def.Utility.Emission * delta;
-        float mult = 50f / Mathf.Max(1f, GameState.Instance.PreviousEmissionsDelta);
-        mult = Mathf.Min(1, mult);
+        float emission = def.PollutionReducer.EmissionReduction * delta;
+        float mult = def.PollutionReducer.EmissionReducingCapacity / Mathf.Max(1f, GameState.Instance.PreviousEmissionsDelta);
+        mult = Mathf.Clamp(mult, 0, 1);
         emission *= mult;
-        TileTypeState state = TileStateCatalog.Instance.Get(def.Id);
 
-        // Store calculated values in the utility object
-        util.emissionMultiplier = mult;
-        util.actualEmission = Mathf.FloorToInt(emission);
+        pr.emissionMultiplier = mult;
+        pr.emissionReduction = emission;
 
-        GameState.Instance.EmissionsReductionDelta += util.actualEmission;
+        GameState.Instance.EmissionsReductionDelta -= pr.emissionReduction;
+
+        pr.emissionReduction /= delta;
 
         tileObject.AddTime(delta);
-    }
 
-    public override List<StatRow> GetStats(TileObject tileObject)
-    {
         List<StatRow> stats = new List<StatRow>();
-        
-        if (tileObject is not UtilityTileObject util)
-        {
-            return stats;
-        }
 
-        stats.Add(new StatRow("Emission Reduction", (-util.actualEmission).ToString(), Color.green));
-        stats.Add(new StatRow("Effectiveness", $"{Mathf.RoundToInt(util.emissionMultiplier * 100)}%", Color.cyan));
+        stats.Add(new StatRow("Emission Reduction", NumberFormatter.Format(pr.emissionReduction), Color.green));
+        stats.Add(new StatRow("Effectiveness", $"{Mathf.RoundToInt(pr.emissionMultiplier * 100)}%", Color.cyan));
 
-        return stats;
+        tileObject.Stats = stats;
     }
 }

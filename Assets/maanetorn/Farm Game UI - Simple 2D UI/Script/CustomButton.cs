@@ -21,6 +21,7 @@ namespace FGUIStarter
 
         public override void OnPointerDown(PointerEventData eventData)
         {
+            MusicManager.Instance.PlayUISound(MusicManager.UISoundType.Click);
             base.OnPointerDown(eventData);
             ApplyPressedVisual();
         }

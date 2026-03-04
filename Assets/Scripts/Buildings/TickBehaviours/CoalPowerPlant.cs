@@ -53,15 +53,24 @@ class CoalPowerPlant : UtilityDefault
         util.efficiency -= degradeMult * (delta / def.Utility.DegradeTime) * (1 - GameState.Instance.Settings.MinimumEfficiency);
         util.efficiency = Mathf.Max(util.efficiency, GameState.Instance.Settings.MinimumEfficiency);
 
-        util.outputMultiplier = outputMult;
-        util.emissionMultiplier = emissionMult;
-        util.degradeMultiplier = degradeMult;
-        util.actualOutput = output * outputMult * util.efficiency;
-        util.actualEmission = emission * emissionMult;
+        float actualOutput = output * outputMult * util.efficiency;
+        float actualEmission = emission * emissionMult;
 
-        GameState.Instance.Power += Mathf.FloorToInt(util.actualOutput);
-        GameState.Instance.EmissionsDelta += util.actualEmission;
+        GameState.Instance.Power += Mathf.FloorToInt(actualOutput);
+        GameState.Instance.EmissionsDelta += actualEmission;
+
+        actualEmission /= delta;
 
         tileObject.AddTime(delta);
+        UpdateStatus(util);
+
+        List<StatRow> stats = new List<StatRow>();
+
+        stats.Add(new StatRow("Power Output", actualOutput.ToString(), Color.green));
+        stats.Add(new StatRow("Emissions", actualEmission.ToString(), Color.red));
+        stats.Add(new StatRow("Output Multiplier", $"{Mathf.RoundToInt(outputMult * 100)}%", Color.cyan));
+        stats.Add(new StatRow("Emission Multiplier", $"{Mathf.RoundToInt(emissionMult * 100)}%", Color.magenta));
+
+        tileObject.Stats = stats;
     }
 }

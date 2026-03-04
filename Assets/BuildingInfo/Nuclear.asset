@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileObjectDefinition
   Id: Nuclear
   DisplayName: Nuclear Plant
+  description: Very powerful, yet widely seen as more dangerous than it really is.
   Prefab: {fileID: 1501230553749349402, guid: f0f8e410a3e68a84187745add63ad54c, type: 3}
   Size: {x: 2, y: 2}
   TileType: 1
@@ -21,8 +22,8 @@ MonoBehaviour:
   UpgradeTree: {fileID: 0}
   Category: 0
   Cost: 5000
+  CountsAsPowerSource: 1
   Utility:
-    type: 3
     Output: 1000000
     Emission: 20
     DegradeTime: 200
@@ -30,3 +31,10 @@ MonoBehaviour:
     MaxOccupancy: 0
   Infrastructure:
     ResourceProduction: 0
+  PollutionReducer:
+    EmissionReduction: 0
+    EmissionReducingCapacity: 30
+  PowerBank:
+    StorageCapacity: 1000
+    ChargeRate: 50
+    DischargeRate: 50

@@ -33,7 +33,13 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (hideRoutine != null)
             StopCoroutine(hideRoutine);
 
-        UpgradeTooltip.Instance.Show(upgrade.DisplayName, upgrade.PointsCost, upgrade.MoneyCost, upgrade.Description, this);
+        string pointsCostText = $"{upgrade.PointsCost} Policy Points";
+        if (TileStateCatalog.Instance.Get(tileObj.Definition.Id) is TileTypeState state && state.HasUpgradeUnlocked(upgrade))
+        {
+            pointsCostText = "Already Unlocked";
+        }
+
+        UpgradeTooltip.Instance.Show(upgrade.DisplayName, pointsCostText, upgrade.MoneyCost, upgrade.Description, this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -56,23 +62,52 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             return;
         }
 
-        if (state.policyPoints < upgrade.PointsCost)
+        // Check if this specific building instance already has the upgrade
+        if (tileObj.HasUpgrade(upgrade))
         {
-            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Error);
+            Notifications.Instance.PostNotification("This building already has this upgrade!");
+            return;
+        }
+
+        // Check if this is the first time unlocking for this building type
+        bool isFirstTimeForType = !state.HasUpgradeUnlocked(upgrade);
+
+        // Calculate costs
+        int pointsCost = isFirstTimeForType ? upgrade.PointsCost : 0;
+        long moneyCost = upgrade.MoneyCost;
+
+        // Check if we have enough policy points (only if first time for type)
+        if (isFirstTimeForType && state.policyPoints < pointsCost)
+        {
             Notifications.Instance.PostNotification("Not enough policy points!");
             return;
         }
-        if (GameState.Instance.money < upgrade.MoneyCost)
+
+        // Check if we have enough money
+        if (GameState.Instance.money < moneyCost)
         {
-            MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Error);
             Notifications.Instance.PostNotification("Not enough money!");
             return;
         }
-        
-        MusicManager.Instance?.PlayUISound(MusicManager.UISoundType.Success);
-        state.policyPoints -= upgrade.PointsCost;
-        GameState.Instance.ChangeMoney(-upgrade.MoneyCost);
+
+        // Deduct policy points only if it's the first time for this building type
+        if (isFirstTimeForType)
+        {
+            state.policyPoints -= pointsCost;
+            state.UnlockUpgrade(upgrade);
+            Notifications.Instance.PostNotification($"Unlocked {upgrade.DisplayName} for all {tileObj.Definition.DisplayName}s!");
+        }
+        else
+        {
+            Notifications.Instance.PostNotification($"Applied {upgrade.DisplayName} to this {tileObj.Definition.DisplayName}!");
+        }
+
+        // Always deduct money
+        GameState.Instance.ChangeMoney(-moneyCost);
+
+        // Unlock for this specific building instance
         tileObj.UnlockUpgrade(upgrade);
+
         UpgradeScreen.Instance.UpdateInfo();
     }
 

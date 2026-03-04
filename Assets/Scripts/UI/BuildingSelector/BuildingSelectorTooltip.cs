@@ -8,6 +8,7 @@ public class BuildingSelectorTooltip : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI priceText;
+    [SerializeField] private TextMeshProUGUI descriptionText;
     public BuildMenuManager menuManager;
 
     private Coroutine hideRoutine;
@@ -19,7 +20,7 @@ public class BuildingSelectorTooltip : MonoBehaviour
             transform.position = Mouse.current.position.ReadValue() + new Vector2(1.0f, 1.0f);
     }
 
-    public void Show(string buildingName, int price, object source)
+    public void Show(string buildingName, int price, string description, object source)
     {
         if (menuManager.isAnimating)
             return;
@@ -29,6 +30,7 @@ public class BuildingSelectorTooltip : MonoBehaviour
 
         nameText.text = buildingName;
         priceText.text = NumberFormatter.FormatMoney(price);
+        descriptionText.text = description;
         gameObject.SetActive(true);
     }
 
