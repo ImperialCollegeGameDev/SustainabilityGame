@@ -82,6 +82,7 @@ Shader "URP/Environment/GrassOcean"
                 float  _Metallic;
             CBUFFER_END
 
+<<<<<<< Updated upstream
             float hash31(float3 p)
             {
                 p = frac(p * 0.3183099 + float3(0.1, 0.2, 0.3));
@@ -240,6 +241,8 @@ Shader "URP/Environment/GrassOcean"
                 float  _Metallic;
             CBUFFER_END
 
+=======
+>>>>>>> Stashed changes
             // simple hash noise
             float hash31(float3 p)
             {

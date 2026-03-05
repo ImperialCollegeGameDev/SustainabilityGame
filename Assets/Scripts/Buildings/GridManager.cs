@@ -491,6 +491,7 @@ public class GridManager : MonoBehaviour
     }
 
 
+
     private void OnDrawGizmos()
     {
         // Ensure grid exists in edit mode
