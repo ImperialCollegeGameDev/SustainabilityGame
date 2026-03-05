@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
@@ -26,11 +24,11 @@ public class PauseUI : MonoBehaviour
     private Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
     private List<int> activeTweenIds = new List<int>();
 
-    // Cached Original Values
-    private static float _originalShadowDistance;
-    private static int _originalCascadeCount;
-    private static Dictionary<Light, LightShadows> _originalLightSettings = new Dictionary<Light, LightShadows>();
-    private static UniversalRenderPipelineAsset _urpAsset;
+    // Music state tracking for pause/resume
+    private AudioClip savedMusicTrack;
+    private float savedMusicPosition;
+    private bool musicWasPausedBefore;
+    private bool isInLiveGame; // Track if this is a live game pause vs settings menu
 
     // Callback storage
     private System.Action onCloseCallback;
@@ -39,31 +37,36 @@ public class PauseUI : MonoBehaviour
     {
         MusicManager.Instance.PlayUISound(MusicManager.UISoundType.Click);
         shadowsOn = shadowsToggle.isOn;
-        if (_urpAsset == null) return;
-
-        // 1. Restore or Kill Asset Settings
-        _urpAsset.shadowDistance = shadowsOn ? _originalShadowDistance : 0f;
-        Debug.Log(_originalCascadeCount);
-        _urpAsset.shadowCascadeCount = shadowsOn ? _originalCascadeCount : 1;
-
-        // 2. Restore or Kill Individual Light Settings
-        foreach (var entry in _originalLightSettings)
+        
+        if (Main.Instance != null)
         {
-            if (entry.Key != null) // Ensure light wasn't destroyed
-            {
-                entry.Key.shadows = shadowsOn ? entry.Value : LightShadows.None;
-            }
+            Main.Instance.ToggleShadows(shadowsOn);
+            // Also toggle lighting when shadows are toggled
+            Main.Instance.ToggleLighting(shadowsOn);
+        }
+        else
+        {
+            Debug.LogWarning("[PauseUI] Main.Instance is null, cannot toggle shadows");
         }
 
-        Debug.Log($"Shadows {(shadowsOn ? "Restored" : "Disabled")}");
+        Debug.Log($"[PauseUI] Shadows and lighting {(shadowsOn ? "enabled" : "disabled")}");
     }
 
     public void SetRenderScale()
     {
         MusicManager.Instance.PlayUISound(MusicManager.UISoundType.Click);
         scaleOn = scaleToggle.isOn;
-        var urpAsset = (UniversalRenderPipelineAsset)GraphicsSettings.currentRenderPipeline;
-        urpAsset.renderScale = scaleOn ? 1.0f : 0.5f;
+        
+        if (Main.Instance != null)
+        {
+            Main.Instance.ToggleRenderScale(scaleOn);
+        }
+        else
+        {
+            Debug.LogWarning("[PauseUI] Main.Instance is null, cannot toggle render scale");
+        }
+        
+        Debug.Log($"[PauseUI] Render scale {(scaleOn ? "enabled" : "disabled")}");
     }
 
     /// <summary>
@@ -106,6 +109,12 @@ public class PauseUI : MonoBehaviour
         // Cancel any existing animations
         CleanupAnimations();
         Debug.Log("[PauseUI] Cleaned up existing animations");
+
+        // Restore music state before closing (only if in live game)
+        if (isInLiveGame)
+        {
+            RestoreMusicState();
+        }
 
         // Start close animation sequence
         StartCloseAnimation();
@@ -218,9 +227,12 @@ public class PauseUI : MonoBehaviour
         }
     }
 
-    public void Load(string TopText, bool enableSaveBtn, System.Action onCloseCallback = null)
+    public void Load(string TopText, bool inLiveGame, System.Action onCloseCallback = null)
     {
-        Debug.Log($"[PauseUI] Load called with TopText: '{TopText}', enableSaveBtn: {enableSaveBtn}");
+        Debug.Log($"[PauseUI] Load called with TopText: '{TopText}', inLiveGame: {inLiveGame}");
+        
+        // Store the live game flag
+        isInLiveGame = inLiveGame;
         
         // Store the callback for later use
         this.onCloseCallback = onCloseCallback;
@@ -237,10 +249,16 @@ public class PauseUI : MonoBehaviour
         gameObject.SetActive(true);
         Debug.Log("[PauseUI] GameObject activated for Load animation");
 
+        // Save current music state and switch to menu music (only if in live game)
+        if (isInLiveGame)
+        {
+            SaveMusicState();
+        }
+
         // Set UI properties first
         titleText.text = TopText;
-        saveButton.interactable = enableSaveBtn;
-        Debug.Log($"[PauseUI] Title set to: '{TopText}', Save button interactive: {enableSaveBtn}");
+        saveButton.interactable = inLiveGame;
+        Debug.Log($"[PauseUI] Title set to: '{TopText}', Save button interactive: {inLiveGame}");
 
         SetupDefaultValues();
 
@@ -265,20 +283,20 @@ public class PauseUI : MonoBehaviour
 
     private void SetupDefaultValues()
     {
-        _urpAsset = (UniversalRenderPipelineAsset)GraphicsSettings.currentRenderPipeline;
-        if (_urpAsset != null)
+        // Initialize graphics settings in Main if not already done
+        if (Main.Instance != null)
         {
-            // Record Asset Defaults
-            scaleOn = _urpAsset.renderScale >= 0.99f;
-            _originalShadowDistance = _urpAsset.shadowDistance;
-            _originalCascadeCount = 4;
+            Main.Instance.InitializeGraphicsSettings();
+            
+            // Get current states from Main
+            shadowsOn = Main.Instance.AreShadowsEnabled();
+            scaleOn = Main.Instance.IsRenderScaleEnabled();
+            
+            Debug.Log($"[PauseUI] Loaded graphics settings - Shadows: {shadowsOn}, RenderScale: {scaleOn}");
         }
-
-        // Record individual light defaults (in case some are naturally 'Off')
-        Light[] allLights = GameObject.FindObjectsByType<Light>(FindObjectsSortMode.None);
-        foreach (Light l in allLights)
+        else
         {
-            _originalLightSettings[l] = l.shadows;
+            Debug.LogWarning("[PauseUI] Main.Instance is null, cannot initialize graphics settings");
         }
     }
 
@@ -525,6 +543,72 @@ public class PauseUI : MonoBehaviour
     {
         Main.Instance.SaveGame();
         Main.Instance.ReturnHome();
+    }
+
+    /// <summary>
+    /// Save the current music state before opening pause menu
+    /// </summary>
+    private void SaveMusicState()
+    {
+        if (MusicManager.Instance != null)
+        {
+            // Save current track and position
+            savedMusicTrack = MusicManager.Instance.MusicSource?.clip;
+            savedMusicPosition = MusicManager.Instance.MusicPosition;
+            musicWasPausedBefore = MusicManager.Instance.IsPaused;
+            
+            Debug.Log($"[PauseUI] Saved music state - Track: {savedMusicTrack?.name ?? "none"}, Position: {savedMusicPosition:F2}s, WasPaused: {musicWasPausedBefore}");
+            
+            // Stop current music (don't use PauseMusic as we're switching tracks)
+            if (MusicManager.Instance.IsPlaying || MusicManager.Instance.IsPaused)
+            {
+                MusicManager.Instance.StopMusic(fadeOut: false);
+            }
+            
+            // Play menu music
+            MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.MainAndCredits);
+            Debug.Log("[PauseUI] Switched to main/credits music");
+        }
+        else
+        {
+            Debug.LogWarning("[PauseUI] MusicManager.Instance is null, cannot save music state");
+        }
+    }
+
+    /// <summary>
+    /// Restore the music state when closing pause menu
+    /// </summary>
+    private void RestoreMusicState()
+    {
+        if (MusicManager.Instance != null && savedMusicTrack != null)
+        {
+            Debug.Log($"[PauseUI] Restoring music state - Track: {savedMusicTrack.name}, Position: {savedMusicPosition:F2}s, WasPaused: {musicWasPausedBefore}");
+            
+            // Stop menu music
+            MusicManager.Instance.StopMusic(fadeOut: false);
+            
+            // Restore the saved track
+            MusicManager.Instance.MusicSource.clip = savedMusicTrack;
+            MusicManager.Instance.SetMusicPosition(savedMusicPosition);
+            
+            // Resume playback unless it was paused before
+            if (!musicWasPausedBefore)
+            {
+                MusicManager.Instance.MusicSource.Play();
+                Debug.Log("[PauseUI] Resumed music playback");
+            }
+            else
+            {
+                Debug.Log("[PauseUI] Music was paused before, leaving it paused");
+            }
+            
+            // Clear saved state
+            savedMusicTrack = null;
+        }
+        else if (savedMusicTrack == null)
+        {
+            Debug.Log("[PauseUI] No saved music track to restore");
+        }
     }
 
     /// <summary>

@@ -8,6 +8,8 @@ using Unity.Services.Authentication;
 using Unity.Services.Leaderboards;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 /// <summary>
 /// Main game controller that manages overall game flow, cross-scene utilities, and persistent data
@@ -36,6 +38,17 @@ public class Main : MonoBehaviour
     
     // Player name cache for leaderboard display
     private Dictionary<string, string> playerNameCache = new Dictionary<string, string>();
+    
+    // Graphics settings persistence (survives PauseUI destruction)
+    private bool graphicsSettingsInitialized = false;
+    private float originalShadowDistance;
+    private int originalCascadeCount;
+    private Dictionary<Light, LightShadows> originalLightSettings = new Dictionary<Light, LightShadows>();
+    private Dictionary<Light, float> originalLightIntensities = new Dictionary<Light, float>();
+    private UniversalRenderPipelineAsset urpAsset;
+    private bool shadowsEnabled = true;
+    private bool renderScaleEnabled = true;
+    private bool lightingEnabled = true;
 
 
     void Awake()
@@ -334,7 +347,7 @@ public class Main : MonoBehaviour
     /// <summary>
     /// Starts a new game session with a new anonymous account
     /// </summary>
-    public void StartNewGame()
+    public async void StartNewGame()
     {
         Debug.Log("[Main] Starting new game...");
         
@@ -346,7 +359,9 @@ public class Main : MonoBehaviour
         }
         
         // Sign out and create new identity for fresh leaderboard entry
-        _ = CreateNewIdentityForNewGame();
+        // WAIT for this to complete before transitioning scenes
+        await CreateNewIdentityForNewGame();
+        Debug.Log($"[Main] Identity creation completed - ID: {GetCurrentPlayerIdentity()}, Name: {GetCurrentPlayerDisplayName()}");
         
         // Play game music track
         if (MusicManager.Instance != null)
@@ -820,6 +835,173 @@ public class Main : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Graphics Settings Management
+
+    /// <summary>
+    /// Initialize graphics settings - captures original values
+    /// </summary>
+    public void InitializeGraphicsSettings()
+    {
+        if (graphicsSettingsInitialized)
+        {
+            Debug.Log("[Main] Graphics settings already initialized");
+            return;
+        }
+
+        Debug.Log("[Main] Initializing graphics settings...");
+        
+        urpAsset = (UniversalRenderPipelineAsset)GraphicsSettings.currentRenderPipeline;
+        
+        if (urpAsset != null)
+        {
+            // Record URP Asset defaults
+            originalShadowDistance = urpAsset.shadowDistance;
+            originalCascadeCount = urpAsset.shadowCascadeCount;
+            renderScaleEnabled = urpAsset.renderScale >= 0.99f;
+            
+            Debug.Log($"[Main] Captured URP settings - ShadowDistance: {originalShadowDistance}, CascadeCount: {originalCascadeCount}, RenderScale: {urpAsset.renderScale}");
+        }
+        else
+        {
+            Debug.LogWarning("[Main] URP Asset not found!");
+        }
+
+        // Record individual light defaults
+        originalLightSettings.Clear();
+        originalLightIntensities.Clear();
+        
+        Light[] allLights = GameObject.FindObjectsByType<Light>(FindObjectsSortMode.None);
+        foreach (Light light in allLights)
+        {
+            originalLightSettings[light] = light.shadows;
+            originalLightIntensities[light] = light.intensity;
+        }
+        
+        Debug.Log($"[Main] Captured {allLights.Length} light settings");
+        graphicsSettingsInitialized = true;
+    }
+
+    /// <summary>
+    /// Toggle shadows on/off
+    /// </summary>
+    public void ToggleShadows(bool enabled)
+    {
+        if (!graphicsSettingsInitialized)
+        {
+            InitializeGraphicsSettings();
+        }
+
+        shadowsEnabled = enabled;
+        Debug.Log($"[Main] ToggleShadows: {enabled}");
+
+        if (urpAsset == null)
+        {
+            Debug.LogWarning("[Main] Cannot toggle shadows - URP Asset is null");
+            return;
+        }
+
+        // Toggle URP Asset shadow settings
+        urpAsset.shadowDistance = enabled ? originalShadowDistance : 0f;
+        urpAsset.shadowCascadeCount = enabled ? originalCascadeCount : 1;
+
+        // Toggle individual light shadow settings
+        foreach (var entry in originalLightSettings)
+        {
+            if (entry.Key != null)
+            {
+                entry.Key.shadows = enabled ? entry.Value : LightShadows.None;
+            }
+        }
+
+        Debug.Log($"[Main] Shadows {(enabled ? "enabled" : "disabled")}");
+    }
+
+    /// <summary>
+    /// Toggle render scale
+    /// </summary>
+    public void ToggleRenderScale(bool enabled)
+    {
+        if (!graphicsSettingsInitialized)
+        {
+            InitializeGraphicsSettings();
+        }
+
+        renderScaleEnabled = enabled;
+        Debug.Log($"[Main] ToggleRenderScale: {enabled}");
+
+        if (urpAsset == null)
+        {
+            Debug.LogWarning("[Main] Cannot toggle render scale - URP Asset is null");
+            return;
+        }
+
+        urpAsset.renderScale = enabled ? 1.0f : 0.5f;
+        Debug.Log($"[Main] Render scale set to {urpAsset.renderScale}");
+    }
+
+    /// <summary>
+    /// Toggle lighting on/off (dims lights significantly)
+    /// </summary>
+    public void ToggleLighting(bool enabled)
+    {
+        if (!graphicsSettingsInitialized)
+        {
+            InitializeGraphicsSettings();
+        }
+
+        lightingEnabled = enabled;
+        Debug.Log($"[Main] ToggleLighting: {enabled}");
+
+        // Toggle light intensities
+        foreach (var entry in originalLightIntensities)
+        {
+            if (entry.Key != null)
+            {
+                // When disabled, reduce to 10% of original intensity
+                entry.Key.intensity = enabled ? entry.Value : entry.Value * 0.1f;
+            }
+        }
+
+        Debug.Log($"[Main] Lighting {(enabled ? "enabled" : "dimmed to 10%")}");
+    }
+
+    /// <summary>
+    /// Get current shadow state
+    /// </summary>
+    public bool AreShadowsEnabled()
+    {
+        if (!graphicsSettingsInitialized)
+        {
+            return true; // Default enabled
+        }
+        return shadowsEnabled;
+    }
+
+    /// <summary>
+    /// Get current render scale state
+    /// </summary>
+    public bool IsRenderScaleEnabled()
+    {
+        if (!graphicsSettingsInitialized)
+        {
+            return true; // Default enabled
+        }
+        return renderScaleEnabled;
+    }
+
+    /// <summary>
+    /// Get current lighting state
+    /// </summary>
+    public bool IsLightingEnabled()
+    {
+        if (!graphicsSettingsInitialized)
+        {
+            return true; // Default enabled
+        }
+        return lightingEnabled;
+    }
 
     #endregion
 

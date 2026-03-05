@@ -12,7 +12,6 @@ public class MusicManager : MonoBehaviour
 
     [Header("Volume Settings")]
     [SerializeField, Range(0f, 1f)] private float musicVolume = 1f;
-    [SerializeField, Range(0f, 1f)] private float uiVolume = 1f;
     [SerializeField, Range(0f, 1f)] private float sfxVolume = 1f;
 
     [Header("Fade Settings")]
@@ -181,21 +180,18 @@ public class MusicManager : MonoBehaviour
         
         if (clipToPlay == null)
         {
-            Debug.LogWarning($"[MusicManager] No audio clip assigned for track type: {trackType}");
             return;
         }
 
         // Check if the requested track is already playing
         if (currentTrack == clipToPlay && musicSource.isPlaying && !isPaused)
         {
-            Debug.Log($"[MusicManager] Track '{trackType}' is already playing, skipping playback");
             return;
         }
 
         // If the same track is paused, just resume it
         if (currentTrack == clipToPlay && isPaused)
         {
-            Debug.Log($"[MusicManager] Resuming paused track '{trackType}'");
             ResumeMusic();
             return;
         }
@@ -331,7 +327,7 @@ public class MusicManager : MonoBehaviour
     /// </summary>
     public void PlayUISound(UISoundType soundType, float volumeScale = 1f)
     {
-        Debug.LogWarning($"[MusicManager] PlayUISound called with type: {soundType}");
+
         AudioClip clipToPlay = soundType switch
         {
             UISoundType.Click => uiClickSound,
@@ -344,7 +340,7 @@ public class MusicManager : MonoBehaviour
             
         if (clipToPlay != null)
         {
-            uiSource.PlayOneShot(clipToPlay, volumeScale * uiVolume);
+            uiSource.PlayOneShot(clipToPlay, volumeScale * sfxVolume);
         }
     }
 
@@ -385,15 +381,6 @@ public class MusicManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets the UI volume
-    /// </summary>
-    public void SetUIVolume(float volume)
-    {
-        uiVolume = Mathf.Clamp01(volume);
-        ApplyVolumeSettings();
-    }
-
-    /// <summary>
     /// Sets the sound effects volume
     /// </summary>
     public void SetSFXVolume(float volume)
@@ -406,11 +393,6 @@ public class MusicManager : MonoBehaviour
     /// Gets the current music volume
     /// </summary>
     public float GetMusicVolume() => musicVolume;
-
-    /// <summary>
-    /// Gets the current UI volume
-    /// </summary>
-    public float GetUIVolume() => uiVolume;
 
     /// <summary>
     /// Gets the current SFX volume
@@ -431,7 +413,6 @@ public class MusicManager : MonoBehaviour
     public void SetSFXUIVolumeToggle(float volume)
     {
         SetSFXVolume(volume);
-        SetUIVolume(volume);
     }
 
     private void ApplyVolumeSettings()
@@ -440,7 +421,7 @@ public class MusicManager : MonoBehaviour
             musicSource.volume = musicVolume * 0.3f;
 
         if (uiSource != null)
-            uiSource.volume = uiVolume;
+            uiSource.volume = sfxVolume * 0.5f;
 
         if (sfxSource != null)
             sfxSource.volume = sfxVolume * 0.5f;
