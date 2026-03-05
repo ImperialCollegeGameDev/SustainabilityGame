@@ -136,6 +136,9 @@ public class DayNight : MonoBehaviour
 
     void Update()
     {
+
+        if (GameState.Instance.PAUSED) return; // Don't advance time when paused.
+
         float dayLength = GetDayLengthSeconds();
         if (dayLength <= 0.01f) return;
         if (MusicManager.Instance == null || directionalLight == null) return;

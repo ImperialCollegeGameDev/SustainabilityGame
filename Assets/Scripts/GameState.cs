@@ -110,6 +110,8 @@ public class GameState : MonoBehaviour
             _fastTimer -= FastTickInterval;
         }
 
+        happiness = Math.Clamp(happiness, 0, 100);
+
         if (happiness <= 25f)
         {
             MusicManager.Instance?.PlayGameSFX(MusicManager.SFXSoundType.LungCancer);
