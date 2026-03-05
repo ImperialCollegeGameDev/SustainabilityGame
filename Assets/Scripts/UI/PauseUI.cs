@@ -24,11 +24,8 @@ public class PauseUI : MonoBehaviour
     private Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
     private List<int> activeTweenIds = new List<int>();
 
-    // Music state tracking for pause/resume
-    private AudioClip savedMusicTrack;
-    private float savedMusicPosition;
-    private bool musicWasPausedBefore;
-    private bool isInLiveGame; // Track if this is a live game pause vs settings menu
+    // Track if this is a live game pause vs settings menu
+    private bool isInLiveGame;
 
     // Callback storage
     private System.Action onCloseCallback;
@@ -110,10 +107,10 @@ public class PauseUI : MonoBehaviour
         CleanupAnimations();
         Debug.Log("[PauseUI] Cleaned up existing animations");
 
-        // Restore music state before closing (only if in live game)
-        if (isInLiveGame)
+        // Restore game track music state before closing (only if in live game)
+        if (isInLiveGame && MusicManager.Instance != null)
         {
-            RestoreMusicState();
+            MusicManager.Instance.RestoreGameTrack();
         }
 
         // Start close animation sequence
@@ -249,10 +246,10 @@ public class PauseUI : MonoBehaviour
         gameObject.SetActive(true);
         Debug.Log("[PauseUI] GameObject activated for Load animation");
 
-        // Save current music state and switch to menu music (only if in live game)
-        if (isInLiveGame)
+        // Save game track state and switch to menu music (only if in live game)
+        if (isInLiveGame && MusicManager.Instance != null)
         {
-            SaveMusicState();
+            MusicManager.Instance.PauseGameTrackAndPlayMenu();
         }
 
         // Set UI properties first
@@ -543,72 +540,6 @@ public class PauseUI : MonoBehaviour
     {
         Main.Instance.SaveGame();
         Main.Instance.ReturnHome();
-    }
-
-    /// <summary>
-    /// Save the current music state before opening pause menu
-    /// </summary>
-    private void SaveMusicState()
-    {
-        if (MusicManager.Instance != null)
-        {
-            // Save current track and position
-            savedMusicTrack = MusicManager.Instance.MusicSource?.clip;
-            savedMusicPosition = MusicManager.Instance.MusicPosition;
-            musicWasPausedBefore = MusicManager.Instance.IsPaused;
-            
-            Debug.Log($"[PauseUI] Saved music state - Track: {savedMusicTrack?.name ?? "none"}, Position: {savedMusicPosition:F2}s, WasPaused: {musicWasPausedBefore}");
-            
-            // Stop current music (don't use PauseMusic as we're switching tracks)
-            if (MusicManager.Instance.IsPlaying || MusicManager.Instance.IsPaused)
-            {
-                MusicManager.Instance.StopMusic(fadeOut: false);
-            }
-            
-            // Play menu music
-            MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.MainAndCredits);
-            Debug.Log("[PauseUI] Switched to main/credits music");
-        }
-        else
-        {
-            Debug.LogWarning("[PauseUI] MusicManager.Instance is null, cannot save music state");
-        }
-    }
-
-    /// <summary>
-    /// Restore the music state when closing pause menu
-    /// </summary>
-    private void RestoreMusicState()
-    {
-        if (MusicManager.Instance != null && savedMusicTrack != null)
-        {
-            Debug.Log($"[PauseUI] Restoring music state - Track: {savedMusicTrack.name}, Position: {savedMusicPosition:F2}s, WasPaused: {musicWasPausedBefore}");
-            
-            // Stop menu music
-            MusicManager.Instance.StopMusic(fadeOut: false);
-            
-            // Restore the saved track
-            MusicManager.Instance.MusicSource.clip = savedMusicTrack;
-            MusicManager.Instance.SetMusicPosition(savedMusicPosition);
-            
-            // Resume playback unless it was paused before
-            if (!musicWasPausedBefore)
-            {
-                MusicManager.Instance.MusicSource.Play();
-                Debug.Log("[PauseUI] Resumed music playback");
-            }
-            else
-            {
-                Debug.Log("[PauseUI] Music was paused before, leaving it paused");
-            }
-            
-            // Clear saved state
-            savedMusicTrack = null;
-        }
-        else if (savedMusicTrack == null)
-        {
-            Debug.Log("[PauseUI] No saved music track to restore");
-        }
     }
 
     /// <summary>

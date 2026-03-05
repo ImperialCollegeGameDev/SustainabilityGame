@@ -43,6 +43,11 @@ public class MusicManager : MonoBehaviour
     private AudioClip currentSFXClip;
     private float sfxStartTime;
 
+    // Game track state management for pause/resume
+    private float savedGameTrackPosition;
+    private bool hasGameTrackSaved;
+    private bool gameTrackWasPausedBefore;
+
     // Events for other systems to listen to
     public static event Action<AudioClip> OnTrackChanged;
     public static event Action OnMusicPaused;
@@ -509,7 +514,87 @@ public class MusicManager : MonoBehaviour
     }
     #endregion
 
-    #region Utility
-    // Utility methods can be added here if needed in the future
+    #region Game Track State Management
+    /// <summary>
+    /// Pauses the game track if playing and switches to main/credits music.
+    /// Saves the game track position for later restoration.
+    /// </summary>
+    public void PauseGameTrackAndPlayMenu()
+    {
+        // Only save if the game track is currently playing or paused
+        if (currentTrack == mainGame)
+        {
+            // Save the current position
+            savedGameTrackPosition = MusicPosition;
+            gameTrackWasPausedBefore = isPaused;
+            hasGameTrackSaved = true;
+            
+            Debug.Log($"[MusicManager] Saved game track state - Position: {savedGameTrackPosition:F2}s, WasPaused: {gameTrackWasPausedBefore}");
+            
+            // Stop the game track
+            StopMusic(fadeOut: false);
+            
+            // Play the main/credits track
+            PlayMainTrack(MainTrackType.MainAndCredits);
+            Debug.Log("[MusicManager] Switched to main/credits music");
+        }
+        else
+        {
+            Debug.Log("[MusicManager] Game track is not playing, no state to save");
+            hasGameTrackSaved = false;
+        }
+    }
+
+    /// <summary>
+    /// Restores the game track to its saved position.
+    /// Call this when returning from pause menu to game.
+    /// </summary>
+    public void RestoreGameTrack()
+    {
+        if (hasGameTrackSaved && mainGame != null)
+        {
+            Debug.Log($"[MusicManager] Restoring game track - Position: {savedGameTrackPosition:F2}s, WasPaused: {gameTrackWasPausedBefore}");
+            
+            // Stop current music
+            StopMusic(fadeOut: false);
+            
+            // Set up the game track
+            musicSource.clip = mainGame;
+            currentTrack = mainGame;
+            SetMusicPosition(savedGameTrackPosition);
+            
+            // Resume playback unless it was paused before
+            if (!gameTrackWasPausedBefore)
+            {
+                musicSource.Play();
+                isPaused = false;
+                OnTrackChanged?.Invoke(mainGame);
+                Debug.Log("[MusicManager] Resumed game track playback");
+            }
+            else
+            {
+                isPaused = true;
+                Debug.Log("[MusicManager] Game track was paused before, leaving it paused");
+            }
+            
+            // Clear saved state
+            hasGameTrackSaved = false;
+            savedGameTrackPosition = 0f;
+        }
+        else if (!hasGameTrackSaved)
+        {
+            Debug.Log("[MusicManager] No saved game track to restore");
+        }
+        else if (mainGame == null)
+        {
+            Debug.LogWarning("[MusicManager] Cannot restore game track - mainGame clip is null");
+        }
+    }
+
+    /// <summary>
+    /// Checks if there is a saved game track state
+    /// </summary>
+    public bool HasGameTrackSaved() => hasGameTrackSaved;
     #endregion
+
 }

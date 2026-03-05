@@ -8,6 +8,7 @@ using Unity.Services.Authentication;
 using Unity.Services.Leaderboards;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
@@ -31,7 +32,7 @@ public class Main : MonoBehaviour
     // Identity management
     public static bool IsAuthenticationReady { get; private set; } = false;
     public GameObject PauseUI; // Reference to the pause UI to manage its state across scenes
-    private string savedPlayerIdentity = null;
+    private string savedPlayerIdentity = null; // Store the player's identity for saving/loading purposes
     private string playerDisplayName = null;
     
     /// <summary>
@@ -206,22 +207,38 @@ public class Main : MonoBehaviour
     {
         Debug.Log("[Main] Creating new anonymous identity...");
         
-        AuthenticationService.Instance.SignedIn += () =>
-        {
-            Debug.Log("[Main] SignedIn event: " + AuthenticationService.Instance.PlayerId);
-        };
+        // Remove existing event handlers to prevent duplicates
+        AuthenticationService.Instance.SignedIn -= OnAuthSignedIn;
+        AuthenticationService.Instance.SignInFailed -= OnAuthSignInFailed;
         
-        AuthenticationService.Instance.SignInFailed += s =>
-        {
-            Debug.LogError($"[Main] SignInFailed event: {s}");
-        };
+        // Add event handlers
+        AuthenticationService.Instance.SignedIn += OnAuthSignedIn;
+        AuthenticationService.Instance.SignInFailed += OnAuthSignInFailed;
 
+        Debug.Log("[Main] Calling SignInAnonymouslyAsync...");
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
         Debug.Log($"[Main] Anonymous sign-in completed. Player ID: {AuthenticationService.Instance.PlayerId}");
         
         // Generate display name for this new identity
         GeneratePlayerDisplayName();
         Debug.Log($"[Main] Generated display name for new identity: {playerDisplayName}");
+    }
+
+    /// <summary>
+    /// Event handler for successful sign-in
+    /// </summary>
+    private void OnAuthSignedIn()
+    {
+        Debug.Log("[Main] SignedIn event: " + AuthenticationService.Instance.PlayerId);
+    }
+
+    /// <summary>
+    /// Event handler for sign-in failure
+    /// </summary>
+    private void OnAuthSignInFailed(RequestFailedException exception)
+    {
+        Debug.LogError($"[Main] SignInFailed event: {exception.Message}");
+        Debug.LogError($"[Main] Error code: {exception.ErrorCode}");
     }
 
     /// <summary>
@@ -354,10 +371,17 @@ public class Main : MonoBehaviour
     /// <summary>
     /// Starts a new game session with a new anonymous account
     /// </summary>
-    public async void StartNewGame()
+    public void StartNewGame()
     {
         Debug.Log("[Main] Starting new game...");
-        
+        StartCoroutine(StartNewGameCoroutine());
+    }
+
+    /// <summary>
+    /// Coroutine to handle new game start with identity creation
+    /// </summary>
+    private IEnumerator StartNewGameCoroutine()
+    {
         // Reset game state if it exists
         if (GameState.Instance != null)
         {
@@ -366,9 +390,32 @@ public class Main : MonoBehaviour
         }
         
         // Sign out and create new identity for fresh leaderboard entry
-        // WAIT for this to complete before transitioning scenes
-        await CreateNewIdentityForNewGame();
-        Debug.Log($"[Main] Identity creation completed - ID: {GetCurrentPlayerIdentity()}, Name: {GetCurrentPlayerDisplayName()}");
+        var identityTask = CreateNewIdentityForNewGame();
+        
+        // Wait for completion with short timeout for WebGL
+        float timeoutTimer = 0f;
+        float timeout = 5f; // Reduced from 20s - don't block game start
+        
+        while (!identityTask.IsCompleted && timeoutTimer < timeout)
+        {
+            timeoutTimer += Time.deltaTime;
+            yield return null;
+        }
+        
+        if (timeoutTimer >= timeout)
+        {
+            Debug.LogWarning("[Main] Identity creation timed out - continuing without leaderboard");
+            Debug.LogWarning("[Main] You can still play the game. Leaderboard features will be unavailable.");
+        }
+        else if (identityTask.IsFaulted)
+        {
+            Debug.LogWarning($"[Main] Identity creation failed: {identityTask.Exception?.GetBaseException().Message}");
+            Debug.LogWarning("[Main] Game will continue without leaderboard features");
+        }
+        else
+        {
+            Debug.Log($"[Main] Identity ready - ID: {GetCurrentPlayerIdentity()}, Name: {GetCurrentPlayerDisplayName()}");
+        }
         
         // Play game music track
         if (MusicManager.Instance != null)
@@ -394,31 +441,72 @@ public class Main : MonoBehaviour
             playerNameCache.Clear();
             Debug.Log("[Main] Cleared saved identity, display name, and name cache");
             
-            // Sign out and clear session token to force new anonymous account
+            // Sign out if already signed in
             if (AuthenticationService.Instance.IsSignedIn)
             {
                 Debug.Log("[Main] Signing out from current account");
-                AuthenticationService.Instance.SignOut();
+                try
+                {
+                    AuthenticationService.Instance.SignOut();
+                    await Task.Delay(200); // Short delay for sign out to complete
+                    Debug.Log("[Main] Sign out completed");
+                }
+                catch (System.Exception signOutEx)
+                {
+                    Debug.LogWarning($"[Main] Sign out failed: {signOutEx.Message}");
+                }
             }
             
-            // Clear the session token to ensure we get a new anonymous account
-            Debug.Log("[Main] Clearing session token");
-            AuthenticationService.Instance.ClearSessionToken();
-            
-            // Small delay to ensure state is cleared
-            await Task.Delay(200);
+            // Clear the session token - skip on WebGL to prevent freezing
+            #if !UNITY_WEBGL || UNITY_EDITOR
+            try
+            {
+                Debug.Log("[Main] Clearing session token (Editor/Standalone only)");
+                AuthenticationService.Instance.ClearSessionToken();
+                await Task.Delay(200);
+            }
+            catch (System.Exception clearEx)
+            {
+                Debug.LogWarning($"[Main] ClearSessionToken failed: {clearEx.Message}");
+            }
+            #else
+            Debug.Log("[Main] Skipping ClearSessionToken on WebGL");
+            #endif
             
             // Create new anonymous account (this will also generate a display name)
             Debug.Log("[Main] Creating new anonymous account");
-            await CreateNewIdentity();
+            
+            // Add timeout protection for WebGL
+            var identityTask = CreateNewIdentity();
+            var timeoutTask = Task.Delay(4000); // 4 second timeout - fast fail for better UX
+            
+            var completedTask = await Task.WhenAny(identityTask, timeoutTask);
+            
+            if (completedTask == timeoutTask)
+            {
+                throw new System.TimeoutException("Identity creation timed out after 4 seconds");
+            }
+            
+            // Check for exceptions
+            await identityTask; // This will throw if the task faulted
             
             Debug.Log($"[Main] New identity created - Player ID: {AuthenticationService.Instance.PlayerId}, Display Name: {playerDisplayName}");
         }
+        catch (System.TimeoutException te)
+        {
+            Debug.LogWarning($"[Main] Identity creation timed out: {te.Message}");
+            Debug.LogWarning("[Main] This may indicate network issues - game will continue without leaderboard");
+        }
         catch (System.Exception e)
         {
-            Debug.LogError($"[Main] Failed to create new identity for new game: {e.Message}");
-            Debug.LogError($"[Main] Stack trace: {e.StackTrace}");
-            // Continue anyway - game can still be played without leaderboard
+            Debug.LogWarning($"[Main] Failed to create new identity: {e.Message}");
+            Debug.LogWarning("[Main] Game will continue without leaderboard features");
+            
+            // Log details for debugging
+            if (e.InnerException != null)
+            {
+                Debug.Log($"[Main] Inner exception: {e.InnerException.Message}");
+            }
         }
     }
 
@@ -804,7 +892,7 @@ public class Main : MonoBehaviour
             return;
 
         // Avoid duplicate creation if a designer later adds one manually
-        var existing = GameObject.FindObjectOfType<GrassFieldSpawner>();
+        var existing = GameObject.FindAnyObjectByType<GrassFieldSpawner>();
         if (existing != null)
         {
             grassFieldInitialized = true;
