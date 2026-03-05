@@ -29,9 +29,6 @@ public class GrassFieldSpawner : MonoBehaviour
     [Tooltip("哪些图层被认为是地面。留空则使用所有图层。")]
     public LayerMask GroundMask = ~0;
 
-    [Tooltip("是否在 Start 时自动生成草丛。当前已强制关闭，完全由外部手动调用 Generate() 决定。")]
-    public bool GenerateOnStart = false;
-
     private void Start()
     {
         // 现在的草系统准备重做，这里只负责清理场景中已有的草丛，不再自动生成新的。
@@ -40,6 +37,8 @@ public class GrassFieldSpawner : MonoBehaviour
 
     public void Generate()
     {
+
+        Debug.LogWarning("GrassFieldSpawner.Generate()");
         var rng = new System.Random(RandomSeed);
 
         int created = 0;

@@ -26,9 +26,6 @@ public class Main : MonoBehaviour
     private const string LeaderboardId = "SusGameMainLeaderboard";
     private bool loadGame = false;
 
-    // Auto grass field in Main scene
-    private bool grassFieldInitialized = false;
-    
     // Identity management
     public static bool IsAuthenticationReady { get; private set; } = false;
     public GameObject PauseUI; // Reference to the pause UI to manage its state across scenes
@@ -77,10 +74,6 @@ public class Main : MonoBehaviour
         Debug.Log("[Main] Main.Start() called - Initializing Unity Services...");
         await InitializeUnityServices();
         MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.MainAndCredits);
-
-        // 如果直接在 Main 场景里按下 Play（而不是通过场景切换进入），OnSceneLoaded 不会被立刻触发。
-        // 这里再尝试一次草场初始化，内部有去重保护。
-        TrySetupGrassField();
     }
 
     public void OpenSettings()
@@ -877,54 +870,7 @@ public class Main : MonoBehaviour
             GameState.Instance.PAUSED = false;
             Debug.Log("[Main] GameState.PAUSED set to false");
 
-            // Ensure visual grass field exists in the Main scene
-            TrySetupGrassField();
         }
-    }
-
-    /// <summary>
-    /// Creates a procedural grass field using GrassFieldSpawner, if not already present.
-    /// This only affects visuals and does not touch gameplay systems.
-    /// </summary>
-    private void TrySetupGrassField()
-    {
-        if (grassFieldInitialized)
-            return;
-
-        // Avoid duplicate creation if a designer later adds one manually
-        var existing = GameObject.FindAnyObjectByType<GrassFieldSpawner>();
-        if (existing != null)
-        {
-            grassFieldInitialized = true;
-            return;
-        }
-
-        // Attach under Terrain root if possible, otherwise at scene root
-        Transform parent = null;
-        var terrainRoot = GameObject.Find("Terrain");
-        if (terrainRoot != null)
-        {
-            parent = terrainRoot.transform;
-        }
-
-        var grassRoot = new GameObject("GrassField_Auto");
-        if (parent != null)
-        {
-            grassRoot.transform.SetParent(parent, false);
-            // place roughly at terrain center
-            grassRoot.transform.localPosition = Vector3.zero;
-        }
-
-        var spawner = grassRoot.AddComponent<GrassFieldSpawner>();
-        spawner.Size = new Vector2(40f, 40f);
-        spawner.YOffset = 0.05f;
-        spawner.Instances = 800;
-        spawner.RandomSeed = 1337;
-        spawner.MinScale = 0.8f;
-        spawner.MaxScale = 1.3f;
-        spawner.GenerateOnStart = true;
-
-        grassFieldInitialized = true;
     }
 
     void OnDestroy()
