@@ -28,6 +28,7 @@ public class GridManager : MonoBehaviour
 
     public Sprite needsRepairIcon;
     public Sprite needsPowerIcon;
+    public GrassFieldSpawner GrassSpawner;
 
     private void Awake()
     {
@@ -365,6 +366,8 @@ public class GridManager : MonoBehaviour
     private void Start()
     {
         username.text = Main.Instance.CurrentPlayerDisplayName;
+        TrySetupGrassField();
+
     }
 
     public void Occupy(TileObject obj, Vector2Int origin, Vector2Int size)
@@ -600,4 +603,24 @@ public class GridManager : MonoBehaviour
             C = c;
         }
     }
+
+
+    
+    /// <summary>
+    /// Creates a procedural grass field using GrassFieldSpawner, if not already present.
+    /// This only affects visuals and does not touch gameplay systems.
+    /// </summary>
+    private void TrySetupGrassField()
+    {
+
+        GrassSpawner.Size = new Vector2(40f, 40f);
+        GrassSpawner.YOffset = 0.05f;
+        GrassSpawner.Instances = 800;
+        GrassSpawner.RandomSeed = 1337;
+        GrassSpawner.MinScale = 0.8f;
+        GrassSpawner.MaxScale = 1.3f;
+        GrassSpawner.Generate();
+
+    }
+
 }
