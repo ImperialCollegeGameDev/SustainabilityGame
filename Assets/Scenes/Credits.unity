@@ -1666,6 +1666,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: credit-entry (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4821834255749058943, guid: 04ae786485c2ab24cae6026a0056b640, type: 3}
+      propertyPath: link1_text
+      value: https://www.linkedin.com/in/mihir-kulgod-0692a238b/
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821834255749058943, guid: 04ae786485c2ab24cae6026a0056b640, type: 3}
+      propertyPath: link2_text
+      value: https://github.com/MihirKulgod
+      objectReference: {fileID: 0}
     - target: {fileID: 7918300495942839112, guid: 04ae786485c2ab24cae6026a0056b640, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

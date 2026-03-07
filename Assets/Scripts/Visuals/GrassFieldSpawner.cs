@@ -6,6 +6,18 @@ using UnityEngine;
 /// </summary>
 public class GrassFieldSpawner : MonoBehaviour
 {
+    public static GrassFieldSpawner Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            Debug.LogWarning("Multiple instances of GrassFieldSpawner detected. Destroying duplicate.");
+            return;
+        }
+        Instance = this;
+    }
+
     [Header("Area")]
     public Vector2 Size = new Vector2(40f, 40f); // XZ 平面上的宽高
     [Tooltip("是否根据 GridManager 的宽高自动覆盖整块可建造区域。")]
@@ -36,9 +48,7 @@ public class GrassFieldSpawner : MonoBehaviour
     }
 
     public void Generate()
-    {
-
-        Debug.LogWarning("GrassFieldSpawner.Generate()");
+    { 
         var rng = new System.Random(RandomSeed);
 
         int created = 0;

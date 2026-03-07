@@ -40,7 +40,6 @@ public class RepairAllButton : MonoBehaviour
 
     void OnClick()
     {
-        Debug.Log("clicked");
         foreach (TileObject tileObj in GridManager.Instance.GetTileObjects())
         {
             if (tileObj is UtilityTileObject util)

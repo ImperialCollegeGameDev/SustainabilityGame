@@ -8,13 +8,14 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
 
     public GameObject SelectedTileInfoPanelPrefab;
     private GameObject SelectedTileInfoPanel;
-    [SerializeField] private Canvas canvas;
-    private RectTransform canvasRect;
+    private Canvas canvas => SelectedTileInfo.Instance?.GetComponentInParent<Canvas>();
+    private RectTransform canvasRect => canvas?.GetComponent<RectTransform>();
     private Camera mainCamera;
 
-    private Vector2 panelOffset = new Vector2(60f, -20f);
+    [SerializeField] private Vector2 panelOffset = new Vector2(-60f, 60f);
     private bool clampToScreen = true;
     private float screenPadding = 20f;
+    private Vector3 fixedPanelScale = Vector3.one * 0.7f; // Changed to Vector3 for proper 3D scale
 
     public TileObject Selected { get; private set; }
 
@@ -33,15 +34,7 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
         {
             Debug.LogWarning("SelectedTileInfoPanel is not assigned in the inspector.");
         }
-
-        canvas = SelectedTileInfo.Instance?.GetComponentInParent<Canvas>();
-        if (canvas == null)
-        {
-            canvas = FindAnyObjectByType<Canvas>();
-            Debug.LogWarning("Canvas found via FindObjectOfType. Position conversion may not work correctly.");
-        }
         
-        canvasRect = canvas?.GetComponent<RectTransform>();
         mainCamera = Camera.main;
     }
 
@@ -89,15 +82,19 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
         if (panelRect == null)
             return;
 
-        // Reset anchors and pivot to known state
+        // Set anchors and pivot to bottom-left for consistent positioning
         panelRect.anchorMin = Vector2.zero;
         panelRect.anchorMax = Vector2.zero;
-        panelRect.pivot = new Vector2(0f, 1f); // Top-left pivot for easier positioning
+        panelRect.pivot = new Vector2(0f, 1f); // Top-left pivot
 
-        // Get building world position
+        // IMPORTANT: Set the local scale explicitly to ensure it's applied correctly
+        // This must be done as localScale (not scale) and should include Z axis
+        panelRect.localScale = fixedPanelScale;
+
+        // Get building world position (slightly above the building)
         Vector3 worldPosition = building.transform.position + Vector3.up * 2f;
         
-        // Convert to screen space
+        // Convert world position to screen point
         Vector3 screenPoint = mainCamera.WorldToScreenPoint(worldPosition);
 
         // Check if behind camera
@@ -107,41 +104,26 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
             return;
         }
 
-        // For Screen Space - Overlay with CanvasScaler, we need to account for scaling
-        // Get the canvas scaler
-        CanvasScaler scaler = canvas.GetComponent<CanvasScaler>();
-        float scaleFactor = 1f;
-        
-        if (scaler != null && scaler.uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize)
-        {
-            // Calculate actual scale factor
-            Vector2 referenceResolution = scaler.referenceResolution;
-            Vector2 screenSize = new Vector2(Screen.width, Screen.height);
-            
-            float widthRatio = screenSize.x / referenceResolution.x;
-            float heightRatio = screenSize.y / referenceResolution.y;
-            
-            // Use match value to blend between width and height ratios
-            scaleFactor = Mathf.Lerp(widthRatio, heightRatio, scaler.matchWidthOrHeight);
-        }
-
-        // Convert screen point to canvas coordinates
-        // For overlay canvas with bottom-left anchors, this is straightforward
-        Vector2 canvasPosition = new Vector2(
-            screenPoint.x / scaleFactor,
-            screenPoint.y / scaleFactor
+        // Convert screen point to canvas local position
+        // This automatically handles Canvas Scaler settings
+        Vector2 canvasPosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvasRect,
+            screenPoint,
+            canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : mainCamera,
+            out canvasPosition
         );
 
         // Apply offset
         Vector2 finalPosition = canvasPosition + panelOffset;
 
-        // Clamp to canvas bounds if enabled
+        // Clamp to canvas bounds
         if (clampToScreen)
         {
             Vector2 canvasSize = canvasRect.sizeDelta;
             Vector2 panelSize = panelRect.sizeDelta;
             
-            // Since pivot is top-left (0, 1), adjust clamping
+            // Clamp based on top-left pivot
             finalPosition.x = Mathf.Clamp(finalPosition.x, screenPadding, canvasSize.x - panelSize.x - screenPadding);
             finalPosition.y = Mathf.Clamp(finalPosition.y, panelSize.y + screenPadding, canvasSize.y - screenPadding);
         }

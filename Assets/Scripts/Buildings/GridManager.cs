@@ -612,6 +612,11 @@ public class GridManager : MonoBehaviour
     /// </summary>
     private void TrySetupGrassField()
     {
+        if (GrassSpawner == null)
+        {
+            GrassSpawner = GrassFieldSpawner.Instance;
+        }
+        Debug.Log($"Generating grass field with spawner: {GrassSpawner.name}");
 
         GrassSpawner.Size = new Vector2(40f, 40f);
         GrassSpawner.YOffset = 0.05f;

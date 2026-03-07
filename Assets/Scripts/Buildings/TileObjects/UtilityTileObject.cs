@@ -20,6 +20,7 @@ public class UtilityTileObject : TileObject
 
     public void TryRepair()
     {
+        if (CurrentRepairCost() <= 0) return;
         if (GameState.Instance.money >= CurrentRepairCost())
         {
             GameState.Instance.ChangeMoney(-CurrentRepairCost());
