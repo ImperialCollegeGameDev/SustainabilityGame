@@ -170,7 +170,7 @@ Shader "URP/Environment/GrassCloud"
                 float3 N = normalize(n);
                 float NdotL = saturate(dot(N, -L));
                 float3 diffuse = colorGrass * (NdotL * mainLight.color.rgb);
-                float3 ambient = colorGrass * 0.4;
+                float3 ambient = colorGrass * 0.15;
 
                 float3 finalCol = diffuse + ambient;
                 return half4(finalCol, 1.0);

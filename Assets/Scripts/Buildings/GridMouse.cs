@@ -136,14 +136,21 @@ public class GridMouse : MonoBehaviour
         gridPosition = default;
 
         // Fail if pointer is over UI
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current != null && IsPointerOverBlockingUI())
+        {
+            // Remove or comment out this debug log since it will spam when Post FX canvas is present
+            // Debug.Log("Pointer is over blocking UI, ignoring mouse position.");
             return false;
+        }
 
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         // Raycast ONLY against ground layer (ignores buildings automatically)
         if (!Physics.Raycast(ray, out RaycastHit hit, 200f, groundMask))
+        {
+            Debug.Log("Mouse raycast did not hit ground layer.");
             return false;
+        }
 
         // Convert to the grid's local coordinate space (take tilt/parent into account).
         // If groundTransform is the tilted parent of the grid, get the local point in that transform.
@@ -162,5 +169,38 @@ public class GridMouse : MonoBehaviour
         tileObject.MakePreview();
 
         placementHighlight = tileObject;
+    }
+    
+    bool IsPointerOverBlockingUI()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Mouse.current.position.ReadValue();
+
+        var results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        // Get the "Ignore Raycast" layer index
+        int ignoreRaycastLayer = LayerMask.NameToLayer("Ignore Raycast");
+
+        foreach (var r in results)
+        {
+            // Skip UI elements on the "Ignore Raycast" layer
+            if (r.gameObject.layer == ignoreRaycastLayer)
+                continue;
+
+            // Skip if the RawImage has Raycast Target disabled
+            var rawImage = r.gameObject.GetComponent<UnityEngine.UI.RawImage>();
+            if (rawImage != null && !rawImage.raycastTarget)
+                continue;
+
+            // Check for interactive UI elements
+            if (r.gameObject.GetComponent<UnityEngine.UI.Button>() != null)
+                return true;
+
+            if (r.gameObject.GetComponent<UnityEngine.UI.Toggle>() != null)
+                return true;
+        }
+
+        return false;
     }
 }

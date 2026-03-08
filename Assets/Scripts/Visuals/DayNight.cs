@@ -21,6 +21,13 @@ public class DayNight : MonoBehaviour
     [Tooltip("Directional light that represents the sun/moon.")]
     public Light directionalLight;
 
+    [Tooltip("Optional: Second directional light that mirrors the main light but points upward (for underwater illumination).")]
+    public Light underwaterLight;
+
+    [Tooltip("Intensity multiplier for the underwater light relative to the main light. Typically lower (0.3-0.6).")]
+    [Range(0f, 1f)]
+    public float underwaterIntensityMultiplier = 0.4f;
+
     [Tooltip("Yaw (degrees) of the light path. Adjust to match your world orientation.")]
     public float azimuthDegrees = 0f;
 
@@ -36,6 +43,9 @@ public class DayNight : MonoBehaviour
 
     [Tooltip("Intensity at midnight.")]
     public float nightIntensity = 0.05f;
+
+    [Tooltip("Disable the directional light completely when sun is below horizon.")]
+    public bool disableLightAtNight = true;
 
     [Header("Colour Keyframes (day fraction)")]
     [Tooltip("Colour at 0.00 (start of loop): morning pink.")]
@@ -132,6 +142,10 @@ public class DayNight : MonoBehaviour
         // Basic safety checks
         if (MusicManager.Instance == null) Debug.LogWarning("[MusicSyncedDayNightCycle] MusicManager not found.");
         if (directionalLight == null) Debug.LogWarning("[MusicSyncedDayNightCycle] directionalLight not assigned.");
+        if (underwaterLight != null)
+        {
+            Debug.Log("[MusicSyncedDayNightCycle] Underwater light assigned and will mirror the main light.");
+        }
     }
 
     void Update()
@@ -161,7 +175,8 @@ public class DayNight : MonoBehaviour
         ApplyLightRotation(DayFraction01);
         ApplyLightColour(DayFraction01);
 
-        if (animateIntensity)
+        // Always apply intensity control if disableLightAtNight is enabled OR if animateIntensity is true
+        if (animateIntensity || disableLightAtNight)
             ApplyLightIntensity(DayFraction01);
     }
 
@@ -215,16 +230,36 @@ public class DayNight : MonoBehaviour
         // Use a sinusoid for elevation.
         float elevation = GetSunElevationDegrees(day01);
 
+        // Only rotate the light when sun is above horizon
+        // When below horizon, keep it pointed down to avoid light bleeding through water
+        if (elevation < 0f && disableLightAtNight)
+        {
+            // Point the light straight down when below horizon
+            directionalLight.transform.rotation = Quaternion.Euler(90f, azimuthDegrees, 0f);
+            
+            // Mirror for underwater light: point straight up
+            if (underwaterLight != null)
+            {
+                underwaterLight.transform.rotation = Quaternion.Euler(-90f, azimuthDegrees, 0f);
+            }
+            return;
+        }
+
         // Azimuth: one full rotation per cycle.
         float azimuth = azimuthDegrees + day01 * 360f;
 
-        // Construct rotation:
-        // - Pitch controls elevation (around X)
-        // - Yaw controls direction (around Y)
-        // Unity directional light points *forward* (its -Z is the direction it shines),
-        // so we rotate the transform itself accordingly.
-        Quaternion rot = Quaternion.Euler(elevation, azimuth, 0f);
+        // Main light: Negate elevation because Unity's Directional Light shines in the -Z direction
+        // When elevation is positive (sun is up), we need the light to point downward
+        Quaternion rot = Quaternion.Euler(-elevation, azimuth, 0f);
         directionalLight.transform.rotation = rot;
+
+        // Underwater light: Mirror the main light by inverting the elevation
+        // This makes it point upward from below at the same angle
+        if (underwaterLight != null)
+        {
+            Quaternion underwaterRot = Quaternion.Euler(elevation, azimuth, 0f);
+            underwaterLight.transform.rotation = underwaterRot;
+        }
     }
 
     private float GetSunElevationDegrees(float day01)
@@ -239,6 +274,12 @@ public class DayNight : MonoBehaviour
     {
         Color c = _colourGradient.Evaluate(day01);
         directionalLight.color = c;
+
+        // Apply the same color to underwater light
+        if (underwaterLight != null)
+        {
+            underwaterLight.color = c;
+        }
     }
 
     private void ApplyLightIntensity(float day01)
@@ -249,15 +290,30 @@ public class DayNight : MonoBehaviour
         float target;
         if (elev <= 0f)
         {
-            target = nightIntensity;
+            // Sun is below horizon - turn off both lights
+            target = disableLightAtNight ? 0f : nightIntensity;
         }
         else
         {
-            float x = Mathf.Clamp01(elev / maxElevationDegrees);
-            target = Mathf.Lerp(nightIntensity, dayIntensity, Mathf.SmoothStep(0f, 1f, x));
+            // Only animate intensity if animateIntensity is true, otherwise use dayIntensity
+            if (animateIntensity)
+            {
+                float x = Mathf.Clamp01(elev / maxElevationDegrees);
+                target = Mathf.Lerp(nightIntensity, dayIntensity, Mathf.SmoothStep(0f, 1f, x));
+            }
+            else
+            {
+                target = dayIntensity;
+            }
         }
 
         directionalLight.intensity = target;
+
+        // Apply reduced intensity to underwater light
+        if (underwaterLight != null)
+        {
+            underwaterLight.intensity = target * underwaterIntensityMultiplier;
+        }
     }
 
     private void BuildColourGradient()
