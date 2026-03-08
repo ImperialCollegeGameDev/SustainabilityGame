@@ -79,32 +79,17 @@ public class Main : MonoBehaviour
     public void OpenSettings()
     {
         GameObject p = Instantiate(PauseUI);
-        // set camera to main camera
-        // p.GetComponent<Canvas>().worldCamera = Camera.main;
-        p.GetComponent<Canvas>().sortingOrder = 100; // Ensure it appears above other UI
-
-        // call the setup function
-        Debugger.Log("[Main] Opening settings menu...", p.GetComponent<PauseUI>());
+        p.GetComponent<Canvas>().sortingOrder = 100;
         p.GetComponent<PauseUI>().Load("GAME SETTINGS", false);
     }
 
     public void PauseGame()
     {
         GameObject p = Instantiate(PauseUI);
-        // set camera to main camera
-        p.GetComponent<Canvas>().sortingOrder = 100; // Ensure it appears above other UI
-
-        // call the setup function
-        Debugger.Log("[Main] Opening pause menu...", p.GetComponent<PauseUI>());
+        p.GetComponent<Canvas>().sortingOrder = 100;
         GameState.Instance.PAUSED = true;
 
-        // create unpause game action callback
-        System.Action unpauseAction = () =>
-        {
-            Debugger.Log("[Main] Unpausing game from pause menu callback");
-            GameState.Instance.PAUSED = false;
-        };
-
+        System.Action unpauseAction = () => { GameState.Instance.PAUSED = false; };
         p.GetComponent<PauseUI>().Load("PAUSED GAME", true, unpauseAction);
     }
 
@@ -120,16 +105,23 @@ public class Main : MonoBehaviour
     {
         try
         {
-            Debugger.Log("[Main] Checking Unity Services state...");
+            // WebGL-safe: wait if initialization is already in progress to avoid concurrent calls
+            if (UnityServices.State == ServicesInitializationState.Initializing)
+            {
+                Debugger.Log("[Main] Unity Services initializing, waiting...");
+                while (UnityServices.State == ServicesInitializationState.Initializing)
+                    await Task.Yield();
+            }
+
             if (UnityServices.State != ServicesInitializationState.Initialized)
             {
-                Debugger.Log("[Main] Unity Services not initialized, initializing now...");
-                await UnityServices.InitializeAsync();
+                Debugger.Log("[Main] Initializing Unity Services...");
+                var initTask = UnityServices.InitializeAsync();
+                var timeoutTask = Task.Delay(10000);
+                if (await Task.WhenAny(initTask, timeoutTask) == timeoutTask)
+                    throw new System.TimeoutException("Unity Services initialization timed out after 10 seconds");
+                await initTask;
                 Debugger.Log("[Main] Unity Services initialized successfully");
-            }
-            else
-            {
-                Debugger.Log("[Main] Unity Services already initialized");
             }
 
             await HandleAuthentication();
@@ -137,7 +129,6 @@ public class Main : MonoBehaviour
         catch (System.Exception e)
         {
             Debugger.LogError($"[Main] Failed to initialize Unity Services: {e.Message}");
-            Debugger.LogError($"[Main] Stack trace: {e.StackTrace}");
         }
     }
 
@@ -198,23 +189,15 @@ public class Main : MonoBehaviour
     /// </summary>
     private async Task CreateNewIdentity()
     {
-        Debugger.Log("[Main] Creating new anonymous identity...");
-        
-        // Remove existing event handlers to prevent duplicates
         AuthenticationService.Instance.SignedIn -= OnAuthSignedIn;
         AuthenticationService.Instance.SignInFailed -= OnAuthSignInFailed;
-        
-        // Add event handlers
         AuthenticationService.Instance.SignedIn += OnAuthSignedIn;
         AuthenticationService.Instance.SignInFailed += OnAuthSignInFailed;
 
-        Debugger.Log("[Main] Calling SignInAnonymouslyAsync...");
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        Debugger.Log($"[Main] Anonymous sign-in completed. Player ID: {AuthenticationService.Instance.PlayerId}");
-        
-        // Generate display name for this new identity
+        Debugger.Log($"[Main] Signed in anonymously - ID: {AuthenticationService.Instance.PlayerId}");
+
         GeneratePlayerDisplayName();
-        Debugger.Log($"[Main] Generated display name for new identity: {playerDisplayName}");
     }
 
     /// <summary>
@@ -239,20 +222,20 @@ public class Main : MonoBehaviour
     /// </summary>
     private async Task RestorePlayerIdentity(string playerId)
     {
+        // Anonymous auth doesn't support identity restoration; create a fresh one
+        Debugger.Log($"[Main] Cannot restore anonymous identity (was: {playerId}), creating new one");
         try
         {
-            // Note: With anonymous authentication, we can't directly restore a specific identity
-            // This would require switching to a different authentication method
-            // For now, we'll create a new identity but log the attempt
-            Debugger.Log($"[Main] Attempting to restore identity: {playerId}");
-            Debugger.LogWarning("[Main] Cannot restore anonymous identity, creating new one instead");
-            await CreateNewIdentity();
+            var signInTask = CreateNewIdentity();
+            var timeoutTask = Task.Delay(8000);
+            if (await Task.WhenAny(signInTask, timeoutTask) == timeoutTask)
+                throw new System.TimeoutException("Sign-in timed out during identity restore");
+            await signInTask;
         }
         catch (System.Exception e)
         {
-            Debugger.LogError($"[Main] Failed to restore identity {playerId}: {e.Message}");
-            Debugger.Log("[Main] Falling back to creating new identity");
-            await CreateNewIdentity(); // Fallback to new identity
+            Debugger.LogError($"[Main] Failed to create identity during restore: {e.Message}");
+            await CreateNewIdentity();
         }
     }
 
@@ -292,7 +275,6 @@ public class Main : MonoBehaviour
         int number = Random.Range(10, 999);
         
         playerDisplayName = $"{adjective}{noun}{number}";
-        Debugger.Log($"[Main] Generated new display name: {playerDisplayName}");
     }
 
     /// <summary>
@@ -300,9 +282,7 @@ public class Main : MonoBehaviour
     /// </summary>
     public string GetCurrentPlayerDisplayName()
     {
-        string displayName = playerDisplayName ?? "Anonymous";
-        Debugger.Log($"[Main] GetCurrentPlayerDisplayName: {displayName}");
-        return displayName;
+        return playerDisplayName ?? "Anonymous";
     }
 
     /// <summary>
@@ -311,31 +291,16 @@ public class Main : MonoBehaviour
     public string GetPlayerDisplayName(string playerId)
     {
         if (string.IsNullOrEmpty(playerId))
-        {
-            Debugger.Log("[Main] GetPlayerDisplayName: playerId is null/empty, returning Anonymous");
             return "Anonymous";
-        }
-        
-        // If it's the current player, return their display name
+
         if (playerId == GetCurrentPlayerIdentity())
-        {
-            string currentName = GetCurrentPlayerDisplayName();
-            Debugger.Log($"[Main] GetPlayerDisplayName: Current player, returning {currentName}");
-            return currentName;
-        }
-        
-        // Check cache first
+            return GetCurrentPlayerDisplayName();
+
         if (playerNameCache.TryGetValue(playerId, out string cachedName))
-        {
-            Debugger.Log($"[Main] GetPlayerDisplayName: Found cached name for {playerId}: {cachedName}");
             return cachedName;
-        }
-        
-        // For other players, we'd need to implement a proper lookup system
-        // For now, just return a shortened version of their ID
+
         string displayName = $"Player_{playerId.Substring(0, Mathf.Min(6, playerId.Length))}";
         playerNameCache[playerId] = displayName;
-        Debugger.Log($"[Main] GetPlayerDisplayName: Generated name for {playerId}: {displayName}");
         return displayName;
     }
 
@@ -344,7 +309,6 @@ public class Main : MonoBehaviour
     /// </summary>
     public void SetPlayerDisplayName(string name)
     {
-        Debugger.Log($"[Main] Setting player display name to: {name ?? "null"}");
         playerDisplayName = name;
     }
 
@@ -353,7 +317,6 @@ public class Main : MonoBehaviour
     /// </summary>
     public void SetSavedPlayerDisplayName(string name)
     {
-        Debugger.Log($"[Main] Setting saved player display name to: {name ?? "null"}");
         playerDisplayName = name;
     }
 
@@ -366,7 +329,6 @@ public class Main : MonoBehaviour
     /// </summary>
     public void StartNewGame()
     {
-        Debugger.Log("[Main] Starting new game...");
         StartCoroutine(StartNewGameCoroutine());
     }
 
@@ -375,47 +337,28 @@ public class Main : MonoBehaviour
     /// </summary>
     private IEnumerator StartNewGameCoroutine()
     {
-        // Reset game state if it exists
         if (GameState.Instance != null)
-        {
-            Debugger.Log("[Main] Resetting GameState score for new game");
             GameState.Instance.ResetScore();
-        }
-        
-        // Sign out and create new identity for fresh leaderboard entry
+
         var identityTask = CreateNewIdentityForNewGame();
-        
-        // Wait for completion with short timeout for WebGL
+
         float timeoutTimer = 0f;
-        float timeout = 5f; // Reduced from 20s - don't block game start
-        
+        float timeout = 5f;
+
         while (!identityTask.IsCompleted && timeoutTimer < timeout)
         {
             timeoutTimer += Time.deltaTime;
             yield return null;
         }
-        
+
         if (timeoutTimer >= timeout)
-        {
             Debugger.LogWarning("[Main] Identity creation timed out - continuing without leaderboard");
-            Debugger.LogWarning("[Main] You can still play the game. Leaderboard features will be unavailable.");
-        }
         else if (identityTask.IsFaulted)
-        {
             Debugger.LogWarning($"[Main] Identity creation failed: {identityTask.Exception?.GetBaseException().Message}");
-            Debugger.LogWarning("[Main] Game will continue without leaderboard features");
-        }
-        else
-        {
-            Debugger.Log($"[Main] Identity ready - ID: {GetCurrentPlayerIdentity()}, Name: {GetCurrentPlayerDisplayName()}");
-        }
-        
-        // Play game music track
+
         if (MusicManager.Instance != null)
-        {
             MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.Game);
-        }
-        
+
         SceneTransition.i.SendToScene("Main");
     }
 
@@ -425,81 +368,54 @@ public class Main : MonoBehaviour
     private async Task CreateNewIdentityForNewGame()
     {
         Debugger.Log("[Main] Creating new identity for new game...");
-        
+
         try
         {
-            // Clear saved identity and display name first
             savedPlayerIdentity = null;
             playerDisplayName = null;
             playerNameCache.Clear();
-            Debugger.Log("[Main] Cleared saved identity, display name, and name cache");
-            
-            // Sign out if already signed in
+
             if (AuthenticationService.Instance.IsSignedIn)
             {
-                Debugger.Log("[Main] Signing out from current account");
                 try
                 {
                     AuthenticationService.Instance.SignOut();
-                    await Task.Delay(200); // Short delay for sign out to complete
-                    Debugger.Log("[Main] Sign out completed");
+                    await Task.Yield(); // let browser process sign-out before proceeding
                 }
                 catch (System.Exception signOutEx)
                 {
                     Debugger.LogWarning($"[Main] Sign out failed: {signOutEx.Message}");
                 }
             }
-            
-            // Clear the session token - skip on WebGL to prevent freezing
+
             #if !UNITY_WEBGL || UNITY_EDITOR
             try
             {
-                Debugger.Log("[Main] Clearing session token (Editor/Standalone only)");
                 AuthenticationService.Instance.ClearSessionToken();
-                await Task.Delay(200);
+                await Task.Yield();
             }
             catch (System.Exception clearEx)
             {
                 Debugger.LogWarning($"[Main] ClearSessionToken failed: {clearEx.Message}");
             }
-            #else
-            Debugger.Log("[Main] Skipping ClearSessionToken on WebGL");
             #endif
-            
-            // Create new anonymous account (this will also generate a display name)
-            Debugger.Log("[Main] Creating new anonymous account");
-            
-            // Add timeout protection for WebGL
+
             var identityTask = CreateNewIdentity();
-            var timeoutTask = Task.Delay(4000); // 4 second timeout - fast fail for better UX
-            
-            var completedTask = await Task.WhenAny(identityTask, timeoutTask);
-            
-            if (completedTask == timeoutTask)
-            {
+            var timeoutTask = Task.Delay(4000);
+
+            if (await Task.WhenAny(identityTask, timeoutTask) == timeoutTask)
                 throw new System.TimeoutException("Identity creation timed out after 4 seconds");
-            }
-            
-            // Check for exceptions
-            await identityTask; // This will throw if the task faulted
-            
-            Debugger.Log($"[Main] New identity created - Player ID: {AuthenticationService.Instance.PlayerId}, Display Name: {playerDisplayName}");
+
+            await identityTask;
+            Debugger.Log($"[Main] New identity ready - ID: {AuthenticationService.Instance.PlayerId}, Name: {playerDisplayName}");
         }
         catch (System.TimeoutException te)
         {
             Debugger.LogWarning($"[Main] Identity creation timed out: {te.Message}");
-            Debugger.LogWarning("[Main] This may indicate network issues - game will continue without leaderboard");
         }
         catch (System.Exception e)
         {
             Debugger.LogWarning($"[Main] Failed to create new identity: {e.Message}");
-            Debugger.LogWarning("[Main] Game will continue without leaderboard features");
-            
-            // Log details for debugging
-            if (e.InnerException != null)
-            {
-                Debugger.Log($"[Main] Inner exception: {e.InnerException.Message}");
-            }
         }
     }
 
@@ -508,41 +424,38 @@ public class Main : MonoBehaviour
     /// </summary>
     public void VisitLeaderboard()
     {
-        Debugger.Log("[Main] Attempting to visit leaderboard...");
-        
-        // ensure user has an identity before visiting leaderboard
-        if (GameState.Instance != null)
+        if (GameState.Instance != null && string.IsNullOrEmpty(GetCurrentPlayerIdentity()))
         {
-            string playerId = GetCurrentPlayerIdentity();
-            if (string.IsNullOrEmpty(playerId))
-            {
-                Debugger.LogWarning("[Main] Cannot visit leaderboard - no player identity found");
-                return;
-            }
-            Debugger.Log($"[Main] Player identity verified: {playerId}");
+            Debugger.LogWarning("[Main] No player identity, attempting to create one before leaderboard...");
+            EnsureIdentityForLeaderboard();
         }
-        
-        // Play leaderboard music track
+
         if (MusicManager.Instance != null)
-        {
             MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.Leaderboard);
-        }
-        
-        Debugger.Log($"[Main] IsAuthenticationReady: {IsAuthenticationReady}");
+
         SceneTransition.i.SendToScene("Leaderboard");
+    }
+
+    // Replaces the .ContinueWith() pattern - async void is safe for fire-and-forget in Unity
+    private async void EnsureIdentityForLeaderboard()
+    {
+        try
+        {
+            await CreateNewIdentityForNewGame();
+            Debugger.Log($"[Main] Identity ready for leaderboard - ID: {GetCurrentPlayerIdentity()}, Name: {GetCurrentPlayerDisplayName()}");
+        }
+        catch (System.Exception e)
+        {
+            Debugger.LogWarning($"[Main] Failed to create identity for leaderboard: {e.Message}");
+        }
     }
 
 
     public void ViewCredits()
     {
-        Debugger.Log("[Main] Attempting to visit credits...");
-        
-        // Play main/credits music track
         if (MusicManager.Instance != null)
-        {
             MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.MainAndCredits);
-        }
-        
+
         SceneTransition.i.SendToScene("Credits");
     }
 
@@ -551,14 +464,9 @@ public class Main : MonoBehaviour
     /// </summary>
     public void ReturnHome()
     {
-        Debugger.Log("[Main] Returning to home scene");
-        
-        // Play main/credits music track for home
         if (MusicManager.Instance != null)
-        {
             MusicManager.Instance.PlayMainTrack(MusicManager.MainTrackType.MainAndCredits);
-        }
-        
+
         SceneTransition.i.SendToScene("Home");
     }
 
@@ -567,7 +475,6 @@ public class Main : MonoBehaviour
     /// </summary>
     public void LoadGame()
     {
-        Debugger.Log("[Main] Loading existing game session");
         loadGame = true;
         SceneTransition.i.SendToScene("Main");
     }
@@ -577,21 +484,15 @@ public class Main : MonoBehaviour
     /// </summary>
     public async void SaveGame()
     {
-        Debugger.Log("[Main] SaveGame called");
-        
         if (GameState.Instance == null)
         {
             Debugger.LogWarning("[Main] Cannot save game - GameState not found");
             return;
         }
 
-        Debugger.Log($"[Main] Current game stats - Score: {GetScore()}, Max Population: {GetMaxPopulation()}");
-
-        // Save game data first
         SaveManager.Save();
-        Debugger.Log("[Main] Game saved successfully to file/PlayerPrefs");
+        Debugger.Log("[Main] Game saved");
 
-        // Submit high score (max population) to leaderboard (don't block save if this fails)
         await SubmitHighScoreToLeaderboard();
     }
 
@@ -600,36 +501,21 @@ public class Main : MonoBehaviour
     /// </summary>
     private async Task SubmitHighScoreToLeaderboard()
     {
-        Debugger.Log("[Main] SubmitHighScoreToLeaderboard called");
-        Debugger.Log($"[Main] Authentication status - IsAuthenticationReady: {IsAuthenticationReady}, IsSignedIn: {AuthenticationService.Instance.IsSignedIn}");
-        
+        if (!IsAuthenticationReady || !AuthenticationService.Instance.IsSignedIn)
+        {
+            Debugger.LogWarning("[Main] Cannot submit score - not authenticated");
+            return;
+        }
+
         try
         {
-            if (IsAuthenticationReady && AuthenticationService.Instance.IsSignedIn)
-            {
-                int highScore = GetMaxPopulation(); // Submit high score (max population) instead of current score
-                Debugger.Log($"[Main] Preparing to submit high score: {highScore}");
-                
-                if (highScore > 0)
-                {
-                    await AddScoreToLeaderboard(highScore);
-                    Debugger.Log($"[Main] High score {highScore} submitted to leaderboard successfully");
-                }
-                else
-                {
-                    Debugger.Log("[Main] No high score to submit to leaderboard (score is 0)");
-                }
-            }
-            else
-            {
-                Debugger.LogWarning($"[Main] Cannot submit score - authentication not ready. IsAuthenticationReady: {IsAuthenticationReady}, IsSignedIn: {AuthenticationService.Instance.IsSignedIn}");
-            }
+            int highScore = GetMaxPopulation();
+            if (highScore > 0)
+                await AddScoreToLeaderboard(highScore);
         }
         catch (System.Exception e)
         {
-            // Don't let leaderboard errors break the save process
-            Debugger.LogWarning($"[Main] Failed to submit high score to leaderboard: {e.Message}");
-            Debugger.LogWarning($"[Main] Leaderboard submission stack trace: {e.StackTrace}");
+            Debugger.LogWarning($"[Main] Failed to submit high score: {e.Message}");
         }
     }
 
@@ -642,8 +528,6 @@ public class Main : MonoBehaviour
     /// </summary>
     public async Task<bool> CheckLeaderboardStatus()
     {
-        Debugger.Log("[Main] Checking leaderboard connection status...");
-        
         if (!IsAuthenticationReady || !AuthenticationService.Instance.IsSignedIn)
         {
             Debugger.LogWarning("[Main] Cannot check leaderboard - authentication not ready");
@@ -652,9 +536,15 @@ public class Main : MonoBehaviour
 
         try
         {
-            // Try to get a minimal leaderboard response to test connectivity
-            var testResponse = await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId, new GetScoresOptions { Limit = 1 });
-            Debugger.Log($"[Main] Leaderboard connection successful. Response entries: {testResponse?.Results?.Count ?? 0}");
+            var checkTask = LeaderboardsService.Instance.GetScoresAsync(LeaderboardId, new GetScoresOptions { Limit = 1 });
+            var timeoutTask = Task.Delay(8000);
+            if (await Task.WhenAny(checkTask, timeoutTask) == timeoutTask)
+            {
+                Debugger.LogError("[Main] Leaderboard connection timed out");
+                return false;
+            }
+            var testResponse = await checkTask;
+            Debugger.Log($"[Main] Leaderboard connection OK. Entries: {testResponse?.Results?.Count ?? 0}");
             return true;
         }
         catch (System.Exception e)
@@ -669,9 +559,6 @@ public class Main : MonoBehaviour
     /// </summary>
     public async Task AddScoreToLeaderboard(int score)
     {
-        Debugger.Log($"[Main] AddScoreToLeaderboard called with score: {score}");
-        Debugger.Log($"[Main] Authentication check - IsAuthenticationReady: {IsAuthenticationReady}, IsSignedIn: {AuthenticationService.Instance.IsSignedIn}");
-        
         if (!IsAuthenticationReady || !AuthenticationService.Instance.IsSignedIn)
         {
             Debugger.LogWarning("[Main] Cannot add score to leaderboard - authentication not ready");
@@ -680,96 +567,30 @@ public class Main : MonoBehaviour
 
         try
         {
-            Debugger.Log($"[Main] Submitting score to leaderboard ID: {LeaderboardId}");
-            
-            // Get current player display name for metadata with validation
             string playerName = GetCurrentPlayerDisplayName();
-            Debugger.Log($"[Main] Retrieved player name for metadata: '{playerName}'");
-            
-            // Validate player name before using it
             if (string.IsNullOrEmpty(playerName) || playerName == "null")
-            {
-                Debugger.LogWarning("[Main] Player name is null or empty, using fallback");
                 playerName = "Anonymous";
-            }
-            
-            Debugger.Log($"[Main] Final player name for metadata: '{playerName}'");
-            
-            // Create metadata dictionary - Unity Leaderboards expects Dictionary<string, object> for submission
-            Dictionary<string, object> metadata = null;
-            
-            try
-            {
-                metadata = new Dictionary<string, object>
-                {
-                    { "playerName", playerName }
-                };
-                
-                Debugger.Log($"[Main] Created metadata dictionary with {metadata.Count} entries");
-                Debugger.Log($"[Main] Metadata playerName value: '{metadata["playerName"]}'");
-                Debugger.Log($"[Main] Metadata playerName type: {metadata["playerName"]?.GetType().Name ?? "null"}");
-            }
-            catch (System.Exception metadataException)
-            {
-                Debugger.LogError($"[Main] Failed to create metadata dictionary: {metadataException.Message}");
-                // Fallback to simple metadata creation
-                metadata = new Dictionary<string, object> { { "playerName", "Anonymous" } };
-            }
-            
-            // Submit score with metadata containing player name
-            Debugger.Log($"[Main] Submitting to leaderboard with metadata: playerName='{metadata["playerName"]}'");
-            
-            var scoreResponse = await LeaderboardsService.Instance.AddPlayerScoreAsync(
-                LeaderboardId, 
-                score, 
-                new AddPlayerScoreOptions 
-                { 
-                    Metadata = metadata 
-                }
+
+            var metadata = new Dictionary<string, object> { { "playerName", playerName } };
+
+            Debugger.Log($"[Main] Submitting score {score} to leaderboard as '{playerName}'...");
+
+            var scoreTask = LeaderboardsService.Instance.AddPlayerScoreAsync(
+                LeaderboardId,
+                score,
+                new AddPlayerScoreOptions { Metadata = metadata }
             );
-            
-            Debugger.Log("[Main] Score submission with metadata successful!");
-            Debugger.Log($"[Main] Response PlayerId: {scoreResponse?.PlayerId ?? "null"}");
-            Debugger.Log($"[Main] Response Score: {scoreResponse?.Score ?? 0}");
-            Debugger.Log($"[Main] Response Rank: {scoreResponse?.Rank ?? -1}");
-            
-            // Log metadata from response - fixed to handle string metadata
-            if (!string.IsNullOrEmpty(scoreResponse?.Metadata))
-            {
-                Debugger.Log($"[Main] Response metadata: {scoreResponse.Metadata}");
-            }
-            else
-            {
-                Debugger.LogWarning("[Main] Response metadata is null or empty");
-            }
-            
-            // Attempt to log full response with better error handling
-            try
-            {
-                string jsonResponse = JsonUtility.ToJson(scoreResponse);
-                Debugger.Log($"[Main] Full response JSON: {jsonResponse}");
-            }
-            catch (System.ArgumentException jsonException)
-            {
-                Debugger.LogWarning($"[Main] Failed to serialize response to JSON: {jsonException.Message}");
-                Debugger.Log($"[Main] Score response (ToString): {scoreResponse?.ToString() ?? "null"}");
-            }
-            catch (System.Exception jsonException)
-            {
-                Debugger.LogWarning($"[Main] Unexpected error serializing response: {jsonException.Message}");
-            }
+            var timeoutTask = Task.Delay(8000);
+            if (await Task.WhenAny(scoreTask, timeoutTask) == timeoutTask)
+                throw new System.TimeoutException("Leaderboard score submission timed out after 8 seconds");
+
+            var scoreResponse = await scoreTask;
+            Debugger.Log($"[Main] Score submitted - Rank: {scoreResponse?.Rank ?? -1}, Score: {scoreResponse?.Score ?? 0}");
         }
         catch (System.Exception e)
         {
             Debugger.LogError($"[Main] Failed to add score to leaderboard: {e.Message}");
-            Debugger.LogError($"[Main] Leaderboard error stack trace: {e.StackTrace}");
-            
-            // Log additional context for debugging
-            Debugger.LogError($"[Main] Score being submitted: {score}");
-            Debugger.LogError($"[Main] Player ID: {AuthenticationService.Instance?.PlayerId ?? "null"}");
-            Debugger.LogError($"[Main] Player Display Name: {GetCurrentPlayerDisplayName()}");
-            
-            throw; // Re-throw to allow caller to handle
+            throw;
         }
     }
 
@@ -778,9 +599,7 @@ public class Main : MonoBehaviour
     /// </summary>
     public async Task AddCurrentScoreToLeaderboard()
     {
-        int currentScore = GetScore();
-        Debugger.Log($"[Main] AddCurrentScoreToLeaderboard - submitting current score: {currentScore}");
-        await AddScoreToLeaderboard(currentScore);
+        await AddScoreToLeaderboard(GetScore());
     }
 
     /// <summary>
@@ -788,9 +607,7 @@ public class Main : MonoBehaviour
     /// </summary>
     public async Task AddHighScoreToLeaderboard()
     {
-        int highScore = GetMaxPopulation();
-        Debugger.Log($"[Main] AddHighScoreToLeaderboard - submitting high score: {highScore}");
-        await AddScoreToLeaderboard(highScore);
+        await AddScoreToLeaderboard(GetMaxPopulation());
     }
 
     #endregion
@@ -802,9 +619,7 @@ public class Main : MonoBehaviour
     /// </summary>
     public int GetScore()
     {
-        int score = GameState.Instance?.GetScore() ?? 0;
-        Debugger.Log($"[Main] GetScore: {score}");
-        return score;
+        return GameState.Instance?.GetScore() ?? 0;
     }
 
     /// <summary>
@@ -812,9 +627,7 @@ public class Main : MonoBehaviour
     /// </summary>
     public int GetMaxPopulation()
     {
-        int maxPop = GameState.Instance?.GetMaxPopulation() ?? 0;
-        Debugger.Log($"[Main] GetMaxPopulation: {maxPop}");
-        return maxPop;
+        return GameState.Instance?.GetMaxPopulation() ?? 0;
     }
 
     #endregion
@@ -875,26 +688,16 @@ public class Main : MonoBehaviour
 
     void OnDestroy()
     {
-        Debugger.Log("[Main] OnDestroy called");
         if (Instance == this)
-        {
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            Debugger.Log("[Main] Unsubscribed from SceneManager.sceneLoaded");
-        }
     }
 
 
     public void onExitGame()
     {
-        Debugger.Log("[Main] onExitGame called - saving and exiting...");
-
-        // then quit application
         Application.Quit();
-
-        // if the application is running in the editor, stop play mode instead of quitting
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-        Debugger.Log("[Main] Editor play mode stopped");
         #endif
     }
 
@@ -902,26 +705,14 @@ public class Main : MonoBehaviour
 
     void OnApplicationPause(bool pauseStatus)
     {
-        Debugger.Log($"[Main] OnApplicationPause: {pauseStatus}, loadGame: {loadGame}");
-
         if (!loadGame) return;
-
-        if (pauseStatus) 
-        {
-            Debugger.Log("[Main] App paused, saving game");
-        }
+        // TODO: implement auto-save on pause
     }
 
     void OnApplicationFocus(bool hasFocus)
     {
-        Debugger.Log($"[Main] OnApplicationFocus: {hasFocus}, loadGame: {loadGame}");
-        
         if (!loadGame) return;
-
-        if (!hasFocus) 
-        {
-            Debugger.Log("[Main] App lost focus, saving game");
-        }
+        // TODO: implement auto-save on focus loss
     }
 
     #endregion

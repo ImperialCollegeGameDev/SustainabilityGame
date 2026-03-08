@@ -616,6 +616,11 @@ public class GridManager : MonoBehaviour
         {
             GrassSpawner = GrassFieldSpawner.Instance;
         }
+        if (GrassSpawner == null)
+        {
+            Debugger.LogWarning("GrassFieldSpawner not found in scene. Grass field will not be generated.");
+            return;
+        }
         Debugger.Log($"Generating grass field with spawner: {GrassSpawner.name}");
 
         GrassSpawner.Size = new Vector2(40f, 40f);

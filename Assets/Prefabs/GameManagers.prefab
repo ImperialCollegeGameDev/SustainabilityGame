@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectionManager
   SelectedTileInfoPanelPrefab: {fileID: 0}
-  canvas: {fileID: 0}
+  panelOffset: {x: -60, y: 60}
 --- !u!1 &3842158376267627783
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,53 +179,8 @@ Transform:
   - {fileID: 151040259533927340}
   - {fileID: 1085065222085634705}
   - {fileID: 2622882221863625089}
-  - {fileID: 987544504378214621}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4134837013274084691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 987544504378214621}
-  - component: {fileID: 1617927000804775754}
-  m_Layer: 0
-  m_Name: Tutorial
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &987544504378214621
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4134837013274084691}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5443950248495456832}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1617927000804775754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4134837013274084691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cacb6914a9fae2f47ace6bff4a9cdace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tutorial
 --- !u!1 &5024371826338757435
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,11 +282,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DayNight
   manualDayLengthSeconds: 0
   directionalLight: {fileID: 0}
+  underwaterLight: {fileID: 0}
+  underwaterIntensityMultiplier: 0.4
   azimuthDegrees: 0
   maxElevationDegrees: 65
   animateIntensity: 1
   dayIntensity: 1.2
   nightIntensity: 0.05
+  disableLightAtNight: 1
   morningPink: {r: 1, g: 0.65, b: 0.85, a: 1}
   noonWhite: {r: 1, g: 1, b: 1, a: 1}
   lateAfternoonWarm: {r: 1, g: 0.86, b: 0.65, a: 1}

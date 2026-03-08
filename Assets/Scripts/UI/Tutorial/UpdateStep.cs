@@ -14,11 +14,11 @@ public class UpdateStep: MonoBehaviour
     {
         if (isForward)
         {
-            Tutorial.Instance.Next();
+            TutorialPanel.Instance.Next();
         }
         else
         {
-            Tutorial.Instance.Back();
+            TutorialPanel.Instance.Back();
         }
     }
 }
