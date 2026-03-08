@@ -30,34 +30,34 @@ public class Leaderboard : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("[Leaderboard] Awake called");
+        Debugger.Log("[Leaderboard] Awake called");
         
         // Validate required references early
         if (leaderboard_entryPrefab == null)
         {
-            Debug.LogError("[Leaderboard] Leaderboard entry prefab is not assigned! Please assign it in the inspector.");
+            Debugger.LogError("[Leaderboard] Leaderboard entry prefab is not assigned! Please assign it in the inspector.");
         }
         
         if (spawnParent == null)
         {
-            Debug.LogWarning("[Leaderboard] Spawn parent is not assigned! Will use this transform as parent.");
+            Debugger.LogWarning("[Leaderboard] Spawn parent is not assigned! Will use this transform as parent.");
             spawnParent = gameObject;
         }
     }
 
     async void Start()
     {
-        Debug.Log("[Leaderboard] Start called - beginning leaderboard initialization");
+        Debugger.Log("[Leaderboard] Start called - beginning leaderboard initialization");
         
         // Ensure LeanTween is initialized
         try
         {
             LeanTween.init();
-            Debug.Log("[Leaderboard] LeanTween initialized successfully");
+            Debugger.Log("[Leaderboard] LeanTween initialized successfully");
         }
         catch (System.Exception e)
         {
-            Debug.LogWarning($"[Leaderboard] LeanTween initialization failed: {e.Message}");
+            Debugger.LogWarning($"[Leaderboard] LeanTween initialization failed: {e.Message}");
         }
         
         // Wait for authentication to be ready and then load leaderboard data
@@ -71,15 +71,15 @@ public class Leaderboard : MonoBehaviour
     {
         try
         {
-            Debug.Log("[Leaderboard] Starting to load leaderboard data...");
-            Debug.Log($"[Leaderboard] Main.IsAuthenticationReady: {Main.IsAuthenticationReady}");
-            Debug.Log($"[Leaderboard] Main.Instance exists: {Main.Instance != null}");
+            Debugger.Log("[Leaderboard] Starting to load leaderboard data...");
+            Debugger.Log($"[Leaderboard] Main.IsAuthenticationReady: {Main.IsAuthenticationReady}");
+            Debugger.Log($"[Leaderboard] Main.Instance exists: {Main.Instance != null}");
 
             // Wait for authentication to be ready with timeout
             float timeout = 10f; // 10 second timeout
             float elapsed = 0f;
             
-            Debug.Log($"[Leaderboard] Waiting for authentication (timeout: {timeout}s)...");
+            Debugger.Log($"[Leaderboard] Waiting for authentication (timeout: {timeout}s)...");
             while (!Main.IsAuthenticationReady && elapsed < timeout)
             {
                 await Task.Delay(100); // Wait 100ms before checking again
@@ -87,25 +87,25 @@ public class Leaderboard : MonoBehaviour
                 
                 if (elapsed % 1.0f < 0.1f) // Log every second
                 {
-                    Debug.Log($"[Leaderboard] Still waiting for auth... ({elapsed:F1}s elapsed)");
+                    Debugger.Log($"[Leaderboard] Still waiting for auth... ({elapsed:F1}s elapsed)");
                 }
             }
 
             if (!Main.IsAuthenticationReady)
             {
-                Debug.LogError($"[Leaderboard] Authentication not ready after {timeout}s timeout. Cannot load leaderboard data.");
-                Debug.LogError($"[Leaderboard] Final auth status - Main.IsAuthenticationReady: {Main.IsAuthenticationReady}");
-                Debug.LogError($"[Leaderboard] AuthenticationService.Instance.IsSignedIn: {AuthenticationService.Instance?.IsSignedIn ?? false}");
+                Debugger.LogError($"[Leaderboard] Authentication not ready after {timeout}s timeout. Cannot load leaderboard data.");
+                Debugger.LogError($"[Leaderboard] Final auth status - Main.IsAuthenticationReady: {Main.IsAuthenticationReady}");
+                Debugger.LogError($"[Leaderboard] AuthenticationService.Instance.IsSignedIn: {AuthenticationService.Instance?.IsSignedIn ?? false}");
                 ShowErrorMessage("Authentication failed. Please try again later.");
                 return;
             }
 
-            Debug.Log($"[Leaderboard] Authentication ready after {elapsed:F1}s");
-            Debug.Log($"[Leaderboard] Player ID: {AuthenticationService.Instance.PlayerId}");
+            Debugger.Log($"[Leaderboard] Authentication ready after {elapsed:F1}s");
+            Debugger.Log($"[Leaderboard] Player ID: {AuthenticationService.Instance.PlayerId}");
             
             // Check leaderboard connection status
             bool leaderboardConnected = await CheckLeaderboardConnection();
-            Debug.Log($"[Leaderboard] Leaderboard connection status: {leaderboardConnected}");
+            Debugger.Log($"[Leaderboard] Leaderboard connection status: {leaderboardConnected}");
             
             if (!leaderboardConnected)
             {
@@ -114,16 +114,16 @@ public class Leaderboard : MonoBehaviour
             }
 
             // Fetch leaderboard scores and generate UI - use await to ensure proper sequencing
-            Debug.Log("[Leaderboard] Fetching leaderboard scores and player score...");
+            Debugger.Log("[Leaderboard] Fetching leaderboard scores and player score...");
             await GetScoresAsync();
             await GetPlayerScoreAsync();
             
-            Debug.Log("[Leaderboard] Leaderboard data fetch completed successfully");
+            Debugger.Log("[Leaderboard] Leaderboard data fetch completed successfully");
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[Leaderboard] Failed to load leaderboard data: {e.Message}");
-            Debug.LogError($"[Leaderboard] LoadLeaderboardData stack trace: {e.StackTrace}");
+            Debugger.LogError($"[Leaderboard] Failed to load leaderboard data: {e.Message}");
+            Debugger.LogError($"[Leaderboard] LoadLeaderboardData stack trace: {e.StackTrace}");
             ShowErrorMessage("Failed to load leaderboard data. Please try refreshing.");
         }
     }
@@ -133,7 +133,7 @@ public class Leaderboard : MonoBehaviour
     /// </summary>
     private void ShowErrorMessage(string message)
     {
-        Debug.LogWarning($"[Leaderboard] Error message for user: {message}");
+        Debugger.LogWarning($"[Leaderboard] Error message for user: {message}");
         // TODO: Implement actual UI error message display
     }
 
@@ -144,14 +144,14 @@ public class Leaderboard : MonoBehaviour
     {
         try
         {
-            Debug.Log("[Leaderboard] Testing leaderboard connection...");
+            Debugger.Log("[Leaderboard] Testing leaderboard connection...");
             var testResponse = await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId, new GetScoresOptions { Limit = 1 });
-            Debug.Log($"[Leaderboard] Connection test successful. Results count: {testResponse?.Results?.Count ?? 0}");
+            Debugger.Log($"[Leaderboard] Connection test successful. Results count: {testResponse?.Results?.Count ?? 0}");
             return true;
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[Leaderboard] Connection test failed: {e.Message}");
+            Debugger.LogError($"[Leaderboard] Connection test failed: {e.Message}");
             return false;
         }
     }
@@ -164,12 +164,12 @@ public class Leaderboard : MonoBehaviour
         bool mainReady = Main.IsAuthenticationReady;
         bool serviceSignedIn = AuthenticationService.Instance?.IsSignedIn ?? false;
         
-        Debug.Log($"[Leaderboard] Authentication check - Main.IsAuthenticationReady: {mainReady}, AuthService.IsSignedIn: {serviceSignedIn}");
+        Debugger.Log($"[Leaderboard] Authentication check - Main.IsAuthenticationReady: {mainReady}, AuthService.IsSignedIn: {serviceSignedIn}");
         
         if (!mainReady || !serviceSignedIn)
         {
-            Debug.LogWarning("[Leaderboard] Authentication not ready. Make sure Main class has initialized Unity Services.");
-            Debug.LogWarning($"[Leaderboard] Details - Main ready: {mainReady}, Service signed in: {serviceSignedIn}");
+            Debugger.LogWarning("[Leaderboard] Authentication not ready. Make sure Main class has initialized Unity Services.");
+            Debugger.LogWarning($"[Leaderboard] Details - Main ready: {mainReady}, Service signed in: {serviceSignedIn}");
             return false;
         }
         return true;
@@ -180,7 +180,7 @@ public class Leaderboard : MonoBehaviour
     /// </summary>
     public async void RefreshLeaderboard()
     {
-        Debug.Log("[Leaderboard] RefreshLeaderboard called - reloading data...");
+        Debugger.Log("[Leaderboard] RefreshLeaderboard called - reloading data...");
         await LoadLeaderboardData();
     }
 
@@ -189,40 +189,40 @@ public class Leaderboard : MonoBehaviour
     /// </summary>
     private async Task GetScoresAsync()
     {
-        Debug.Log("[Leaderboard] GetScoresAsync called");
+        Debugger.Log("[Leaderboard] GetScoresAsync called");
         
         if (!IsAuthenticationReady()) 
         {
-            Debug.LogWarning("[Leaderboard] GetScoresAsync aborted - authentication not ready");
+            Debugger.LogWarning("[Leaderboard] GetScoresAsync aborted - authentication not ready");
             return;
         }
 
         try
         {
-            Debug.Log($"[Leaderboard] Requesting scores from leaderboard ID: {LeaderboardId}");
+            Debugger.Log($"[Leaderboard] Requesting scores from leaderboard ID: {LeaderboardId}");
             var scoresResponse = await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId, new GetScoresOptions { IncludeMetadata = true });
             
-            Debug.Log($"[Leaderboard] Scores response received");
-            Debug.Log($"[Leaderboard] Results count: {scoresResponse?.Results?.Count ?? 0}");
-            Debug.Log($"[Leaderboard] Total entries: {scoresResponse?.Total ?? 0}");
-            Debug.Log($"[Leaderboard] Offset: {scoresResponse?.Offset ?? 0}");
-            Debug.Log($"[Leaderboard] Limit: {scoresResponse?.Limit ?? 0}");
+            Debugger.Log($"[Leaderboard] Scores response received");
+            Debugger.Log($"[Leaderboard] Results count: {scoresResponse?.Results?.Count ?? 0}");
+            Debugger.Log($"[Leaderboard] Total entries: {scoresResponse?.Total ?? 0}");
+            Debugger.Log($"[Leaderboard] Offset: {scoresResponse?.Offset ?? 0}");
+            Debugger.Log($"[Leaderboard] Limit: {scoresResponse?.Limit ?? 0}");
 
             if (scoresResponse?.Results != null)
             {
                 for (int i = 0; i < scoresResponse.Results.Count; i++)
                 {
                     var entry = scoresResponse.Results[i];
-                    Debug.Log($"[Leaderboard] Entry {i}: Rank={entry.Rank}, Score={entry.Score}, PlayerID={entry.PlayerId}");
+                    Debugger.Log($"[Leaderboard] Entry {i}: Rank={entry.Rank}, Score={entry.Score}, PlayerID={entry.PlayerId}");
                     
                     // Log metadata - fixed to handle string metadata
                     if (!string.IsNullOrEmpty(entry.Metadata))
                     {
-                        Debug.Log($"[Leaderboard] Entry {i} metadata: {entry.Metadata}");
+                        Debugger.Log($"[Leaderboard] Entry {i} metadata: {entry.Metadata}");
                     }
                     else
                     {
-                        Debug.Log($"[Leaderboard] Entry {i} has no metadata");
+                        Debugger.Log($"[Leaderboard] Entry {i} has no metadata");
                     }
                 }
             }
@@ -231,8 +231,8 @@ public class Leaderboard : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[Leaderboard] Failed to get scores: {e.Message}");
-            Debug.LogError($"[Leaderboard] GetScoresAsync stack trace: {e.StackTrace}");
+            Debugger.LogError($"[Leaderboard] Failed to get scores: {e.Message}");
+            Debugger.LogError($"[Leaderboard] GetScoresAsync stack trace: {e.StackTrace}");
             ShowErrorMessage("Failed to load leaderboard scores.");
         }
     }
@@ -245,11 +245,11 @@ public class Leaderboard : MonoBehaviour
 
     public async void GetPaginatedScores()
     {
-        Debug.Log($"[Leaderboard] GetPaginatedScores called with Offset={Offset}, Limit={Limit}");
+        Debugger.Log($"[Leaderboard] GetPaginatedScores called with Offset={Offset}, Limit={Limit}");
         
         if (!IsAuthenticationReady()) 
         {
-            Debug.LogWarning("[Leaderboard] GetPaginatedScores aborted - authentication not ready");
+            Debugger.LogWarning("[Leaderboard] GetPaginatedScores aborted - authentication not ready");
             return;
         }
 
@@ -257,53 +257,53 @@ public class Leaderboard : MonoBehaviour
         {
             Offset = 10;
             Limit = 10;
-            Debug.Log($"[Leaderboard] Requesting paginated scores - Offset: {Offset}, Limit: {Limit}");
+            Debugger.Log($"[Leaderboard] Requesting paginated scores - Offset: {Offset}, Limit: {Limit}");
             
             var scoresResponse = await LeaderboardsService.Instance.GetScoresAsync(LeaderboardId, new GetScoresOptions { Offset = Offset, Limit = Limit, IncludeMetadata = true });
             
-            Debug.Log($"[Leaderboard] Paginated scores response received - Results count: {scoresResponse?.Results?.Count ?? 0}");
+            Debugger.Log($"[Leaderboard] Paginated scores response received - Results count: {scoresResponse?.Results?.Count ?? 0}");
 
             generateLeaderboard(scoresResponse);
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[Leaderboard] Failed to get paginated scores: {e.Message}");
-            Debug.LogError($"[Leaderboard] GetPaginatedScores stack trace: {e.StackTrace}");
+            Debugger.LogError($"[Leaderboard] Failed to get paginated scores: {e.Message}");
+            Debugger.LogError($"[Leaderboard] GetPaginatedScores stack trace: {e.StackTrace}");
         }
     }
 
     public void generateLeaderboard(LeaderboardScoresPage scoresPage)
     {
-        Debug.Log("[Leaderboard] generateLeaderboard called");
+        Debugger.Log("[Leaderboard] generateLeaderboard called");
         
         if (scoresPage == null)
         {
-            Debug.LogWarning("[Leaderboard] Null scores page passed to generateLeaderboard");
+            Debugger.LogWarning("[Leaderboard] Null scores page passed to generateLeaderboard");
             return;
         }
 
         if (leaderboard_entryPrefab == null)
         {
-            Debug.LogError("[Leaderboard] Leaderboard entry prefab not assigned!");
+            Debugger.LogError("[Leaderboard] Leaderboard entry prefab not assigned!");
             ShowErrorMessage("Leaderboard configuration error. Please contact support.");
             return;
         }
 
         if (spawnParent == null)
         {
-            Debug.LogError("[Leaderboard] Spawn parent not assigned!");
+            Debugger.LogError("[Leaderboard] Spawn parent not assigned!");
             spawnParent = gameObject; // Fallback to self
         }
 
-        Debug.Log($"[Leaderboard] Generating leaderboard with {scoresPage.Results?.Count ?? 0} entries");
+        Debugger.Log($"[Leaderboard] Generating leaderboard with {scoresPage.Results?.Count ?? 0} entries");
 
         // Clear existing entries before generating new ones
         int clearedEntries = ClearExistingEntries();
-        Debug.Log($"[Leaderboard] Cleared {clearedEntries} existing entries");
+        Debugger.Log($"[Leaderboard] Cleared {clearedEntries} existing entries");
         
         if (scoresPage.Results == null || scoresPage.Results.Count == 0)
         {
-            Debug.Log("[Leaderboard] No results to display");
+            Debugger.Log("[Leaderboard] No results to display");
             ShowErrorMessage("No leaderboard entries found.");
             return;
         }
@@ -313,70 +313,70 @@ public class Leaderboard : MonoBehaviour
         {
             if (entry == null)
             {
-                Debug.LogWarning($"[Leaderboard] Null entry at index {entryIndex}, skipping...");
+                Debugger.LogWarning($"[Leaderboard] Null entry at index {entryIndex}, skipping...");
                 continue;
             }
 
-            Debug.Log($"[Leaderboard] Processing entry {entryIndex}: Rank={entry.Rank}, Score={entry.Score}, PlayerID={entry.PlayerId}");
+            Debugger.Log($"[Leaderboard] Processing entry {entryIndex}: Rank={entry.Rank}, Score={entry.Score}, PlayerID={entry.PlayerId}");
             
             try
             {
                 GameObject newEntry = Instantiate(leaderboard_entryPrefab, spawnParent.transform);
                 if (newEntry == null)
                 {
-                    Debug.LogError($"[Leaderboard] Failed to instantiate entry prefab for entry {entryIndex}");
+                    Debugger.LogError($"[Leaderboard] Failed to instantiate entry prefab for entry {entryIndex}");
                     continue;
                 }
 
                 // Track the created entry for cleanup
                 activeLeaderboardEntries.Add(newEntry);
                 
-                Debug.Log($"[Leaderboard] Instantiated entry prefab: {newEntry.name}");
+                Debugger.Log($"[Leaderboard] Instantiated entry prefab: {newEntry.name}");
                 
                 // Get all TextMeshPro components from the entry
                 TextMeshProUGUI[] textComponents = newEntry.GetComponentsInChildren<TextMeshProUGUI>();
-                Debug.Log($"[Leaderboard] Found {textComponents.Length} TextMeshPro components in entry");
+                Debugger.Log($"[Leaderboard] Found {textComponents.Length} TextMeshPro components in entry");
                 
                 if (textComponents.Length >= 3)
                 {
                     // Set rank (first TextMeshPro child)
                     string rankText = $"#{entry.Rank + 1}";
                     textComponents[0].text = rankText;
-                    Debug.Log($"[Leaderboard] Set rank text: {rankText}");
+                    Debugger.Log($"[Leaderboard] Set rank text: {rankText}");
                     
                     // Set score (second TextMeshPro child)
                     string scoreText = ((int)entry.Score).ToString();
                     textComponents[1].text = scoreText;
-                    Debug.Log($"[Leaderboard] Set score text: {scoreText}");
+                    Debugger.Log($"[Leaderboard] Set score text: {scoreText}");
                     
                     // Set player name (third TextMeshPro child) - from metadata
                     string displayName = GetPlayerNameFromMetadata(entry);
                     textComponents[2].text = displayName;
-                    Debug.Log($"[Leaderboard] Set player name: {displayName}");
+                    Debugger.Log($"[Leaderboard] Set player name: {displayName}");
                 }
                 else
                 {
-                    Debug.LogWarning($"[Leaderboard] Entry prefab doesn't have enough TextMeshPro children. Expected 3, found {textComponents.Length}");
-                    Debug.LogWarning($"[Leaderboard] Entry prefab structure:");
+                    Debugger.LogWarning($"[Leaderboard] Entry prefab doesn't have enough TextMeshPro children. Expected 3, found {textComponents.Length}");
+                    Debugger.LogWarning($"[Leaderboard] Entry prefab structure:");
                     for (int i = 0; i < textComponents.Length; i++)
                     {
-                        Debug.LogWarning($"[Leaderboard]   TextMeshPro {i}: {textComponents[i].name} - {textComponents[i].text}");
+                        Debugger.LogWarning($"[Leaderboard]   TextMeshPro {i}: {textComponents[i].name} - {textComponents[i].text}");
                     }
                 }
                 
                 // Add LeanTween animation with error handling
-                Debug.Log($"[Leaderboard] Adding animation to entry {entryIndex}");
+                Debugger.Log($"[Leaderboard] Adding animation to entry {entryIndex}");
                 AnimateEntryIn(newEntry, entryIndex);
                 entryIndex++;
             }
             catch (System.Exception e)
             {
-                Debug.LogError($"[Leaderboard] Failed to create entry {entryIndex}: {e.Message}");
-                Debug.LogError($"[Leaderboard] Entry creation stack trace: {e.StackTrace}");
+                Debugger.LogError($"[Leaderboard] Failed to create entry {entryIndex}: {e.Message}");
+                Debugger.LogError($"[Leaderboard] Entry creation stack trace: {e.StackTrace}");
             }
         }
         
-        Debug.Log($"[Leaderboard] Successfully processed {entryIndex} leaderboard entries");
+        Debugger.Log($"[Leaderboard] Successfully processed {entryIndex} leaderboard entries");
     }
 
     /// <summary>
@@ -386,41 +386,41 @@ public class Leaderboard : MonoBehaviour
     {
         if (entry == null)
         {
-            Debug.LogWarning("[Leaderboard] GetPlayerNameFromMetadata: entry is null");
+            Debugger.LogWarning("[Leaderboard] GetPlayerNameFromMetadata: entry is null");
             return "Anonymous";
         }
 
-        Debug.Log($"[Leaderboard] GetPlayerNameFromMetadata called for player {entry.PlayerId}");
+        Debugger.Log($"[Leaderboard] GetPlayerNameFromMetadata called for player {entry.PlayerId}");
         
         // Check if entry has metadata
         if (string.IsNullOrEmpty(entry.Metadata))
         {
-            Debug.Log($"[Leaderboard] No metadata found for player {entry.PlayerId}, using fallback");
+            Debugger.Log($"[Leaderboard] No metadata found for player {entry.PlayerId}, using fallback");
             return "Anonymous";
         }
         
         // Parse JSON metadata to extract player name
         try
         {
-            Debug.Log($"[Leaderboard] Raw metadata JSON: {entry.Metadata}");
+            Debugger.Log($"[Leaderboard] Raw metadata JSON: {entry.Metadata}");
             
             // Try to parse as a simple JSON object
             var metadataObj = JsonUtility.FromJson<MetadataWrapper>(entry.Metadata);
             
             if (metadataObj != null && !string.IsNullOrEmpty(metadataObj.playerName))
             {
-                Debug.Log($"[Leaderboard] Successfully parsed playerName: '{metadataObj.playerName}'");
+                Debugger.Log($"[Leaderboard] Successfully parsed playerName: '{metadataObj.playerName}'");
                 return metadataObj.playerName;
             }
             else
             {
-                Debug.LogWarning($"[Leaderboard] Parsed metadata but playerName is null/empty for player {entry.PlayerId}");
+                Debugger.LogWarning($"[Leaderboard] Parsed metadata but playerName is null/empty for player {entry.PlayerId}");
             }
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[Leaderboard] Failed to parse JSON metadata: {e.Message}");
-            Debug.LogError($"[Leaderboard] Raw metadata that failed to parse: {entry.Metadata}");
+            Debugger.LogError($"[Leaderboard] Failed to parse JSON metadata: {e.Message}");
+            Debugger.LogError($"[Leaderboard] Raw metadata that failed to parse: {entry.Metadata}");
             
             // Try regex parsing as fallback
             try
@@ -436,7 +436,7 @@ public class Leaderboard : MonoBehaviour
                     if (match.Success && match.Groups.Count > 1)
                     {
                         string playerName = match.Groups[1].Value;
-                        Debug.Log($"[Leaderboard] Regex extraction found playerName: '{playerName}'");
+                        Debugger.Log($"[Leaderboard] Regex extraction found playerName: '{playerName}'");
                         if (!string.IsNullOrEmpty(playerName) && playerName != "null")
                         {
                             return playerName;
@@ -446,12 +446,12 @@ public class Leaderboard : MonoBehaviour
             }
             catch (System.Exception fallbackException)
             {
-                Debug.LogError($"[Leaderboard] Fallback metadata parsing also failed: {fallbackException.Message}");
+                Debugger.LogError($"[Leaderboard] Fallback metadata parsing also failed: {fallbackException.Message}");
             }
         }
         
         // Fallback to Anonymous if no valid player name found
-        Debug.Log($"[Leaderboard] Using fallback name for player {entry.PlayerId}");
+        Debugger.Log($"[Leaderboard] Using fallback name for player {entry.PlayerId}");
         return "Anonymous";
     }
 
@@ -462,17 +462,17 @@ public class Leaderboard : MonoBehaviour
     {
         if (entry == null) 
         {
-            Debug.LogWarning("[Leaderboard] AnimateEntryIn: entry is null");
+            Debugger.LogWarning("[Leaderboard] AnimateEntryIn: entry is null");
             return;
         }
 
-        Debug.Log($"[Leaderboard] Animating entry {index}: {entry.name}");
+        Debugger.Log($"[Leaderboard] Animating entry {index}: {entry.name}");
 
         try
         {
             // Stagger the animation based on index
             float delay = index * 0.1f;
-            Debug.Log($"[Leaderboard] Animation delay for entry {index}: {delay}s");
+            Debugger.Log($"[Leaderboard] Animation delay for entry {index}: {delay}s");
             
             // Start with scale at zero for pop-in effect
             entry.transform.localScale = Vector3.zero;
@@ -482,14 +482,14 @@ public class Leaderboard : MonoBehaviour
                 .setDelay(delay)
                 .setEase(LeanTweenType.easeOutBack)
                 .setOnComplete(() => {
-                    Debug.Log($"[Leaderboard] Scale animation completed for entry {index}");
+                    Debugger.Log($"[Leaderboard] Scale animation completed for entry {index}");
                 });
                 
-            Debug.Log($"[Leaderboard] Simple scale animation started for entry {index}");
+            Debugger.Log($"[Leaderboard] Simple scale animation started for entry {index}");
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[Leaderboard] Failed to animate entry {index}: {e.Message}");
+            Debugger.LogError($"[Leaderboard] Failed to animate entry {index}: {e.Message}");
             // Reset to visible state if animation fails
             entry.transform.localScale = Vector3.one;
         }
@@ -500,7 +500,7 @@ public class Leaderboard : MonoBehaviour
     /// </summary>
     private int ClearExistingEntries()
     {
-        Debug.Log("[Leaderboard] ClearExistingEntries called");
+        Debugger.Log("[Leaderboard] ClearExistingEntries called");
         int clearedCount = 0;
         
         // First, clear tracked entries
@@ -517,7 +517,7 @@ public class Leaderboard : MonoBehaviour
                 }
                 catch (System.Exception e)
                 {
-                    Debug.LogWarning($"[Leaderboard] Failed to destroy tracked entry: {e.Message}");
+                    Debugger.LogWarning($"[Leaderboard] Failed to destroy tracked entry: {e.Message}");
                 }
             }
         }
@@ -525,7 +525,7 @@ public class Leaderboard : MonoBehaviour
         
         // Fallback: clear any remaining children with TextMeshPro components
         Transform parentToCheck = spawnParent != null ? spawnParent.transform : transform;
-        Debug.Log($"[Leaderboard] Clearing entries from parent: {parentToCheck.name}");
+        Debugger.Log($"[Leaderboard] Clearing entries from parent: {parentToCheck.name}");
         
         // Create a list to avoid modifying collection during iteration
         List<Transform> childrenToDestroy = new List<Transform>();
@@ -547,7 +547,7 @@ public class Leaderboard : MonoBehaviour
             {
                 try
                 {
-                    Debug.Log($"[Leaderboard] Clearing fallback child: {child.name} (has TextMeshPro components)");
+                    Debugger.Log($"[Leaderboard] Clearing fallback child: {child.name} (has TextMeshPro components)");
                     // Cancel any active tweens on this object before destroying
                     LeanTween.cancel(child.gameObject);
                     Destroy(child.gameObject);
@@ -555,12 +555,12 @@ public class Leaderboard : MonoBehaviour
                 }
                 catch (System.Exception e)
                 {
-                    Debug.LogWarning($"[Leaderboard] Failed to destroy fallback entry: {e.Message}");
+                    Debugger.LogWarning($"[Leaderboard] Failed to destroy fallback entry: {e.Message}");
                 }
             }
         }
         
-        Debug.Log($"[Leaderboard] Cleared {clearedCount} existing entries");
+        Debugger.Log($"[Leaderboard] Cleared {clearedCount} existing entries");
         return clearedCount;
     }
 
@@ -569,38 +569,38 @@ public class Leaderboard : MonoBehaviour
     /// </summary>
     private async Task GetPlayerScoreAsync()
     {
-        Debug.Log("[Leaderboard] GetPlayerScoreAsync called");
+        Debugger.Log("[Leaderboard] GetPlayerScoreAsync called");
         
         if (!IsAuthenticationReady()) 
         {
-            Debug.LogWarning("[Leaderboard] GetPlayerScoreAsync aborted - authentication not ready");
+            Debugger.LogWarning("[Leaderboard] GetPlayerScoreAsync aborted - authentication not ready");
             return;
         }
 
         try
         {
-            Debug.Log($"[Leaderboard] Requesting player score for ID: {AuthenticationService.Instance.PlayerId}");
+            Debugger.Log($"[Leaderboard] Requesting player score for ID: {AuthenticationService.Instance.PlayerId}");
             var scoreResponse = await LeaderboardsService.Instance.GetPlayerScoreAsync(LeaderboardId, new GetPlayerScoreOptions { IncludeMetadata = true });
             
-            Debug.Log($"[Leaderboard] Player score response received");
-            Debug.Log($"[Leaderboard] Player ID: {scoreResponse?.PlayerId ?? "null"}");
-            Debug.Log($"[Leaderboard] Player Score: {scoreResponse?.Score ?? 0}");
-            Debug.Log($"[Leaderboard] Player Rank: {scoreResponse?.Rank ?? -1}");
+            Debugger.Log($"[Leaderboard] Player score response received");
+            Debugger.Log($"[Leaderboard] Player ID: {scoreResponse?.PlayerId ?? "null"}");
+            Debugger.Log($"[Leaderboard] Player Score: {scoreResponse?.Score ?? 0}");
+            Debugger.Log($"[Leaderboard] Player Rank: {scoreResponse?.Rank ?? -1}");
             
             // Log player metadata - fixed to handle string metadata
             if (!string.IsNullOrEmpty(scoreResponse?.Metadata))
             {
-                Debug.Log($"[Leaderboard] Player score metadata: {scoreResponse.Metadata}");
+                Debugger.Log($"[Leaderboard] Player score metadata: {scoreResponse.Metadata}");
             }
             else
             {
-                Debug.Log("[Leaderboard] Player score has no metadata");
+                Debugger.Log("[Leaderboard] Player score has no metadata");
             }
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[Leaderboard] Failed to get player score: {e.Message}");
-            Debug.LogError($"[Leaderboard] GetPlayerScoreAsync stack trace: {e.StackTrace}");
+            Debugger.LogError($"[Leaderboard] Failed to get player score: {e.Message}");
+            Debugger.LogError($"[Leaderboard] GetPlayerScoreAsync stack trace: {e.StackTrace}");
         }
     }
 
@@ -612,11 +612,11 @@ public class Leaderboard : MonoBehaviour
 
     public async void GetVersionScores()
     {
-        Debug.Log($"[Leaderboard] GetVersionScores called with VersionId: {VersionId ?? "null"}");
+        Debugger.Log($"[Leaderboard] GetVersionScores called with VersionId: {VersionId ?? "null"}");
         
         if (!IsAuthenticationReady()) 
         {
-            Debug.LogWarning("[Leaderboard] GetVersionScores aborted - authentication not ready");
+            Debugger.LogWarning("[Leaderboard] GetVersionScores aborted - authentication not ready");
             return;
         }
 
@@ -624,18 +624,18 @@ public class Leaderboard : MonoBehaviour
         {
             var versionScoresResponse = await LeaderboardsService.Instance.GetVersionScoresAsync(LeaderboardId, VersionId, new GetVersionScoresOptions { IncludeMetadata = true });
             
-            Debug.Log($"[Leaderboard] Version scores response received - Results count: {versionScoresResponse?.Results?.Count ?? 0}");
+            Debugger.Log($"[Leaderboard] Version scores response received - Results count: {versionScoresResponse?.Results?.Count ?? 0}");
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[Leaderboard] Failed to get version scores: {e.Message}");
-            Debug.LogError($"[Leaderboard] GetVersionScores stack trace: {e.StackTrace}");
+            Debugger.LogError($"[Leaderboard] Failed to get version scores: {e.Message}");
+            Debugger.LogError($"[Leaderboard] GetVersionScores stack trace: {e.StackTrace}");
         }
     }
 
     void OnDestroy()
     {
-        Debug.Log("[Leaderboard] OnDestroy called - cancelling any active tweens");
+        Debugger.Log("[Leaderboard] OnDestroy called - cancelling any active tweens");
         
         try
         {
@@ -643,7 +643,7 @@ public class Leaderboard : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            Debug.LogWarning($"[Leaderboard] Error during cleanup: {e.Message}");
+            Debugger.LogWarning($"[Leaderboard] Error during cleanup: {e.Message}");
         }
     }
 

@@ -9,7 +9,7 @@ class UtilityDefault : TickBehaviour
         TileObjectDefinition def = tileObject.Definition;
         if (tileObject is not UtilityTileObject util)
         {
-            Debug.LogError($"TickBehaviour UtilityDefault applied to non-utility tile object {def.DisplayName}.");
+            Debugger.LogError($"TickBehaviour UtilityDefault applied to non-utility tile object {def.DisplayName}.");
             return;
         }
 

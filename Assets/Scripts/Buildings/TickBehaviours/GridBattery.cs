@@ -9,14 +9,14 @@ public class GridBattery : TickBehaviour
         TileObjectDefinition def = tileObject.Definition;
         if (tileObject is not PowerBankTileObject battery)
         {
-            Debug.LogError("TickBehaviour GridBattery applied to non-PowerBank tile object.");
+            Debugger.LogError("TickBehaviour GridBattery applied to non-PowerBank tile object.");
             return;
         }
 
         PowerBankData powerBankData = def.PowerBank;
         if (powerBankData == null)
         {
-            Debug.LogError($"PowerBank TileObject {def.Id} missing PowerBankData.");
+            Debugger.LogError($"PowerBank TileObject {def.Id} missing PowerBankData.");
             return;
         }
 

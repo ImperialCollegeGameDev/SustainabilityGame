@@ -12,11 +12,11 @@ public class TileStatDisplay : MonoBehaviour
     {
         if (statNameText == null)
         {
-            Debug.LogError("Stat Name Text is not assigned in the inspector.");
+            Debugger.LogError("Stat Name Text is not assigned in the inspector.");
         }
         if (statValueText == null)
         {
-            Debug.LogError("Stat Value Text is not assigned in the inspector.");
+            Debugger.LogError("Stat Value Text is not assigned in the inspector.");
         }
     }
 

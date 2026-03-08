@@ -31,7 +31,7 @@ public class DayNight : MonoBehaviour
     [Tooltip("Yaw (degrees) of the light path. Adjust to match your world orientation.")]
     public float azimuthDegrees = 0f;
 
-    [Tooltip("Max elevation (degrees) at noon. Typical: 45–75.")]
+    [Tooltip("Max elevation (degrees) at noon. Typical: 45ï¿½75.")]
     [Range(0f, 90f)]
     public float maxElevationDegrees = 65f;
 
@@ -125,7 +125,7 @@ public class DayNight : MonoBehaviour
         BuildColourGradient();
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning("Multiple DayNight instances detected. There should only be one.");
+            Debugger.LogWarning("Multiple DayNight instances detected. There should only be one.");
             Destroy(this);
             return;
         }
@@ -136,15 +136,15 @@ public class DayNight : MonoBehaviour
     {
         if (logOnStart)
         {
-            Debug.Log($"[MusicSyncedDayNightCycle] StartHour={startHour}, HoursPerLoop={hoursPerLoop}, DayLengthSeconds={GetDayLengthSeconds():0.00}");
+            Debugger.Log($"[MusicSyncedDayNightCycle] StartHour={startHour}, HoursPerLoop={hoursPerLoop}, DayLengthSeconds={GetDayLengthSeconds():0.00}");
         }
 
         // Basic safety checks
-        if (MusicManager.Instance == null) Debug.LogWarning("[MusicSyncedDayNightCycle] MusicManager not found.");
-        if (directionalLight == null) Debug.LogWarning("[MusicSyncedDayNightCycle] directionalLight not assigned.");
+        if (MusicManager.Instance == null) Debugger.LogWarning("[MusicSyncedDayNightCycle] MusicManager not found.");
+        if (directionalLight == null) Debugger.LogWarning("[MusicSyncedDayNightCycle] directionalLight not assigned.");
         if (underwaterLight != null)
         {
-            Debug.Log("[MusicSyncedDayNightCycle] Underwater light assigned and will mirror the main light.");
+            Debugger.Log("[MusicSyncedDayNightCycle] Underwater light assigned and will mirror the main light.");
         }
     }
 

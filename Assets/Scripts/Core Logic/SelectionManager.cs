@@ -32,7 +32,7 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
 
         if (SelectedTileInfoPanelPrefab == null)
         {
-            Debug.LogWarning("SelectedTileInfoPanel is not assigned in the inspector.");
+            Debugger.LogWarning("SelectedTileInfoPanel is not assigned in the inspector.");
         }
         
         mainCamera = Camera.main;
@@ -53,7 +53,7 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
         // Try instantiating directly under canvas
         if (canvas == null)
         {
-            Debug.LogError("No Canvas found for instantiating SelectedTileInfoPanel.");
+            Debugger.LogError("No Canvas found for instantiating SelectedTileInfoPanel.");
             return;
         }
         SelectedTileInfoPanel = Instantiate(SelectedTileInfoPanelPrefab, canvas.transform);
@@ -64,7 +64,7 @@ public class SelectionManager : MonoBehaviour // Singleton manager for handling 
         }
         else
         {
-            Debug.LogError("SelectedTileInfoPanelPrefab does not have a TileInfoPanel component.");
+            Debugger.LogError("SelectedTileInfoPanelPrefab does not have a TileInfoPanel component.");
         }
 
         // Force layout rebuild before positioning

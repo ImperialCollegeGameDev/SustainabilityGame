@@ -8,7 +8,7 @@ public class Tutorial : MonoBehaviour
         if (Instance != null)
         {
             Destroy(gameObject);
-            Debug.LogWarning("Multiple instances of Tutorial detected. Destroying duplicate.");
+            Debugger.LogWarning("Multiple instances of Tutorial detected. Destroying duplicate.");
             return;
         }
         Instance = this;

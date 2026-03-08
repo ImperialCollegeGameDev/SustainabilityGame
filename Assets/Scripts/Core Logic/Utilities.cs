@@ -35,9 +35,9 @@ using System.Collections.Generic;
 
     public void PrintTemplates()
     {
-        UnityEngine.Debug.Log("=== Utility Templates ===");
+        UnityEngine.Debugger.Log("=== Utility Templates ===");
         foreach (var kvp in All_Utilities)
-            UnityEngine.Debug.Log($"Key={kvp.Key} -> {kvp.Value}");
+            UnityEngine.Debugger.Log($"Key={kvp.Key} -> {kvp.Value}");
     }
 }*/
 

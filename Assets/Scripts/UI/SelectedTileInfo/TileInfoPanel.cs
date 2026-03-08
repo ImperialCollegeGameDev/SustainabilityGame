@@ -21,15 +21,15 @@ public class TileInfoPanel : MonoBehaviour
     {
         if (TileNameText == null)
         {
-            Debug.LogError("Tile Name Text is not assigned in the inspector.");
+            Debugger.LogError("Tile Name Text is not assigned in the inspector.");
         }
         if (TileStatList == null)
         {
-            Debug.LogError("Tile Stat List is not assigned in the inspector.");
+            Debugger.LogError("Tile Stat List is not assigned in the inspector.");
         }
         if (_StatDisplayPrefab == null)
         {
-            Debug.LogError("Stat Display Prefab is not assigned in the inspector.");
+            Debugger.LogError("Stat Display Prefab is not assigned in the inspector.");
         }
     }
 
@@ -45,7 +45,7 @@ public class TileInfoPanel : MonoBehaviour
     {
         if (tileObj == null)
         {
-            Debug.LogError("TileObject passed to SetTile is null.");
+            Debugger.LogError("TileObject passed to SetTile is null.");
             return;
         }
 
@@ -119,7 +119,7 @@ public class TileInfoPanel : MonoBehaviour
 
         if (!obj.TryGetComponent(out TileStatDisplay statDisplay))
         {
-            Debug.LogError("Stat Display Prefab does not have a TileStatDisplay component.");
+            Debugger.LogError("Stat Display Prefab does not have a TileStatDisplay component.");
             return null;
         }
         statDisplay.Init(name, value, color);

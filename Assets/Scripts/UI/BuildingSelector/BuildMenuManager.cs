@@ -142,8 +142,8 @@ public class BuildMenuManager : MonoBehaviour
     // ---------- Helpers ----------
     void OnDisable()
     {
-        Debug.Log($"{gameObject.name} was disabled!", this);
-        Debug.Log(Environment.StackTrace);
+        Debugger.Log($"{gameObject.name} was disabled!", this);
+        Debugger.Log(Environment.StackTrace);
     }
 
 

@@ -16,12 +16,12 @@ public class UpgradesButton : MonoBehaviour
     {
         if (tileObject == null)
         {
-            Debug.LogWarning("UpgradesButton clicked but tileObject is null.");
+            Debugger.LogWarning("UpgradesButton clicked but tileObject is null.");
             return;
         }
         if (UpgradeScreen.Instance == null)
         {
-            Debug.LogError("UpgradeScreen instance is not set.");
+            Debugger.LogError("UpgradeScreen instance is not set.");
             return;
         }
         UpgradeScreen.Instance.Open(tileObject);

@@ -15,13 +15,13 @@ public class ProgressStat : MonoBehaviour
     {
         if (img == null)
         {
-            Debug.LogWarning("ProgressStat: Image is null.");
+            Debugger.LogWarning("ProgressStat: Image is null.");
             return;
         }
 
         if (GameState.Instance == null)
         {
-            Debug.LogWarning("DisplayStat: GameState.Instance is null. Make sure GameState exists in the scene.");
+            Debugger.LogWarning("DisplayStat: GameState.Instance is null. Make sure GameState exists in the scene.");
             return;
         }
     }
@@ -47,7 +47,7 @@ public class ProgressStat : MonoBehaviour
                 else final = GameState.Instance.Power / (float) GameState.Instance.requiredEnergy;
                 break;
             default:
-                Debug.LogWarning($"ProgressStat: Unsupported stat type {stat}. Defaulting to 0.");
+                Debugger.LogWarning($"ProgressStat: Unsupported stat type {stat}. Defaulting to 0.");
                 break;
         }
         final = Mathf.Clamp01(final);

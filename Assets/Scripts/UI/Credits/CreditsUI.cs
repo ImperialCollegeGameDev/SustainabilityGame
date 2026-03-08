@@ -11,7 +11,6 @@ public class CreditsUI : MonoBehaviour
 
     [Header("Animation Settings")]
     [SerializeField] private float entryDelay = 0.15f; // Delay between each entry
-    [SerializeField] private float slideDistance = 50f; // How far to slide up from
     [SerializeField] private float animationDuration = 0.6f;
     [SerializeField] private LeanTweenType easeType = LeanTweenType.easeOutCubic;
 
@@ -103,7 +102,7 @@ public class CreditsUI : MonoBehaviour
     {
         if (spawnparent == null)
         {
-            Debug.LogWarning("[CreditsUI] spawnparent is not assigned!");
+            Debugger.LogWarning("[CreditsUI] spawnparent is not assigned!");
             yield break;
         }
 
@@ -254,7 +253,7 @@ public class CreditsUI : MonoBehaviour
 
     public void returnhome()
     {
-        Debug.Log("[CreditsUI] Attempting to return home...");
+        Debugger.Log("[CreditsUI] Attempting to return home...");
         CleanupAllAnimations();
         SceneTransition.i.SendToScene("Home");
     }

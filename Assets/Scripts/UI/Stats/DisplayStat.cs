@@ -32,13 +32,13 @@ public class DisplayStat : MonoBehaviour
     {
         if (text == null)
         {
-            Debug.LogWarning("DisplayStat: TMP_Text reference is null.");
+            Debugger.LogWarning("DisplayStat: TMP_Text reference is null.");
             return;
         }
 
         if (GameState.Instance == null)
         {
-            Debug.LogWarning("DisplayStat: GameState.Instance is null. Make sure GameState exists in the scene.");
+            Debugger.LogWarning("DisplayStat: GameState.Instance is null. Make sure GameState exists in the scene.");
             return;
         }
 
@@ -76,7 +76,7 @@ public class DisplayStat : MonoBehaviour
                 break;
 
             default:
-                Debug.LogWarning($"DisplayStat: Unsupported stat {stat}");
+                Debugger.LogWarning($"DisplayStat: Unsupported stat {stat}");
                 break;
         }
     }

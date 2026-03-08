@@ -139,7 +139,7 @@ public class GridMouse : MonoBehaviour
         if (EventSystem.current != null && IsPointerOverBlockingUI())
         {
             // Remove or comment out this debug log since it will spam when Post FX canvas is present
-            // Debug.Log("Pointer is over blocking UI, ignoring mouse position.");
+            // Debugger.Log("Pointer is over blocking UI, ignoring mouse position.");
             return false;
         }
 
@@ -148,7 +148,7 @@ public class GridMouse : MonoBehaviour
         // Raycast ONLY against ground layer (ignores buildings automatically)
         if (!Physics.Raycast(ray, out RaycastHit hit, 200f, groundMask))
         {
-            Debug.Log("Mouse raycast did not hit ground layer.");
+            Debugger.Log("Mouse raycast did not hit ground layer.");
             return false;
         }
 

@@ -529,18 +529,18 @@ public class MusicManager : MonoBehaviour
             gameTrackWasPausedBefore = isPaused;
             hasGameTrackSaved = true;
             
-            Debug.Log($"[MusicManager] Saved game track state - Position: {savedGameTrackPosition:F2}s, WasPaused: {gameTrackWasPausedBefore}");
+            Debugger.Log($"[MusicManager] Saved game track state - Position: {savedGameTrackPosition:F2}s, WasPaused: {gameTrackWasPausedBefore}");
             
             // Stop the game track
             StopMusic(fadeOut: false);
             
             // Play the main/credits track
             PlayMainTrack(MainTrackType.MainAndCredits);
-            Debug.Log("[MusicManager] Switched to main/credits music");
+            Debugger.Log("[MusicManager] Switched to main/credits music");
         }
         else
         {
-            Debug.Log("[MusicManager] Game track is not playing, no state to save");
+            Debugger.Log("[MusicManager] Game track is not playing, no state to save");
             hasGameTrackSaved = false;
         }
     }
@@ -553,7 +553,7 @@ public class MusicManager : MonoBehaviour
     {
         if (hasGameTrackSaved && mainGame != null)
         {
-            Debug.Log($"[MusicManager] Restoring game track - Position: {savedGameTrackPosition:F2}s, WasPaused: {gameTrackWasPausedBefore}");
+            Debugger.Log($"[MusicManager] Restoring game track - Position: {savedGameTrackPosition:F2}s, WasPaused: {gameTrackWasPausedBefore}");
             
             // Stop current music
             StopMusic(fadeOut: false);
@@ -569,12 +569,12 @@ public class MusicManager : MonoBehaviour
                 musicSource.Play();
                 isPaused = false;
                 OnTrackChanged?.Invoke(mainGame);
-                Debug.Log("[MusicManager] Resumed game track playback");
+                Debugger.Log("[MusicManager] Resumed game track playback");
             }
             else
             {
                 isPaused = true;
-                Debug.Log("[MusicManager] Game track was paused before, leaving it paused");
+                Debugger.Log("[MusicManager] Game track was paused before, leaving it paused");
             }
             
             // Clear saved state
@@ -583,11 +583,11 @@ public class MusicManager : MonoBehaviour
         }
         else if (!hasGameTrackSaved)
         {
-            Debug.Log("[MusicManager] No saved game track to restore");
+            Debugger.Log("[MusicManager] No saved game track to restore");
         }
         else if (mainGame == null)
         {
-            Debug.LogWarning("[MusicManager] Cannot restore game track - mainGame clip is null");
+            Debugger.LogWarning("[MusicManager] Cannot restore game track - mainGame clip is null");
         }
     }
 

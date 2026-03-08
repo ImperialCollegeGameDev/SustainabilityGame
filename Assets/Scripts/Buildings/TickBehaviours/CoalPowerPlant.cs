@@ -9,7 +9,7 @@ class CoalPowerPlant : UtilityDefault
         TileObjectDefinition def = tileObject.Definition;
         if (tileObject is not UtilityTileObject util)
         {
-            Debug.LogError("TickBehaviour UtilityDefault applied to non-utility tile object.");
+            Debugger.LogError("TickBehaviour UtilityDefault applied to non-utility tile object.");
             return;
         }
 

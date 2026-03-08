@@ -18,9 +18,9 @@ public static class SaveManager
     {
         try
         {
-            Debug.Log($"[SaveManager] ========== SAVE START ==========");
-            Debug.Log($"[SaveManager] Platform: {Application.platform}");
-            Debug.Log($"[SaveManager] IsWebGL: {IsWebGL}");
+            Debugger.Log($"[SaveManager] ========== SAVE START ==========");
+            Debugger.Log($"[SaveManager] Platform: {Application.platform}");
+            Debugger.Log($"[SaveManager] IsWebGL: {IsWebGL}");
             
             SaveState data = new SaveState();
 
@@ -31,11 +31,11 @@ public static class SaveManager
                 data.happiness = GameState.Instance.happiness;
                 data.emissions = GameState.Instance.TotalEmissions;
                 data.maxPopulation = GameState.Instance.GetMaxPopulation();
-                Debug.Log($"[SaveManager] GameState data: Money={data.money}, Happiness={data.happiness:F2}, Emissions={data.emissions:F2}, MaxPop={data.maxPopulation}");
+                Debugger.Log($"[SaveManager] GameState data: Money={data.money}, Happiness={data.happiness:F2}, Emissions={data.emissions:F2}, MaxPop={data.maxPopulation}");
             }
             else
             {
-                Debug.LogWarning("[SaveManager] GameState.Instance is null!");
+                Debugger.LogWarning("[SaveManager] GameState.Instance is null!");
             }
 
             // Get player identity and name from Main if available
@@ -43,11 +43,11 @@ public static class SaveManager
             {
                 data.playerIdentity = Main.Instance.GetCurrentPlayerIdentity();
                 data.playerName = Main.Instance.GetCurrentPlayerDisplayName();
-                Debug.Log($"[SaveManager] Player data: Identity={data.playerIdentity ?? "null"}, Name={data.playerName ?? "null"}");
+                Debugger.Log($"[SaveManager] Player data: Identity={data.playerIdentity ?? "null"}, Name={data.playerName ?? "null"}");
             }
             else
             {
-                Debug.LogWarning("[SaveManager] Main.Instance is null!");
+                Debugger.LogWarning("[SaveManager] Main.Instance is null!");
             }
 
             data.tiles = new List<TileSaveData>();
@@ -68,32 +68,32 @@ public static class SaveManager
 
                     data.tiles.Add(tileData);
                 }
-                Debug.Log($"[SaveManager] Saved {data.tiles.Count} tiles");
+                Debugger.Log($"[SaveManager] Saved {data.tiles.Count} tiles");
             }
 
             string json = JsonUtility.ToJson(data, true);
-            Debug.Log($"[SaveManager] JSON size: {json.Length} characters");
-            Debug.Log($"[SaveManager] JSON preview (first 500 chars): {json.Substring(0, Mathf.Min(500, json.Length))}");
+            Debugger.Log($"[SaveManager] JSON size: {json.Length} characters");
+            Debugger.Log($"[SaveManager] JSON preview (first 500 chars): {json.Substring(0, Mathf.Min(500, json.Length))}");
 
             if (IsWebGL)
             {
-                Debug.Log("[SaveManager] Using WebGL save method (PlayerPrefs)");
+                Debugger.Log("[SaveManager] Using WebGL save method (PlayerPrefs)");
                 SaveToPlayerPrefs(json);
-                Debug.Log($"[SaveManager] ✓ Game saved to PlayerPrefs (WebGL)");
+                Debugger.Log($"[SaveManager] ✓ Game saved to PlayerPrefs (WebGL)");
             }
             else
             {
-                Debug.Log($"[SaveManager] Using File save method: {path}");
+                Debugger.Log($"[SaveManager] Using File save method: {path}");
                 File.WriteAllText(path, json);
-                Debug.Log($"[SaveManager] ✓ Game saved to {path}");
+                Debugger.Log($"[SaveManager] ✓ Game saved to {path}");
             }
             
-            Debug.Log($"[SaveManager] ========== SAVE COMPLETE ==========");
+            Debugger.Log($"[SaveManager] ========== SAVE COMPLETE ==========");
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[SaveManager] ✗ Failed to save game: {e.Message}");
-            Debug.LogError($"[SaveManager] Stack trace: {e.StackTrace}");
+            Debugger.LogError($"[SaveManager] ✗ Failed to save game: {e.Message}");
+            Debugger.LogError($"[SaveManager] Stack trace: {e.StackTrace}");
         }
     }
 
@@ -101,60 +101,60 @@ public static class SaveManager
     {
         try
         {
-            Debug.Log($"[SaveManager] ========== LOAD START ==========");
-            Debug.Log($"[SaveManager] Platform: {Application.platform}");
-            Debug.Log($"[SaveManager] IsWebGL: {IsWebGL}");
+            Debugger.Log($"[SaveManager] ========== LOAD START ==========");
+            Debugger.Log($"[SaveManager] Platform: {Application.platform}");
+            Debugger.Log($"[SaveManager] IsWebGL: {IsWebGL}");
             
             string json;
 
             if (IsWebGL)
             {
-                Debug.Log("[SaveManager] Using WebGL load method (PlayerPrefs)");
+                Debugger.Log("[SaveManager] Using WebGL load method (PlayerPrefs)");
                 json = LoadFromPlayerPrefs();
                 if (string.IsNullOrEmpty(json))
                 {
-                    Debug.LogWarning("[SaveManager] ✗ No save data found in PlayerPrefs (WebGL)");
-                    Debug.Log($"[SaveManager] Checking keys - SAVE_KEY exists: {PlayerPrefs.HasKey(SAVE_KEY)}");
-                    Debug.Log($"[SaveManager] Checking keys - SAVE_CHUNK_0 exists: {PlayerPrefs.HasKey(SAVE_CHUNK_PREFIX + "0")}");
+                    Debugger.LogWarning("[SaveManager] ✗ No save data found in PlayerPrefs (WebGL)");
+                    Debugger.Log($"[SaveManager] Checking keys - SAVE_KEY exists: {PlayerPrefs.HasKey(SAVE_KEY)}");
+                    Debugger.Log($"[SaveManager] Checking keys - SAVE_CHUNK_0 exists: {PlayerPrefs.HasKey(SAVE_CHUNK_PREFIX + "0")}");
                     return null;
                 }
-                Debug.Log($"[SaveManager] Loaded JSON from PlayerPrefs, size: {json.Length} characters");
+                Debugger.Log($"[SaveManager] Loaded JSON from PlayerPrefs, size: {json.Length} characters");
             }
             else
             {
-                Debug.Log($"[SaveManager] Using File load method: {path}");
+                Debugger.Log($"[SaveManager] Using File load method: {path}");
                 if (!File.Exists(path))
                 {
-                    Debug.LogWarning($"[SaveManager] ✗ No save file found at {path}");
+                    Debugger.LogWarning($"[SaveManager] ✗ No save file found at {path}");
                     return null;
                 }
 
                 json = File.ReadAllText(path);
-                Debug.Log($"[SaveManager] Loaded JSON from file, size: {json.Length} characters");
+                Debugger.Log($"[SaveManager] Loaded JSON from file, size: {json.Length} characters");
             }
 
-            Debug.Log($"[SaveManager] JSON preview (first 500 chars): {json.Substring(0, Mathf.Min(500, json.Length))}");
+            Debugger.Log($"[SaveManager] JSON preview (first 500 chars): {json.Substring(0, Mathf.Min(500, json.Length))}");
             
             SaveState data = JsonUtility.FromJson<SaveState>(json);
             
             if (data == null)
             {
-                Debug.LogError("[SaveManager] ✗ Failed to deserialize JSON - data is null");
+                Debugger.LogError("[SaveManager] ✗ Failed to deserialize JSON - data is null");
                 return null;
             }
             
-            Debug.Log($"[SaveManager] Deserialized data: Money={data.money}, Happiness={data.happiness:F2}, Emissions={data.emissions:F2}, MaxPop={data.maxPopulation}");
-            Debug.Log($"[SaveManager] Player data: Identity={data.playerIdentity ?? "null"}, Name={data.playerName ?? "null"}");
-            Debug.Log($"[SaveManager] Tiles count: {(data.tiles != null ? data.tiles.Count : 0)}");
-            Debug.Log($"[SaveManager] ✓ Game loaded successfully");
-            Debug.Log($"[SaveManager] ========== LOAD COMPLETE ==========");
+            Debugger.Log($"[SaveManager] Deserialized data: Money={data.money}, Happiness={data.happiness:F2}, Emissions={data.emissions:F2}, MaxPop={data.maxPopulation}");
+            Debugger.Log($"[SaveManager] Player data: Identity={data.playerIdentity ?? "null"}, Name={data.playerName ?? "null"}");
+            Debugger.Log($"[SaveManager] Tiles count: {(data.tiles != null ? data.tiles.Count : 0)}");
+            Debugger.Log($"[SaveManager] ✓ Game loaded successfully");
+            Debugger.Log($"[SaveManager] ========== LOAD COMPLETE ==========");
             
             return data;
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[SaveManager] ✗ Failed to load game: {e.Message}");
-            Debug.LogError($"[SaveManager] Stack trace: {e.StackTrace}");
+            Debugger.LogError($"[SaveManager] ✗ Failed to load game: {e.Message}");
+            Debugger.LogError($"[SaveManager] Stack trace: {e.StackTrace}");
             return null;
         }
     }
@@ -172,18 +172,18 @@ public static class SaveManager
                 bool hasSingleKey = PlayerPrefs.HasKey(SAVE_KEY);
                 bool hasChunkedKey = PlayerPrefs.HasKey(SAVE_CHUNK_PREFIX + "0");
                 exists = hasSingleKey || hasChunkedKey;
-                Debug.Log($"[SaveManager] HasSaveData check (WebGL): SingleKey={hasSingleKey}, ChunkedKey={hasChunkedKey}, Result={exists}");
+                Debugger.Log($"[SaveManager] HasSaveData check (WebGL): SingleKey={hasSingleKey}, ChunkedKey={hasChunkedKey}, Result={exists}");
             }
             else
             {
                 exists = File.Exists(path);
-                Debug.Log($"[SaveManager] HasSaveData check (File): {exists} at {path}");
+                Debugger.Log($"[SaveManager] HasSaveData check (File): {exists} at {path}");
             }
             return exists;
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[SaveManager] Error checking for save data: {e.Message}");
+            Debugger.LogError($"[SaveManager] Error checking for save data: {e.Message}");
             return false;
         }
     }
@@ -195,7 +195,7 @@ public static class SaveManager
     {
         try
         {
-            Debug.Log($"[SaveManager] ========== DELETE SAVE ==========");
+            Debugger.Log($"[SaveManager] ========== DELETE SAVE ==========");
             
             if (IsWebGL)
             {
@@ -206,7 +206,7 @@ public static class SaveManager
                 {
                     PlayerPrefs.DeleteKey(SAVE_KEY);
                     deletedKeys++;
-                    Debug.Log("[SaveManager] Deleted main save key");
+                    Debugger.Log("[SaveManager] Deleted main save key");
                 }
 
                 // Delete all chunks
@@ -220,28 +220,28 @@ public static class SaveManager
                 
                 if (chunkIndex > 0)
                 {
-                    Debug.Log($"[SaveManager] Deleted {chunkIndex} chunk(s)");
+                    Debugger.Log($"[SaveManager] Deleted {chunkIndex} chunk(s)");
                 }
 
                 PlayerPrefs.Save();
-                Debug.Log($"[SaveManager] ✓ Save data deleted from PlayerPrefs (WebGL) - Total keys deleted: {deletedKeys}");
+                Debugger.Log($"[SaveManager] ✓ Save data deleted from PlayerPrefs (WebGL) - Total keys deleted: {deletedKeys}");
             }
             else
             {
                 if (File.Exists(path))
                 {
                     File.Delete(path);
-                    Debug.Log($"[SaveManager] ✓ Save file deleted: {path}");
+                    Debugger.Log($"[SaveManager] ✓ Save file deleted: {path}");
                 }
                 else
                 {
-                    Debug.Log($"[SaveManager] No save file to delete at: {path}");
+                    Debugger.Log($"[SaveManager] No save file to delete at: {path}");
                 }
             }
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[SaveManager] ✗ Failed to delete save data: {e.Message}");
+            Debugger.LogError($"[SaveManager] ✗ Failed to delete save data: {e.Message}");
         }
     }
 
@@ -254,7 +254,7 @@ public static class SaveManager
     {
         try
         {
-            Debug.Log($"[SaveManager] SaveToPlayerPrefs - JSON length: {json.Length}, Chunk size limit: {MAX_PLAYERPREFS_SIZE}");
+            Debugger.Log($"[SaveManager] SaveToPlayerPrefs - JSON length: {json.Length}, Chunk size limit: {MAX_PLAYERPREFS_SIZE}");
             
             // Clear existing chunks first
             int clearedChunks = 0;
@@ -268,44 +268,44 @@ public static class SaveManager
             
             if (clearedChunks > 0)
             {
-                Debug.Log($"[SaveManager] Cleared {clearedChunks} existing chunk(s)");
+                Debugger.Log($"[SaveManager] Cleared {clearedChunks} existing chunk(s)");
             }
             
             // Clear single key if it exists
             if (PlayerPrefs.HasKey(SAVE_KEY))
             {
                 PlayerPrefs.DeleteKey(SAVE_KEY);
-                Debug.Log($"[SaveManager] Cleared existing single save key");
+                Debugger.Log($"[SaveManager] Cleared existing single save key");
             }
 
             // If data is small enough, save in single key
             if (json.Length <= MAX_PLAYERPREFS_SIZE)
             {
-                Debug.Log($"[SaveManager] Saving as single key (data fits in one chunk)");
+                Debugger.Log($"[SaveManager] Saving as single key (data fits in one chunk)");
                 PlayerPrefs.SetString(SAVE_KEY, json);
                 PlayerPrefs.Save();
-                Debug.Log($"[SaveManager] ✓ Saved to single key '{SAVE_KEY}'");
+                Debugger.Log($"[SaveManager] ✓ Saved to single key '{SAVE_KEY}'");
                 
                 // Verify it was saved
                 if (PlayerPrefs.HasKey(SAVE_KEY))
                 {
                     string verification = PlayerPrefs.GetString(SAVE_KEY);
-                    Debug.Log($"[SaveManager] ✓ Verification: Key exists, length={verification.Length}");
+                    Debugger.Log($"[SaveManager] ✓ Verification: Key exists, length={verification.Length}");
                 }
                 else
                 {
-                    Debug.LogError($"[SaveManager] ✗ Verification failed: Key does not exist after save!");
+                    Debugger.LogError($"[SaveManager] ✗ Verification failed: Key does not exist after save!");
                 }
             }
             else
             {
                 // Split into chunks
-                Debug.Log($"[SaveManager] Data too large, splitting into chunks");
+                Debugger.Log($"[SaveManager] Data too large, splitting into chunks");
                 chunkIndex = 0;
                 int offset = 0;
                 int totalChunks = Mathf.CeilToInt((float)json.Length / MAX_PLAYERPREFS_SIZE);
                 
-                Debug.Log($"[SaveManager] Will create {totalChunks} chunk(s)");
+                Debugger.Log($"[SaveManager] Will create {totalChunks} chunk(s)");
 
                 while (offset < json.Length)
                 {
@@ -314,14 +314,14 @@ public static class SaveManager
                     string chunkKey = SAVE_CHUNK_PREFIX + chunkIndex;
                     
                     PlayerPrefs.SetString(chunkKey, chunk);
-                    Debug.Log($"[SaveManager] Saved chunk {chunkIndex}/{totalChunks - 1}: key='{chunkKey}', size={chunkSize} chars, offset={offset}");
+                    Debugger.Log($"[SaveManager] Saved chunk {chunkIndex}/{totalChunks - 1}: key='{chunkKey}', size={chunkSize} chars, offset={offset}");
                     
                     offset += chunkSize;
                     chunkIndex++;
                 }
 
                 PlayerPrefs.Save();
-                Debug.Log($"[SaveManager] ✓ Saved {chunkIndex} chunk(s), total size: {json.Length} chars");
+                Debugger.Log($"[SaveManager] ✓ Saved {chunkIndex} chunk(s), total size: {json.Length} chars");
                 
                 // Verify chunks were saved
                 for (int i = 0; i < chunkIndex; i++)
@@ -329,16 +329,16 @@ public static class SaveManager
                     string chunkKey = SAVE_CHUNK_PREFIX + i;
                     if (!PlayerPrefs.HasKey(chunkKey))
                     {
-                        Debug.LogError($"[SaveManager] ✗ Verification failed: Chunk {i} ('{chunkKey}') does not exist after save!");
+                        Debugger.LogError($"[SaveManager] ✗ Verification failed: Chunk {i} ('{chunkKey}') does not exist after save!");
                     }
                 }
-                Debug.Log($"[SaveManager] ✓ All {chunkIndex} chunks verified");
+                Debugger.Log($"[SaveManager] ✓ All {chunkIndex} chunks verified");
             }
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[SaveManager] ✗ Failed to save to PlayerPrefs: {e.Message}");
-            Debug.LogError($"[SaveManager] Stack trace: {e.StackTrace}");
+            Debugger.LogError($"[SaveManager] ✗ Failed to save to PlayerPrefs: {e.Message}");
+            Debugger.LogError($"[SaveManager] Stack trace: {e.StackTrace}");
         }
     }
 
@@ -349,21 +349,21 @@ public static class SaveManager
     {
         try
         {
-            Debug.Log($"[SaveManager] LoadFromPlayerPrefs - Checking for save data");
+            Debugger.Log($"[SaveManager] LoadFromPlayerPrefs - Checking for save data");
             
             // Check if data is stored in single key
             if (PlayerPrefs.HasKey(SAVE_KEY))
             {
-                Debug.Log($"[SaveManager] Found single-key save data");
+                Debugger.Log($"[SaveManager] Found single-key save data");
                 string data = PlayerPrefs.GetString(SAVE_KEY);
-                Debug.Log($"[SaveManager] Loaded {data.Length} characters from single key");
+                Debugger.Log($"[SaveManager] Loaded {data.Length} characters from single key");
                 return data;
             }
 
             // Check for chunked data
             if (PlayerPrefs.HasKey(SAVE_CHUNK_PREFIX + "0"))
             {
-                Debug.Log($"[SaveManager] Found chunked save data");
+                Debugger.Log($"[SaveManager] Found chunked save data");
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 int chunkIndex = 0;
 
@@ -372,22 +372,22 @@ public static class SaveManager
                     string chunkKey = SAVE_CHUNK_PREFIX + chunkIndex;
                     string chunk = PlayerPrefs.GetString(chunkKey);
                     sb.Append(chunk);
-                    Debug.Log($"[SaveManager] Loaded chunk {chunkIndex}: key='{chunkKey}', size={chunk.Length} chars");
+                    Debugger.Log($"[SaveManager] Loaded chunk {chunkIndex}: key='{chunkKey}', size={chunk.Length} chars");
                     chunkIndex++;
                 }
 
                 string result = sb.ToString();
-                Debug.Log($"[SaveManager] ✓ Combined {chunkIndex} chunk(s) into {result.Length} total characters");
+                Debugger.Log($"[SaveManager] ✓ Combined {chunkIndex} chunk(s) into {result.Length} total characters");
                 return result;
             }
 
-            Debug.LogWarning($"[SaveManager] No save data found - neither single key nor chunks exist");
+            Debugger.LogWarning($"[SaveManager] No save data found - neither single key nor chunks exist");
             return null;
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"[SaveManager] ✗ Failed to load from PlayerPrefs: {e.Message}");
-            Debug.LogError($"[SaveManager] Stack trace: {e.StackTrace}");
+            Debugger.LogError($"[SaveManager] ✗ Failed to load from PlayerPrefs: {e.Message}");
+            Debugger.LogError($"[SaveManager] Stack trace: {e.StackTrace}");
             return null;
         }
     }
@@ -397,14 +397,14 @@ public static class SaveManager
     /// </summary>
     public static void RunDiagnostics()
     {
-        Debug.Log($"[SaveManager] ========== DIAGNOSTICS START ==========");
-        Debug.Log($"[SaveManager] Platform: {Application.platform}");
-        Debug.Log($"[SaveManager] IsWebGL: {IsWebGL}");
-        Debug.Log($"[SaveManager] Persistent data path: {Application.persistentDataPath}");
+        Debugger.Log($"[SaveManager] ========== DIAGNOSTICS START ==========");
+        Debugger.Log($"[SaveManager] Platform: {Application.platform}");
+        Debugger.Log($"[SaveManager] IsWebGL: {IsWebGL}");
+        Debugger.Log($"[SaveManager] Persistent data path: {Application.persistentDataPath}");
         
         if (IsWebGL)
         {
-            Debug.Log($"[SaveManager] Testing PlayerPrefs write/read...");
+            Debugger.Log($"[SaveManager] Testing PlayerPrefs write/read...");
             
             // Test 1: Simple write/read
             string testKey = "SaveManager_Test";
@@ -417,16 +417,16 @@ public static class SaveManager
                 string readValue = PlayerPrefs.GetString(testKey);
                 if (readValue == testValue)
                 {
-                    Debug.Log($"[SaveManager] ✓ PlayerPrefs basic test PASSED");
+                    Debugger.Log($"[SaveManager] ✓ PlayerPrefs basic test PASSED");
                 }
                 else
                 {
-                    Debug.LogError($"[SaveManager] ✗ PlayerPrefs basic test FAILED - wrote '{testValue}', read '{readValue}'");
+                    Debugger.LogError($"[SaveManager] ✗ PlayerPrefs basic test FAILED - wrote '{testValue}', read '{readValue}'");
                 }
             }
             else
             {
-                Debug.LogError($"[SaveManager] ✗ PlayerPrefs basic test FAILED - key not found after save");
+                Debugger.LogError($"[SaveManager] ✗ PlayerPrefs basic test FAILED - key not found after save");
             }
             
             PlayerPrefs.DeleteKey(testKey);
@@ -435,14 +435,14 @@ public static class SaveManager
             bool hasSingleKey = PlayerPrefs.HasKey(SAVE_KEY);
             bool hasChunkedKey = PlayerPrefs.HasKey(SAVE_CHUNK_PREFIX + "0");
             
-            Debug.Log($"[SaveManager] Save data status:");
-            Debug.Log($"[SaveManager]   - Single key ({SAVE_KEY}): {hasSingleKey}");
-            Debug.Log($"[SaveManager]   - Chunked key ({SAVE_CHUNK_PREFIX}0): {hasChunkedKey}");
+            Debugger.Log($"[SaveManager] Save data status:");
+            Debugger.Log($"[SaveManager]   - Single key ({SAVE_KEY}): {hasSingleKey}");
+            Debugger.Log($"[SaveManager]   - Chunked key ({SAVE_CHUNK_PREFIX}0): {hasChunkedKey}");
             
             if (hasSingleKey)
             {
                 string data = PlayerPrefs.GetString(SAVE_KEY);
-                Debug.Log($"[SaveManager]   - Single key size: {data.Length} characters");
+                Debugger.Log($"[SaveManager]   - Single key size: {data.Length} characters");
             }
             
             if (hasChunkedKey)
@@ -455,23 +455,23 @@ public static class SaveManager
                     totalSize += chunk.Length;
                     chunkCount++;
                 }
-                Debug.Log($"[SaveManager]   - Chunk count: {chunkCount}");
-                Debug.Log($"[SaveManager]   - Total size: {totalSize} characters");
+                Debugger.Log($"[SaveManager]   - Chunk count: {chunkCount}");
+                Debugger.Log($"[SaveManager]   - Total size: {totalSize} characters");
             }
         }
         else
         {
-            Debug.Log($"[SaveManager] File system diagnostics:");
-            Debug.Log($"[SaveManager]   - Save path: {path}");
-            Debug.Log($"[SaveManager]   - File exists: {File.Exists(path)}");
+            Debugger.Log($"[SaveManager] File system diagnostics:");
+            Debugger.Log($"[SaveManager]   - Save path: {path}");
+            Debugger.Log($"[SaveManager]   - File exists: {File.Exists(path)}");
             if (File.Exists(path))
             {
                 FileInfo info = new FileInfo(path);
-                Debug.Log($"[SaveManager]   - File size: {info.Length} bytes");
+                Debugger.Log($"[SaveManager]   - File size: {info.Length} bytes");
             }
         }
         
-        Debug.Log($"[SaveManager] ========== DIAGNOSTICS END ==========");
+        Debugger.Log($"[SaveManager] ========== DIAGNOSTICS END ==========");
     }
 
     #endregion

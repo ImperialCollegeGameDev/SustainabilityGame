@@ -43,10 +43,10 @@ public class PauseUI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[PauseUI] Main.Instance is null, cannot toggle shadows");
+            Debugger.LogWarning("[PauseUI] Main.Instance is null, cannot toggle shadows");
         }
 
-        Debug.Log($"[PauseUI] Shadows and lighting {(shadowsOn ? "enabled" : "disabled")}");
+        Debugger.Log($"[PauseUI] Shadows and lighting {(shadowsOn ? "enabled" : "disabled")}");
     }
 
     public void SetRenderScale()
@@ -60,10 +60,10 @@ public class PauseUI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[PauseUI] Main.Instance is null, cannot toggle render scale");
+            Debugger.LogWarning("[PauseUI] Main.Instance is null, cannot toggle render scale");
         }
         
-        Debug.Log($"[PauseUI] Render scale {(scaleOn ? "enabled" : "disabled")}");
+        Debugger.Log($"[PauseUI] Render scale {(scaleOn ? "enabled" : "disabled")}");
     }
 
     /// <summary>
@@ -94,18 +94,18 @@ public class PauseUI : MonoBehaviour
     /// </summary>
     public void ClosePause()
     {
-        Debug.Log("[PauseUI] ClosePause called - starting close sequence");
+        Debugger.Log("[PauseUI] ClosePause called - starting close sequence");
         
         // Play close sound
         if (MusicManager.Instance != null)
         {
             MusicManager.Instance.PlayUISound(MusicManager.UISoundType.Click);
-            Debug.Log("[PauseUI] Played close UI sound");
+            Debugger.Log("[PauseUI] Played close UI sound");
         }
 
         // Cancel any existing animations
         CleanupAnimations();
-        Debug.Log("[PauseUI] Cleaned up existing animations");
+        Debugger.Log("[PauseUI] Cleaned up existing animations");
 
         // Restore game track music state before closing (only if in live game)
         if (isInLiveGame && MusicManager.Instance != null)
@@ -122,7 +122,7 @@ public class PauseUI : MonoBehaviour
     /// </summary>
     private void StartCloseAnimation()
     {
-        Debug.Log("[PauseUI] Starting close animation sequence");
+        Debugger.Log("[PauseUI] Starting close animation sequence");
         
         // Animate UI elements closing in reverse order
         for (int i = objsToAnimateInOrder.Count - 1; i >= 0; i--)
@@ -141,23 +141,23 @@ public class PauseUI : MonoBehaviour
 
         // Calculate total animation time and destroy after completion
         float totalAnimationTime = backgroundDelay + 0.4f;
-        Debug.Log($"[PauseUI] Close animation will complete in {totalAnimationTime} seconds, then destroy GameObject");
+        Debugger.Log($"[PauseUI] Close animation will complete in {totalAnimationTime} seconds, then destroy GameObject");
         
         LeanTween.delayedCall(totalAnimationTime, () => {
-            Debug.Log("[PauseUI] Close animation completed");
+            Debugger.Log("[PauseUI] Close animation completed");
             
             // Invoke callback before destroying
             if (onCloseCallback != null)
             {
-                Debug.Log("[PauseUI] Invoking onClose callback");
+                Debugger.Log("[PauseUI] Invoking onClose callback");
                 onCloseCallback.Invoke();
             }
             else
             {
-                Debug.Log("[PauseUI] No onClose callback to invoke");
+                Debugger.Log("[PauseUI] No onClose callback to invoke");
             }
             
-            Debug.Log("[PauseUI] Destroying GameObject");
+            Debugger.Log("[PauseUI] Destroying GameObject");
             Destroy(gameObject);
         });
     }
@@ -226,7 +226,7 @@ public class PauseUI : MonoBehaviour
 
     public void Load(string TopText, bool inLiveGame, System.Action onCloseCallback = null)
     {
-        Debug.Log($"[PauseUI] Load called with TopText: '{TopText}', inLiveGame: {inLiveGame}");
+        Debugger.Log($"[PauseUI] Load called with TopText: '{TopText}', inLiveGame: {inLiveGame}");
         
         // Store the live game flag
         isInLiveGame = inLiveGame;
@@ -235,16 +235,16 @@ public class PauseUI : MonoBehaviour
         this.onCloseCallback = onCloseCallback;
         if (onCloseCallback != null)
         {
-            Debug.Log("[PauseUI] onClose callback registered");
+            Debugger.Log("[PauseUI] onClose callback registered");
         }
         else
         {
-            Debug.Log("[PauseUI] No onClose callback provided");
+            Debugger.Log("[PauseUI] No onClose callback provided");
         }
         
         // Ensure the GameObject is active for animations
         gameObject.SetActive(true);
-        Debug.Log("[PauseUI] GameObject activated for Load animation");
+        Debugger.Log("[PauseUI] GameObject activated for Load animation");
 
         // Save game track state and switch to menu music (only if in live game)
         if (isInLiveGame && MusicManager.Instance != null)
@@ -255,27 +255,27 @@ public class PauseUI : MonoBehaviour
         // Set UI properties first
         titleText.text = TopText;
         saveButton.interactable = inLiveGame;
-        Debug.Log($"[PauseUI] Title set to: '{TopText}', Save button interactive: {inLiveGame}");
+        Debugger.Log($"[PauseUI] Title set to: '{TopText}', Save button interactive: {inLiveGame}");
 
         SetupDefaultValues();
 
         // Initialize UI controls
         InitializeSliders();
         InitializeToggles();
-        Debug.Log("[PauseUI] Initialized sliders and toggles");
+        Debugger.Log("[PauseUI] Initialized sliders and toggles");
         
         // Record original states BEFORE hiding elements
         RecordOriginalStates();
-        Debug.Log($"[PauseUI] Recorded original states for {originalScales.Count} objects");
+        Debugger.Log($"[PauseUI] Recorded original states for {originalScales.Count} objects");
         
         // Hide all elements immediately for animation setup
         HideAllElementsForAnimation();
-        Debug.Log("[PauseUI] Hidden all elements for animation setup");
+        Debugger.Log("[PauseUI] Hidden all elements for animation setup");
         
         // Start the entrance animation sequence
         AnimateBackground();
         AnimateUIElements();
-        Debug.Log("[PauseUI] Started background and UI element animations");
+        Debugger.Log("[PauseUI] Started background and UI element animations");
     }
 
     private void SetupDefaultValues()
@@ -289,11 +289,11 @@ public class PauseUI : MonoBehaviour
             shadowsOn = Main.Instance.AreShadowsEnabled();
             scaleOn = Main.Instance.IsRenderScaleEnabled();
             
-            Debug.Log($"[PauseUI] Loaded graphics settings - Shadows: {shadowsOn}, RenderScale: {scaleOn}");
+            Debugger.Log($"[PauseUI] Loaded graphics settings - Shadows: {shadowsOn}, RenderScale: {scaleOn}");
         }
         else
         {
-            Debug.LogWarning("[PauseUI] Main.Instance is null, cannot initialize graphics settings");
+            Debugger.LogWarning("[PauseUI] Main.Instance is null, cannot initialize graphics settings");
         }
     }
 
@@ -302,7 +302,7 @@ public class PauseUI : MonoBehaviour
     /// </summary>
     private void HideAllElementsForAnimation()
     {
-        Debug.Log("[PauseUI] Hiding all elements for animation setup");
+        Debugger.Log("[PauseUI] Hiding all elements for animation setup");
 
         // Hide background initially
         if (background != null)

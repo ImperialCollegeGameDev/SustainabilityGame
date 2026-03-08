@@ -26,7 +26,7 @@ public class GameState : MonoBehaviour
 
         if (Settings == null)
         {
-            Debug.Log("GameSettings not assigned in GameState. Using default settings.");
+            Debugger.Log("GameSettings not assigned in GameState. Using default settings.");
             Settings = ScriptableObject.CreateInstance<GameSettings>();
         }
     }
@@ -280,15 +280,15 @@ public class GameState : MonoBehaviour
         CurrentMode = InteractionMode.Place;
         if (buildingToBePlaced == null)
         {
-            Debug.Log("No building selected to preview.");
+            Debugger.Log("No building selected to preview.");
             return;
         } else if (buildingToBePlaced.Prefab == null)
         {
-            Debug.LogError($"Selected building '{buildingToBePlaced.Id}' does not have a prefab assigned.");
+            Debugger.LogError($"Selected building '{buildingToBePlaced.Id}' does not have a prefab assigned.");
             return;
         } else if (buildingToBePlaced.Prefab.GetComponent<TileObject>() == null)
         {
-            Debug.LogError($"Prefab for building '{buildingToBePlaced.Id}' does not have a TileObject component.");
+            Debugger.LogError($"Prefab for building '{buildingToBePlaced.Id}' does not have a TileObject component.");
             return;
         }
         GameObject obj = Instantiate(buildingToBePlaced.Prefab);
@@ -363,18 +363,18 @@ public class GameState : MonoBehaviour
     {
         if (building == null)
         {
-            Debug.LogWarning("[GameState] Attempted to register null building");
+            Debugger.LogWarning("[GameState] Attempted to register null building");
             return;
         }
 
         if (!buildings.Contains(building))
         {
             buildings.Add(building);
-            Debug.Log($"[GameState] Registered building: {building.Definition.Id} at {building.Origin}. Total: {buildings.Count}");
+            Debugger.Log($"[GameState] Registered building: {building.Definition.Id} at {building.Origin}. Total: {buildings.Count}");
         }
         else
         {
-            Debug.LogWarning($"[GameState] Building already registered: {building.Definition.Id}");
+            Debugger.LogWarning($"[GameState] Building already registered: {building.Definition.Id}");
         }
     }
 
@@ -386,17 +386,17 @@ public class GameState : MonoBehaviour
     {
         if (building == null)
         {
-            Debug.LogWarning("[GameState] Attempted to unregister null building");
+            Debugger.LogWarning("[GameState] Attempted to unregister null building");
             return;
         }
 
         if (buildings.Remove(building))
         {
-            Debug.Log($"[GameState] Unregistered building: {building.Definition.Id}. Remaining: {buildings.Count}");
+            Debugger.Log($"[GameState] Unregistered building: {building.Definition.Id}. Remaining: {buildings.Count}");
         }
         else
         {
-            Debug.LogWarning($"[GameState] Building not found for unregistration: {building.Definition.Id}");
+            Debugger.LogWarning($"[GameState] Building not found for unregistration: {building.Definition.Id}");
         }
     }
 
@@ -407,7 +407,7 @@ public class GameState : MonoBehaviour
     public void ClearBuildings()
     {
         buildings.Clear();
-        Debug.Log("[GameState] Cleared all registered buildings");
+        Debugger.Log("[GameState] Cleared all registered buildings");
     }
 
     /// <summary>
@@ -430,7 +430,7 @@ public class GameState : MonoBehaviour
         maxPopulation = data.maxPopulation;
         currentScore = maxPopulation;
 
-        Debug.Log($"[GameState] Loading save data with {data.tiles.Count} buildings");
+        Debugger.Log($"[GameState] Loading save data with {data.tiles.Count} buildings");
 
         // Clear the buildings list before regenerating
         buildings.Clear();
@@ -438,7 +438,7 @@ public class GameState : MonoBehaviour
         // Ensure GridManager is ready
         if (GridManager.Instance == null)
         {
-            Debug.LogError("[GameState] GridManager.Instance is null during ApplyLoadedData!");
+            Debugger.LogError("[GameState] GridManager.Instance is null during ApplyLoadedData!");
             return;
         }
 
@@ -449,14 +449,14 @@ public class GameState : MonoBehaviour
         {
             if (tileSave.def == null)
             {
-                Debug.LogWarning($"[GameState] Skipping tile with null definition at {tileSave.gridPosition}");
+                Debugger.LogWarning($"[GameState] Skipping tile with null definition at {tileSave.gridPosition}");
                 continue;
             }
-            Debug.Log($"[GameState] Loading tile: {tileSave.gridPosition} {tileSave.def.Id} occ: {tileSave.occupancy}");
+            Debugger.Log($"[GameState] Loading tile: {tileSave.gridPosition} {tileSave.def.Id} occ: {tileSave.occupancy}");
             GridManager.Instance.TryForcePlace(tileSave.def, tileSave.gridPosition, tileSave.occupancy);
         }
 
-        Debug.Log($"[GameState] Load complete. {buildings.Count} buildings registered.");
+        Debugger.Log($"[GameState] Load complete. {buildings.Count} buildings registered.");
         UpdateHappinessAndDisplay();
     }
 

@@ -12,7 +12,7 @@ public class GrassFieldSpawner : MonoBehaviour
         if (Instance != null)
         {
             Destroy(gameObject);
-            Debug.LogWarning("Multiple instances of GrassFieldSpawner detected. Destroying duplicate.");
+            Debugger.LogWarning("Multiple instances of GrassFieldSpawner detected. Destroying duplicate.");
             return;
         }
         Instance = this;

@@ -9,7 +9,7 @@ class Park : TickBehaviour
         TileObjectDefinition def = tileObject.Definition;
         if (tileObject is not PollutionReducerTileObject pr)
         {
-            Debug.LogError("TickBehaviour applied to non-PollutionReducerTileObject.");
+            Debugger.LogError("TickBehaviour applied to non-PollutionReducerTileObject.");
             return;
         }
 

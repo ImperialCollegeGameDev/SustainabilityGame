@@ -43,7 +43,7 @@ public class SceneTransition : MonoBehaviour
     {
         if (i != null && i != this)
         {
-            Debug.LogWarning("[SceneTransition] Another instance detected. Destroying the new one.");
+            Debugger.LogWarning("[SceneTransition] Another instance detected. Destroying the new one.");
             Destroy(i.gameObject);
         }
         
@@ -69,7 +69,7 @@ public class SceneTransition : MonoBehaviour
         mainCanvas = GetComponent<Canvas>();
         if (mainCanvas == null)
         {
-            Debug.LogError("[SceneTransition] No Canvas component found!");
+            Debugger.LogError("[SceneTransition] No Canvas component found!");
             return;
         }
         

@@ -233,7 +233,7 @@ public class GridManager : MonoBehaviour
 
         if (!CanPlace(def.Size, gridPos, def.TileType))
         {
-            //Debug.Log("Cannot place there (out of bounds or occupied).");
+            //Debugger.Log("Cannot place there (out of bounds or occupied).");
             Notifications.Instance.PostNotification($"Cannot be constructed at this location.");
             return false;
         }
@@ -253,7 +253,7 @@ public class GridManager : MonoBehaviour
         TileObject tileObj = obj.GetComponent<TileObject>(); // TileObject is attached to the model
         if (tileObj == null)
         {
-            Debug.LogWarning("Prefab missing TileObject component.");
+            Debugger.LogWarning("Prefab missing TileObject component.");
             Destroy(obj);
             return false;
         }
@@ -277,14 +277,14 @@ public class GridManager : MonoBehaviour
     {
         if (def == null)
         {
-            //Debug.LogWarning($"Selected TileObjectDefinition not found");
+            //Debugger.LogWarning($"Selected TileObjectDefinition not found");
             Notifications.Instance.PostNotification($"Select a building first.");
             return false;
         }
 
         if (!CanPlace(def.Size, gridPos, def.TileType))
         {
-            //Debug.Log("Cannot place there (out of bounds or occupied).");
+            //Debugger.Log("Cannot place there (out of bounds or occupied).");
             Notifications.Instance.PostNotification($"Cannot be constructed at this location.");
             return false;
         }
@@ -295,7 +295,7 @@ public class GridManager : MonoBehaviour
         TileObject tileObj = obj.GetComponent<TileObject>(); // TileObject is attached to the model
         if (tileObj == null)
         {
-            Debug.LogWarning("Prefab missing TileObject component.");
+            Debugger.LogWarning("Prefab missing TileObject component.");
             Destroy(obj);
             return false;
         }
@@ -616,7 +616,7 @@ public class GridManager : MonoBehaviour
         {
             GrassSpawner = GrassFieldSpawner.Instance;
         }
-        Debug.Log($"Generating grass field with spawner: {GrassSpawner.name}");
+        Debugger.Log($"Generating grass field with spawner: {GrassSpawner.name}");
 
         GrassSpawner.Size = new Vector2(40f, 40f);
         GrassSpawner.YOffset = 0.05f;

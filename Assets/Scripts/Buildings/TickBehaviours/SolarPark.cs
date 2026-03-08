@@ -9,7 +9,7 @@ class SolarPark : UtilityDefault
         TileObjectDefinition def = tileObject.Definition;
         if (tileObject is not UtilityTileObject util)
         {
-            Debug.LogError("TickBehaviour applied to incorrect tile object.");
+            Debugger.LogError("TickBehaviour applied to incorrect tile object.");
             return;
         }
 

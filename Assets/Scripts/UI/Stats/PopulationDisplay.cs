@@ -19,7 +19,7 @@ public class PopulationDisplay : MonoBehaviour
 
         if (displayText == null)
         {
-            Debug.LogError("PopulationDisplay requires a TextMeshProUGUI component!");
+            Debugger.LogError("PopulationDisplay requires a TextMeshProUGUI component!");
         }
     }
 

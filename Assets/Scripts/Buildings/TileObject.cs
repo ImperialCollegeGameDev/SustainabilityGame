@@ -62,11 +62,11 @@ public class TileObject : MonoBehaviour
         Origin = origin;
         if (Definition == null)
         {
-            Debug.Log("TileObject missing definition data.");
+            Debugger.Log("TileObject missing definition data.");
             return;
         } else if (Definition.Size == null)
         {
-            Debug.Log("TileObject defintion missing size data.");
+            Debugger.Log("TileObject defintion missing size data.");
         }
 
             Vector3 worldPos = GridManager.Instance.GridToWorld(origin);
@@ -221,7 +221,7 @@ public class TileObject : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"Upgrade {upgrade.DisplayName} is not part of the upgrade tree for {Definition.DisplayName}");
+            Debugger.LogWarning($"Upgrade {upgrade.DisplayName} is not part of the upgrade tree for {Definition.DisplayName}");
         }
     }
 

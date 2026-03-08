@@ -24,7 +24,7 @@ public class CoalPowerPlantSmoke : MonoBehaviour
     {
         if (smoke == null)
         {
-            Debug.LogWarning($"[{nameof(CoalPowerPlantSmoke)}] ParticleSystem reference is null on '{name}'. Smoke will not emit until a ParticleSystem is assigned.");
+            Debugger.LogWarning($"[{nameof(CoalPowerPlantSmoke)}] ParticleSystem reference is null on '{name}'. Smoke will not emit until a ParticleSystem is assigned.");
             return;
         }
 

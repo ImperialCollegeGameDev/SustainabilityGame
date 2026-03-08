@@ -112,7 +112,7 @@ public class SkillTreeUI : MonoBehaviour
 
         if (panelRoot == null)
         {
-            Debug.LogWarning("Content root not assigned.");
+            Debugger.LogWarning("Content root not assigned.");
             return;
         }
 
@@ -124,7 +124,7 @@ public class SkillTreeUI : MonoBehaviour
             nodes.Add(found[i]);
         }
 
-        //Debug.Log($"Collected {nodes.Count} skill nodes.");
+        //Debugger.Log($"Collected {nodes.Count} skill nodes.");
     }
 
 }

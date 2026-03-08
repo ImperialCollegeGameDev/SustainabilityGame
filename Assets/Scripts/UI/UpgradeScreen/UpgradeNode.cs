@@ -58,7 +58,7 @@ public class UpgradeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         TileTypeState state = TileStateCatalog.Instance.Get(tileObj.Definition.Id);
         if (state == null)
         {
-            Debug.LogError($"TileTypeState not found for {tileObj.Definition.Id}");
+            Debugger.LogError($"TileTypeState not found for {tileObj.Definition.Id}");
             return;
         }
 

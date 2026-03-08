@@ -22,7 +22,7 @@ class ResidenceDefault : TickBehaviour
         TileObjectDefinition def = tileObject.Definition;
         if (tileObject is not ResidentialTileObject resTile)
         {
-            Debug.LogError("TickBehaviour ResidenceDefault applied to non-residential tile object.");
+            Debugger.LogError("TickBehaviour ResidenceDefault applied to non-residential tile object.");
             return;
         }
 

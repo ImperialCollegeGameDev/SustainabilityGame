@@ -27,7 +27,7 @@ class WindFarm : UtilityDefault
         TileObjectDefinition def = tileObject.Definition;
         if (tileObject is not UtilityTileObject util)
         {
-            Debug.LogError("TickBehaviour applied to incorrect tile object.");
+            Debugger.LogError("TickBehaviour applied to incorrect tile object.");
             return;
         }
 
@@ -45,7 +45,7 @@ class WindFarm : UtilityDefault
             0f
         );
         
-        // Convert noise (0-1) to wind strength (0.7 to 1.3 for ±30%)
+        // Convert noise (0-1) to wind strength (0.7 to 1.3 for ï¿½30%)
         windData.targetWindStrength = 1f + (noiseValue - 0.5f) * 4f * variationAmount;
         
         // Smoothly lerp current wind strength towards target
