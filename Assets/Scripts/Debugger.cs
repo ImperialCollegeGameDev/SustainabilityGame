@@ -8,14 +8,14 @@ public static class Debugger
     [Conditional("UNITY_EDITOR"), Conditional("DEVELOPMENT_BUILD")]
     public static void Log(params object[] args)
     {
-        UnityEngine.Debug.Log(FormatMultipleArgs(args));
+        // UnityEngine.Debug.Log(FormatMultipleArgs(args));
     }
 
     // WARNING
     [Conditional("UNITY_EDITOR"), Conditional("DEVELOPMENT_BUILD")]
     public static void LogWarning(params object[] args)
     {
-        UnityEngine.Debug.LogWarning(FormatMultipleArgs(args));
+        // UnityEngine.Debug.LogWarning(FormatMultipleArgs(args));
     }
 
     // ERROR

@@ -231,6 +231,15 @@ public class Leaderboard : MonoBehaviour
                     textComponents[0].text = $"#{entry.Rank + 1}";
                     textComponents[1].text = ((int)entry.Score).ToString();
                     textComponents[2].text = GetPlayerNameFromMetadata(entry);
+
+                    bool isCurrentPlayer = AuthenticationService.Instance.IsSignedIn
+                        && entry.PlayerId == AuthenticationService.Instance.PlayerId;
+                    if (isCurrentPlayer)
+                    {
+                        Color gold = new Color(1f, 0.82f, 0.16f);
+                        textComponents[2].color = gold;
+                        textComponents[2].fontStyle = TMPro.FontStyles.Underline;
+                    }
                 }
                 else
                 {
@@ -340,22 +349,35 @@ public class Leaderboard : MonoBehaviour
         try
         {
             var scoreTask = LeaderboardsService.Instance.GetPlayerScoreAsync(LeaderboardId, new GetPlayerScoreOptions { IncludeMetadata = true });
-            if (await Task.WhenAny(scoreTask, Task.Delay(8000)) != scoreTask)
-                throw new System.TimeoutException("GetPlayerScore timed out");
+            var timeoutTask = Task.Delay(8000);
 
-            var scoreResponse = await scoreTask;
+            if (await Task.WhenAny(scoreTask, timeoutTask) != scoreTask)
+            {
+                Debugger.Log("[Leaderboard] GetPlayerScore timed out - player likely has no score yet");
+                return;
+            }
+
+            // Observe the task result without letting any exception propagate further
+            if (scoreTask.IsFaulted)
+            {
+                HandlePlayerScoreException(scoreTask.Exception?.GetBaseException());
+                return;
+            }
+
+            var scoreResponse = scoreTask.Result;
             Debugger.Log($"[Leaderboard] Player rank: #{(scoreResponse?.Rank ?? -1) + 1}, score: {scoreResponse?.Score ?? 0}");
         }
         catch (System.Exception e)
         {
-            // Expected when the player has never submitted a score - treat as non-fatal
-            bool isNotFound = e.Message.IndexOf("not found", System.StringComparison.OrdinalIgnoreCase) >= 0
-                           || e.Message.IndexOf("404", System.StringComparison.Ordinal) >= 0;
-            if (isNotFound)
-                Debugger.Log("[Leaderboard] Player has no score entry yet");
-            else
-                Debugger.LogError($"[Leaderboard] Failed to get player score: {e.Message}");
+            HandlePlayerScoreException(e);
         }
+    }
+
+    private void HandlePlayerScoreException(System.Exception e)
+    {
+        if (e == null) return;
+        Debugger.LogError($"[Leaderboard] Failed to get player score: {e.Message}");
+        Notifications.Instance.PostNotification("Failed to load your leaderboard score. If you've just achieved a new high score, it may not be recorded yet. Please try again later.");
     }
 
     // Keep the old public method for backward compatibility

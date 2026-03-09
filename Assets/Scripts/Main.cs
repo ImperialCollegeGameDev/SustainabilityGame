@@ -215,6 +215,7 @@ public class Main : MonoBehaviour
     {
         Debugger.LogError($"[Main] SignInFailed event: {exception.Message}");
         Debugger.LogError($"[Main] Error code: {exception.ErrorCode}");
+        Notifications.Instance.PostNotification($"Authentication failed. Leaderboard features will be unavailable: {exception.Message}");
     }
 
     /// <summary>
@@ -267,12 +268,12 @@ public class Main : MonoBehaviour
     /// </summary>
     private void GeneratePlayerDisplayName()
     {
-        string[] adjectives = { "Swift", "Brave", "Clever", "Bold", "Quick", "Smart", "Fast", "Strong", "Wise", "Cool" };
-        string[] nouns = { "Builder", "Mayor", "Planner", "Leader", "Hero", "Chief", "Boss", "Guide", "Pro", "Star" };
+        string[] adjectives = { "Sustainable", "Eco-friendly", "Academic", "Robust", "Green", "Smart", "Strong", "Intelligent", "Cool" };
+        string[] nouns = { "Builder", "Mayor", "Planner", "Leader", "Hero", "Captain", "Boss", "Engineer", "Pro", "Officer" };
         
         string adjective = adjectives[Random.Range(0, adjectives.Length)];
         string noun = nouns[Random.Range(0, nouns.Length)];
-        int number = Random.Range(10, 999);
+        int number = Random.Range(100, 999);
         
         playerDisplayName = $"{adjective}{noun}{number}";
     }
@@ -412,10 +413,12 @@ public class Main : MonoBehaviour
         catch (System.TimeoutException te)
         {
             Debugger.LogWarning($"[Main] Identity creation timed out: {te.Message}");
+            Notifications.Instance.PostNotification("Identity creation timed out. Leaderboard features will be unavailable for this session.");
         }
         catch (System.Exception e)
         {
             Debugger.LogWarning($"[Main] Failed to create new identity: {e.Message}");
+            Notifications.Instance.PostNotification("Failed to create identity. Leaderboard features will be unavailable for this session.");
         }
     }
 
@@ -447,6 +450,7 @@ public class Main : MonoBehaviour
         catch (System.Exception e)
         {
             Debugger.LogWarning($"[Main] Failed to create identity for leaderboard: {e.Message}");
+            Notifications.Instance.PostNotification("Failed to create identity. Leaderboard features will be unavailable for this session.");
         }
     }
 
@@ -590,7 +594,7 @@ public class Main : MonoBehaviour
         catch (System.Exception e)
         {
             Debugger.LogError($"[Main] Failed to add score to leaderboard: {e.Message}");
-            throw;
+            // oh well maybe next time
         }
     }
 

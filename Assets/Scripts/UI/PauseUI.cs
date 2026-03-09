@@ -47,6 +47,7 @@ public class PauseUI : MonoBehaviour
         }
 
         Debugger.Log($"[PauseUI] Shadows and lighting {(shadowsOn ? "enabled" : "disabled")}");
+        Notifications.Instance.PostNotification($"Shadows and lighting {(shadowsOn ? "enabled" : "disabled")}");
     }
 
     public void SetRenderScale()
@@ -64,8 +65,9 @@ public class PauseUI : MonoBehaviour
         }
         
         Debugger.Log($"[PauseUI] Render scale {(scaleOn ? "enabled" : "disabled")}");
+        Notifications.Instance.PostNotification($"Render scale {(scaleOn ? "enabled" : "disabled")}");
     }
-
+    
     /// <summary>
     /// Called when the music volume slider value changes
     /// </summary>

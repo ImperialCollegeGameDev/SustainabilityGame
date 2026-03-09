@@ -18,7 +18,6 @@ public class Notifications : MonoBehaviour
             return;
         }
         Instance = this;
-        //notificationPrefab.SetActive(false);
     }
 
     public void PostNotification(string message)
@@ -35,6 +34,12 @@ public class Notifications : MonoBehaviour
         }
         GameObject notification = Instantiate(notificationPrefab, transform);
         notification.GetComponentsInChildren<TextMeshProUGUI>()[1].SetText(message);
-        Destroy(notification, notificationLifetime);
+
+        notification.transform.localScale = Vector3.zero;
+        LeanTween.scale(notification, new Vector3(0.5f, 0.5f, 0.5f), 0.25f).setEaseOutBack();
+        LeanTween.scale(notification, Vector3.zero, 0.2f)
+            .setEaseInBack()
+            .setDelay(notificationLifetime)
+            .setOnComplete(() => Destroy(notification));
     }
 }
