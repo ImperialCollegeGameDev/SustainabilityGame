@@ -1048,7 +1048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1366153606174226394, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_text
-      value: SwiftLeader947
+      value: AcademicEngineer904
       objectReference: {fileID: 0}
     - target: {fileID: 1373378040930158102, guid: fdcb1952d02b1cc4d986f24000ad4ecb, type: 3}
       propertyPath: m_IsActive
@@ -3082,7 +3082,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 974212804}
-  - {fileID: 1652249899}
+  - {fileID: 4732803485766381601}
   - {fileID: 2100002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3454,11 +3454,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 40b0cf9d0b3f40243856c923e407e9f7, type: 3}
   m_PrefabInstance: {fileID: 1494847362}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1652249899 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4732803485819589737, guid: 22743072f714f3a46a9b38a88874a029, type: 3}
-  m_PrefabInstance: {fileID: 81011784}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1713480274
 PrefabInstance:
@@ -4491,6 +4486,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2ff87ff7d81f36459b8072db8950934, type: 3}
   m_PrefabInstance: {fileID: 2108242257}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &4732803485766381601 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4732803485819589737, guid: 22743072f714f3a46a9b38a88874a029, type: 3}
+  m_PrefabInstance: {fileID: 81011784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5916520708218855414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4614,7 +4614,7 @@ PrefabInstance:
     - target: {fileID: 6108473010032025942, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: terrain
       value: 
-      objectReference: {fileID: 1652249899}
+      objectReference: {fileID: 4732803485766381601}
     - target: {fileID: 6108473010032025942, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: tileSize
       value: 5
@@ -4760,10 +4760,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
-      propertyPath: DayStart
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: startHour
       value: 7
       objectReference: {fileID: 0}
@@ -4773,11 +4769,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: dayIntensity
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: nightIntensity
-      value: 0.05
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7706918811718713801, guid: cf1237ed05ed76548b71109eac5250c3, type: 3}
       propertyPath: nightDarkBlue.b

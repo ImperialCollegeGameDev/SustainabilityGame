@@ -26,6 +26,8 @@ public class BuildMenuManager : MonoBehaviour
 
     void Start()
     {
+        InvokeRepeating("RefreshBuildingButtons", 0, 1);        // update the unlocked buildings every second
+
         categoriesRoot.localScale = Vector3.zero;
         categoriesRoot.gameObject.SetActive(false);
 
