@@ -1,2 +1,2 @@
 # SustainabilityGame
-ICGD Sus Game!
+[Itch Page](https://icgd.itch.io/sus-game)
